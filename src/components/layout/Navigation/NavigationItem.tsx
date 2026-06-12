@@ -64,7 +64,7 @@ export const NavigationItem = ({
             onClick={onItemClick}
             className={cn(
               'w-full cursor-pointer',
-              isActiveLink(childItem.href) && 'font-medium text-primary'
+              isActiveLink(childItem.href) && 'font-medium text-arcly-blue'
             )}
           >
             {childItem.label}
@@ -84,7 +84,7 @@ export const NavigationItem = ({
               onClick={onItemClick}
               className={cn(
                 'text-sm font-medium py-2 block flex-1',
-                isActiveLink(item.href) ? 'text-primary' : 'text-foreground'
+                isActiveLink(item.href) ? 'text-arcly-blue' : 'text-titanium'
               )}
             >
               {item.label}
@@ -106,7 +106,7 @@ export const NavigationItem = ({
             </Button>
           </div>
           {isExpanded && (
-            <div className="pl-4 border-l border-border/50 mt-1 space-y-1">
+            <div className="pl-4 border-l border-gunmetal/50 mt-1 space-y-1">
               {item.children.map((child) => (
                 <NavigationItem
                   key={child.href}
@@ -127,7 +127,7 @@ export const NavigationItem = ({
         onClick={onItemClick}
         className={cn(
           'text-sm font-medium py-2 block',
-          isActiveLink(item.href) ? 'text-primary' : 'text-foreground'
+          isActiveLink(item.href) ? 'text-arcly-blue' : 'text-titanium'
         )}
       >
         {item.label}
@@ -142,8 +142,8 @@ export const NavigationItem = ({
           <Button
             variant="ghost"
             className={cn(
-              'text-sm font-medium transition-colors hover:text-primary flex items-center gap-1',
-              isActiveLink(item.href) ? 'text-primary' : 'text-muted-foreground'
+              'text-sm font-medium transition-colors hover:text-arcly-blue flex items-center gap-1',
+              isActiveLink(item.href) ? 'text-arcly-blue' : 'text-ash'
             )}
           >
             {item.label}
@@ -167,8 +167,8 @@ export const NavigationItem = ({
     <Link
       href={item.href}
       className={cn(
-        'text-sm font-medium transition-colors hover:text-primary',
-        isActiveLink(item.href) ? 'text-primary' : 'text-muted-foreground'
+        'text-sm font-medium transition-colors hover:text-arcly-blue',
+        isActiveLink(item.href) ? 'text-arcly-blue' : 'text-ash'
       )}
     >
       {item.label}

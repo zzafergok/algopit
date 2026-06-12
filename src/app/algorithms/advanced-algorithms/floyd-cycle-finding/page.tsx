@@ -74,11 +74,11 @@ const CycleVisualization: React.FC<{
     <div className="mt-4">
       <div className="flex flex-wrap gap-4 mb-4">
         {array.map((value, index) => {
-          let bgColor = 'bg-gray-200 dark:bg-gray-700';
+          let bgColor = 'bg-gunmetal/40 dark:bg-gunmetal';
 
           if (result.cycleExists && result.cycleStart !== undefined) {
             if (index === result.cycleStart) {
-              bgColor = 'bg-green-500 dark:bg-green-600';
+              bgColor = 'bg-signal-green dark:bg-signal-green/90';
             } else if (
               isCycleMember(
                 index,
@@ -87,7 +87,7 @@ const CycleVisualization: React.FC<{
                 result.cycleLength || 0
               )
             ) {
-              bgColor = 'bg-yellow-300 dark:bg-yellow-600';
+              bgColor = 'bg-arcly-blue/30 dark:bg-arcly-blue/40';
             }
           }
 
@@ -98,9 +98,9 @@ const CycleVisualization: React.FC<{
               >
                 {value}
               </div>
-              <div className="text-sm text-gray-500">{index}</div>
+              <div className="text-sm text-ash">{index}</div>
               {index < array.length - 1 && (
-                <div className="w-4 h-0.5 bg-gray-300 dark:bg-gray-600 rotate-90 ml-4"></div>
+                <div className="w-4 h-0.5 bg-gunmetal/60 dark:bg-gunmetal rotate-90 ml-4"></div>
               )}
             </div>
           );
@@ -125,7 +125,7 @@ const CycleVisualization: React.FC<{
         <CardContent>
           {result.cycleExists ? (
             <div>
-              <p className="text-green-600 dark:text-green-400 font-medium mb-2">
+              <p className="text-signal-green dark:text-signal-green/80 font-medium mb-2">
                 Döngü tespit edildi!
               </p>
               <ul className="list-disc pl-4">
@@ -142,7 +142,7 @@ const CycleVisualization: React.FC<{
               </ul>
             </div>
           ) : (
-            <p className="text-red-600 dark:text-red-400">
+            <p className="text-alert-red dark:text-alert-red/80">
               Döngü tespit edilemedi.
             </p>
           )}
@@ -401,7 +401,7 @@ def get_next_index(arr, current_index):
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Floyd's Cycle Finding algoritmasını test edin. Aşağıdaki dizide her
           sayı, bir sonraki indeksi temsil eder (dizideki bir değer 3 ise, o
           pozisyonda 3. indekse bir bağlantı olduğunu gösterir). Döngü
@@ -420,7 +420,7 @@ def get_next_index(arr, current_index):
               />
               <Button onClick={handleRunAlgorithm}>Çalıştır</Button>
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-ash">
               Her sayı, o indeksten bağlanan bir sonraki indeksi temsil eder.
               Sayılar 0 ile (dizi uzunluğu - 1) arasında olmalıdır.
             </p>
@@ -432,7 +432,7 @@ def get_next_index(arr, current_index):
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Floyd's Cycle Finding algoritmasının farklı programlama dillerindeki
           implementasyonları.
         </p>

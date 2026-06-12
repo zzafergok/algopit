@@ -441,7 +441,7 @@ console.log('Trie statistics:', trie.getStatistics());`;
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İnteraktif Trie Görselleştirme</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıdaki görselleştirici ile Trie veri yapısını keşfedebilirsiniz.
           Kelimeler ekleyin, silin ve prefix tabanlı arama işlemlerini test
           edin.
@@ -482,7 +482,7 @@ console.log('Trie statistics:', trie.getStatistics());`;
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">JavaScript Implementasyonu</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Trie veri yapısının tam JavaScript implementasyonu. Autocomplete,
           prefix arama ve istatistik hesaplama özellikleri içerir.
         </p>
@@ -494,13 +494,13 @@ console.log('Trie statistics:', trie.getStatistics());`;
         />
       </div>
 
-      <div className="bg-muted p-6 rounded-lg">
+      <div className="bg-obsidian/60 p-6 rounded-sm">
         <h3 className="text-xl font-bold mb-4">
           Trie vs Hash Table Performans Karşılaştırması
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-green-600 mb-3">
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-signal-green mb-3">
               Trie Advantages
             </h4>
             <div className="space-y-2 text-sm">
@@ -521,8 +521,8 @@ console.log('Trie statistics:', trie.getStatistics());`;
               </div>
             </div>
           </div>
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-blue-600 mb-3">
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue mb-3">
               Hash Table Advantages
             </h4>
             <div className="space-y-2 text-sm">
@@ -546,14 +546,14 @@ console.log('Trie statistics:', trie.getStatistics());`;
         </div>
       </div>
 
-      <div className="bg-blue-50 dark:bg-blue-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-blue-800 dark:text-blue-200">
+      <div className="bg-arcly-blue/10 dark:bg-arcly-blue/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-arcly-blue dark:text-arcly-blue/70">
           Trie Optimizasyon Teknikleri
         </h3>
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white dark:bg-gray-800 p-4 rounded">
-              <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
+            <div className="bg-card dark:bg-obsidian p-4 rounded">
+              <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
                 Bellek Optimizasyonu
               </h4>
               <ul className="text-sm space-y-1">
@@ -572,8 +572,8 @@ console.log('Trie statistics:', trie.getStatistics());`;
                 </li>
               </ul>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded">
-              <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
+            <div className="bg-card dark:bg-obsidian p-4 rounded">
+              <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
                 Performans Optimizasyonu
               </h4>
               <ul className="text-sm space-y-1">
@@ -599,13 +599,13 @@ console.log('Trie statistics:', trie.getStatistics());`;
         </div>
       </div>
 
-      <div className="bg-green-50 dark:bg-green-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-green-800 dark:text-green-200">
+      <div className="bg-signal-green/10 dark:bg-signal-green/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-signal-green dark:text-signal-green/70">
           Gerçek Dünya Uygulamaları ve Örnekler
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">
+            <h4 className="font-semibold text-signal-green dark:text-signal-green/80 mb-2">
               Web ve Mobil Uygulamalar
             </h4>
             <ul className="text-sm space-y-1">
@@ -624,7 +624,7 @@ console.log('Trie statistics:', trie.getStatistics());`;
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">
+            <h4 className="font-semibold text-signal-green dark:text-signal-green/80 mb-2">
               Sistem ve Network Uygulamaları
             </h4>
             <ul className="text-sm space-y-1">
@@ -649,13 +649,13 @@ console.log('Trie statistics:', trie.getStatistics());`;
         </div>
       </div>
 
-      <div className="bg-purple-50 dark:bg-purple-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-purple-800 dark:text-purple-200">
+      <div className="bg-arcly-blue/10 dark:bg-arcly-blue/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-arcly-blue dark:text-arcly-blue/70">
           Trie Variations ve Alternatif Implementasyonlar
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
-            <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
               Compressed Trie (Radix Tree)
             </h4>
             <p className="text-sm">
@@ -663,8 +663,8 @@ console.log('Trie statistics:', trie.getStatistics());`;
               eder. Suffix tree'lerin temelini oluşturur.
             </p>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
-            <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
               Ternary Search Tree
             </h4>
             <p className="text-sm">
@@ -672,8 +672,8 @@ console.log('Trie statistics:', trie.getStatistics());`;
               kullanır ama biraz daha yavaştır.
             </p>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
-            <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
               Suffix Tree
             </h4>
             <p className="text-sm">

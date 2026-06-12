@@ -156,7 +156,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Insertion Sort Algoritması
       </h1>
 
@@ -179,7 +179,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Insertion Sort algoritmasının farklı programlama dillerindeki
           uygulamaları aşağıda verilmiştir. Her örnek, algoritmanın optimize
           edilmiş versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -225,7 +225,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Insertion Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
@@ -243,7 +243,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Insertion Sort kısmen sıralı dizilerde daha verimlidir ve
                 küçük veri setleri için uygun bir seçimdir.
               </p>
@@ -266,7 +266,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n)
                     </code>{' '}
                     - Dizi zaten sıralıysa, sadece karşılaştırma yapılır ve hiç
@@ -274,7 +274,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Rastgele sırada olan bir dizi için, her eleman ortalama
@@ -282,7 +282,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Dizi tersine sıralıysa, her eleman en başa kadar taşınmak
@@ -294,7 +294,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(1)
                   </code>{' '}
                   - Insertion Sort yerinde (in-place) bir sıralama
@@ -321,7 +321,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -344,7 +344,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -370,7 +370,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Insertion Sort Nasıl Çalışır?</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıda, Insertion Sort'un [5, 2, 4, 6, 1, 3] dizisini sıralama
           adımları gösterilmiştir:
         </p>
@@ -385,7 +385,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                 <h3 className="text-base font-medium mb-2">
                   Başlangıç Dizisi:
                 </h3>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [5, 2, 4, 6, 1, 3]
                 </code>
                 <p className="text-sm mb-2">
@@ -401,7 +401,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                   2 değeri 5'ten küçük olduğu için, 5'i sağa kaydır ve 2'yi
                   yerleştir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [2, 5, 4, 6, 1, 3]
                 </code>
                 <p className="text-sm mt-2">Sıralanmış kısım: [2, 5]</p>
@@ -415,7 +415,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                   4 değeri 5'ten küçük ama 2'den büyük olduğu için, 5'i sağa
                   kaydır ve 4'ü yerleştir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [2, 4, 5, 6, 1, 3]
                 </code>
                 <p className="text-sm mt-2">Sıralanmış kısım: [2, 4, 5]</p>
@@ -428,7 +428,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                 <p className="text-sm mb-2">
                   6 değeri 5'ten büyük olduğu için yerinde kalır:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [2, 4, 5, 6, 1, 3]
                 </code>
                 <p className="text-sm mt-2">Sıralanmış kısım: [2, 4, 5, 6]</p>
@@ -442,7 +442,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                   1 değeri tüm önceki elemanlardan küçük olduğu için, hepsini
                   sağa kaydır ve 1'i başa yerleştir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [1, 2, 4, 5, 6, 3]
                 </code>
                 <p className="text-sm mt-2">
@@ -458,7 +458,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                   3 değeri 2'den büyük ama 4'ten küçük olduğu için, 4, 5 ve 6'yı
                   sağa kaydır ve 3'ü yerleştir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [1, 2, 3, 4, 5, 6]
                 </code>
                 <p className="text-sm mt-2">
@@ -470,7 +470,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
                 <h3 className="text-base font-medium mb-2">
                   Sonuç: Tamamen Sıralanmış Dizi
                 </h3>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [1, 2, 3, 4, 5, 6]
                 </code>
               </div>
@@ -483,7 +483,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
         <h2 className="text-2xl font-bold">
           Insertion Sort ve Diğer Algoritmalar
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Insertion Sort ile diğer popüler sıralama algoritmalarının
           karşılaştırması:
         </p>
@@ -491,7 +491,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-muted">
+              <tr className="bg-obsidian/60">
                 <th className="p-2 text-left">Özellik</th>
                 <th className="p-2 text-left">Insertion Sort</th>
                 <th className="p-2 text-left">Bubble Sort</th>
@@ -500,49 +500,49 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En İyi Durum</td>
                 <td className="p-2">O(n)</td>
                 <td className="p-2">O(n)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n log n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En Kötü Durum</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n²)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Alan Karmaşıklığı</td>
                 <td className="p-2">O(1)</td>
                 <td className="p-2">O(1)</td>
                 <td className="p-2">O(1)</td>
                 <td className="p-2">O(log n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Kararlılık</td>
                 <td className="p-2">Kararlı</td>
                 <td className="p-2">Kararlı</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararsız</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Uyarlanabilirlik</td>
                 <td className="p-2">Yüksek</td>
                 <td className="p-2">Düşük</td>
                 <td className="p-2">Yok</td>
                 <td className="p-2">Kısmen</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Çevrimiçi</td>
                 <td className="p-2">Evet</td>
                 <td className="p-2">Hayır</td>
                 <td className="p-2">Hayır</td>
                 <td className="p-2">Hayır</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Tercih Edilme Durumu</td>
                 <td className="p-2">Kısmen sıralı küçük veri setleri</td>
                 <td className="p-2">Eğitim amaçlı</td>
@@ -553,7 +553,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
           </table>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-sm text-ash mt-2">
           Insertion Sort, özellikle kısmen sıralı diziler için verimli bir
           seçimdir. Çoğu programlama dilinin dahili sıralama fonksiyonları,
           küçük alt dizileri sıralamak için Insertion Sort'u tercih eder. Bu
@@ -563,7 +563,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Insertion Sort ile ilişkili veya benzer algoritmalar:
         </p>
 
@@ -573,7 +573,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
               <CardTitle className="text-base">Shell Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Insertion Sort'un geliştirilmiş versiyonu. Büyük adımlarla
                 başlayıp giderek küçülen adımlarla sıralama yapar, böylece uzak
                 elemanları daha hızlı hareket ettirir.
@@ -586,7 +586,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
               <CardTitle className="text-base">Binary Insertion Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Linear arama yerine binary search kullanarak elemanın doğru
                 pozisyonunu daha hızlı bulan bir Insertion Sort varyasyonudur.
               </p>
@@ -598,7 +598,7 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
               <CardTitle className="text-base">Timsort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Insertion Sort ve Merge Sort'u birleştiren bir hibrit algoritma.
                 Python, Java ve daha birçok dilin yerleşik sıralama algoritması
                 olarak kullanılır.

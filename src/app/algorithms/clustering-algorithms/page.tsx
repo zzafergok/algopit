@@ -32,7 +32,7 @@ export default function ClusteringAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Kümeleme Algoritmaları
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Kümeleme algoritmaları, benzer özelliklere sahip verileri
           gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir. Bu
           algoritmalar, veri analizinde, müşteri segmentasyonunda ve desen
@@ -47,7 +47,7 @@ export default function ClusteringAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 {algorithm.description}
               </p>
             </CardContent>
@@ -66,7 +66,7 @@ export default function ClusteringAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           Kümeleme Algoritmaları Hakkında
         </h2>

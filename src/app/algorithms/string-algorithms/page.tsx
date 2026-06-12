@@ -45,7 +45,7 @@ export default function StringAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Metin İşleme Algoritmaları
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Metin işleme algoritmaları, string veriler üzerinde arama, eşleştirme,
           düzenleme ve manipülasyon yapmak için kullanılan özel algoritmalardır.
         </p>
@@ -58,7 +58,7 @@ export default function StringAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 {algorithm.description}
               </p>
             </CardContent>
@@ -77,7 +77,7 @@ export default function StringAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           Metin İşleme Algoritmaları Hakkında
         </h2>

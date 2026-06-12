@@ -91,11 +91,11 @@ const SubsetVisualizer: React.FC<{
           return (
             <div
               key={index}
-              className={`w-12 h-12 flex items-center justify-center rounded-lg font-mono text-lg
+              className={`w-12 h-12 flex items-center justify-center rounded-sm font-mono text-lg
                 ${
                   isInSubset
-                    ? 'bg-green-500 dark:bg-green-700 text-white'
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                    ? 'bg-signal-green dark:bg-signal-green/80 text-titanium'
+                    : 'bg-gunmetal/40 dark:bg-gunmetal text-titanium/80 dark:text-titanium/80'
                 }`}
             >
               {num}
@@ -175,9 +175,9 @@ const SubsetSumViewer: React.FC<{
           </CardContent>
         </Card>
       ) : (
-        <Card className="bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-900">
+        <Card className="bg-alert-red/10 dark:bg-alert-red/10 border-alert-red/30 dark:border-alert-red/30">
           <CardContent className="pt-6">
-            <p className="text-red-600 dark:text-red-400 font-medium">
+            <p className="text-alert-red dark:text-alert-red/80 font-medium">
               Bu dizi ve hedef toplam için çözüm bulunamadı.
             </p>
           </CardContent>
@@ -520,7 +520,7 @@ public class SubsetSum {
 
       <div className="space-y-6">
         <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Subset Sum problemini test etmek için bir sayı dizisi ve hedef toplamı
           girin. Algoritma, dizideki sayılardan oluşan ve toplamı hedef değere
           eşit olan tüm olası alt kümeleri bulacaktır.
@@ -583,7 +583,7 @@ public class SubsetSum {
               {isRunning ? 'Çalışıyor...' : 'Algoritmayı Çalıştır'}
             </Button>
 
-            <div className="text-sm text-muted-foreground mt-2">
+            <div className="text-sm text-ash mt-2">
               <p>Algoritma Bilgileri:</p>
               <ul className="list-disc pl-4 space-y-1">
                 <li>
@@ -601,7 +601,7 @@ public class SubsetSum {
 
           <div className="space-y-4">
             <h3 className="text-lg font-medium">Sonuçlar</h3>
-            <Card className="bg-muted/50">
+            <Card className="bg-obsidian/50">
               <CardContent className="pt-6">
                 <div className="flex justify-between mb-4">
                   <span className="text-sm font-medium">
@@ -625,7 +625,7 @@ public class SubsetSum {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Subset Sum problemi için geri izleme algoritmasının farklı programlama
           dillerindeki implementasyonları.
         </p>

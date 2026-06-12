@@ -113,7 +113,7 @@ export default function GraphAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Graf Algoritmaları
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Graf algoritmaları, düğümler ve bu düğümleri birbirine bağlayan
           kenarlardan oluşan veri yapıları üzerinde çalışan algoritmalardır. Ağ
           analizi, yol bulma, optimizasyon ve bağlantı analizi gibi birçok
@@ -125,7 +125,7 @@ export default function GraphAlgorithmsPage() {
         {algorithms.map((algorithm) => (
           <Card
             key={algorithm.name}
-            className="algorithm-card flex flex-col hover:shadow-lg transition-shadow"
+            className="algorithm-card flex flex-col hover:border-arcly-blue/30 transition-colors"
           >
             <CardHeader>
               <div className="space-y-2">
@@ -149,7 +149,7 @@ export default function GraphAlgorithmsPage() {
               </div>
             </CardHeader>
             <CardContent className="flex-grow">
-              <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+              <CardDescription className="text-sm text-ash leading-relaxed">
                 {algorithm.description}
               </CardDescription>
             </CardContent>
@@ -168,7 +168,7 @@ export default function GraphAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">Graf Algoritmaları Hakkında</h2>
         <div className="max-w-none space-y-4">
           <p>
@@ -201,7 +201,7 @@ export default function GraphAlgorithmsPage() {
                 <h4 className="font-medium">
                   Gezinme Algoritmaları (Traversal)
                 </h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   BFS ve DFS gibi algoritmalar, grafta düğümler arasında
                   sistematik dolaşım sağlar. Bağlantılı bileşenlerin tespiti,
                   çevrim bulma ve topolojik sıralama gibi temel işlemler için
@@ -213,7 +213,7 @@ export default function GraphAlgorithmsPage() {
                 <h4 className="font-medium">
                   En Kısa Yol Algoritmaları (Shortest Path)
                 </h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Dijkstra, A*, Bellman-Ford ve Floyd-Warshall algoritmaları
                   farklı graf türlerinde optimal yol bulma problemlerini çözer.
                   Navigasyon sistemleri, ağ yönlendirme ve lojistik
@@ -223,7 +223,7 @@ export default function GraphAlgorithmsPage() {
 
               <div>
                 <h4 className="font-medium">Minimum Yayılma Ağacı (MST)</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Kruskal ve Prim algoritmaları, tüm düğümleri birbirine
                   bağlayan minimum maliyetli kenar kümesini bulur. Ağ tasarımı,
                   kablolama planlaması ve kümeleme uygulamalarında yaygın olarak

@@ -469,8 +469,8 @@ export function TreeVisualizer({
   }, [visualizationData]);
 
   const renderTreeNodes = useCallback(
-    (nodes: any[]): JSX.Element[] => {
-      const elements: JSX.Element[] = [];
+    (nodes: any[]): React.ReactElement[] => {
+      const elements: React.ReactElement[] = [];
 
       nodes.forEach((node, index) => {
         if (node.parentX !== undefined && node.parentY !== undefined) {
@@ -481,7 +481,7 @@ export function TreeVisualizer({
               y1={node.parentY}
               x2={node.x}
               y2={node.y}
-              stroke="#666"
+              stroke="hsl(var(--ash))"
               strokeWidth="2"
             />
           );
@@ -495,8 +495,8 @@ export function TreeVisualizer({
                 cx={trieNode.x}
                 cy={trieNode.y}
                 r="25"
-                fill={trieNode.isEndOfWord ? '#10b981' : '#e5e7eb'}
-                stroke={trieNode.isEndOfWord ? '#059669' : '#6b7280'}
+                fill={trieNode.isEndOfWord ? 'hsl(var(--signal-green))' : 'hsl(var(--gunmetal) / 0.3)'}
+                stroke={trieNode.isEndOfWord ? 'hsl(var(--signal-green))' : 'hsl(var(--ash))'}
                 strokeWidth="2"
                 className="cursor-pointer hover:opacity-80"
               />
@@ -505,7 +505,7 @@ export function TreeVisualizer({
                 y={trieNode.y}
                 textAnchor="middle"
                 dominantBaseline="central"
-                className="text-sm font-bold fill-gray-700 pointer-events-none"
+                className="text-sm font-bold fill-titanium pointer-events-none"
               >
                 {trieNode.char}
               </text>
@@ -514,7 +514,7 @@ export function TreeVisualizer({
                   x={trieNode.x}
                   y={trieNode.y + 35}
                   textAnchor="middle"
-                  className="text-xs fill-green-600 pointer-events-none"
+                  className="text-xs fill-signal-green pointer-events-none"
                 >
                   ({trieNode.count})
                 </text>
@@ -524,7 +524,7 @@ export function TreeVisualizer({
                   x={trieNode.x}
                   y={trieNode.y - 35}
                   textAnchor="middle"
-                  className="text-xs fill-blue-600 font-medium pointer-events-none"
+                  className="text-xs fill-arcly-blue font-medium pointer-events-none"
                 >
                   "{trieNode.word}"
                 </text>
@@ -540,8 +540,8 @@ export function TreeVisualizer({
                 y={segNode.y - 15}
                 width="70"
                 height="30"
-                fill={segNode.isLeaf ? '#fef3c7' : '#dbeafe'}
-                stroke={segNode.isLeaf ? '#f59e0b' : '#3b82f6'}
+                fill={segNode.isLeaf ? 'hsl(var(--arcly-blue) / 0.12)' : 'hsl(var(--arcly-blue) / 0.18)'}
+                stroke={segNode.isLeaf ? 'hsl(var(--arcly-blue))' : 'hsl(var(--arcly-blue))'}
                 strokeWidth="2"
                 rx="5"
                 className="cursor-pointer hover:opacity-80"
@@ -550,7 +550,7 @@ export function TreeVisualizer({
                 x={segNode.x}
                 y={segNode.y - 5}
                 textAnchor="middle"
-                className="text-xs font-bold fill-gray-700 pointer-events-none"
+                className="text-xs font-bold fill-titanium pointer-events-none"
               >
                 {segNode.value}
               </text>
@@ -559,7 +559,7 @@ export function TreeVisualizer({
                   x={segNode.x}
                   y={segNode.y + 8}
                   textAnchor="middle"
-                  className="text-xs fill-gray-600 pointer-events-none"
+                  className="text-xs fill-ash pointer-events-none"
                 >
                   S:{segNode.sum} Min:{segNode.min} Max:{segNode.max}
                 </text>
@@ -581,7 +581,7 @@ export function TreeVisualizer({
   return (
     <div className={cn('space-y-6', className)}>
       {showControls && (
-        <div className="space-y-4 p-4 bg-muted rounded-lg">
+        <div className="space-y-4 p-4 bg-obsidian/60 rounded-sm">
           <div className="flex flex-wrap gap-4 items-center">
             <div className="space-y-2">
               <Label>Ağaç Türü</Label>
@@ -658,14 +658,14 @@ export function TreeVisualizer({
                   {trieWords.map((word) => (
                     <div
                       key={word}
-                      className="flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm"
+                      className="flex items-center gap-1 px-2 py-1 bg-arcly-blue/15 text-arcly-blue rounded text-sm"
                     >
                       <span>{word}</span>
                       <Button
                         onClick={() => removeWordFromTrie(word)}
                         variant="ghost"
                         size="sm"
-                        className="h-4 w-4 p-0 hover:bg-red-100"
+                        className="h-4 w-4 p-0 hover:bg-alert-red/15"
                       >
                         <Trash2 className="w-3 h-3" />
                       </Button>
@@ -681,7 +681,7 @@ export function TreeVisualizer({
                     {searchResults.map((word) => (
                       <div
                         key={word}
-                        className="px-2 py-1 bg-green-100 text-green-800 rounded text-sm"
+                        className="px-2 py-1 bg-signal-green/15 text-signal-green rounded text-sm"
                       >
                         {word}
                       </div>
@@ -690,28 +690,28 @@ export function TreeVisualizer({
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-3 bg-background rounded border">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-3 bg-void-black rounded border">
                 <div className="text-center">
-                  <div className="text-xl font-bold text-primary">
+                  <div className="text-xl font-bold text-arcly-blue">
                     {trie.getWordCount()}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-ash">
                     Toplam Kelime
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-primary">
+                  <div className="text-xl font-bold text-arcly-blue">
                     {searchResults.length}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-ash">
                     Bulunan Sonuç
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-primary">
+                  <div className="text-xl font-bold text-arcly-blue">
                     {trie.startsWith(searchTerm) ? 'Evet' : 'Hayır'}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-ash">
                     Prefix Var mı?
                   </div>
                 </div>
@@ -798,32 +798,32 @@ export function TreeVisualizer({
               </Button>
 
               {queryResult && (
-                <div className="p-4 bg-green-50 rounded border border-green-200">
-                  <h4 className="font-semibold text-green-800 mb-2">
+                <div className="p-4 bg-signal-green/10 rounded border border-signal-green/30">
+                  <h4 className="font-semibold text-signal-green mb-2">
                     Sorgu Sonucu [{queryStart}, {queryEnd}]
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                     <div>
-                      <span className="font-medium text-green-700">
+                      <span className="font-medium text-signal-green">
                         Toplam:
                       </span>
-                      <div className="text-xl font-bold text-green-800">
+                      <div className="text-xl font-bold text-signal-green">
                         {queryResult.sum}
                       </div>
                     </div>
                     <div>
-                      <span className="font-medium text-green-700">
+                      <span className="font-medium text-signal-green">
                         Minimum:
                       </span>
-                      <div className="text-xl font-bold text-green-800">
+                      <div className="text-xl font-bold text-signal-green">
                         {queryResult.min}
                       </div>
                     </div>
                     <div>
-                      <span className="font-medium text-green-700">
+                      <span className="font-medium text-signal-green">
                         Maksimum:
                       </span>
-                      <div className="text-xl font-bold text-green-800">
+                      <div className="text-xl font-bold text-signal-green">
                         {queryResult.max}
                       </div>
                     </div>
@@ -832,28 +832,28 @@ export function TreeVisualizer({
               )}
 
               {segmentTree && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-3 bg-background rounded border">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-3 bg-void-black rounded border">
                   <div className="text-center">
-                    <div className="text-xl font-bold text-primary">
+                    <div className="text-xl font-bold text-arcly-blue">
                       {segmentArray.length}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-ash">
                       Dizi Boyutu
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl font-bold text-primary">
+                    <div className="text-xl font-bold text-arcly-blue">
                       {segmentTree.getHeight()}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-ash">
                       Ağaç Yüksekliği
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl font-bold text-primary">
+                    <div className="text-xl font-bold text-arcly-blue">
                       {segmentTree.querySum(0, segmentArray.length - 1)}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-ash">
                       Toplam Değer
                     </div>
                   </div>
@@ -865,7 +865,7 @@ export function TreeVisualizer({
       )}
 
       <div className="flex justify-center">
-        <div className="border-2 border-gray-300 rounded-lg bg-white overflow-auto">
+        <div className="border-2 border-gunmetal rounded-sm bg-card overflow-auto">
           <svg
             width={svgDimensions.width}
             height={svgDimensions.height}
@@ -881,7 +881,7 @@ export function TreeVisualizer({
                 <path
                   d="M 20 0 L 0 0 0 20"
                   fill="none"
-                  stroke="#f5f5f5"
+                  stroke="hsl(var(--gunmetal) / 0.35)"
                   strokeWidth="1"
                 />
               </pattern>
@@ -907,11 +907,11 @@ export function TreeVisualizer({
             <h4 className="font-semibold">Trie Düğüm Renkleri</h4>
             <div className="space-y-1 text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-green-500 border-2 border-green-600 rounded-full"></div>
+                <div className="w-6 h-6 bg-signal-green border-2 border-signal-green rounded-full"></div>
                 <span>Kelime sonu düğümü</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-gray-200 border-2 border-gray-500 rounded-full"></div>
+                <div className="w-6 h-6 bg-gunmetal/40 border-2 border-ash rounded-full"></div>
                 <span>Ara düğüm</span>
               </div>
             </div>
@@ -923,11 +923,11 @@ export function TreeVisualizer({
             <h4 className="font-semibold">Segment Tree Düğüm Renkleri</h4>
             <div className="space-y-1 text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-4 bg-yellow-200 border-2 border-yellow-600 rounded"></div>
+                <div className="w-6 h-4 bg-arcly-blue/15 border-2 border-arcly-blue rounded"></div>
                 <span>Yaprak düğümü (tek eleman)</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-6 h-4 bg-blue-200 border-2 border-blue-600 rounded"></div>
+                <div className="w-6 h-4 bg-arcly-blue/20 border-2 border-arcly-blue rounded"></div>
                 <span>İç düğüm (aralık)</span>
               </div>
             </div>
@@ -961,7 +961,7 @@ export function TreeVisualizer({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-4 bg-muted rounded-lg">
+        <div className="p-4 bg-obsidian/60 rounded-sm">
           <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <FolderTree className="w-5 h-5" />
             Trie (Prefix Tree)
@@ -987,7 +987,7 @@ export function TreeVisualizer({
           </div>
         </div>
 
-        <div className="p-4 bg-muted rounded-lg">
+        <div className="p-4 bg-obsidian/60 rounded-sm">
           <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <TreePine className="w-5 h-5" />
             Segment Tree

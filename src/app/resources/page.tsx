@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { Book, Code, FileQuestion, GitFork } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 import {
   Card,
@@ -51,7 +51,7 @@ export default function ResourcesPage() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -61,7 +61,7 @@ export default function ResourcesPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
@@ -78,7 +78,7 @@ export default function ResourcesPage() {
     <div className="container py-12 max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight mb-4">Kaynaklar</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-xl text-ash max-w-2xl mx-auto">
           Algoritma öğrenme yolculuğunuzu destekleyecek kapsamlı kaynaklar,
           belgeler ve rehberler
         </p>
@@ -95,7 +95,7 @@ export default function ResourcesPage() {
             <Card className="h-full flex flex-col">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-full bg-primary/10 text-primary">
+                  <div className="p-2 rounded-full bg-arcly-blue/10 text-arcly-blue">
                     {category.icon}
                   </div>
                   <CardTitle>{category.title}</CardTitle>
@@ -116,60 +116,60 @@ export default function ResourcesPage() {
       <div className="mt-16">
         <h2 className="text-2xl font-bold mb-6">Diğer Faydalı Kaynaklar</h2>
 
-        <div className="bg-muted p-6 rounded-lg">
+        <div className="bg-obsidian/60 p-6 rounded-sm">
           <h3 className="text-xl font-semibold mb-4">Harici Kaynaklar</h3>
           <ul className="space-y-3">
             <li className="flex items-start gap-2">
-              <div className="rounded-full bg-primary/10 p-1 mt-0.5">
-                <Book className="h-4 w-4 text-primary" />
+              <div className="rounded-full bg-arcly-blue/10 p-1 mt-0.5">
+                <Book className="h-4 w-4 text-arcly-blue" />
               </div>
               <div>
                 <a
                   href="https://www.algorithmist.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-arcly-blue hover:underline"
                 >
                   The Algorithmist
                 </a>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Çeşitli algoritma problemleri ve çözümleri içeren platform
                 </p>
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <div className="rounded-full bg-primary/10 p-1 mt-0.5">
-                <Book className="h-4 w-4 text-primary" />
+              <div className="rounded-full bg-arcly-blue/10 p-1 mt-0.5">
+                <Book className="h-4 w-4 text-arcly-blue" />
               </div>
               <div>
                 <a
                   href="https://visualgo.net/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-arcly-blue hover:underline"
                 >
                   VisuAlgo
                 </a>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Veri yapıları ve algoritmaların görselleştirildiği interaktif
                   platform
                 </p>
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <div className="rounded-full bg-primary/10 p-1 mt-0.5">
-                <Book className="h-4 w-4 text-primary" />
+              <div className="rounded-full bg-arcly-blue/10 p-1 mt-0.5">
+                <Book className="h-4 w-4 text-arcly-blue" />
               </div>
               <div>
                 <a
                   href="https://www.geeksforgeeks.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-arcly-blue hover:underline"
                 >
                   GeeksforGeeks
                 </a>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Programlama ve algoritma konularında geniş bir kaynak
                   kütüphanesi
                 </p>
@@ -179,7 +179,7 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      <div className="mt-12 text-center p-8 border rounded-lg bg-card">
+      <div className="mt-12 text-center p-8 border rounded-sm bg-card">
         <h2 className="text-2xl font-bold mb-4">Topluluk</h2>
         <p className="text-lg mb-6">
           Sorularınız veya katkılarınız mı var? GitHub üzerinden tartışmalara

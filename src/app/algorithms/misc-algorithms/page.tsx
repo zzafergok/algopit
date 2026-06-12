@@ -33,7 +33,7 @@ export default function MiscAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Diğer Önemli Algoritmalar
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Çeşitli problem alanlarında kullanılan, farklı kategorilere tam olarak
           sığmayan ancak yazılım geliştirmede kritik önem taşıyan algoritmalar.
         </p>
@@ -46,7 +46,7 @@ export default function MiscAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 {algorithm.description}
               </p>
             </CardContent>
@@ -65,7 +65,7 @@ export default function MiscAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           Diğer Önemli Algoritmalar Hakkında
         </h2>

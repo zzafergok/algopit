@@ -36,9 +36,9 @@ export function CodeBlock({
     : code.split('\n');
 
   return (
-    <div className="group relative rounded-md border">
+    <div className="group relative rounded-sm border">
       {title && (
-        <div className="border-b bg-muted px-3 py-2 text-sm font-medium">
+        <div className="border-b bg-obsidian/60 px-3 py-2 text-sm font-medium">
           {title}
         </div>
       )}
@@ -66,7 +66,7 @@ export function CodeBlock({
             {codeLines.map((line, i) => (
               <div key={i} className="table-row">
                 {showLineNumbers && (
-                  <span className="table-cell select-none pr-4 text-right text-muted-foreground">
+                  <span className="table-cell select-none pr-4 text-right text-ash">
                     {i + 1}
                   </span>
                 )}

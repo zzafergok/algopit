@@ -162,7 +162,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Selection Sort Algoritması
       </h1>
 
@@ -185,7 +185,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Selection Sort algoritmasının farklı programlama dillerindeki
           uygulamaları aşağıda verilmiştir. Her örnek, algoritmanın optimize
           edilmiş versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -231,7 +231,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Selection Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
@@ -249,7 +249,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Selection Sort her durum için O(n²) zaman karmaşıklığına
                 sahiptir, ancak az sayıda takas işlemi gerçekleştirir.
               </p>
@@ -272,7 +272,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Dizi zaten sıralı olsa bile algoritma her zaman tüm diziyi
@@ -280,14 +280,14 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Algoritma her zaman n*(n-1)/2 karşılaştırma yapar.
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Dizi ters sıralı olsa bile algoritma aynı sayıda adım
@@ -299,7 +299,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(1)
                   </code>{' '}
                   - Selection Sort yerinde (in-place) bir sıralama
@@ -326,7 +326,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -346,7 +346,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -375,7 +375,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Selection Sort vs Bubble Sort</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Selection Sort ve Bubble Sort, benzer zaman karmaşıklığına sahip
           olsalar da, önemli farklılıklar içeren iki temel sıralama
           algoritmasıdır. İşte bu iki algoritmanın karşılaştırması:
@@ -384,44 +384,44 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-muted">
+              <tr className="bg-obsidian/60">
                 <th className="p-2 text-left">Özellik</th>
                 <th className="p-2 text-left">Selection Sort</th>
                 <th className="p-2 text-left">Bubble Sort</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Takas İşlemi</td>
                 <td className="p-2">En fazla (n-1) takas yapar</td>
                 <td className="p-2">En kötü durumda n*(n-1)/2 takas yapar</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Karmaşıklık (En İyi Durum)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n) - Zaten sıralı veri için</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Karmaşıklık (En Kötü Durum)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n²)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Kararlılık</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararlı</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Erken Çıkış</td>
                 <td className="p-2">Yok - Her zaman tüm diziyi tarar</td>
                 <td className="p-2">Var - Sıralı durumda erken sonlanabilir</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Uyarlanabilirlik</td>
                 <td className="p-2">Uyarlanabilir değil</td>
                 <td className="p-2">Kısmen uyarlanabilir</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Tercih Edilme Durumu</td>
                 <td className="p-2">Takas işlemi maliyetli ise</td>
                 <td className="p-2">Veri seti neredeyse sıralı ise</td>
@@ -430,7 +430,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
           </table>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-sm text-ash mt-2">
           İki algoritma da O(n²) karmaşıklığa sahiptir, ancak Selection Sort her
           zaman daha az takas işlemi yapar. Bununla birlikte, Bubble Sort kısmen
           sıralı verilerde daha iyi performans gösterebilir ve kararlı bir
@@ -441,7 +441,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Selection Sort'a benzer veya alternatif olarak kullanılabilecek diğer
           sıralama algoritmaları:
         </p>
@@ -452,7 +452,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
               <CardTitle className="text-base">Insertion Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Kısmen sıralı veriler için Selection Sort'tan daha verimli ve
                 kararlı bir algoritmadır.
               </p>
@@ -464,7 +464,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
               <CardTitle className="text-base">Heap Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Selection Sort'un daha gelişmiş bir versiyonu olarak
                 düşünülebilir, O(n log n) karmaşıklığa sahiptir.
               </p>
@@ -476,7 +476,7 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
               <CardTitle className="text-base">Merge Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Daha hızlı (O(n log n)) ve kararlı bir algoritmadır, ancak
                 ekstra bellek gerektirir.
               </p>

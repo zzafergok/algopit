@@ -105,7 +105,7 @@ export function InteractiveDemo({
     }
 
     if (output === null || output === undefined) {
-      return <span className="text-muted-foreground">Sonuç yok</span>;
+      return <span className="text-ash">Sonuç yok</span>;
     }
 
     if (Array.isArray(output)) {
@@ -124,7 +124,7 @@ export function InteractiveDemo({
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         {description && (
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="text-sm text-ash">{description}</p>
         )}
       </CardHeader>
       <CardContent>
@@ -144,18 +144,18 @@ export function InteractiveDemo({
               placeholder={inputPlaceholder}
               className="w-full"
             />
-            {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+            {error && <p className="mt-1 text-sm text-alert-red">{error}</p>}
           </div>
 
           <div>
             <div className="mb-2">
               <label className="text-sm font-medium">Sonuç</label>
             </div>
-            <div className="rounded-md border p-3 min-h-12">
+            <div className="rounded-sm border p-3 min-h-12">
               {formatOutput(output)}
             </div>
             {executionTime !== null && (
-              <p className="mt-1 text-sm text-muted-foreground">
+              <p className="mt-1 text-sm text-ash">
                 Çalışma süresi: {executionTime.toFixed(4)} ms
               </p>
             )}

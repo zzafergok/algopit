@@ -33,7 +33,7 @@ export default function AdvancedAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           İleri Seviye Algoritmalar
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize
           edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır. Bu
           algoritmaları anlamak, verimli yazılım çözümleri geliştirmede kritik
@@ -48,7 +48,7 @@ export default function AdvancedAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 {algorithm.description}
               </p>
             </CardContent>
@@ -67,7 +67,7 @@ export default function AdvancedAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           İleri Seviye Algoritmalar Hakkında
         </h2>

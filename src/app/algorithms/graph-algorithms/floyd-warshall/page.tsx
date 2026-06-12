@@ -523,7 +523,7 @@ public class FloydWarshall {
             üzerinden gitmek daha kısa bir yol sağlıyorsa, mesafe matrisi
             güncellenir:
           </p>
-          <pre className="bg-muted p-4 rounded-md">
+          <pre className="bg-obsidian/60 p-4 rounded-sm">
             if (distance[i][k] + distance[k][j] &lt; distance[i][j]) {'{'}
             distance[i][j] = distance[i][k] + distance[k][j]; next[i][j] =
             next[i][k];
@@ -560,7 +560,7 @@ public class FloydWarshall {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Karmaşıklık Analizi</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Zaman Karmaşıklığı</h3>
             <div className="space-y-2 text-sm">
               <p>
@@ -578,7 +578,7 @@ public class FloydWarshall {
             </div>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Alan Karmaşıklığı</h3>
             <div className="space-y-2 text-sm">
               <p>
@@ -605,76 +605,76 @@ public class FloydWarshall {
           Diğer Algoritmalarla Karşılaştırma
         </h2>
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300">
+          <table className="w-full border-collapse border border-gunmetal">
             <thead>
-              <tr className="bg-muted">
-                <th className="border border-gray-300 p-3 text-left">
+              <tr className="bg-obsidian/60">
+                <th className="border border-gunmetal p-3 text-left">
                   Algoritma
                 </th>
-                <th className="border border-gray-300 p-3 text-left">
+                <th className="border border-gunmetal p-3 text-left">
                   Problem Türü
                 </th>
-                <th className="border border-gray-300 p-3 text-left">
+                <th className="border border-gunmetal p-3 text-left">
                   Zaman Karmaşıklığı
                 </th>
-                <th className="border border-gray-300 p-3 text-left">
+                <th className="border border-gunmetal p-3 text-left">
                   Alan Karmaşıklığı
                 </th>
-                <th className="border border-gray-300 p-3 text-left">
+                <th className="border border-gunmetal p-3 text-left">
                   Avantajlar
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Floyd-Warshall
                 </td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">
                   All-pairs shortest path
                 </td>
-                <td className="border border-gray-300 p-3">O(V³)</td>
-                <td className="border border-gray-300 p-3">O(V²)</td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">O(V³)</td>
+                <td className="border border-gunmetal p-3">O(V²)</td>
+                <td className="border border-gunmetal p-3">
                   Negatif kenarlar, basit implementasyon
                 </td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Dijkstra
                 </td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">
                   Single-source shortest path
                 </td>
-                <td className="border border-gray-300 p-3">O((V + E) log V)</td>
-                <td className="border border-gray-300 p-3">O(V)</td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">O((V + E) log V)</td>
+                <td className="border border-gunmetal p-3">O(V)</td>
+                <td className="border border-gunmetal p-3">
                   Hızlı, sparse graflarda verimli
                 </td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Bellman-Ford
                 </td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">
                   Single-source shortest path
                 </td>
-                <td className="border border-gray-300 p-3">O(VE)</td>
-                <td className="border border-gray-300 p-3">O(V)</td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">O(VE)</td>
+                <td className="border border-gunmetal p-3">O(V)</td>
+                <td className="border border-gunmetal p-3">
                   Negatif kenarlar, negatif çevrim tespiti
                 </td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Johnson's
                 </td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">
                   All-pairs shortest path
                 </td>
-                <td className="border border-gray-300 p-3">O(V²log V + VE)</td>
-                <td className="border border-gray-300 p-3">O(V²)</td>
-                <td className="border border-gray-300 p-3">
+                <td className="border border-gunmetal p-3">O(V²log V + VE)</td>
+                <td className="border border-gunmetal p-3">O(V²)</td>
+                <td className="border border-gunmetal p-3">
                   Sparse graflarda Floyd-Warshall'dan hızlı
                 </td>
               </tr>
@@ -686,7 +686,7 @@ public class FloydWarshall {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Gerçek Dünya Uygulamaları</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Ağ Yönlendirme</h3>
             <p className="text-sm">
               İnternet protokollerinde, routerlar arasındaki en kısa yolları
@@ -695,7 +695,7 @@ public class FloydWarshall {
             </p>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Ulaşım Planlama</h3>
             <p className="text-sm">
               Şehir içi ulaşım sistemlerinde, herhangi iki nokta arasındaki en
@@ -704,7 +704,7 @@ public class FloydWarshall {
             </p>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Oyun Geliştirme</h3>
             <p className="text-sm">
               Oyun haritalarında NPC'lerin (Non-Player Character) herhangi iki
@@ -713,7 +713,7 @@ public class FloydWarshall {
             </p>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Sosyal Ağ Analizi</h3>
             <p className="text-sm">
               Sosyal ağlarda, iki kişi arasındaki "altı derece ayrılık"
@@ -724,11 +724,11 @@ public class FloydWarshall {
         </div>
       </div>
 
-      <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-        <h3 className="text-lg font-semibold mb-2 text-yellow-800">
+      <div className="p-4 bg-arcly-blue/10 border border-arcly-blue/30 rounded-sm">
+        <h3 className="text-lg font-semibold mb-2 text-arcly-blue">
           ⚠️ Önemli Notlar
         </h3>
-        <ul className="list-disc pl-5 text-sm text-yellow-700 space-y-1">
+        <ul className="list-disc pl-5 text-sm text-arcly-blue space-y-1">
           <li>
             Floyd-Warshall algoritması negatif çevrimler içeren graflarda doğru
             sonuç vermez. Algoritma çalıştırılmadan önce negatif çevrim kontrolü

@@ -31,8 +31,8 @@ const Separator = React.forwardRef<
 
     const variantClasses = {
       default: 'bg-border',
-      dashed: 'border-dashed border-t border-border bg-transparent',
-      dotted: 'border-dotted border-t border-border bg-transparent',
+      dashed: 'border-dashed border-t border-gunmetal bg-transparent',
+      dotted: 'border-dotted border-t border-gunmetal bg-transparent',
       thick: 'bg-border',
       gradient: 'bg-gradient-to-r from-transparent via-border to-transparent',
     };

@@ -13,7 +13,7 @@ import {
   MessageSquare,
   GitPullRequest,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 import {
   Card,
@@ -101,7 +101,7 @@ export default function ContributingPage() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -111,7 +111,7 @@ export default function ContributingPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
@@ -130,7 +130,7 @@ export default function ContributingPage() {
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Katkıda Bulunma
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-xl text-ash max-w-2xl mx-auto">
           AlgoPit'e katkıda bulunmak için rehber. Bu projeye katkıda bulunarak,
           algoritma öğrenimine ve açık kaynak topluluğuna destek olabilirsiniz.
         </p>
@@ -148,8 +148,8 @@ export default function ContributingPage() {
                 size="icon"
                 className={`relative z-10 transition-all ${
                   index <= activeStep
-                    ? 'text-primary-foreground'
-                    : 'text-muted-foreground'
+                    ? 'text-arcly-blue-foreground'
+                    : 'text-ash'
                 }`}
                 onClick={() => setActiveStep(index)}
               >
@@ -158,9 +158,9 @@ export default function ContributingPage() {
             ))}
           </div>
 
-          <div className="absolute -bottom-4 left-0 right-0 h-1 bg-muted">
+          <div className="absolute -bottom-4 left-0 right-0 h-1 bg-obsidian/60">
             <div
-              className="h-full bg-primary transition-all duration-300"
+              className="h-full bg-arcly-blue transition-all duration-300"
               style={{
                 width: `${(activeStep / (contributionSteps.length - 1)) * 100}%`,
               }}
@@ -168,10 +168,10 @@ export default function ContributingPage() {
           </div>
         </div>
 
-        <Card className="border border-border mt-8">
+        <Card className="border border-gunmetal mt-8">
           <CardHeader>
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-primary/10 text-primary">
+              <div className="p-2 rounded-full bg-arcly-blue/10 text-arcly-blue">
                 {contributionSteps[activeStep].icon}
               </div>
               <CardTitle>{contributionSteps[activeStep].title}</CardTitle>
@@ -291,7 +291,7 @@ export default function ContributingPage() {
                   </ul>
                 </div>
 
-                <div className="bg-muted p-4 rounded-md">
+                <div className="bg-obsidian/60 p-4 rounded-sm">
                   <h4 className="text-sm font-medium mb-2">Örnek Kod Stili</h4>
                   <CodeBlock
                     code={`// Kötü
@@ -415,7 +415,7 @@ function sortArray<T extends number>(array: T[]): T[] {
                   </ol>
 
                   <h3>Örnek Hata Raporu</h3>
-                  <div className="bg-muted p-4 rounded-md">
+                  <div className="bg-obsidian/60 p-4 rounded-sm">
                     <p className="font-semibold">
                       Başlık: Quick Sort algoritmasında büyük veri setlerinde
                       performans sorunu
@@ -531,27 +531,27 @@ function sortArray<T extends number>(array: T[]): T[] {
             title: 'Yeni Algoritma Eklemek',
             description:
               'Yeni bir algoritma implementasyonu ve görselleştirmesi ekleyin',
-            icon: <FileCode className="h-6 w-6 text-primary" />,
+            icon: <FileCode className="h-6 w-6 text-arcly-blue" />,
             link: '#',
           },
           {
             title: 'Hata Raporlamak',
             description:
               'Bulduğunuz hataları bildirin ve çözüm önerilerinde bulunun',
-            icon: <Bug className="h-6 w-6 text-primary" />,
+            icon: <Bug className="h-6 w-6 text-arcly-blue" />,
             link: 'https://github.com/zzafergok/algorithms-playground/issues/new?template=bug_report.md',
           },
           {
             title: 'Dokümantasyon İyileştirmeleri',
             description:
               'Belgeleri geliştirin, yeni örnekler ekleyin veya açıklamaları iyileştirin',
-            icon: <Book className="h-6 w-6 text-primary" />,
+            icon: <Book className="h-6 w-6 text-arcly-blue" />,
             link: '#',
           },
           {
             title: 'Topluluk Tartışmaları',
             description: 'Projede aktif rol alın ve tartışmalara katılın',
-            icon: <MessageSquare className="h-6 w-6 text-primary" />,
+            icon: <MessageSquare className="h-6 w-6 text-arcly-blue" />,
             link: 'https://github.com/zzafergok/algorithms-playground/discussions',
           },
         ].map((item, index) => (
@@ -579,12 +579,12 @@ function sortArray<T extends number>(array: T[]): T[] {
       </motion.div>
 
       <div className="mt-12 text-center">
-        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary p-2 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 bg-arcly-blue/10 text-arcly-blue p-2 rounded-full mb-4">
           <HelpCircle className="h-5 w-5" />
           <span className="font-medium">Yardıma mı ihtiyacınız var?</span>
         </div>
         <h2 className="text-2xl font-bold mb-4">Hala Sorularınız Mı Var?</h2>
-        <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+        <p className="text-ash mb-6 max-w-xl mx-auto">
           Katkıda bulunma süreciyle ilgili sorularınız varsa, GitHub üzerinde
           bir issue açabilir veya doğrudan ekibe e-posta gönderebilirsiniz.
         </p>

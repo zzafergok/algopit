@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
 
-import { Github, Mail, ArrowUp, Heart } from 'lucide-react';
+import { Code2, Mail, ArrowUp, Heart } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/seperator';
@@ -45,7 +45,7 @@ export const Footer = () => {
 
   return (
     <>
-      <footer className="w-full bg-gradient-to-t from-muted/20 to-background border-t border-border/40">
+      <footer className="w-full bg-gradient-to-t from-muted/20 to-background border-t border-gunmetal/40">
         <div className="container py-12 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-12">
             <div className="lg:col-span-1 space-y-6">
@@ -55,19 +55,19 @@ export const Footer = () => {
                   className="inline-block group"
                   aria-label="AlgoPit ana sayfasına git"
                 >
-                  <h3 className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">
+                  <h3 className="text-xl font-bold text-arcly-blue group-hover:text-arcly-blue/80 transition-colors">
                     AlgoPit
                   </h3>
                 </Link>
 
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                <p className="text-sm text-ash leading-relaxed max-w-xs">
                   Algoritmaları interaktif bir şekilde öğrenin ve uygulayın.
                   Görsel öğrenme ile algoritma kavramlarını kolayca anlayın.
                 </p>
               </div>
 
               <div className="space-y-3">
-                <h4 className="text-sm font-medium text-foreground">
+                <h4 className="text-sm font-medium text-titanium">
                   Bizi Takip Edin
                 </h4>
                 <div className="flex gap-3">
@@ -76,19 +76,19 @@ export const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      'flex items-center justify-center w-10 h-10 rounded-lg',
-                      'bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground',
+                      'flex items-center justify-center w-10 h-10 rounded-sm',
+                      'bg-obsidian/50 hover:bg-obsidian/60 text-ash hover:text-titanium',
                       'transition-all duration-200 hover:scale-110'
                     )}
                     aria-label="GitHub repository'yi ziyaret et"
                   >
-                    <Github size={18} />
+                    <Code2 size={18} />
                   </Link>
                   <Link
                     href="mailto:gok.zaferr@gmail.com"
                     className={cn(
-                      'flex items-center justify-center w-10 h-10 rounded-lg',
-                      'bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground',
+                      'flex items-center justify-center w-10 h-10 rounded-sm',
+                      'bg-obsidian/50 hover:bg-obsidian/60 text-ash hover:text-titanium',
                       'transition-all duration-200 hover:scale-110'
                     )}
                     aria-label="E-posta ile iletişime geç"
@@ -113,15 +113,15 @@ export const Footer = () => {
 
         <div className="container py-6 lg:py-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-ash">
               <p className="flex items-center gap-1">
                 &copy; {currentYear} AlgoPit. Tüm hakları saklıdır.
               </p>
-              <span className="hidden sm:inline text-muted-foreground/50">
+              <span className="hidden sm:inline text-ash/50">
                 •
               </span>
               <p className="flex items-center gap-1">
-                <Heart size={14} className="text-red-500" />
+                <Heart size={14} className="text-alert-red" />
                 <span>ile Türkiye'de geliştirildi</span>
               </p>
             </div>
@@ -134,17 +134,17 @@ export const Footer = () => {
           variant="outline"
           size="icon"
           className={cn(
-            'fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full shadow-lg',
-            'bg-background/80 backdrop-blur-sm border-border/50',
+            'fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full ',
+            'bg-void-black/80 backdrop-blur-sm border-gunmetal/50',
             'transition-all duration-300 ease-out',
-            'hover:scale-110 hover:shadow-xl hover:bg-background',
+            'hover:scale-110 hover:bg-void-black',
             'focus:ring-2 focus:ring-primary focus:ring-offset-2',
             'active:scale-95'
           )}
           onClick={scrollToTop}
           aria-label="Sayfanın başına geri dön"
         >
-          <ArrowUp size={20} className="text-foreground" />
+          <ArrowUp size={20} className="text-titanium" />
         </Button>
       )}
     </>

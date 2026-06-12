@@ -258,7 +258,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Quick Sort Algoritması
       </h1>
 
@@ -279,7 +279,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Quick Sort algoritmasının farklı programlama dillerindeki uygulamaları
           aşağıda verilmiştir. Her örnek, algoritmanın optimize edilmiş
           versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -325,7 +325,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Quick Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
@@ -343,7 +343,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Quick Sort ortalama durumda O(n log n) karmaşıklığa
                 sahiptir ve çoğu pratik uygulamada oldukça hızlıdır.
               </p>
@@ -366,7 +366,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Her bölünmede pivot, diziyi iki eşit parçaya böldüğünde
@@ -374,14 +374,14 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Rastgele pivot seçiminde ortalama karmaşıklık.
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Pivot, sürekli olarak en küçük veya en büyük eleman
@@ -393,7 +393,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(log n)
                   </code>{' '}
                   - Özyinelemeli çağrılar için yığın belleği kullanır. En kötü
@@ -420,7 +420,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -440,7 +440,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -466,7 +466,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Quick Sort Nasıl Çalışır?</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıda, Quick Sort'un [7, 2, 1, 6, 8, 5, 3, 4] dizisini sıralama
           adımları gösterilmiştir:
         </p>
@@ -481,7 +481,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <h3 className="text-base font-medium mb-2">
                   Başlangıç Dizisi:
                 </h3>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [7, 2, 1, 6, 8, 5, 3, 4]
                 </code>
                 <p className="text-sm mb-2">
@@ -497,9 +497,9 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                   4'ten küçük elemanlar sola, büyük elemanlar sağa
                   yerleştirilir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [2, 1, 3,{' '}
-                  <span className="bg-yellow-100 dark:bg-yellow-800 px-1">
+                  <span className="bg-arcly-blue/10 dark:bg-arcly-blue/15 px-1">
                     4
                   </span>
                   , 8, 5, 7, 6]
@@ -517,9 +517,9 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <p className="text-sm mb-2">
                   Sol alt dizide ([2, 1, 3]) pivot olarak 3 seçilir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [2, 1,{' '}
-                  <span className="bg-yellow-100 dark:bg-yellow-800 px-1">
+                  <span className="bg-arcly-blue/10 dark:bg-arcly-blue/15 px-1">
                     3
                   </span>
                   , 4, 8, 5, 7, 6]
@@ -527,9 +527,9 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <p className="text-sm mt-2">
                   3'ten küçük elemanlar sola yerleştirilir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [2, 1,{' '}
-                  <span className="bg-yellow-100 dark:bg-yellow-800 px-1">
+                  <span className="bg-arcly-blue/10 dark:bg-arcly-blue/15 px-1">
                     3
                   </span>
                   , 4, 8, 5, 7, 6]
@@ -543,9 +543,9 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <p className="text-sm mb-2">
                   [2, 1] alt dizisinde pivot olarak 1 seçilir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [
-                  <span className="bg-yellow-100 dark:bg-yellow-800 px-1">
+                  <span className="bg-arcly-blue/10 dark:bg-arcly-blue/15 px-1">
                     1
                   </span>
                   , 2, 3, 4, 8, 5, 7, 6]
@@ -562,9 +562,9 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <p className="text-sm mb-2">
                   Sağ alt dizide ([8, 5, 7, 6]) pivot olarak 6 seçilir:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [1, 2, 3, 4, 5,{' '}
-                  <span className="bg-yellow-100 dark:bg-yellow-800 px-1">
+                  <span className="bg-arcly-blue/10 dark:bg-arcly-blue/15 px-1">
                     6
                   </span>
                   , 7, 8]
@@ -583,7 +583,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                   Kalan alt diziler [5] ve [7, 8] için aynı işlemler
                   tekrarlanır:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [1, 2, 3, 4, 5, 6, 7, 8]
                 </code>
               </div>
@@ -592,7 +592,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
                 <h3 className="text-base font-medium mb-2">
                   Sonuç: Tamamen Sıralanmış Dizi
                 </h3>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [1, 2, 3, 4, 5, 6, 7, 8]
                 </code>
               </div>
@@ -603,7 +603,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Pivot Seçim Stratejileri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Quick Sort'un performansı büyük ölçüde pivot seçimine bağlıdır. İşte
           yaygın pivot seçim stratejileri:
         </p>
@@ -614,12 +614,12 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle>İlk/Son Eleman Pivot</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Dizinin ilk veya son elemanının pivot olarak seçilmesi en basit
                 stratejilerdendir. Ancak, zaten sıralı veya ters sıralı
                 dizilerde en kötü durum O(n²) performansına neden olabilir.
               </p>
-              <code className="block bg-muted p-3 mt-2 rounded-md text-sm">
+              <code className="block bg-obsidian/60 p-3 mt-2 rounded-sm text-sm">
                 pivot = arr[high]; // Son eleman
               </code>
             </CardContent>
@@ -630,12 +630,12 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle>Ortanca Eleman Pivot</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Dizinin ortasındaki elemanı pivot olarak seçmek, sıralı
                 dizilerde daha iyi performans sağlar. Ancak, her alt dizi için
                 ortanca elemanı bulmak da ek işlem gerektirir.
               </p>
-              <code className="block bg-muted p-3 mt-2 rounded-md text-sm">
+              <code className="block bg-obsidian/60 p-3 mt-2 rounded-sm text-sm">
                 pivot = arr[Math.floor((low + high) / 2)];
               </code>
             </CardContent>
@@ -646,12 +646,12 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle>Rastgele Pivot</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Diziden rastgele bir elemanı pivot olarak seçmek, en kötü durum
                 performansının olasılığını düşürür. Bu yaklaşım, çeşitli veri
                 setlerinde genellikle iyi performans gösterir.
               </p>
-              <code className="block bg-muted p-3 mt-2 rounded-md text-sm">
+              <code className="block bg-obsidian/60 p-3 mt-2 rounded-sm text-sm">
                 {`const randomIndex = low + Math.floor(Math.random() * (high - low + 1));
           pivot = arr[randomIndex];`}
               </code>
@@ -663,13 +663,13 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle>Üçlünün Ortancası (Median of Three)</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Dizinin ilk, orta ve son elemanından ortanca değeri pivot olarak
                 seçmek, çoğu pratik uygulamada iyi sonuçlar verir. Bu strateji,
                 rastgele ve deterministik yaklaşımların avantajlarını
                 birleştirir.
               </p>
-              <code className="block bg-muted p-3 mt-2 rounded-md text-sm">
+              <code className="block bg-obsidian/60 p-3 mt-2 rounded-sm text-sm">
                 {`const mid = Math.floor((low + high) / 2);
           // İlk, orta ve son elemanın ortancasını bul
           if (arr[mid] < arr[low]) [arr[low], arr[mid]] = [arr[mid], arr[low]];
@@ -684,7 +684,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Quick Sort ve Diğer Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Quick Sort ile diğer popüler sıralama algoritmalarının
           karşılaştırması:
         </p>
@@ -692,7 +692,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-muted">
+              <tr className="bg-obsidian/60">
                 <th className="p-2 text-left">Özellik</th>
                 <th className="p-2 text-left">Quick Sort</th>
                 <th className="p-2 text-left">Merge Sort</th>
@@ -701,56 +701,56 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En İyi Durum</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Ortalama Durum</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n²)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En Kötü Durum</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n²)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Alan Karmaşıklığı</td>
                 <td className="p-2">O(log n)</td>
                 <td className="p-2">O(n)</td>
                 <td className="p-2">O(1)</td>
                 <td className="p-2">O(1)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Kararlılık</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararlı</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararlı</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Önbellek Dostu</td>
                 <td className="p-2">Yüksek</td>
                 <td className="p-2">Orta</td>
                 <td className="p-2">Düşük</td>
                 <td className="p-2">Yüksek</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Pratik Performans</td>
                 <td className="p-2">Çok İyi</td>
                 <td className="p-2">İyi</td>
                 <td className="p-2">İyi</td>
                 <td className="p-2">Küçük veri setleri için iyi</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Tercih Edilme Durumu</td>
                 <td className="p-2">
                   Genel amaçlı, ortalama performansın önemli olduğu durumlar
@@ -765,7 +765,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
           </table>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-sm text-ash mt-2">
           Quick Sort, pratik uygulamalarda genellikle en iyi performansı
           gösteren sıralama algoritmasıdır. Önbellek dostu yapısı ve minimal
           bellek kullanımı nedeniyle çoğu programlama dilinde dahili sıralama
@@ -776,7 +776,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Quick Sort ile ilişkili veya benzer algoritmalar:
         </p>
 
@@ -786,7 +786,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle className="text-base">Dual-Pivot Quick Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 İki pivot kullanan bir Quick Sort varyasyonu. Java'nın
                 Arrays.sort() uygulamasında kullanılır ve genellikle standart
                 Quick Sort'tan daha hızlıdır.
@@ -799,7 +799,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle className="text-base">Introsort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Quick Sort, Heap Sort ve Insertion Sort'u birleştiren hibrit bir
                 algoritma. En kötü durumu önlemek için, özyineleme derinliği
                 belirli bir eşiği aştığında Heap Sort'a geçiş yapar.
@@ -812,7 +812,7 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
               <CardTitle className="text-base">Quick Select</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Quick Sort'un bölme mekanizmasını kullanarak, sıralanmamış bir
                 diziden k. en küçük (veya en büyük) elemanı bulan bir algoritma.
                 Ortalama O(n) karmaşıklığa sahiptir.

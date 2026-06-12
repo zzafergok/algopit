@@ -179,20 +179,20 @@ const ClusterVisualization: React.FC<{
   height: number;
 }> = ({ points, centroids, width, height }) => {
   const colors = [
-    '#FF6B6B',
-    '#4ECDC4',
-    '#45B7D1',
-    '#FFA5A5',
-    '#98D8C8',
-    '#FFBE76',
-    '#BADC58',
-    '#7ED6DF',
-    '#E056FD',
-    '#686DE0',
+    'hsl(var(--alert-red))',
+    'hsl(var(--signal-green))',
+    'hsl(var(--arcly-blue))',
+    'hsl(var(--alert-red-300))',
+    'hsl(var(--signal-green-300))',
+    'hsl(var(--arcly-blue-300))',
+    'hsl(var(--signal-green-500))',
+    'hsl(var(--arcly-blue-400))',
+    'hsl(var(--arcly-blue-700))',
+    'hsl(var(--arcly-blue-600))',
   ];
 
   return (
-    <div className="border rounded-lg overflow-hidden bg-white dark:bg-gray-800">
+    <div className="border rounded-sm overflow-hidden bg-card dark:bg-obsidian">
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         {points.map((point, index) => (
           <circle
@@ -203,9 +203,9 @@ const ClusterVisualization: React.FC<{
             fill={
               point.cluster >= 0
                 ? colors[point.cluster % colors.length]
-                : '#ccc'
+                : 'hsl(var(--gunmetal))'
             }
-            stroke="#fff"
+            stroke="hsl(var(--titanium))"
             strokeWidth={1}
           />
         ))}
@@ -217,14 +217,14 @@ const ClusterVisualization: React.FC<{
               cy={centroid.y}
               r={8}
               fill={colors[index % colors.length]}
-              stroke="#000"
+              stroke="hsl(var(--void-black-500))"
               strokeWidth={2}
             />
             <text
               x={centroid.x}
               y={centroid.y + 20}
               textAnchor="middle"
-              fill="#333"
+              fill="hsl(var(--gunmetal))"
               fontSize="12"
               fontWeight="bold"
             >
@@ -831,7 +831,7 @@ public class KMeans {
 
       <div className="space-y-6">
         <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           K-Means algoritmasını deneyimlemek için aşağıdaki parametreleri
           ayarlayın ve algoritmanın çalışmasını adım adım gözlemleyin.
         </p>
@@ -857,7 +857,7 @@ public class KMeans {
                       className="w-40"
                     />
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-ash">
                     Verilerin kaç farklı kümeye ayrılacağını belirler.
                   </p>
                 </div>
@@ -878,7 +878,7 @@ public class KMeans {
                       className="w-40"
                     />
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-ash">
                     Kümelenecek veri noktalarının sayısı.
                   </p>
                 </div>
@@ -903,7 +903,7 @@ public class KMeans {
                       Kümelenmiş
                     </Button>
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-ash">
                     Veri noktalarının dağılım tipi.
                   </p>
                 </div>
@@ -990,7 +990,7 @@ public class KMeans {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           K-Means kümeleme algoritmasının farklı programlama dillerindeki
           implementasyonları.
         </p>

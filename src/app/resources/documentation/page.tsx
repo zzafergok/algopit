@@ -125,7 +125,7 @@ export default function DocumentationPage() {
           </ul>
 
           <h4>Dosya Yapısı</h4>
-          <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-obsidian/60 p-4 rounded-sm overflow-x-auto text-sm">
             {`algorithms-playground/
 ├── public/          # Statik dosyalar
 ├── src/
@@ -271,7 +271,7 @@ export default function DocumentationPage() {
             <li>Kendi projenize entegre edin</li>
           </ol>
 
-          <div className="bg-muted p-4 rounded-md">
+          <div className="bg-obsidian/60 p-4 rounded-sm">
             <h4 className="mt-0">Örnek: Quicksort (TypeScript)</h4>
             <pre className="text-xs overflow-x-auto">
               {`export function quickSort<T extends number>(arr: T[]): T[] {
@@ -393,14 +393,14 @@ export default function DocumentationPage() {
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Belgelendirme
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl">
+        <p className="text-xl text-ash max-w-2xl">
           AlgoPit'in tüm özelliklerini ve kullanımını anlatan kapsamlı teknik
           belgelendirme
         </p>
 
         <div className="relative mt-6">
           <Search
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ash"
             size={18}
           />
           <Input
@@ -432,7 +432,7 @@ export default function DocumentationPage() {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-full bg-primary/10 text-primary">
+                  <div className="p-2 rounded-full bg-arcly-blue/10 text-arcly-blue">
                     {section.icon}
                   </div>
                   <div>
@@ -465,7 +465,7 @@ export default function DocumentationPage() {
       {filteredSections.length === 0 && (
         <div className="text-center py-12">
           <h3 className="text-lg font-medium mb-2">Arama sonucu bulunamadı</h3>
-          <p className="text-muted-foreground">
+          <p className="text-ash">
             Farklı bir arama terimi deneyin veya filtreleri sıfırlayın
           </p>
           <Button
@@ -478,7 +478,7 @@ export default function DocumentationPage() {
         </div>
       )}
 
-      <div className="mt-16 p-6 bg-muted rounded-lg">
+      <div className="mt-16 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-xl font-bold mb-4">
           Daha Fazla Yardım mı Gerekiyor?
         </h2>
@@ -488,13 +488,13 @@ export default function DocumentationPage() {
         </p>
         <ul className="space-y-2 mb-6">
           <li className="flex items-center gap-2">
-            <FileQuestion className="h-5 w-5 text-primary" />
+            <FileQuestion className="h-5 w-5 text-arcly-blue" />
             <Link href="/resources/faq" className="hover:underline">
               Sık Sorulan Sorular
             </Link>
           </li>
           <li className="flex items-center gap-2">
-            <GitFork className="h-5 w-5 text-primary" />
+            <GitFork className="h-5 w-5 text-arcly-blue" />
             <Link href="/resources/contributing" className="hover:underline">
               Katkıda Bulunma Rehberi
             </Link>
@@ -504,7 +504,7 @@ export default function DocumentationPage() {
 
       <div className="mt-8 text-center">
         <h3 className="text-lg font-medium mb-2">Hala cevap bulamadınız mı?</h3>
-        <p className="text-muted-foreground mb-4">
+        <p className="text-ash mb-4">
           Belgelendirmede görmek istediğiniz konular veya önerileriniz varsa,
           lütfen bize bildirin.
         </p>

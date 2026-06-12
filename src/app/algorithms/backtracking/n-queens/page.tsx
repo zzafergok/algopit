@@ -55,7 +55,7 @@ const ChessboardVisualization: React.FC<{
   solution: number[];
 }> = ({ size, solution }) => {
   return (
-    <div className="inline-grid gap-0.5 p-1 bg-gray-700 dark:bg-gray-800 rounded-md">
+    <div className="inline-grid gap-0.5 p-1 bg-gunmetal dark:bg-obsidian rounded-sm">
       <div
         className="inline-grid"
         style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}
@@ -71,7 +71,7 @@ const ChessboardVisualization: React.FC<{
             <div
               key={index}
               className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 
-                ${isBlackSquare ? 'bg-gray-600 dark:bg-gray-900' : 'bg-gray-200 dark:bg-gray-700'}`}
+                ${isBlackSquare ? 'bg-gunmetal dark:bg-void-black' : 'bg-gunmetal/40 dark:bg-gunmetal'}`}
             >
               {isQueenPlaced && (
                 <div className="text-2xl md:text-3xl" aria-label="Vezir">
@@ -129,7 +129,7 @@ const SolutionsViewer: React.FC<{
           solution={solutions[currentIndex]}
         />
       ) : (
-        <p className="text-red-500">Bu boyut için çözüm bulunamadı.</p>
+        <p className="text-alert-red">Bu boyut için çözüm bulunamadı.</p>
       )}
     </div>
   );
@@ -425,7 +425,7 @@ public class NQueens {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           N-Queens probleminin çözümünü görmek için satranç tahtası boyutunu
           ayarlayın. Düşük değerler için çözümü hızlıca görebilirsiniz. (Not: n
           ≥ 9 için hesaplama zaman alabilir.)
@@ -447,7 +447,7 @@ public class NQueens {
                 />
               </div>
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-ash">
               n = 1 için 1 çözüm, n = 4 için 2 çözüm, n = 8 için 92 çözüm
               vardır. n = 2 ve n = 3 için çözüm yoktur.
             </p>
@@ -474,7 +474,7 @@ public class NQueens {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           N-Queens problemi için geri izleme algoritmasının farklı programlama
           dillerindeki implementasyonları.
         </p>

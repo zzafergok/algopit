@@ -264,7 +264,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Heap Sort Algoritması
       </h1>
 
@@ -285,7 +285,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Heap Sort algoritmasının farklı programlama dillerindeki uygulamaları
           aşağıda verilmiştir. Her örnek, algoritmanın optimize edilmiş
           versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -331,7 +331,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Heap Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
@@ -349,7 +349,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Heap Sort her durumda O(n log n) zaman karmaşıklığına
                 sahiptir ve büyük veri setleri için tutarlı performans gösterir.
               </p>
@@ -372,21 +372,21 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Heap oluşturma O(n), çıkarma işlemleri O(n log n).
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Her durumda aynı sayıda karşılaştırma ve takas yapılır.
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Dizinin durumundan bağımsız, her zaman aynı karmaşıklık.
@@ -397,7 +397,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(1)
                   </code>{' '}
                   - Heap Sort yerinde (in-place) bir sıralama algoritmasıdır.
@@ -424,7 +424,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -447,7 +447,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -476,14 +476,14 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Heap Sort ve Diğer Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Heap Sort ile diğer popüler sıralama algoritmalarının karşılaştırması:
         </p>
 
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-muted">
+              <tr className="bg-obsidian/60">
                 <th className="p-2 text-left">Özellik</th>
                 <th className="p-2 text-left">Heap Sort</th>
                 <th className="p-2 text-left">Quick Sort</th>
@@ -491,43 +491,43 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En İyi Durum</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En Kötü Durum</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n log n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Alan Karmaşıklığı</td>
                 <td className="p-2">O(1)</td>
                 <td className="p-2">O(log n)</td>
                 <td className="p-2">O(n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Kararlılık</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararlı</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Uyarlanabilirlik</td>
                 <td className="p-2">Uyarlanabilir değil</td>
                 <td className="p-2">Kısmen uyarlanabilir</td>
                 <td className="p-2">Uyarlanabilir değil</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Önbellek Verimliliği</td>
                 <td className="p-2">Düşük</td>
                 <td className="p-2">Yüksek</td>
                 <td className="p-2">Orta</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Tercih Edilme Durumu</td>
                 <td className="p-2">Tutarlı performans ve sınırlı bellek</td>
                 <td className="p-2">Genel amaçlı, pratik verimlilik</td>
@@ -537,7 +537,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
           </table>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-sm text-ash mt-2">
           Heap Sort her durumda O(n log n) karmaşıklık garantisi sağlar, bu da
           onu en kötü durumların önemli olduğu senaryolarda güvenilir bir seçim
           yapar. Ancak pratik uygulamalarda, önbellek verimliliği nedeniyle
@@ -547,7 +547,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Heap Sort ile ilişkili veya benzer algoritmaları keşfedin:
         </p>
 
@@ -557,7 +557,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
               <CardTitle className="text-base">Priority Queue</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Heap veri yapısını kullanarak elemanları öncelik sırasına göre
                 işler. Heap Sort'un temelini oluşturur.
               </p>
@@ -569,7 +569,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
               <CardTitle className="text-base">Smoothsort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Heap Sort'un bir varyasyonu olup, Leonardo heapleri kullanır ve
                 kısmen sıralı dizilerde daha iyi performans gösterir.
               </p>
@@ -581,7 +581,7 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
               <CardTitle className="text-base">Introspective Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Quick Sort, Heap Sort ve Insertion Sort'u birleştiren hibrit bir
                 algoritma. En iyi durumda Quick Sort, en kötü durumda Heap Sort
                 kullanır.

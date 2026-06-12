@@ -33,7 +33,7 @@ export default function BacktrackingPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Geri İzleme Algoritmaları
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Geri izleme (backtracking), bir problem için olası tüm çözümleri adım
           adım keşfeden ve geçersiz çözüm yollarını eleme yöntemiyle ilerleyen
           bir algoritma stratejisidir.
@@ -47,7 +47,7 @@ export default function BacktrackingPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 {algorithm.description}
               </p>
             </CardContent>
@@ -66,7 +66,7 @@ export default function BacktrackingPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           Geri İzleme Algoritmaları Hakkında
         </h2>

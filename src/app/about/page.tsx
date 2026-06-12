@@ -132,12 +132,12 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            <span className="text-primary">AlgoPit</span> Nedir?
+            <span className="text-arcly-blue">AlgoPit</span> Nedir?
           </h1>
         </motion.div>
 
         <motion.p
-          className="text-xl text-muted-foreground max-w-3xl mx-auto"
+          className="text-xl text-ash max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -156,10 +156,10 @@ export default function AboutPage() {
           {platformStats.map((stat) => (
             <Card key={stat.label} className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-primary">
+                <div className="text-3xl font-bold text-arcly-blue">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-ash">{stat.label}</div>
               </CardContent>
             </Card>
           ))}
@@ -196,14 +196,14 @@ export default function AboutPage() {
               <Card className="h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                    <div className="p-2 rounded-sm bg-arcly-blue/10 text-arcly-blue">
                       {item.icon}
                     </div>
                     {item.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-ash">{item.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -226,14 +226,14 @@ export default function AboutPage() {
               <Card className="h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                    <div className="p-2 rounded-sm bg-arcly-blue/10 text-arcly-blue">
                       {feature.icon}
                     </div>
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <p className="text-ash">{feature.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -262,7 +262,7 @@ export default function AboutPage() {
                     index % 2 ? 'md:flex-row-reverse' : ''
                   }`}
                 >
-                  <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
+                  <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-arcly-blue text-arcly-blue-foreground rounded-full flex items-center justify-center font-bold">
                     {item.step}
                   </div>
 
@@ -274,12 +274,12 @@ export default function AboutPage() {
                         <div
                           className={`flex items-center gap-3 ${index % 2 ? 'md:flex-row-reverse' : ''}`}
                         >
-                          <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                          <div className="p-2 rounded-sm bg-arcly-blue/10 text-arcly-blue">
                             {item.icon}
                           </div>
                           <div>
                             <h3 className="font-semibold">{item.title}</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-ash">
                               {item.description}
                             </p>
                           </div>
@@ -318,7 +318,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6 bg-muted/30 rounded-lg p-8">
+      <section className="space-y-6 bg-obsidian/30 rounded-sm p-8">
         <h2 className="text-3xl font-bold tracking-tight text-center">
           Katkıda Bulunun
         </h2>
@@ -367,12 +367,12 @@ export default function AboutPage() {
             {futureGoals.map((goal, index) => (
               <motion.li
                 key={index}
-                className="flex items-center gap-3 p-3 rounded-lg bg-muted/30"
+                className="flex items-center gap-3 p-3 rounded-sm bg-obsidian/30"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
+                <Sparkles className="h-5 w-5 text-arcly-blue flex-shrink-0" />
                 <span>{goal}</span>
               </motion.li>
             ))}
@@ -399,14 +399,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative p-8 bg-muted/30 rounded-lg overflow-hidden text-center">
+      <section className="relative p-8 bg-obsidian/30 rounded-sm overflow-hidden text-center">
         <div className="absolute -top-10 -left-10 text-[150px] opacity-5 font-serif">
           "
         </div>
         <blockquote className="relative z-10 text-xl italic max-w-3xl mx-auto">
           Herhangi bir aptal, bir bilgisayarın anlayabileceği kod yazabilir. İyi
           programcılar, insanların anlayabileceği kod yazar.
-          <span className="block mt-4 font-semibold text-primary">
+          <span className="block mt-4 font-semibold text-arcly-blue">
             — Martin Fowler
           </span>
         </blockquote>

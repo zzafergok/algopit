@@ -25,13 +25,13 @@ export default function Home() {
       title: 'Arama Algoritmaları',
       description:
         'Veri yapılarında eleman bulmak için kullanılan algoritmalar',
-      href: '/algorithms/search',
+      href: '/algorithms/searching',
       examples: ['Binary Search', 'Linear Search', 'Jump Search'],
     },
     {
       title: 'Graf Algoritmaları',
       description: 'Graf veri yapıları üzerinde işlem yapan algoritmalar',
-      href: '/algorithms/graf',
+      href: '/algorithms/graph-algorithms',
       examples: ['Dijkstra', 'DFS', 'BFS'],
     },
     {
@@ -49,10 +49,10 @@ export default function Home() {
         <div className="flex flex-col items-center text-center space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             Algoritmaları Öğren,
-            <span className="text-primary"> Anla</span> ve
-            <span className="text-primary"> Uygula</span>
+            <span className="text-arcly-blue"> Anla</span> ve
+            <span className="text-arcly-blue"> Uygula</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">
+          <p className="text-xl text-ash max-w-2xl">
             İnteraktif örnekler, görselleştirmeler ve uygulamalı öğrenme ile
             algoritmalarda ustalaşın.
           </p>
@@ -79,33 +79,33 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-center text-center p-4 space-y-4">
-            <div className="bg-primary/10 p-3 rounded-full">
-              <BookOpen className="h-6 w-6 text-primary" />
+            <div className="bg-arcly-blue/10 p-3 rounded-full">
+              <BookOpen className="h-6 w-6 text-arcly-blue" />
             </div>
             <h3 className="text-xl font-semibold">Teorik Bilgi</h3>
-            <p className="text-muted-foreground">
+            <p className="text-ash">
               Her algoritmanın teorik temelleri, zaman karmaşıklığı, avantajları
               ve dezavantajları hakkında detaylı bilgiler.
             </p>
           </div>
 
           <div className="flex flex-col items-center text-center p-4 space-y-4">
-            <div className="bg-primary/10 p-3 rounded-full">
-              <BarChart4 className="h-6 w-6 text-primary" />
+            <div className="bg-arcly-blue/10 p-3 rounded-full">
+              <BarChart4 className="h-6 w-6 text-arcly-blue" />
             </div>
             <h3 className="text-xl font-semibold">Görsel Öğrenme</h3>
-            <p className="text-muted-foreground">
+            <p className="text-ash">
               Algoritmaların çalışma prensiplerini adım adım görselleştirmelerle
               anlayın.
             </p>
           </div>
 
           <div className="flex flex-col items-center text-center p-4 space-y-4">
-            <div className="bg-primary/10 p-3 rounded-full">
-              <Code className="h-6 w-6 text-primary" />
+            <div className="bg-arcly-blue/10 p-3 rounded-full">
+              <Code className="h-6 w-6 text-arcly-blue" />
             </div>
             <h3 className="text-xl font-semibold">İnteraktif Uygulamalar</h3>
-            <p className="text-muted-foreground">
+            <p className="text-ash">
               Kendi verilerinizle algoritmaları test edin, kodlarını inceleyin
               ve nasıl çalıştıklarını keşfedin.
             </p>
@@ -125,14 +125,14 @@ export default function Home() {
                 <CardDescription>{category.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Popüler örnekler:
                 </p>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {category.examples.map((example, i) => (
                     <span
                       key={i}
-                      className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium"
+                      className="inline-flex items-center rounded-sm bg-obsidian/60 px-2 py-1 text-xs font-medium"
                     >
                       {example}
                     </span>

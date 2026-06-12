@@ -615,58 +615,58 @@ public class KruskalMST {
           Prim Algoritması ile Karşılaştırma
         </h2>
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300">
+          <table className="w-full border-collapse border border-gunmetal">
             <thead>
-              <tr className="bg-muted">
-                <th className="border border-gray-300 p-3 text-left">Kriter</th>
-                <th className="border border-gray-300 p-3 text-left">
+              <tr className="bg-obsidian/60">
+                <th className="border border-gunmetal p-3 text-left">Kriter</th>
+                <th className="border border-gunmetal p-3 text-left">
                   Kruskal
                 </th>
-                <th className="border border-gray-300 p-3 text-left">Prim</th>
+                <th className="border border-gunmetal p-3 text-left">Prim</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Yaklaşım
                 </td>
-                <td className="border border-gray-300 p-3">Kenar tabanlı</td>
-                <td className="border border-gray-300 p-3">Düğüm tabanlı</td>
+                <td className="border border-gunmetal p-3">Kenar tabanlı</td>
+                <td className="border border-gunmetal p-3">Düğüm tabanlı</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Zaman Karmaşıklığı
                 </td>
-                <td className="border border-gray-300 p-3">O(E log E)</td>
-                <td className="border border-gray-300 p-3">O(E log V)</td>
+                <td className="border border-gunmetal p-3">O(E log E)</td>
+                <td className="border border-gunmetal p-3">O(E log V)</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Veri Yapısı
                 </td>
-                <td className="border border-gray-300 p-3">Union-Find</td>
-                <td className="border border-gray-300 p-3">Priority Queue</td>
+                <td className="border border-gunmetal p-3">Union-Find</td>
+                <td className="border border-gunmetal p-3">Priority Queue</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Sparse Graflarda
                 </td>
-                <td className="border border-gray-300 p-3">Daha Verimli</td>
-                <td className="border border-gray-300 p-3">Daha Az Verimli</td>
+                <td className="border border-gunmetal p-3">Daha Verimli</td>
+                <td className="border border-gunmetal p-3">Daha Az Verimli</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Dense Graflarda
                 </td>
-                <td className="border border-gray-300 p-3">Daha Az Verimli</td>
-                <td className="border border-gray-300 p-3">Daha Verimli</td>
+                <td className="border border-gunmetal p-3">Daha Az Verimli</td>
+                <td className="border border-gunmetal p-3">Daha Verimli</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 p-3 font-medium">
+                <td className="border border-gunmetal p-3 font-medium">
                   Paralel İşleme
                 </td>
-                <td className="border border-gray-300 p-3">Daha Uygun</td>
-                <td className="border border-gray-300 p-3">Daha Zor</td>
+                <td className="border border-gunmetal p-3">Daha Uygun</td>
+                <td className="border border-gunmetal p-3">Daha Zor</td>
               </tr>
             </tbody>
           </table>
@@ -676,7 +676,7 @@ public class KruskalMST {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Performans Analizi</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">
               Zaman Karmaşıklığı Detayı
             </h3>
@@ -699,7 +699,7 @@ public class KruskalMST {
             </div>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">
               Alan Karmaşıklığı Detayı
             </h3>
@@ -727,7 +727,7 @@ public class KruskalMST {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Pratik Uygulama Örnekleri</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">
               Ağ Altyapısı Tasarımı
             </h3>
@@ -740,7 +740,7 @@ public class KruskalMST {
             </p>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">
               Kümeleme Algoritmaları
             </h3>
@@ -753,7 +753,7 @@ public class KruskalMST {
             </p>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">
               Elektronik Devre Tasarımı
             </h3>
@@ -766,7 +766,7 @@ public class KruskalMST {
             </p>
           </div>
 
-          <div className="p-4 bg-muted rounded-lg">
+          <div className="p-4 bg-obsidian/60 rounded-sm">
             <h3 className="text-lg font-semibold mb-3">Görüntü İşleme</h3>
             <p className="text-sm">
               Image segmentation uygulamalarında, piksel gruplarını
@@ -780,11 +780,11 @@ public class KruskalMST {
         </div>
       </div>
 
-      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <h3 className="text-lg font-semibold mb-2 text-blue-800">
+      <div className="p-4 bg-arcly-blue/10 border border-arcly-blue/30 rounded-sm">
+        <h3 className="text-lg font-semibold mb-2 text-arcly-blue">
           💡 Optimizasyon İpuçları
         </h3>
-        <div className="space-y-2 text-sm text-blue-700">
+        <div className="space-y-2 text-sm text-arcly-blue">
           <p>
             <strong>Kenar Sıralama Optimizasyonu:</strong> Çok büyük graflarda,
             external sorting veya radix sort gibi specialized sorting

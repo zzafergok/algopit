@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Search, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -127,7 +127,7 @@ export default function FAQPage() {
             Daha detaylı bilgi için{' '}
             <a
               href="/resources/contributing"
-              className="text-primary hover:underline"
+              className="text-arcly-blue hover:underline"
             >
               Katkıda Bulunma
             </a>{' '}
@@ -340,7 +340,7 @@ export default function FAQPage() {
             Katkıda bulunma sürecinin detayları için{' '}
             <a
               href="/resources/contributing"
-              className="text-primary hover:underline"
+              className="text-arcly-blue hover:underline"
             >
               Katkıda Bulunma
             </a>{' '}
@@ -411,7 +411,7 @@ export default function FAQPage() {
     );
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -443,13 +443,13 @@ export default function FAQPage() {
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Sık Sorulan Sorular
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-xl text-ash max-w-2xl mx-auto">
           AlgoPit hakkında en çok sorulan sorular ve yanıtları
         </p>
 
         <div className="relative mt-6 max-w-lg mx-auto">
           <Search
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ash"
             size={18}
           />
           <Input
@@ -532,12 +532,12 @@ export default function FAQPage() {
                     <motion.div
                       key={faq.id}
                       variants={itemVariants}
-                      className="border rounded-lg overflow-hidden"
+                      className="border rounded-sm overflow-hidden"
                     >
                       <div
                         className={`p-4 flex justify-between items-center cursor-pointer ${
                           expandedItems.includes(faq.id)
-                            ? 'bg-muted'
+                            ? 'bg-obsidian/60'
                             : 'bg-card'
                         }`}
                         onClick={() => toggleItem(faq.id)}
@@ -592,7 +592,7 @@ export default function FAQPage() {
                   <h3 className="text-lg font-medium mb-2">
                     Arama kriterlerinize uygun soru bulunamadı
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-ash">
                     Farklı bir arama terimi deneyin veya filtreleri sıfırlayın
                   </p>
                   <Button
@@ -609,7 +609,7 @@ export default function FAQPage() {
         ))}
       </Tabs>
 
-      <div className="mt-16 p-6 bg-muted rounded-lg text-center">
+      <div className="mt-16 p-6 bg-obsidian/60 rounded-sm text-center">
         <h2 className="text-xl font-bold mb-4">Sorunuzu Bulamadınız mı?</h2>
         <p className="mb-6 max-w-xl mx-auto">
           Eğer burada yanıtını bulamadığınız bir sorunuz varsa, doğrudan bize

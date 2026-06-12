@@ -41,22 +41,24 @@ export const Navbar = () => {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-200',
-        'border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60',
-        isScrolled && 'shadow-sm'
+        'border-b border-gunmetal bg-void-black/95 backdrop-blur supports-[backdrop-filter]:bg-void-black/85',
+        isScrolled && 'border-arcly-blue/30'
       )}
     >
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link
             href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 transition-opacity hover:opacity-80"
             aria-label="AlgoPit ana sayfasına git"
           >
-            <span className="font-bold text-xl text-primary">AlgoPit</span>
+            <span className="font-display text-xl font-bold uppercase tracking-tight text-titanium">
+              AlgoPit
+            </span>
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center md:gap-6 lg:gap-8">
+        <nav className="hidden items-center md:flex md:gap-6 lg:gap-8">
           {navigationConfig.mainNavItems.map((item) => (
             <NavigationItem key={item.href} item={item} />
           ))}
@@ -78,7 +80,7 @@ export const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="container md:hidden py-4 bg-background border-t border-border/40 max-h-[80vh] overflow-y-auto">
+        <div className="container max-h-[80vh] overflow-y-auto border-t border-gunmetal bg-obsidian py-4 md:hidden">
           <nav className="flex flex-col gap-2">
             {navigationConfig.mainNavItems.map((item) => (
               <NavigationItem

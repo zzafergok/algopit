@@ -315,17 +315,17 @@ export function MSTVisualizer({
 
       if (isCurrentEdge) {
         const action = algorithmSteps[currentStep].action;
-        if (action === 'add') return 'stroke-green-500 stroke-4';
+        if (action === 'add') return 'stroke-signal-green stroke-4';
         if (action === 'reject')
-          return 'stroke-red-500 stroke-3 stroke-dasharray-4';
-        return 'stroke-yellow-500 stroke-3';
+          return 'stroke-alert-red stroke-3 stroke-dasharray-4';
+        return 'stroke-arcly-blue stroke-3';
       }
 
       if (isMSTEdge) {
-        return 'stroke-blue-600 stroke-3';
+        return 'stroke-arcly-blue stroke-3';
       }
 
-      return 'stroke-gray-300 stroke-2';
+      return 'stroke-gunmetal stroke-2';
     },
     [mstEdges, currentStep, algorithmSteps]
   );
@@ -333,12 +333,12 @@ export function MSTVisualizer({
   const getNodeStyle = useCallback(
     (nodeId: string) => {
       const baseClasses =
-        'fill-white stroke-gray-400 stroke-2 cursor-pointer hover:fill-gray-100';
+        'fill-titanium stroke-gunmetal stroke-2 cursor-pointer hover:fill-gunmetal/20';
 
       if (algorithm_type === 'prim') {
         const isStartNode = nodeId === selectedStartNode;
         if (isStartNode) {
-          return cn(baseClasses, 'fill-green-200 stroke-green-600');
+          return cn(baseClasses, 'fill-signal-green/20 stroke-signal-green');
         }
 
         const isConnected = mstEdges.some(
@@ -346,7 +346,7 @@ export function MSTVisualizer({
         );
 
         if (isConnected) {
-          return cn(baseClasses, 'fill-blue-200 stroke-blue-600');
+          return cn(baseClasses, 'fill-arcly-blue/20 stroke-arcly-blue');
         }
       }
 
@@ -385,7 +385,7 @@ export function MSTVisualizer({
   return (
     <div className={cn('space-y-6', className)}>
       {showControls && (
-        <div className="space-y-4 p-4 bg-muted rounded-lg">
+        <div className="space-y-4 p-4 bg-obsidian/60 rounded-sm">
           <div className="flex flex-wrap gap-4 items-center">
             <Button
               onClick={runMSTAlgorithm}
@@ -515,36 +515,36 @@ export function MSTVisualizer({
           </div>
 
           {algorithmStats.totalEdges > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-background rounded border">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-void-black rounded border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.totalEdges}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Toplam Kenar
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.edgesConsidered}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   İncelenen Kenar
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.finalMSTWeight}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   MST Toplam Ağırlığı
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.executionTime.toFixed(2)}ms
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Çalışma Süresi
                 </div>
               </div>
@@ -554,7 +554,7 @@ export function MSTVisualizer({
           {showStepDetails &&
             currentStep >= 0 &&
             currentStep < algorithmSteps.length && (
-              <div className="p-4 bg-background rounded border">
+              <div className="p-4 bg-void-black rounded border">
                 <div className="flex items-center gap-2 mb-2">
                   <TreePine className="w-5 h-5" />
                   <span className="font-semibold">
@@ -578,11 +578,11 @@ export function MSTVisualizer({
                       className={cn(
                         'px-2 py-1 rounded text-xs font-medium',
                         algorithmSteps[currentStep].action === 'add' &&
-                          'bg-green-100 text-green-800',
+                          'bg-signal-green/15 text-signal-green',
                         algorithmSteps[currentStep].action === 'reject' &&
-                          'bg-red-100 text-red-800',
+                          'bg-alert-red/15 text-alert-red',
                         algorithmSteps[currentStep].action === 'consider' &&
-                          'bg-yellow-100 text-yellow-800'
+                          'bg-arcly-blue/10 text-arcly-blue'
                       )}
                     >
                       {algorithmSteps[currentStep].action === 'add' &&
@@ -594,7 +594,7 @@ export function MSTVisualizer({
                     </span>
                   </div>
 
-                  <div className="text-muted-foreground">
+                  <div className="text-ash">
                     {algorithmSteps[currentStep].reason}
                   </div>
 
@@ -614,7 +614,7 @@ export function MSTVisualizer({
       )}
 
       <div className="flex justify-center">
-        <div className="border-2 border-gray-300 rounded-lg bg-white overflow-hidden">
+        <div className="border-2 border-gunmetal rounded-sm bg-card overflow-hidden">
           <svg width="500" height="400" viewBox="0 0 500 400">
             {/* Grid background */}
             <defs>
@@ -627,7 +627,7 @@ export function MSTVisualizer({
                 <path
                   d="M 20 0 L 0 0 0 20"
                   fill="none"
-                  stroke="#f0f0f0"
+                  stroke="hsl(var(--gunmetal) / 0.35)"
                   strokeWidth="1"
                 />
               </pattern>
@@ -652,7 +652,7 @@ export function MSTVisualizer({
                           cy={midpoint.y}
                           r="12"
                           fill="white"
-                          stroke="#666"
+                          stroke="hsl(var(--ash))"
                           strokeWidth="1"
                         />
                         <text
@@ -660,7 +660,7 @@ export function MSTVisualizer({
                           y={midpoint.y}
                           textAnchor="middle"
                           dominantBaseline="central"
-                          className="text-xs font-medium fill-gray-700"
+                          className="text-xs font-medium fill-titanium"
                         >
                           {edge.weight}
                         </text>
@@ -688,7 +688,7 @@ export function MSTVisualizer({
                     y={node.y}
                     textAnchor="middle"
                     dominantBaseline="central"
-                    className="text-sm font-bold fill-gray-700 pointer-events-none"
+                    className="text-sm font-bold fill-titanium pointer-events-none"
                   >
                     {nodeId}
                   </text>
@@ -704,23 +704,23 @@ export function MSTVisualizer({
           <h4 className="font-semibold">Kenar Renkleri</h4>
           <div className="space-y-1 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 bg-blue-600"></div>
+              <div className="w-6 h-1 bg-arcly-blue"></div>
               <span>MST'de bulunan kenar</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 bg-green-500"></div>
+              <div className="w-6 h-1 bg-signal-green"></div>
               <span>Şu anda eklenen kenar</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 bg-red-500 border-dashed border border-red-500"></div>
+              <div className="w-6 h-1 bg-alert-red border-dashed border border-alert-red"></div>
               <span>Reddedilen kenar (döngü oluşturur)</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 bg-yellow-500"></div>
+              <div className="w-6 h-1 bg-arcly-blue"></div>
               <span>İncelenen kenar</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 bg-gray-300"></div>
+              <div className="w-6 h-1 bg-gunmetal/60"></div>
               <span>Normal kenar</span>
             </div>
           </div>
@@ -732,17 +732,17 @@ export function MSTVisualizer({
             {algorithm_type === 'prim' && (
               <>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-green-200 border-2 border-green-600 rounded-full"></div>
+                  <div className="w-4 h-4 bg-signal-green/20 border-2 border-signal-green rounded-full"></div>
                   <span>Başlangıç düğümü</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-blue-200 border-2 border-blue-600 rounded-full"></div>
+                  <div className="w-4 h-4 bg-arcly-blue/20 border-2 border-arcly-blue rounded-full"></div>
                   <span>MST'ye bağlı düğüm</span>
                 </div>
               </>
             )}
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-white border-2 border-gray-400 rounded-full"></div>
+              <div className="w-4 h-4 bg-card border-2 border-gunmetal rounded-full"></div>
               <span>Normal düğüm</span>
             </div>
           </div>
@@ -750,7 +750,7 @@ export function MSTVisualizer({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-4 bg-muted rounded-lg">
+        <div className="p-4 bg-obsidian/60 rounded-sm">
           <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <Network className="w-5 h-5" />
             Kruskal's Algorithm
@@ -775,7 +775,7 @@ export function MSTVisualizer({
           </div>
         </div>
 
-        <div className="p-4 bg-muted rounded-lg">
+        <div className="p-4 bg-obsidian/60 rounded-sm">
           <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <TreePine className="w-5 h-5" />
             Prim's Algorithm
@@ -802,32 +802,32 @@ export function MSTVisualizer({
       </div>
 
       {mstEdges.length > 0 && currentStep >= algorithmSteps.length - 1 && (
-        <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-          <h3 className="text-lg font-semibold text-green-800 mb-3">
+        <div className="p-4 bg-signal-green/10 rounded-sm border border-signal-green/30">
+          <h3 className="text-lg font-semibold text-signal-green mb-3">
             Minimum Spanning Tree Tamamlandı!
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div>
-              <span className="font-medium text-green-700">MST Kenarları:</span>
+              <span className="font-medium text-signal-green">MST Kenarları:</span>
               <div className="mt-1">
                 {mstEdges.map((edge, index) => (
-                  <div key={index} className="text-green-600">
+                  <div key={index} className="text-signal-green">
                     {edge.from} ↔ {edge.to} (ağırlık: {edge.weight})
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <span className="font-medium text-green-700">
+              <span className="font-medium text-signal-green">
                 Toplam Ağırlık:
               </span>
-              <div className="text-2xl font-bold text-green-800">
+              <div className="text-2xl font-bold text-signal-green">
                 {totalMSTWeight}
               </div>
             </div>
             <div>
-              <span className="font-medium text-green-700">İstatistikler:</span>
-              <div className="text-green-600">
+              <span className="font-medium text-signal-green">İstatistikler:</span>
+              <div className="text-signal-green">
                 <div>
                   {nodeCount} düğüm, {mstEdges.length} kenar
                 </div>

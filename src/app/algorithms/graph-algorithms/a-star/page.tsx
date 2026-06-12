@@ -244,7 +244,7 @@ class PriorityQueue {
         <h2 className="text-2xl font-bold">
           İnteraktif A* Algoritması Simülasyonu
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıdaki grid üzerinde A* algoritmasını test edebilirsiniz. Başlangıç
           ve hedef noktalarını seçin, engeller yerleştirin ve algoritmanın en
           kısa yolu nasıl bulduğunu gözlemleyin.
@@ -259,7 +259,7 @@ class PriorityQueue {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">JavaScript Implementasyonu</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           A* algoritmasının tam JavaScript implementasyonu. Bu kod, priority
           queue ve heuristik fonksiyonlar dahil olmak üzere algoritmanın tüm
           bileşenlerini içerir.
@@ -272,13 +272,13 @@ class PriorityQueue {
         />
       </div>
 
-      <div className="bg-muted p-6 rounded-lg">
+      <div className="bg-obsidian/60 p-6 rounded-sm">
         <h3 className="text-xl font-bold mb-4">
           A* vs Diğer Yol Bulma Algoritmaları
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-green-600">A* Algoritması</h4>
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-signal-green">A* Algoritması</h4>
             <ul className="text-sm mt-2 space-y-1">
               <li>• Optimal çözüm garantisi</li>
               <li>• Heuristik ile yönlendirilmiş</li>
@@ -286,8 +286,8 @@ class PriorityQueue {
               <li>• Çoğu durumda hızlı</li>
             </ul>
           </div>
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-blue-600">
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue">
               Dijkstra Algoritması
             </h4>
             <ul className="text-sm mt-2 space-y-1">
@@ -297,8 +297,8 @@ class PriorityQueue {
               <li>• Daha yavaş ama kesin</li>
             </ul>
           </div>
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-purple-600">Greedy Best-First</h4>
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue">Greedy Best-First</h4>
             <ul className="text-sm mt-2 space-y-1">
               <li>• Optimal değil</li>
               <li>• Heuristik odaklı</li>
@@ -309,13 +309,13 @@ class PriorityQueue {
         </div>
       </div>
 
-      <div className="bg-blue-50 dark:bg-blue-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-blue-800 dark:text-blue-200">
+      <div className="bg-arcly-blue/10 dark:bg-arcly-blue/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-arcly-blue dark:text-arcly-blue/70">
           A* Algoritması Optimizasyon İpuçları
         </h3>
         <div className="space-y-3 text-sm">
           <div>
-            <strong className="text-blue-700 dark:text-blue-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Heuristik Seçimi:
             </strong>
             <span className="ml-2">
@@ -324,7 +324,7 @@ class PriorityQueue {
             </span>
           </div>
           <div>
-            <strong className="text-blue-700 dark:text-blue-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Bellek Optimizasyonu:
             </strong>
             <span className="ml-2">
@@ -333,7 +333,7 @@ class PriorityQueue {
             </span>
           </div>
           <div>
-            <strong className="text-blue-700 dark:text-blue-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Preprocessing:
             </strong>
             <span className="ml-2">
@@ -342,7 +342,7 @@ class PriorityQueue {
             </span>
           </div>
           <div>
-            <strong className="text-blue-700 dark:text-blue-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Dynamic Environments:
             </strong>
             <span className="ml-2">

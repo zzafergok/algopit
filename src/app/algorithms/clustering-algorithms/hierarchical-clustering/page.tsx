@@ -192,27 +192,27 @@ const ClusterVisualization: React.FC<{
   highlightCluster?: number;
 }> = ({ points, width, height, highlightCluster }) => {
   const colors = [
-    '#FF6B6B',
-    '#4ECDC4',
-    '#45B7D1',
-    '#FFA5A5',
-    '#98D8C8',
-    '#FFBE76',
-    '#BADC58',
-    '#7ED6DF',
-    '#E056FD',
-    '#686DE0',
-    '#574B90',
-    '#F78FB3',
-    '#3DC1D3',
-    '#63CDDA',
-    '#786FA6',
+    'hsl(var(--alert-red))',
+    'hsl(var(--signal-green))',
+    'hsl(var(--arcly-blue))',
+    'hsl(var(--alert-red-300))',
+    'hsl(var(--signal-green-300))',
+    'hsl(var(--arcly-blue-300))',
+    'hsl(var(--signal-green-500))',
+    'hsl(var(--arcly-blue-400))',
+    'hsl(var(--arcly-blue-700))',
+    'hsl(var(--arcly-blue-600))',
+    'hsl(var(--gunmetal))',
+    'hsl(var(--alert-red-400))',
+    'hsl(var(--arcly-blue-500))',
+    'hsl(var(--arcly-blue-300))',
+    'hsl(var(--ash))',
   ];
 
   const pointRadius = 5;
 
   return (
-    <div className="border rounded-lg overflow-hidden bg-white dark:bg-gray-800">
+    <div className="border rounded-sm overflow-hidden bg-card dark:bg-obsidian">
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         {points.map((point, index) => {
           const isHighlighted =
@@ -228,9 +228,9 @@ const ClusterVisualization: React.FC<{
               fill={
                 point.cluster >= 0
                   ? colors[point.cluster % colors.length]
-                  : '#ccc'
+                  : 'hsl(var(--gunmetal))'
               }
-              stroke={isHighlighted ? '#000' : '#fff'}
+              stroke={isHighlighted ? 'hsl(var(--void-black-500))' : 'hsl(var(--titanium))'}
               strokeWidth={isHighlighted ? 2 : 1}
               opacity={isHighlighted ? 1 : 0.8}
             />
@@ -315,20 +315,20 @@ const DendrogramVisualization: React.FC<{
 
   // Renk paleti
   const colors = [
-    '#FF6B6B',
-    '#4ECDC4',
-    '#45B7D1',
-    '#FFA5A5',
-    '#98D8C8',
-    '#FFBE76',
-    '#BADC58',
-    '#7ED6DF',
-    '#E056FD',
-    '#686DE0',
+    'hsl(var(--alert-red))',
+    'hsl(var(--signal-green))',
+    'hsl(var(--arcly-blue))',
+    'hsl(var(--alert-red-300))',
+    'hsl(var(--signal-green-300))',
+    'hsl(var(--arcly-blue-300))',
+    'hsl(var(--signal-green-500))',
+    'hsl(var(--arcly-blue-400))',
+    'hsl(var(--arcly-blue-700))',
+    'hsl(var(--arcly-blue-600))',
   ];
 
   return (
-    <div className="border rounded-lg overflow-hidden bg-white dark:bg-gray-800">
+    <div className="border rounded-sm overflow-hidden bg-card dark:bg-obsidian">
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         {edges.map((edge, index) => (
           <line
@@ -337,7 +337,7 @@ const DendrogramVisualization: React.FC<{
             y1={edge.from.y}
             x2={edge.to.x}
             y2={edge.to.y}
-            stroke="#666"
+            stroke="hsl(var(--ash))"
             strokeWidth={1.5}
           />
         ))}
@@ -354,8 +354,8 @@ const DendrogramVisualization: React.FC<{
               cx={node.x}
               cy={node.y}
               r={node.isLeaf ? 4 : 6}
-              fill={node.isLeaf ? colors[node.id % colors.length] : '#fff'}
-              stroke={hoveredCluster === node.id ? '#000' : '#666'}
+              fill={node.isLeaf ? colors[node.id % colors.length] : 'hsl(var(--titanium))'}
+              stroke={hoveredCluster === node.id ? 'hsl(var(--void-black-500))' : 'hsl(var(--ash))'}
               strokeWidth={hoveredCluster === node.id ? 2 : 1}
             />
 
@@ -365,7 +365,7 @@ const DendrogramVisualization: React.FC<{
                 y={node.y - 10}
                 textAnchor="middle"
                 fontSize="10"
-                fill="#666"
+                fill="hsl(var(--ash))"
               >
                 {node.points}
               </text>
@@ -1038,7 +1038,7 @@ export default function HierarchicalClusteringPage() {
                 height={height}
                 onSelectCluster={handleSelectCluster}
               />
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-sm text-ash mt-2">
                 Düğümlere tıklayarak kümeleri seçebilirsiniz
               </p>
             </CardContent>
@@ -1059,7 +1059,7 @@ export default function HierarchicalClusteringPage() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Hiyerarşik kümeleme algoritmasının farklı programlama dillerindeki
           uygulamaları:
         </p>

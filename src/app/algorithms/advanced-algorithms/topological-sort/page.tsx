@@ -73,7 +73,7 @@ const GraphVisualization: React.FC<{
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {Object.entries(graph).map(([node, neighbors]) => (
               <div key={node} className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
+                <div className="w-10 h-10 rounded-full bg-arcly-blue flex items-center justify-center text-arcly-blue-foreground font-bold">
                   {node}
                 </div>
                 <div className="text-sm">
@@ -91,7 +91,7 @@ const GraphVisualization: React.FC<{
         </CardHeader>
         <CardContent>
           {hasCycle ? (
-            <div className="text-red-500 font-medium">
+            <div className="text-alert-red font-medium">
               Graf çevrim içeriyor! Topolojik sıralama yalnızca çevrimsiz yönlü
               graflarda (DAG) mümkündür.
             </div>
@@ -100,7 +100,7 @@ const GraphVisualization: React.FC<{
               <div className="flex flex-wrap gap-2 items-center">
                 {orderedNodes.map((node, index) => (
                   <React.Fragment key={node}>
-                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white font-bold">
+                    <div className="w-10 h-10 rounded-full bg-signal-green flex items-center justify-center text-titanium font-bold">
                       {node}
                     </div>
                     {index < orderedNodes.length - 1 && (
@@ -109,7 +109,7 @@ const GraphVisualization: React.FC<{
                   </React.Fragment>
                 ))}
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">
+              <p className="mt-4 text-sm text-ash">
                 Bu sıralama, her düğümün kendi tüm bağımlılıklarından sonra
                 geldiği bir düzeni gösterir. Bir DAG için birden fazla geçerli
                 topolojik sıralama olabilir.
@@ -443,7 +443,7 @@ public class TopologicalSort {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Topolojik sıralama algoritmasını test edin. Grafı aşağıdaki formatta
           girin (her satır bir düğümü ve komşularını temsil eder):
         </p>
@@ -458,10 +458,10 @@ public class TopologicalSort {
               id="graphInput"
               value={graphInput}
               onChange={handleGraphInputChange}
-              className="min-h-[200px] p-3 border rounded-md resize-y bg-card"
+              className="min-h-[200px] p-3 border rounded-sm resize-y bg-card"
               placeholder="Örnek:&#10;A:B,C&#10;B:D&#10;C:D&#10;D:"
             />
-            <div className="text-xs text-muted-foreground">
+            <div className="text-xs text-ash">
               <p>Örnek gösterim:</p>
               <ul className="list-disc pl-4">
                 <li>
@@ -491,7 +491,7 @@ public class TopologicalSort {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Topolojik sıralama algoritmasının farklı programlama dillerindeki
           implementasyonları.
         </p>

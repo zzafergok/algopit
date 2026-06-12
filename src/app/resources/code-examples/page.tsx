@@ -111,7 +111,7 @@ const CodeModal = ({ example }: { example: CodeExample }) => {
 
       <div className="space-y-4">
         <div>
-          <p className="text-muted-foreground">{example.description}</p>
+          <p className="text-ash">{example.description}</p>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -143,7 +143,7 @@ const CodeModal = ({ example }: { example: CodeExample }) => {
                 key={codeExample.language}
                 value={codeExample.language}
               >
-                <ScrollArea className="h-[400px] w-full rounded-md border">
+                <ScrollArea className="h-[400px] w-full rounded-sm border">
                   <div className="relative">
                     <CopyButton text={codeExample.code} />
                     <pre className="p-4">
@@ -703,7 +703,7 @@ public class Fibonacci {
     <div className="space-y-8 max-w-7xl mx-auto">
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">Kod Örnekleri</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl text-ash max-w-3xl mx-auto">
           Farklı programlama dillerinde algoritma implementasyonları ve detaylı
           açıklamalar
         </p>
@@ -711,7 +711,7 @@ public class Fibonacci {
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ash" />
             <Input
               placeholder="Kod örneklerinde ara..."
               value={searchTerm}
@@ -799,7 +799,7 @@ public class Fibonacci {
                         variant="ghost"
                         size="sm"
                         onClick={clearFilters}
-                        className="text-muted-foreground"
+                        className="text-ash"
                       >
                         <X className="h-4 w-4 mr-1" />
                         Filtreleri Temizle
@@ -814,7 +814,7 @@ public class Fibonacci {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           {filteredExamples.length} kod örneği bulundu
         </p>
 
@@ -866,7 +866,7 @@ public class Fibonacci {
               >
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Card className="h-full flex flex-col cursor-pointer hover:shadow-lg transition-shadow">
+                    <Card className="h-full flex flex-col cursor-pointer hover:border-arcly-blue/30 transition-colors">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
                           <CardTitle className="text-lg">
@@ -878,7 +878,7 @@ public class Fibonacci {
                             {example.difficulty}
                           </Badge>
                         </div>
-                        <p className="text-sm text-muted-foreground line-clamp-2">
+                        <p className="text-sm text-ash line-clamp-2">
                           {example.description}
                         </p>
                       </CardHeader>
@@ -938,7 +938,7 @@ public class Fibonacci {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <p className="text-muted-foreground text-lg">
+            <p className="text-ash text-lg">
               Arama kriterlerinize uygun kod örneği bulunamadı.
             </p>
             <Button variant="outline" className="mt-4" onClick={clearFilters}>

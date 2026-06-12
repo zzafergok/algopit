@@ -24,25 +24,25 @@ export function PerformanceMetrics({
       icon: Clock,
       label: 'Execution Time',
       value: `${executionTime.toFixed(4)} ms`,
-      color: 'text-blue-500',
+      color: 'text-arcly-blue',
     },
     {
       icon: MemoryStick,
       label: 'Memory Usage',
       value: `${memoryUsage.toFixed(2)} KB`,
-      color: 'text-green-500',
+      color: 'text-signal-green',
     },
     {
       icon: Layers,
       label: 'Comparisons',
       value: comparisons.toLocaleString(),
-      color: 'text-purple-500',
+      color: 'text-arcly-blue',
     },
     {
       icon: Cpu,
       label: 'Swaps',
       value: swaps.toLocaleString(),
-      color: 'text-red-500',
+      color: 'text-alert-red',
     },
   ];
 
@@ -56,11 +56,11 @@ export function PerformanceMetrics({
           {performanceMetrics.map((metric) => (
             <div
               key={metric.label}
-              className="flex items-center space-x-3 p-3 bg-muted rounded-lg"
+              className="flex items-center space-x-3 p-3 bg-obsidian/60 rounded-sm"
             >
               <metric.icon className={`h-6 w-6 ${metric.color}`} />
               <div>
-                <p className="text-xs text-muted-foreground">{metric.label}</p>
+                <p className="text-xs text-ash">{metric.label}</p>
                 <p className="font-semibold">{metric.value}</p>
               </div>
             </div>

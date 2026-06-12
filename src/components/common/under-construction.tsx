@@ -6,7 +6,6 @@ import {
   Send,
   Code,
   Code2,
-  Github,
   Search,
   Rocket,
   FileText,
@@ -100,7 +99,7 @@ export function UnderConstruction({
         <h1 className="text-4xl font-bold tracking-tight">{title}</h1>
 
         {description && (
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-ash text-lg max-w-2xl mx-auto">
             {description}
           </p>
         )}
@@ -165,7 +164,7 @@ export function UnderConstruction({
                     target="_blank"
                     className="flex items-center gap-2"
                   >
-                    <Github className="h-4 w-4" />
+                    <Code2 className="h-4 w-4" />
                     <span>GitHub Repo</span>
                   </Link>
                 </Button>
@@ -193,7 +192,7 @@ export function UnderConstruction({
           <Card className="h-full flex flex-col">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Lightbulb className="h-5 w-5 text-primary" />
+                <Lightbulb className="h-5 w-5 text-arcly-blue" />
                 Öneri Gönderin
               </CardTitle>
               <CardDescription>
@@ -206,9 +205,9 @@ export function UnderConstruction({
                 <Input
                   disabled
                   value="gok.zaferr@gmail.com"
-                  className="bg-muted/50 text-muted-foreground"
+                  className="bg-obsidian/50 text-ash"
                 />
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-ash mt-1">
                   Yukarıdaki adrese doğrudan e-posta gönderebilirsiniz
                 </p>
               </div>
@@ -217,7 +216,7 @@ export function UnderConstruction({
                 <label className="text-sm font-medium">
                   Öneri Göndermek İçin
                 </label>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   Aşağıdaki butona tıklayarak e-posta uygulamanız ile doğrudan
                   iletişime geçebilirsiniz. E-postanızın konusu otomatik olarak{' '}
                   <strong>{title}</strong> algoritması ile ilgili olarak
@@ -249,7 +248,7 @@ export function UnderConstruction({
       >
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold">Geliştirme Süreci</h2>
-          <p className="text-muted-foreground">
+          <p className="text-ash">
             Algoritma sayfalarımızı geliştirirken izlediğimiz adımlar
           </p>
         </div>
@@ -264,7 +263,7 @@ export function UnderConstruction({
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
-              <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full border-4 border-background bg-muted transform -translate-x-1/2 z-10" />
+              <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full border-4 border-background bg-obsidian/60 transform -translate-x-1/2 z-10" />
 
               <div
                 className={`pl-8 md:pl-0 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} md:w-1/2`}
@@ -282,7 +281,7 @@ export function UnderConstruction({
                     </>
                   )}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm text-ash mt-1">
                   {step.description}
                 </p>
 

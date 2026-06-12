@@ -557,7 +557,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
         <h2 className="text-2xl font-bold">
           İnteraktif Segment Tree Görselleştirme
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıdaki görselleştirici ile Segment Tree veri yapısını
           keşfedebilirsiniz. Dizi elemanlarını değiştirin, aralık sorguları
           yapın ve tree'nin nasıl güncellendiğini gözlemleyin.
@@ -589,7 +589,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">JavaScript Implementasyonu</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Segment Tree veri yapısının tam JavaScript implementasyonu. Aralık
           sorguları, nokta güncellemeleri ve tree validasyonu özellikleri
           içerir.
@@ -602,13 +602,13 @@ console.log('Tree is valid:', segTree.validateTree());`;
         />
       </div>
 
-      <div className="bg-muted p-6 rounded-lg">
+      <div className="bg-obsidian/60 p-6 rounded-sm">
         <h3 className="text-xl font-bold mb-4">
           Zaman ve Alan Karmaşıklığı Analizi
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-blue-600 mb-3">
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-arcly-blue mb-3">
               Zaman Karmaşıklığı
             </h4>
             <div className="space-y-2 text-sm">
@@ -629,8 +629,8 @@ console.log('Tree is valid:', segTree.validateTree());`;
               </div>
             </div>
           </div>
-          <div className="bg-background p-4 rounded">
-            <h4 className="font-semibold text-green-600 mb-3">Karşılaştırma</h4>
+          <div className="bg-void-black p-4 rounded">
+            <h4 className="font-semibold text-signal-green mb-3">Karşılaştırma</h4>
             <div className="space-y-2 text-sm">
               <div>
                 <strong>Naive Approach:</strong> O(n) query, O(1) update
@@ -652,19 +652,19 @@ console.log('Tree is valid:', segTree.validateTree());`;
         </div>
       </div>
 
-      <div className="bg-blue-50 dark:bg-blue-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-blue-800 dark:text-blue-200">
+      <div className="bg-arcly-blue/10 dark:bg-arcly-blue/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-arcly-blue dark:text-arcly-blue/70">
           Lazy Propagation Optimizasyonu
         </h3>
         <div className="space-y-4">
-          <p className="text-sm text-blue-700 dark:text-blue-300">
+          <p className="text-sm text-arcly-blue dark:text-arcly-blue/80">
             Lazy propagation, aralık güncellemelerini etkili hale getiren bir
             tekniktir. Güncellemeyi hemen yapmak yerine, gerekli olana kadar
             erteler.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white dark:bg-gray-800 p-4 rounded">
-              <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
+            <div className="bg-card dark:bg-obsidian p-4 rounded">
+              <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
                 Normal Range Update
               </h4>
               <div className="text-sm space-y-1">
@@ -674,8 +674,8 @@ console.log('Tree is valid:', segTree.validateTree());`;
                 <div>Basit implementasyon</div>
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded">
-              <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">
+            <div className="bg-card dark:bg-obsidian p-4 rounded">
+              <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
                 Lazy Propagation
               </h4>
               <div className="text-sm space-y-1">
@@ -689,13 +689,13 @@ console.log('Tree is valid:', segTree.validateTree());`;
         </div>
       </div>
 
-      <div className="bg-green-50 dark:bg-green-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-green-800 dark:text-green-200">
+      <div className="bg-signal-green/10 dark:bg-signal-green/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-signal-green dark:text-signal-green/70">
           Segment Tree Variants ve Uzantılar
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
-            <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
+            <h4 className="font-semibold text-signal-green dark:text-signal-green/80 mb-2">
               2D Segment Tree
             </h4>
             <p className="text-sm">
@@ -703,8 +703,8 @@ console.log('Tree is valid:', segTree.validateTree());`;
               rectangle sum, min veya max sorguları yapabilir.
             </p>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
-            <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
+            <h4 className="font-semibold text-signal-green dark:text-signal-green/80 mb-2">
               Persistent Segment Tree
             </h4>
             <p className="text-sm">
@@ -712,8 +712,8 @@ console.log('Tree is valid:', segTree.validateTree());`;
               versiyonlanmış range queries yapar.
             </p>
           </div>
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
-            <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
+            <h4 className="font-semibold text-signal-green dark:text-signal-green/80 mb-2">
               Dynamic Segment Tree
             </h4>
             <p className="text-sm">
@@ -724,13 +724,13 @@ console.log('Tree is valid:', segTree.validateTree());`;
         </div>
       </div>
 
-      <div className="bg-purple-50 dark:bg-purple-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-purple-800 dark:text-purple-200">
+      <div className="bg-arcly-blue/10 dark:bg-arcly-blue/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-arcly-blue dark:text-arcly-blue/70">
           Gerçek Dünya Uygulamaları
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">
+            <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
               Software Development
             </h4>
             <div className="text-sm space-y-1">
@@ -749,7 +749,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
             </div>
           </div>
           <div>
-            <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">
+            <h4 className="font-semibold text-arcly-blue dark:text-arcly-blue/80 mb-2">
               Data Analysis
             </h4>
             <div className="text-sm space-y-1">
@@ -770,13 +770,13 @@ console.log('Tree is valid:', segTree.validateTree());`;
         </div>
       </div>
 
-      <div className="bg-yellow-50 dark:bg-yellow-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-yellow-800 dark:text-yellow-200">
+      <div className="bg-arcly-blue/10 dark:bg-arcly-blue/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-arcly-blue dark:text-arcly-blue/70">
           Implementation ve Optimizasyon İpuçları
         </h3>
         <div className="space-y-3 text-sm">
           <div>
-            <strong className="text-yellow-700 dark:text-yellow-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Memory Layout:
             </strong>
             <span className="ml-2">
@@ -784,7 +784,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
             </span>
           </div>
           <div>
-            <strong className="text-yellow-700 dark:text-yellow-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Build Optimization:
             </strong>
             <span className="ml-2">
@@ -792,7 +792,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
             </span>
           </div>
           <div>
-            <strong className="text-yellow-700 dark:text-yellow-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Query Optimization:
             </strong>
             <span className="ml-2">
@@ -800,7 +800,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
             </span>
           </div>
           <div>
-            <strong className="text-yellow-700 dark:text-yellow-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Lazy Propagation:
             </strong>
             <span className="ml-2">
@@ -809,7 +809,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
             </span>
           </div>
           <div>
-            <strong className="text-yellow-700 dark:text-yellow-300">
+            <strong className="text-arcly-blue dark:text-arcly-blue/80">
               Alternative:
             </strong>
             <span className="ml-2">
@@ -820,7 +820,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
         </div>
       </div>
 
-      <div className="bg-indigo-50 dark:bg-indigo-950/20 p-6 rounded-lg">
+      <div className="bg-indigo-50 dark:bg-indigo-950/20 p-6 rounded-sm">
         <h3 className="text-xl font-bold mb-4 text-indigo-800 dark:text-indigo-200">
           İleri Seviye Segment Tree Özellikleri
         </h3>
@@ -829,7 +829,7 @@ console.log('Tree is valid:', segTree.validateTree());`;
             <h4 className="font-semibold text-indigo-700 dark:text-indigo-300">
               Lazy Propagation ile Range Update
             </h4>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded text-sm">
+            <div className="bg-card dark:bg-obsidian p-4 rounded text-sm">
               <pre className="overflow-x-auto">
                 {`// Lazy propagation örneği
 class LazySegmentTree {
@@ -878,7 +878,7 @@ class LazySegmentTree {
             <h4 className="font-semibold text-indigo-700 dark:text-indigo-300">
               2D Segment Tree Örneği
             </h4>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded text-sm">
+            <div className="bg-card dark:bg-obsidian p-4 rounded text-sm">
               <pre className="overflow-x-auto">
                 {`// 2D Segment Tree temel yapısı
 class SegmentTree2D {
@@ -911,13 +911,13 @@ class SegmentTree2D {
         </div>
       </div>
 
-      <div className="bg-red-50 dark:bg-red-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-red-800 dark:text-red-200">
+      <div className="bg-alert-red/10 dark:bg-alert-red/10 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-alert-red dark:text-alert-red/70">
           Competitive Programming İpuçları
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-red-700 dark:text-red-300 mb-2">
+            <h4 className="font-semibold text-alert-red dark:text-alert-red/80 mb-2">
               Hızlı Template
             </h4>
             <div className="text-sm space-y-1">
@@ -930,7 +930,7 @@ class SegmentTree2D {
             </div>
           </div>
           <div>
-            <h4 className="font-semibold text-red-700 dark:text-red-300 mb-2">
+            <h4 className="font-semibold text-alert-red dark:text-alert-red/80 mb-2">
               Debug Teknikleri
             </h4>
             <div className="text-sm space-y-1">
@@ -943,30 +943,30 @@ class SegmentTree2D {
         </div>
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-950/20 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+      <div className="bg-obsidian/40 dark:bg-void-black/20 p-6 rounded-sm">
+        <h3 className="text-xl font-bold mb-4 text-titanium dark:text-titanium">
           Performans Karşılaştırması ve Benchmarks
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="border-b">
-                <th className="text-left p-3 bg-gray-100 dark:bg-gray-800">
+                <th className="text-left p-3 bg-gunmetal/20 dark:bg-obsidian">
                   Algoritma
                 </th>
-                <th className="text-left p-3 bg-gray-100 dark:bg-gray-800">
+                <th className="text-left p-3 bg-gunmetal/20 dark:bg-obsidian">
                   Build
                 </th>
-                <th className="text-left p-3 bg-gray-100 dark:bg-gray-800">
+                <th className="text-left p-3 bg-gunmetal/20 dark:bg-obsidian">
                   Range Query
                 </th>
-                <th className="text-left p-3 bg-gray-100 dark:bg-gray-800">
+                <th className="text-left p-3 bg-gunmetal/20 dark:bg-obsidian">
                   Point Update
                 </th>
-                <th className="text-left p-3 bg-gray-100 dark:bg-gray-800">
+                <th className="text-left p-3 bg-gunmetal/20 dark:bg-obsidian">
                   Range Update
                 </th>
-                <th className="text-left p-3 bg-gray-100 dark:bg-gray-800">
+                <th className="text-left p-3 bg-gunmetal/20 dark:bg-obsidian">
                   Space
                 </th>
               </tr>
@@ -975,54 +975,54 @@ class SegmentTree2D {
               <tr className="border-b">
                 <td className="p-3 font-medium">Naive Array</td>
                 <td className="p-3">O(1)</td>
-                <td className="p-3 text-red-600">O(n)</td>
-                <td className="p-3 text-green-600">O(1)</td>
-                <td className="p-3 text-red-600">O(n)</td>
-                <td className="p-3 text-green-600">O(n)</td>
+                <td className="p-3 text-alert-red">O(n)</td>
+                <td className="p-3 text-signal-green">O(1)</td>
+                <td className="p-3 text-alert-red">O(n)</td>
+                <td className="p-3 text-signal-green">O(n)</td>
               </tr>
               <tr className="border-b">
                 <td className="p-3 font-medium">Prefix Sum</td>
                 <td className="p-3">O(n)</td>
-                <td className="p-3 text-green-600">O(1)</td>
-                <td className="p-3 text-red-600">O(n)</td>
-                <td className="p-3 text-red-600">O(n)</td>
-                <td className="p-3 text-green-600">O(n)</td>
+                <td className="p-3 text-signal-green">O(1)</td>
+                <td className="p-3 text-alert-red">O(n)</td>
+                <td className="p-3 text-alert-red">O(n)</td>
+                <td className="p-3 text-signal-green">O(n)</td>
               </tr>
               <tr className="border-b">
                 <td className="p-3 font-medium">Segment Tree</td>
                 <td className="p-3">O(n)</td>
-                <td className="p-3 text-blue-600">O(log n)</td>
-                <td className="p-3 text-blue-600">O(log n)</td>
-                <td className="p-3 text-blue-600">O(log n)</td>
-                <td className="p-3 text-yellow-600">O(4n)</td>
+                <td className="p-3 text-arcly-blue">O(log n)</td>
+                <td className="p-3 text-arcly-blue">O(log n)</td>
+                <td className="p-3 text-arcly-blue">O(log n)</td>
+                <td className="p-3 text-arcly-blue">O(4n)</td>
               </tr>
               <tr className="border-b">
                 <td className="p-3 font-medium">Fenwick Tree</td>
                 <td className="p-3">O(n)</td>
-                <td className="p-3 text-blue-600">O(log n)</td>
-                <td className="p-3 text-blue-600">O(log n)</td>
-                <td className="p-3 text-red-600">O(n log n)</td>
-                <td className="p-3 text-green-600">O(n)</td>
+                <td className="p-3 text-arcly-blue">O(log n)</td>
+                <td className="p-3 text-arcly-blue">O(log n)</td>
+                <td className="p-3 text-alert-red">O(n log n)</td>
+                <td className="p-3 text-signal-green">O(n)</td>
               </tr>
               <tr>
                 <td className="p-3 font-medium">√n Decomposition</td>
                 <td className="p-3">O(n)</td>
-                <td className="p-3 text-yellow-600">O(√n)</td>
-                <td className="p-3 text-yellow-600">O(√n)</td>
-                <td className="p-3 text-yellow-600">O(√n)</td>
-                <td className="p-3 text-green-600">O(n)</td>
+                <td className="p-3 text-arcly-blue">O(√n)</td>
+                <td className="p-3 text-arcly-blue">O(√n)</td>
+                <td className="p-3 text-arcly-blue">O(√n)</td>
+                <td className="p-3 text-signal-green">O(n)</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div className="bg-orange-50 dark:bg-orange-950/20 p-6 rounded-lg">
+      <div className="bg-orange-50 dark:bg-orange-950/20 p-6 rounded-sm">
         <h3 className="text-xl font-bold mb-4 text-orange-800 dark:text-orange-200">
           Yaygın Hatalar ve Çözümleri
         </h3>
         <div className="space-y-4">
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
             <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-2">
               ❌ Yanlış Array Boyutu
             </h4>
@@ -1030,14 +1030,14 @@ class SegmentTree2D {
               Segment tree için 4*n boyutunda array kullanmamak overflow'a neden
               olur.
             </p>
-            <div className="text-xs bg-gray-100 dark:bg-gray-700 p-2 rounded">
+            <div className="text-xs bg-gunmetal/20 dark:bg-gunmetal p-2 rounded">
               <code>// Yanlış: tree = new Array(2*n)</code>
               <br />
               <code>// Doğru: tree = new Array(4*n)</code>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
             <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-2">
               ❌ Lazy Propagation Unutmak
             </h4>
@@ -1045,19 +1045,19 @@ class SegmentTree2D {
               Range update sonrası query yapmadan önce push fonksiyonunu
               çağırmamak.
             </p>
-            <div className="text-xs bg-gray-100 dark:bg-gray-700 p-2 rounded">
+            <div className="text-xs bg-gunmetal/20 dark:bg-gunmetal p-2 rounded">
               <code>// Her query/update başında push() çağırmalı</code>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-4 rounded">
+          <div className="bg-card dark:bg-obsidian p-4 rounded">
             <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-2">
               ❌ Edge Case Kontrolsüzlüğü
             </h4>
             <p className="text-sm mb-2">
               Boş aralık sorguları ve geçersiz indeksler için kontrol yapmamak.
             </p>
-            <div className="text-xs bg-gray-100 dark:bg-gray-700 p-2 rounded">
+            <div className="text-xs bg-gunmetal/20 dark:bg-gunmetal p-2 rounded">
               <code>{`if (queryStart > queryEnd || queryEnd < nodeStart) return neutral;`}</code>
             </div>
           </div>

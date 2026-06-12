@@ -160,7 +160,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Bubble Sort Algoritması
       </h1>
 
@@ -181,7 +181,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Bubble Sort algoritmasının farklı programlama dillerindeki
           uygulamaları aşağıda verilmiştir. Her örnek, algoritmanın optimize
           edilmiş versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -227,7 +227,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Bubble Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
@@ -245,7 +245,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Bubble Sort büyük veri setleri için verimli değildir.
                 1000'den fazla eleman içeren diziler için daha verimli
                 algoritmalar tercih edin.
@@ -269,7 +269,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n)
                     </code>{' '}
                     - Dizi zaten sıralıysa, algoritma tek bir geçişte tamamlanır
@@ -277,7 +277,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - İç içe iki döngü kullanır ve ortalamada n²/2 karşılaştırma
@@ -285,7 +285,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n²)
                     </code>{' '}
                     - Dizi tersine sıralıysa, her eleman için bir takas gerekir,
@@ -297,7 +297,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(1)
                   </code>{' '}
                   - Bubble Sort yerinde (in-place) bir sıralama algoritmasıdır.
@@ -324,7 +324,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -347,7 +347,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -375,7 +375,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Bubble Sort'a benzer veya alternatif olarak kullanılabilecek diğer
           sıralama algoritmaları:
         </p>
@@ -386,7 +386,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
               <CardTitle className="text-base">Insertion Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Küçük veri setleri için verimli ve kısmen sıralı veriler için
                 O(n) performans sunar.
               </p>
@@ -398,7 +398,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
               <CardTitle className="text-base">Selection Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Bubble Sort'a benzer karmaşıklığa sahip, ancak takas işlemi
                 sayısı daha azdır.
               </p>
@@ -410,7 +410,7 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
               <CardTitle className="text-base">Cocktail Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Bubble Sort'un iki yönlü bir varyasyonu, daha hızlı yakınsama
                 sağlayabilir.
               </p>

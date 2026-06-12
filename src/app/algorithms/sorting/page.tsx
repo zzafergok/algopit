@@ -106,7 +106,7 @@ export default function SortingAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Sıralama Algoritmaları
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Sıralama algoritmaları, verileri belirli bir düzende organize etmek
           için kullanılan temel algoritmalardan oluşur. Her algoritmanın kendine
           özgü avantajları, dezavantajları ve kullanım alanları bulunmaktadır.
@@ -130,7 +130,7 @@ export default function SortingAlgorithmsPage() {
               </div>
             </CardHeader>
             <CardContent className="flex-grow">
-              <CardDescription className="text-sm text-muted-foreground">
+              <CardDescription className="text-sm text-ash">
                 {algorithm.description}
               </CardDescription>
             </CardContent>
@@ -149,7 +149,7 @@ export default function SortingAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           Sıralama Algoritmaları Hakkında
         </h2>

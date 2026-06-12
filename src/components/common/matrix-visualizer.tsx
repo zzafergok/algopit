@@ -254,31 +254,31 @@ export function MatrixVisualizer({
 
   const getCellStyle = useCallback(
     (row: number, col: number, isDistanceMatrix: boolean = false) => {
-      let baseClasses = 'w-16 h-10 text-center border border-gray-300 text-sm';
+      let baseClasses = 'w-16 h-10 text-center border border-gunmetal text-sm';
 
       if (isDistanceMatrix) {
-        baseClasses += ' bg-blue-50';
+        baseClasses += ' bg-arcly-blue/10';
 
         if (selectedPath && reconstructedPath.length > 0) {
           const isInPath =
             reconstructedPath.includes(row) && reconstructedPath.includes(col);
           if (row === selectedPath.from && col === selectedPath.to) {
-            baseClasses += ' bg-green-200 font-bold';
+            baseClasses += ' bg-signal-green/20 font-bold';
           } else if (isInPath) {
-            baseClasses += ' bg-yellow-100';
+            baseClasses += ' bg-arcly-blue/10';
           }
         }
 
         if (currentStep >= 0 && currentStep < matrixSize) {
           if (row === currentStep || col === currentStep) {
-            baseClasses += ' bg-purple-100';
+            baseClasses += ' bg-arcly-blue/15';
           }
         }
       } else {
-        baseClasses += ' bg-white';
+        baseClasses += ' bg-card';
 
         if (row === col) {
-          baseClasses += ' bg-gray-100';
+          baseClasses += ' bg-gunmetal/20';
         }
       }
 
@@ -296,7 +296,7 @@ export function MatrixVisualizer({
   return (
     <div className={cn('space-y-6', className)}>
       {showControls && (
-        <div className="space-y-4 p-4 bg-muted rounded-lg">
+        <div className="space-y-4 p-4 bg-obsidian/60 rounded-sm">
           <div className="flex flex-wrap gap-4 items-center">
             <Button
               onClick={runFloydWarshall}
@@ -354,36 +354,36 @@ export function MatrixVisualizer({
           </div>
 
           {algorithmStats.totalComparisons > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-background rounded border">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-void-black rounded border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.iterations}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   İterasyonlar
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.totalComparisons}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Karşılaştırmalar
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.pathsFound}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Bulunan Yollar
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.executionTime.toFixed(2)}ms
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Çalışma Süresi
                 </div>
               </div>
@@ -391,11 +391,11 @@ export function MatrixVisualizer({
           )}
 
           {currentStep >= 0 && currentStep < matrixSize && (
-            <div className="p-3 bg-purple-100 rounded border border-purple-300">
-              <div className="text-sm font-medium text-purple-800">
+            <div className="p-3 bg-arcly-blue/15 rounded border border-arcly-blue/40">
+              <div className="text-sm font-medium text-arcly-blue">
                 Şu anki iterasyon: k = {currentStep}
               </div>
-              <div className="text-xs text-purple-600">
+              <div className="text-xs text-arcly-blue">
                 {currentStep} numaralı düğüm üzerinden geçen yollar kontrol
                 ediliyor
               </div>
@@ -429,11 +429,11 @@ export function MatrixVisualizer({
               </div>
 
               {selectedPath && reconstructedPath.length > 0 && (
-                <div className="p-3 bg-green-50 rounded border border-green-300">
-                  <div className="text-sm font-medium text-green-800">
+                <div className="p-3 bg-signal-green/10 rounded border border-signal-green/40">
+                  <div className="text-sm font-medium text-signal-green">
                     En Kısa Yol ({selectedPath.from} → {selectedPath.to}):
                   </div>
-                  <div className="text-sm text-green-700">
+                  <div className="text-sm text-signal-green">
                     {reconstructedPath.join(' → ')}
                     <span className="ml-2 font-medium">
                       (Toplam Mesafe:{' '}
@@ -457,7 +457,7 @@ export function MatrixVisualizer({
             Komşuluk Matrisi (Giriş)
           </h3>
           <div className="overflow-x-auto">
-            <div className="inline-block p-4 bg-white rounded border">
+            <div className="inline-block p-4 bg-card rounded border">
               <div
                 className="grid gap-1"
                 style={{
@@ -468,7 +468,7 @@ export function MatrixVisualizer({
                 {Array.from({ length: matrixSize }, (_, i) => (
                   <div
                     key={i}
-                    className="w-16 h-10 flex items-center justify-center font-bold text-sm bg-gray-100 border"
+                    className="w-16 h-10 flex items-center justify-center font-bold text-sm bg-gunmetal/20 border"
                   >
                     {i}
                   </div>
@@ -477,7 +477,7 @@ export function MatrixVisualizer({
                 {Array.from({ length: matrixSize }, (_, row) => (
                   <React.Fragment key={row}>
                     {/* Row header */}
-                    <div className="w-10 h-10 flex items-center justify-center font-bold text-sm bg-gray-100 border">
+                    <div className="w-10 h-10 flex items-center justify-center font-bold text-sm bg-gunmetal/20 border">
                       {row}
                     </div>
 
@@ -506,7 +506,7 @@ export function MatrixVisualizer({
             </div>
           </div>
 
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-ash">
             <p>• Komşuluk matrisinde kenar ağırlıklarını girin</p>
             <p>• Boş hücreler sonsuz (∞) mesafe olarak kabul edilir</p>
             <p>
@@ -523,7 +523,7 @@ export function MatrixVisualizer({
               En Kısa Mesafe Matrisi (Çıktı)
             </h3>
             <div className="overflow-x-auto">
-              <div className="inline-block p-4 bg-blue-50 rounded border">
+              <div className="inline-block p-4 bg-arcly-blue/10 rounded border">
                 <div
                   className="grid gap-1"
                   style={{
@@ -534,7 +534,7 @@ export function MatrixVisualizer({
                   {Array.from({ length: matrixSize }, (_, i) => (
                     <div
                       key={i}
-                      className="w-16 h-10 flex items-center justify-center font-bold text-sm bg-blue-100 border"
+                      className="w-16 h-10 flex items-center justify-center font-bold text-sm bg-arcly-blue/15 border"
                     >
                       {i}
                     </div>
@@ -542,7 +542,7 @@ export function MatrixVisualizer({
 
                   {Array.from({ length: matrixSize }, (_, row) => (
                     <React.Fragment key={row}>
-                      <div className="w-10 h-10 flex items-center justify-center font-bold text-sm bg-blue-100 border">
+                      <div className="w-10 h-10 flex items-center justify-center font-bold text-sm bg-arcly-blue/15 border">
                         {row}
                       </div>
 
@@ -551,7 +551,7 @@ export function MatrixVisualizer({
                           key={`${row}-${col}`}
                           className={cn(
                             getCellStyle(row, col, true),
-                            'flex items-center justify-center cursor-pointer hover:bg-blue-100',
+                            'flex items-center justify-center cursor-pointer hover:bg-arcly-blue/15',
                             row !== col && distanceMatrix[row][col] !== Infinity
                               ? 'hover:scale-105 transition-transform'
                               : ''
@@ -576,7 +576,7 @@ export function MatrixVisualizer({
               </div>
             </div>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-ash">
               <p>
                 • Bu matris tüm düğüm çiftleri arasındaki en kısa mesafeleri
                 gösterir
@@ -588,7 +588,7 @@ export function MatrixVisualizer({
         )}
       </div>
 
-      <div className="p-4 bg-muted rounded-lg">
+      <div className="p-4 bg-obsidian/60 rounded-sm">
         <h3 className="text-lg font-semibold mb-3">
           Floyd-Warshall Algoritması
         </h3>

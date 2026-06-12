@@ -205,32 +205,32 @@ export function GridVisualizer({
   const getCellClasses = useCallback(
     (nodeId: string, node: GraphNode) => {
       const baseClasses =
-        'w-6 h-6 border border-gray-300 cursor-pointer transition-colors duration-150 hover:opacity-80';
+        'w-6 h-6 border border-gunmetal cursor-pointer transition-colors duration-150 hover:opacity-80';
 
       if (nodeId === startNode) {
-        return cn(baseClasses, 'bg-green-500 hover:bg-green-600');
+        return cn(baseClasses, 'bg-signal-green hover:bg-signal-green/90');
       }
 
       if (nodeId === goalNode) {
-        return cn(baseClasses, 'bg-red-500 hover:bg-red-600');
+        return cn(baseClasses, 'bg-alert-red hover:bg-alert-red/90');
       }
 
       if (node.inPath && algorithmState === 'completed') {
-        return cn(baseClasses, 'bg-yellow-400 hover:bg-yellow-500');
+        return cn(baseClasses, 'bg-arcly-blue/70 hover:bg-arcly-blue');
       }
 
       if (
         node.visited &&
         currentStep > visitedNodes.findIndex((n) => n.id === nodeId)
       ) {
-        return cn(baseClasses, 'bg-blue-200 hover:bg-blue-300');
+        return cn(baseClasses, 'bg-arcly-blue/20 hover:bg-arcly-blue/30');
       }
 
       if (node.isObstacle) {
-        return cn(baseClasses, 'bg-gray-800 hover:bg-gray-700');
+        return cn(baseClasses, 'bg-void-black hover:bg-gunmetal');
       }
 
-      return cn(baseClasses, 'bg-white hover:bg-gray-100');
+      return cn(baseClasses, 'bg-card hover:bg-gunmetal/20');
     },
     [startNode, goalNode, algorithmState, currentStep, visitedNodes]
   );
@@ -238,15 +238,15 @@ export function GridVisualizer({
   const getCellIcon = useCallback(
     (nodeId: string, node: GraphNode) => {
       if (nodeId === startNode) {
-        return <MapPin className="w-4 h-4 text-white" />;
+        return <MapPin className="w-4 h-4 text-titanium" />;
       }
 
       if (nodeId === goalNode) {
-        return <Target className="w-4 h-4 text-white" />;
+        return <Target className="w-4 h-4 text-titanium" />;
       }
 
       if (node.isObstacle) {
-        return <Construction className="w-3 h-3 text-white" />;
+        return <Construction className="w-3 h-3 text-titanium" />;
       }
 
       return null;
@@ -287,7 +287,7 @@ export function GridVisualizer({
   return (
     <div className={cn('space-y-6', className)}>
       {showControls && (
-        <div className="space-y-4 p-4 bg-muted rounded-lg">
+        <div className="space-y-4 p-4 bg-obsidian/60 rounded-sm">
           <div className="flex flex-wrap gap-4 items-center">
             <Button
               onClick={runAlgorithm}
@@ -409,28 +409,28 @@ export function GridVisualizer({
           </div>
 
           {algorithmStats.nodesVisited > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-background rounded border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-void-black rounded border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.pathLength}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Yol Uzunluğu
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.nodesVisited}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Ziyaret Edilen Düğüm
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.executionTime.toFixed(2)}ms
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-ash">
                   Çalışma Süresi
                 </div>
               </div>
@@ -441,7 +441,7 @@ export function GridVisualizer({
 
       <div className="flex justify-center">
         <div
-          className="inline-block border-2 border-gray-400 bg-white"
+          className="inline-block border-2 border-gunmetal bg-card"
           style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${gridWidth}, 1fr)`,
@@ -478,27 +478,27 @@ export function GridVisualizer({
 
       <div className="flex flex-wrap justify-center gap-4 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-green-500 border border-gray-300 flex items-center justify-center">
-            <MapPin className="w-3 h-3 text-white" />
+          <div className="w-4 h-4 bg-signal-green border border-gunmetal flex items-center justify-center">
+            <MapPin className="w-3 h-3 text-titanium" />
           </div>
           <span>Başlangıç</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-red-500 border border-gray-300 flex items-center justify-center">
-            <Target className="w-3 h-3 text-white" />
+          <div className="w-4 h-4 bg-alert-red border border-gunmetal flex items-center justify-center">
+            <Target className="w-3 h-3 text-titanium" />
           </div>
           <span>Hedef</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-gray-800 border border-gray-300"></div>
+          <div className="w-4 h-4 bg-void-black border border-gunmetal"></div>
           <span>Engel</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-blue-200 border border-gray-300"></div>
+          <div className="w-4 h-4 bg-arcly-blue/20 border border-gunmetal"></div>
           <span>Ziyaret Edildi</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-yellow-400 border border-gray-300"></div>
+          <div className="w-4 h-4 bg-arcly-blue/70 border border-gunmetal"></div>
           <span>En Kısa Yol</span>
         </div>
       </div>

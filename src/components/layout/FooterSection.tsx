@@ -13,7 +13,7 @@ interface FooterSectionProps {
 export const FooterSection = ({ section }: FooterSectionProps) => {
   return (
     <div className="space-y-4">
-      <h4 className="text-sm font-semibold text-foreground tracking-wide">
+      <h4 className="text-sm font-semibold text-titanium tracking-wide">
         {section.title}
       </h4>
       <nav className="space-y-3">
@@ -22,8 +22,8 @@ export const FooterSection = ({ section }: FooterSectionProps) => {
             key={link.href}
             href={link.href}
             className={cn(
-              'flex items-center gap-2 text-sm text-muted-foreground',
-              'hover:text-foreground transition-colors duration-200',
+              'flex items-center gap-2 text-sm text-ash',
+              'hover:text-titanium transition-colors duration-200',
               'hover:translate-x-1 transform transition-transform',
               'group'
             )}

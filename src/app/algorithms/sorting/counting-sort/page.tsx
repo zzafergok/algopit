@@ -215,7 +215,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Counting Sort Algoritması
       </h1>
 
@@ -236,7 +236,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Counting Sort algoritmasının farklı programlama dillerindeki
           uygulamaları aşağıda verilmiştir. Her örnek, algoritmanın optimize
           edilmiş versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -282,7 +282,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Counting Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış <strong>pozitif tam sayılar</strong>{' '}
           girin (örn: 5,3,8,4,2). Not: Counting Sort sadece tam sayılarla
@@ -301,7 +301,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Counting Sort, değer aralığı sınırlı tam sayı dizileri için
                 O(n+k) karmaşıklığa sahiptir. Burada k dizideki maksimum
                 değerdir.
@@ -325,21 +325,21 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n+k)
                     </code>{' '}
                     - Burada n giriş dizisinin boyutu, k ise değer aralığı.
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n+k)
                     </code>{' '}
                     - Karmaşıklık, giriş verisinin dağılımından bağımsızdır.
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n+k)
                     </code>{' '}
                     - Diğer algoritmalardan farklı olarak, dizinin durumundan
@@ -351,7 +351,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(n+k)
                   </code>{' '}
                   - Sayaç dizisi (k boyutunda) ve çıktı dizisi (n boyutunda)
@@ -378,7 +378,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -401,7 +401,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -433,7 +433,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
         <h2 className="text-2xl font-bold">
           Counting Sort ve Karşılaştırmalı Algoritmalar
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Counting Sort ile karşılaştırma tabanlı ve karşılaştırma yapmayan
           diğer sıralama algoritmalarının karşılaştırması:
         </p>
@@ -441,7 +441,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-muted">
+              <tr className="bg-obsidian/60">
                 <th className="p-2 text-left">Özellik</th>
                 <th className="p-2 text-left">Counting Sort</th>
                 <th className="p-2 text-left">Quick Sort</th>
@@ -450,42 +450,42 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Karşılaştırma Yapar mı?</td>
                 <td className="p-2">Hayır</td>
                 <td className="p-2">Evet</td>
                 <td className="p-2">Hayır</td>
                 <td className="p-2">Kısmen</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Zaman Karmaşıklığı</td>
                 <td className="p-2">O(n+k)</td>
                 <td className="p-2">O(n log n) (Ortalama)</td>
                 <td className="p-2">O(d(n+k))</td>
                 <td className="p-2">O(n+k)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Alan Karmaşıklığı</td>
                 <td className="p-2">O(n+k)</td>
                 <td className="p-2">O(log n)</td>
                 <td className="p-2">O(n+k)</td>
                 <td className="p-2">O(n+k)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Kararlılık</td>
                 <td className="p-2">Kararlı</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararlı</td>
                 <td className="p-2">Uygulamaya Bağlı</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Veri Kısıtlamaları</td>
                 <td className="p-2">Sınırlı aralıklı tam sayılar</td>
                 <td className="p-2">Yok</td>
                 <td className="p-2">Sabit boyutlu anahtarlar</td>
                 <td className="p-2">Düzgün dağılımlı veriler</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">
                   Tekrarlayan elemanlar için verimlilik
                 </td>
@@ -494,7 +494,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
                 <td className="p-2">Yüksek</td>
                 <td className="p-2">Orta-Yüksek</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Tercih Edilme Durumu</td>
                 <td className="p-2">Küçük tam sayı aralığı</td>
                 <td className="p-2">Genel amaçlı</td>
@@ -505,7 +505,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
           </table>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-sm text-ash mt-2">
           Counting Sort, sınırlı aralıktaki tam sayılar için mükemmel bir
           seçimdir ve lineer zaman karmaşıklığı sunar. Ancak, geniş değer
           aralıkları veya karmaşık veri türleri için uygun değildir. Bu
@@ -516,7 +516,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Counting Sort ile ilişkili veya benzer algoritmalar:
         </p>
 
@@ -526,7 +526,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
               <CardTitle className="text-base">Radix Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Sayıları basamak basamak sıralar ve her basamak için genellikle
                 Counting Sort kullanır. Büyük sayılar için daha verimlidir.
               </p>
@@ -538,7 +538,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
               <CardTitle className="text-base">Bucket Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Veriyi "kovalara" böler ve her kovayı ayrı ayrı sıralar. Veri
                 düzgün dağılımlı olduğunda Counting Sort gibi lineer zaman
                 karmaşıklığı sunar.
@@ -551,7 +551,7 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
               <CardTitle className="text-base">Pigeonhole Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Counting Sort'un bir varyasyonudur. Her değer için tam olarak
                 bir "güvercin yuvası" oluşturur ve elemanları yerleştirir. Değer
                 aralığı ve eleman sayısı yakın olduğunda idealdir.

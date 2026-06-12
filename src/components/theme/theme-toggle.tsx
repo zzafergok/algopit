@@ -16,7 +16,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-9 h-9" />;
+    return <div className="h-9 w-9" />;
   }
 
   return (

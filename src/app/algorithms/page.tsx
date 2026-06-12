@@ -427,13 +427,13 @@ export default function AlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Algoritma Kütüphanesi
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Tüm algoritma kategorilerini keşfedin, interaktif görselleştirmeler ve
           detaylı açıklamalarla algoritmaların nasıl çalıştığını öğrenin.
         </p>
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">Algoritma Seçimi Rehberi</h2>
         <div className="prose dark:prose-invert max-w-none">
           <p>
@@ -488,13 +488,13 @@ export default function AlgorithmsPage() {
             <CardContent>
               <div className="space-y-1">
                 <p className="text-sm font-medium">İçerdiği Algoritmalar:</p>
-                <ul className="list-disc pl-5 text-sm text-muted-foreground">
+                <ul className="list-disc pl-5 text-sm text-ash">
                   {category.algorithms.slice(0, 3).map((algo) => (
                     <li key={algo.slug}>{algo.name}</li>
                   ))}
                   {category.algorithms.length > 3 && (
                     <li>
-                      <span className="text-primary">
+                      <span className="text-arcly-blue">
                         +{category.algorithms.length - 3} daha...
                       </span>
                     </li>
@@ -521,7 +521,7 @@ export default function AlgorithmsPage() {
           Tüm Algoritmalar
         </h2>
 
-        <div className="bg-muted/30 rounded-lg p-6">
+        <div className="bg-obsidian/30 rounded-sm p-6">
           <div className="space-y-10">
             {algorithmCategories.map((category) => (
               <div key={category.slug} className="space-y-4">
@@ -537,7 +537,7 @@ export default function AlgorithmsPage() {
                   {category.algorithms.map((algorithm) => (
                     <Card
                       key={algorithm.slug}
-                      className="overflow-hidden hover:bg-muted/50 transition-colors"
+                      className="overflow-hidden hover:bg-obsidian/50 transition-colors"
                     >
                       <div className="p-4">
                         <div className="flex justify-between items-start mb-2">
@@ -552,7 +552,7 @@ export default function AlgorithmsPage() {
                             </Badge>
                           )}
                         </div>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                        <p className="text-sm text-ash mb-4 line-clamp-2">
                           {algorithm.description}
                         </p>
                         <Button

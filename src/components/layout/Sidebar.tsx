@@ -46,10 +46,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div key={item.href} className="space-y-1">
         <div
           className={cn(
-            'flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors',
+            'flex items-center gap-2 rounded-sm px-3 py-2 text-sm transition-colors',
             'hover:bg-accent hover:text-accent-foreground',
             isActive && 'bg-accent text-accent-foreground font-medium',
-            level > 0 && 'ml-4 border-l border-border pl-4'
+            level > 0 && 'ml-4 border-l border-gunmetal pl-4'
           )}
         >
           <Link
@@ -90,12 +90,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
   return (
     <aside
       className={cn(
-        'flex flex-col border-r border-border bg-background transition-all duration-300',
+        'flex flex-col border-r border-gunmetal bg-void-black transition-all duration-300',
         isCollapsed ? 'w-16' : 'w-64',
         className
       )}
     >
-      <div className="flex items-center justify-between p-4 border-b border-border">
+      <div className="flex items-center justify-between p-4 border-b border-gunmetal">
         {!isCollapsed && (
           <Link href="/" className="font-semibold text-lg">
             AlgoPit
@@ -118,8 +118,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </ScrollArea>
 
       {!isCollapsed && (
-        <div className="p-4 border-t border-border">
-          <p className="text-xs text-muted-foreground">© 2024 AlgoPit</p>
+        <div className="p-4 border-t border-gunmetal">
+          <p className="text-xs text-ash">© 2024 AlgoPit</p>
         </div>
       )}
     </aside>

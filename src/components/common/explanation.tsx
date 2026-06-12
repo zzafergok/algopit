@@ -42,7 +42,7 @@ export function AlgorithmExplanation({
     <div className="algorithm-explanation space-y-6">
       <div className="prose dark:prose-invert max-w-none">
         <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-        <p className="text-muted-foreground text-lg">{description}</p>
+        <p className="text-ash text-lg">{description}</p>
       </div>
 
       <Tabs defaultValue="overview" className="w-full">
@@ -97,7 +97,7 @@ export function AlgorithmExplanation({
                 <div className="space-y-2">
                   <h4 className="font-semibold">En İyi Durum</h4>
                   <div className="text-xl font-mono">{timeComplexity.best}</div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-ash">
                     {getComplexityName(timeComplexity.best).description}
                   </p>
                 </div>
@@ -107,7 +107,7 @@ export function AlgorithmExplanation({
                   <div className="text-xl font-mono">
                     {timeComplexity.average}
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-ash">
                     {getComplexityName(timeComplexity.average).description}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export function AlgorithmExplanation({
                   <div className="text-xl font-mono">
                     {timeComplexity.worst}
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-ash">
                     {getComplexityName(timeComplexity.worst).description}
                   </p>
                 </div>
@@ -136,7 +136,7 @@ export function AlgorithmExplanation({
             <CardContent>
               <div className="space-y-2">
                 <div className="text-xl font-mono">{spaceComplexity}</div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-ash">
                   {getComplexityName(spaceComplexity).description}
                 </p>
               </div>
@@ -153,7 +153,7 @@ export function AlgorithmExplanation({
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <pre className="bg-muted p-4 rounded-md overflow-x-auto">
+              <pre className="bg-obsidian/60 p-4 rounded-sm overflow-x-auto">
                 <code className="text-sm">{pseudocode}</code>
               </pre>
             </CardContent>

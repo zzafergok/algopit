@@ -240,7 +240,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
 
   return (
     <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
         Merge Sort Algoritması
       </h1>
 
@@ -261,7 +261,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Merge Sort algoritmasının farklı programlama dillerindeki uygulamaları
           aşağıda verilmiştir. Her örnek, algoritmanın optimize edilmiş
           versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
@@ -307,7 +307,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıya kendi verilerinizi girerek Merge Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
@@ -325,7 +325,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <span className="font-medium">Sıralanmış Dizi: </span>
                 <span>{JSON.stringify(output)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-ash">
                 Not: Merge Sort her durumda O(n log n) karmaşıklığa sahiptir, bu
                 da büyük veri setleri için tutarlı performans sağlar.
               </p>
@@ -348,7 +348,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <ul className="space-y-2">
                   <li>
                     <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Dizi zaten sıralı olsa bile, bölme ve birleştirme
@@ -356,14 +356,14 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                   </li>
                   <li>
                     <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Her düzeyde n karşılaştırma yapılır ve log n düzey vardır.
                   </li>
                   <li>
                     <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                       O(n log n)
                     </code>{' '}
                     - Bölme ve birleştirme işlemleri dizinin düzeninden
@@ -375,7 +375,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
                 <p>
-                  <code className="text-sm bg-muted px-1 py-0.5 rounded">
+                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
                     O(n)
                   </code>{' '}
                   - Birleştirme işlemi için geçici bir dizi kullanıldığından,
@@ -401,7 +401,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
                   Avantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -428,7 +428,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-2">
+                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
                   Dezavantajlar
                 </h3>
                 <ul className="space-y-2 list-disc pl-5">
@@ -455,7 +455,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Merge Sort Nasıl Çalışır?</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Aşağıda, Merge Sort'un [38, 27, 43, 3, 9, 82, 10] dizisini sıralama
           adımları gösterilmiştir:
         </p>
@@ -470,7 +470,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <h3 className="text-base font-medium mb-2">
                   Başlangıç Dizisi:
                 </h3>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [38, 27, 43, 3, 9, 82, 10]
                 </code>
               </div>
@@ -478,7 +478,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               <div>
                 <h3 className="text-base font-medium mb-2">1. Bölme Adımı:</h3>
                 <p className="text-sm mb-2">Diziyi ortadan ikiye böleriz:</p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [38, 27, 43, 3] ve [9, 82, 10]
                 </code>
               </div>
@@ -486,7 +486,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               <div>
                 <h3 className="text-base font-medium mb-2">2. Bölme Adımı:</h3>
                 <p className="text-sm mb-2">Alt dizileri tekrar böleriz:</p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [38, 27] ve [43, 3] ve [9, 82] ve [10]
                 </code>
               </div>
@@ -496,7 +496,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <p className="text-sm mb-2">
                   Alt dizileri tekrar böleriz (bölünebilen diziler için):
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [38] ve [27] ve [43] ve [3] ve [9] ve [82] ve [10]
                 </code>
                 <p className="text-sm mt-2">
@@ -512,7 +512,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <p className="text-sm mb-2">
                   1 elemanlı alt dizileri sıralı bir şekilde birleştiririz:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [27, 38] ve [3, 43] ve [9, 82] ve [10]
                 </code>
               </div>
@@ -524,7 +524,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <p className="text-sm mb-2">
                   2 elemanlı alt dizileri sıralı bir şekilde birleştiririz:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [3, 27, 38, 43] ve [9, 10, 82]
                 </code>
               </div>
@@ -536,7 +536,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <p className="text-sm mb-2">
                   Kalan iki alt diziyi sıralı bir şekilde birleştiririz:
                 </p>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [3, 9, 10, 27, 38, 43, 82]
                 </code>
               </div>
@@ -545,7 +545,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
                 <h3 className="text-base font-medium mb-2">
                   Sonuç: Tamamen Sıralanmış Dizi
                 </h3>
-                <code className="block bg-muted p-3 rounded-md">
+                <code className="block bg-obsidian/60 p-3 rounded-sm">
                   [3, 9, 10, 27, 38, 43, 82]
                 </code>
               </div>
@@ -556,7 +556,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Merge Sort ve Diğer Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Merge Sort ile diğer popüler sıralama algoritmalarının
           karşılaştırması:
         </p>
@@ -564,7 +564,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-muted">
+              <tr className="bg-obsidian/60">
                 <th className="p-2 text-left">Özellik</th>
                 <th className="p-2 text-left">Merge Sort</th>
                 <th className="p-2 text-left">Quick Sort</th>
@@ -573,56 +573,56 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En İyi Durum</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">En Kötü Durum</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n²)</td>
                 <td className="p-2">O(n log n)</td>
                 <td className="p-2">O(n²)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Alan Karmaşıklığı</td>
                 <td className="p-2">O(n)</td>
                 <td className="p-2">O(log n)</td>
                 <td className="p-2">O(1)</td>
                 <td className="p-2">O(1)</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Kararlılık</td>
                 <td className="p-2">Kararlı</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararsız</td>
                 <td className="p-2">Kararlı</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Önbellek Dostu</td>
                 <td className="p-2">Orta</td>
                 <td className="p-2">Yüksek</td>
                 <td className="p-2">Düşük</td>
                 <td className="p-2">Yüksek</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Uyarlanabilirlik</td>
                 <td className="p-2">Uyarlanabilir değil</td>
                 <td className="p-2">Kısmen</td>
                 <td className="p-2">Uyarlanabilir değil</td>
                 <td className="p-2">Yüksek</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Dış Sıralama</td>
                 <td className="p-2">İdeal</td>
                 <td className="p-2">Uygun değil</td>
                 <td className="p-2">Uygun değil</td>
                 <td className="p-2">Uygun değil</td>
               </tr>
-              <tr className="border-t border-border">
+              <tr className="border-t border-gunmetal">
                 <td className="p-2 font-medium">Tercih Edilme Durumu</td>
                 <td className="p-2">
                   Kararlılık, tutarlı performans gerektiğinde
@@ -635,7 +635,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
           </table>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-sm text-ash mt-2">
           Merge Sort, özellikle kararlılığın önemli olduğu ve her durumda
           güvenilir performans gerektiren uygulamalar için idealdir. Ancak,
           ekstra bellek kullanımı nedeniyle, bellek sınırlı sistemlerde Heap
@@ -645,7 +645,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
 
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-muted-foreground">
+        <p className="text-ash">
           Merge Sort ile ilişkili veya benzer algoritmalar:
         </p>
 
@@ -655,7 +655,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               <CardTitle className="text-base">Timsort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Merge Sort ve Insertion Sort'u birleştiren hibrit bir algoritma.
                 Python, Java ve diğer birçok dilin yerleşik sıralama algoritması
                 olarak kullanılır.
@@ -668,7 +668,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               <CardTitle className="text-base">Natural Merge Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Dizideki doğal olarak sıralı alt dizileri (runs) tespit ederek,
                 bölme adımını optimize eden bir Merge Sort varyasyonu.
               </p>
@@ -680,7 +680,7 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
               <CardTitle className="text-base">Polyphase Merge Sort</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 Dış sıralama için kullanılan bir Merge Sort varyasyonu. Sınırlı
                 sayıda dosya veya teyp kullanarak büyük veri setlerini sıralar.
               </p>

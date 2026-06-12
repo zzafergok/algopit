@@ -33,7 +33,7 @@ export default function SearchingAlgorithmsPage() {
         <h1 className="text-4xl font-bold tracking-tight">
           Arama Algoritmaları
         </h1>
-        <p className="text-xl text-muted-foreground mt-4 max-w-3xl mx-auto">
+        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
           Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı
           bulmak için kullanılan algoritmalardır.
         </p>
@@ -46,7 +46,7 @@ export default function SearchingAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-ash">
                 {algorithm.description}
               </p>
             </CardContent>
@@ -65,7 +65,7 @@ export default function SearchingAlgorithmsPage() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-muted rounded-lg">
+      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
         <h2 className="text-2xl font-bold mb-4">
           Arama Algoritmaları Hakkında
         </h2>
