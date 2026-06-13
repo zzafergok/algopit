@@ -1,8 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 
 import { ArrowLeft, BookOpen } from 'lucide-react';
 
 import { CodeBlock } from '@/components/common/code-block';
+import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -14,7 +17,10 @@ import {
 } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getComplexityName } from '@/lib/utils';
-import { DuplicateAlgorithmContent } from '@/lib/duplicate-algorithms';
+import {
+  type DuplicateAlgorithmContent,
+  duplicateAlgorithmContents,
+} from '@/lib/duplicate-algorithms';
 
 const categoryLabels: Record<string, string> = {
   sorting: 'Sıralama Algoritmaları',
@@ -38,9 +44,17 @@ export function DuplicateAlgorithmPage({
   algorithm,
 }: DuplicateAlgorithmPageProps) {
   const categoryHref = `/algorithms/${algorithm.category}`;
+  const codeExamples = buildCodeExamples(algorithm);
+  const relatedAlgorithms = duplicateAlgorithmContents
+    .filter(
+      (item) =>
+        item.slug !== algorithm.slug &&
+        (item.category === algorithm.category || item.family === algorithm.family)
+    )
+    .slice(0, 3);
 
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto py-12 space-y-12">
       <div className="space-y-5">
         <Button variant="outline" size="sm" asChild>
           <Link href={categoryHref} className="inline-flex items-center gap-2">
@@ -61,8 +75,8 @@ export function DuplicateAlgorithmPage({
           </div>
 
           <div className="max-w-4xl space-y-3">
-            <h1 className="text-4xl font-bold tracking-tight">
-              {algorithm.title}
+            <h1 className="text-4xl font-bold tracking-tight text-center text-arcly-blue">
+              {algorithm.title} Algoritması
             </h1>
             <p className="text-lg text-ash leading-relaxed">
               {algorithm.description}
@@ -71,144 +85,462 @@ export function DuplicateAlgorithmPage({
         </div>
       </div>
 
-      <Card className="border-arcly-blue/20 bg-obsidian/40">
+      <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle>{algorithm.title} Açıklaması</CardTitle>
+          <CardDescription className="flex items-center gap-2 pt-2">
             <BookOpen className="h-5 w-5 text-arcly-blue" />
             PDF Kaynaklarından Sentez
-          </CardTitle>
-          <CardDescription>
-            docs altındaki duplicate algoritma kaynakları birlikte okunarak
-            oluşturulan özet
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-6">
           <p className="leading-relaxed">{algorithm.synthesis}</p>
+
+          <div>
+            <h3 className="mb-3 font-semibold">Çalışma Prensibi</h3>
+            <ol className="list-decimal space-y-2 pl-5">
+              {algorithm.steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
         </CardContent>
       </Card>
 
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="w-full flex-wrap justify-start md:w-auto">
-          <TabsTrigger value="overview">Genel Bakış</TabsTrigger>
-          <TabsTrigger value="complexity">Karmaşıklık</TabsTrigger>
-          <TabsTrigger value="pseudocode">Pseudo Kod</TabsTrigger>
-          <TabsTrigger value="usage">Kullanım</TabsTrigger>
-        </TabsList>
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
+        <p className="text-ash">
+          {algorithm.title} için pseudo koddan türetilmiş örnek uygulama
+          iskeletleri aşağıda verilmiştir. Gerçek projelerde veri modeli ve
+          hata kontrolleri probleme göre özelleştirilmelidir.
+        </p>
 
-        <TabsContent value="overview" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Çalışma Adımları</CardTitle>
-              <CardDescription>
-                Algoritmanın kaynaklardan çıkarılan ortak akışı
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ol className="list-decimal space-y-2 pl-5">
-                {algorithm.steps.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ol>
-            </CardContent>
-          </Card>
+        <Tabs defaultValue="javascript">
+          <TabsList>
+            <TabsTrigger value="javascript">JavaScript</TabsTrigger>
+            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
+            <TabsTrigger value="python">Python</TabsTrigger>
+            <TabsTrigger value="java">Java</TabsTrigger>
+          </TabsList>
+          <TabsContent value="javascript">
+            <CodeBlock
+              code={codeExamples.javascript}
+              language="javascript"
+              title={`${algorithm.title} - JavaScript`}
+            />
+          </TabsContent>
+          <TabsContent value="typescript">
+            <CodeBlock
+              code={codeExamples.typescript}
+              language="typescript"
+              title={`${algorithm.title} - TypeScript`}
+            />
+          </TabsContent>
+          <TabsContent value="python">
+            <CodeBlock
+              code={codeExamples.python}
+              language="python"
+              title={`${algorithm.title} - Python`}
+            />
+          </TabsContent>
+          <TabsContent value="java">
+            <CodeBlock
+              code={codeExamples.java}
+              language="java"
+              title={`${algorithm.title} - Java`}
+            />
+          </TabsContent>
+        </Tabs>
+      </section>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Avantajlar</CardTitle>
-              </CardHeader>
-              <CardContent>
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
+        <p className="text-ash">
+          Aşağıya kendi verilerinizi girerek {algorithm.title} akışını örnek
+          bir demo üzerinde izleyebilirsiniz. Virgülle ayrılmış değerler girin
+          veya JSON dizi formatı kullanın.
+        </p>
+
+        <InteractiveDemo
+          title={`${algorithm.title} Demo`}
+          description="Girilen veri, algoritmanın temel adımlarına göre örnek bir izleme çıktısına dönüştürülür."
+          algorithmFunction={(input) => runGenericDemo(algorithm, input)}
+          inputType="array"
+          inputPlaceholder="5,3,8,4,2"
+          outputFormatter={(output) => (
+            <div className="space-y-3">
+              {!output ? (
+                <span className="text-ash">Henüz çalıştırılmadı</span>
+              ) : (
+                <>
+                  <div>
+                    <span className="font-medium">Yorumlanan Girdi: </span>
+                    <span>{JSON.stringify(output.input)}</span>
+                  </div>
+                  <div>
+                    <span className="font-medium">Demo Sonucu: </span>
+                    <span>{output.result}</span>
+                  </div>
+                  <div>
+                    <span className="font-medium">Karmaşıklık: </span>
+                    <span className="font-mono">{output.complexity}</span>
+                  </div>
+                  <div>
+                    <span className="font-medium">İzlenen Adımlar:</span>
+                    <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-ash">
+                      {output.trace.map((step: string) => (
+                        <li key={step}>{step}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Algoritma Analizi</h2>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Zaman ve Alan Karmaşıklığı</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="space-y-3">
+                <h3 className="font-semibold">Zaman Karmaşıklığı</h3>
+                <p className="text-sm">
+                  <strong>En İyi Durum:</strong>{' '}
+                  <span className="font-mono">{algorithm.timeComplexity.best}</span>
+                </p>
+                <p className="text-sm">
+                  <strong>Ortalama Durum:</strong>{' '}
+                  <span className="font-mono">
+                    {algorithm.timeComplexity.average}
+                  </span>
+                </p>
+                <p className="text-sm">
+                  <strong>En Kötü Durum:</strong>{' '}
+                  <span className="font-mono">{algorithm.timeComplexity.worst}</span>
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-semibold">Alan Karmaşıklığı</h3>
+                <p className="text-sm">
+                  <span className="font-mono">{algorithm.spaceComplexity}</span>{' '}
+                  - {getComplexityName(algorithm.spaceComplexity).description}
+                </p>
+
+                <h3 className="font-semibold">Kullanım Alanları</h3>
+                <ul className="list-disc space-y-1 pl-5 text-sm">
+                  {algorithm.applications.map((application) => (
+                    <li key={application}>{application}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="space-y-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Avantajlar ve Dezavantajlar</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div>
+                <h3 className="mb-3 font-semibold text-green-600">
+                  Avantajlar
+                </h3>
                 <ul className="list-disc space-y-2 pl-5">
                   {algorithm.advantages.map((advantage) => (
                     <li key={advantage}>{advantage}</li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Sınırlamalar</CardTitle>
-              </CardHeader>
-              <CardContent>
+              <div>
+                <h3 className="mb-3 font-semibold text-red-600">
+                  Dezavantajlar
+                </h3>
                 <ul className="list-disc space-y-2 pl-5">
                   {algorithm.disadvantages.map((disadvantage) => (
                     <li key={disadvantage}>{disadvantage}</li>
                   ))}
                 </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
+        <p className="text-ash">
+          Aynı kategori veya aynı problem ailesinde değerlendirilebilecek diğer
+          algoritmalar:
+        </p>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {relatedAlgorithms.map((related) => (
+            <Card key={`${related.category}-${related.slug}`}>
+              <CardHeader>
+                <CardTitle className="text-base">{related.title}</CardTitle>
+                <CardDescription>{related.family}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button asChild variant="ghost" size="sm">
+                  <Link href={`/algorithms/${related.category}/${related.slug}`}>
+                    İncele
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
-          </div>
-        </TabsContent>
+          ))}
+        </div>
+      </section>
 
-        <TabsContent value="complexity" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>Zaman Karmaşıklığı</CardTitle>
-              <CardDescription>
-                Girdi boyutu arttıkça beklenen çalışma süresi
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                {Object.entries(algorithm.timeComplexity).map(
-                  ([label, value]) => (
-                    <div key={label} className="space-y-2">
-                      <h4 className="font-semibold capitalize">{label}</h4>
-                      <div className="font-mono text-xl">{value}</div>
-                      <p className="text-sm text-ash">
-                        {getComplexityName(value).description}
-                      </p>
-                    </div>
-                  )
-                )}
-              </div>
-            </CardContent>
-          </Card>
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold">Pseudo Kod</h2>
+        <Tabs defaultValue="pseudocode" className="w-full">
+          <TabsList className="w-full flex-wrap justify-start md:w-auto">
+            <TabsTrigger value="pseudocode">Pseudo Kod</TabsTrigger>
+            <TabsTrigger value="complexity">Karmaşıklık Detayı</TabsTrigger>
+            <TabsTrigger value="usage">Uygulama Alanları</TabsTrigger>
+          </TabsList>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Alan Karmaşıklığı</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <div className="font-mono text-xl">
-                  {algorithm.spaceComplexity}
+          <TabsContent value="pseudocode">
+            <CodeBlock
+              code={algorithm.pseudocode}
+              language="text"
+              title={`${algorithm.title} pseudo kod`}
+            />
+          </TabsContent>
+
+          <TabsContent value="complexity" className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>Zaman Karmaşıklığı</CardTitle>
+                <CardDescription>
+                  Girdi boyutu arttıkça beklenen çalışma süresi
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                  {Object.entries(algorithm.timeComplexity).map(
+                    ([label, value]) => (
+                      <div key={label} className="space-y-2">
+                        <h4 className="font-semibold capitalize">{label}</h4>
+                        <div className="font-mono text-xl">{value}</div>
+                        <p className="text-sm text-ash">
+                          {getComplexityName(value).description}
+                        </p>
+                      </div>
+                    )
+                  )}
                 </div>
-                <p className="text-sm text-ash">
-                  {getComplexityName(algorithm.spaceComplexity).description}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+              </CardContent>
+            </Card>
+          </TabsContent>
 
-        <TabsContent value="pseudocode">
-          <CodeBlock
-            code={algorithm.pseudocode}
-            language="text"
-            title={`${algorithm.title} pseudo kod`}
-          />
-        </TabsContent>
-
-        <TabsContent value="usage">
-          <Card>
-            <CardHeader>
-              <CardTitle>Uygulama Alanları</CardTitle>
-              <CardDescription>
-                Bu başlığın pratikte görüldüğü yaygın problemler
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc space-y-2 pl-5">
-                {algorithm.applications.map((application) => (
-                  <li key={application}>{application}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+          <TabsContent value="usage">
+            <Card>
+              <CardHeader>
+                <CardTitle>Uygulama Alanları</CardTitle>
+                <CardDescription>
+                  Bu başlığın pratikte görüldüğü yaygın problemler
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc space-y-2 pl-5">
+                  {algorithm.applications.map((application) => (
+                    <li key={application}>{application}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
+      </section>
     </div>
   );
+}
+
+function buildCodeExamples(algorithm: DuplicateAlgorithmContent) {
+  const functionName = toFunctionName(algorithm.title);
+  const indentedPseudocode = algorithm.pseudocode
+    .split('\n')
+    .map((line) => ` * ${line}`)
+    .join('\n');
+
+  return {
+    javascript: `/**
+ * ${algorithm.title} implementation outline
+ *
+${indentedPseudocode}
+ */
+function ${functionName}(input) {
+  // Implement the pseudo code above for your concrete input model.
+  // Keep intermediate states visible while testing.
+  return {
+    input,
+    algorithm: '${algorithm.title}',
+    complexity: '${algorithm.timeComplexity.average}',
+  };
+}`,
+    typescript: `type AlgorithmResult<T> = {
+  input: T;
+  algorithm: string;
+  complexity: string;
+};
+
+/**
+ * ${algorithm.title} implementation outline
+ */
+function ${functionName}<T>(input: T): AlgorithmResult<T> {
+  // Translate the pseudo code into strongly typed domain structures.
+  return {
+    input,
+    algorithm: '${algorithm.title}',
+    complexity: '${algorithm.timeComplexity.average}',
+  };
+}`,
+    python: `def ${toPythonFunctionName(algorithm.title)}(input_data):
+    \"\"\"${algorithm.title} implementation outline.
+
+    Translate the page pseudo code into concrete Python data structures.
+    Expected average complexity: ${algorithm.timeComplexity.average}
+    \"\"\"
+    return {
+        "input": input_data,
+        "algorithm": "${algorithm.title}",
+        "complexity": "${algorithm.timeComplexity.average}",
+    }`,
+    java: `public class ${toClassName(algorithm.title)} {
+    /**
+     * ${algorithm.title} implementation outline.
+     */
+    public static <T> AlgorithmResult<T> run(T input) {
+        return new AlgorithmResult<>(
+            input,
+            "${algorithm.title}",
+            "${algorithm.timeComplexity.average}"
+        );
+    }
+}`,
+  };
+}
+
+function toFunctionName(title: string) {
+  const [first = 'run', ...rest] = title
+    .replace(/[^a-zA-Z0-9 ]/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .map((part) => part.toLowerCase());
+
+  return [first, ...rest.map((part) => part[0].toUpperCase() + part.slice(1))]
+    .join('')
+    .replace(/^[0-9]/, 'run$&');
+}
+
+function toPythonFunctionName(title: string) {
+  return title
+    .replace(/[^a-zA-Z0-9 ]/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .join('_')
+    .toLowerCase()
+    .replace(/^[0-9]/, 'run_');
+}
+
+function toClassName(title: string) {
+  return title
+    .replace(/[^a-zA-Z0-9 ]/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .map((part) => part[0].toUpperCase() + part.slice(1).toLowerCase())
+    .join('')
+    .replace(/^[0-9]/, 'Algorithm$&');
+}
+
+function runGenericDemo(algorithm: DuplicateAlgorithmContent, input: unknown[]) {
+  const values = Array.isArray(input) ? input : [input];
+  const numericValues = values.filter(
+    (value): value is number => typeof value === 'number' && Number.isFinite(value)
+  );
+  const normalizedValues =
+    numericValues.length === values.length && numericValues.length > 0
+      ? numericValues
+      : values.map((value) => String(value));
+
+  const result = buildDemoResult(algorithm, normalizedValues);
+
+  return {
+    input: values,
+    result,
+    complexity: algorithm.timeComplexity.average,
+    trace: algorithm.steps.slice(0, 4),
+  };
+}
+
+function buildDemoResult(
+  algorithm: DuplicateAlgorithmContent,
+  values: Array<number | string>
+) {
+  const title = algorithm.title.toLowerCase();
+  const numbers = values.filter(
+    (value): value is number => typeof value === 'number'
+  );
+
+  if (title.includes('search') && values.length > 0) {
+    const target = values[values.length - 1];
+    const source = values.slice(0, -1);
+    return `"${target}" değeri ${source.length} elemanlık veri içinde aranır.`;
+  }
+
+  if (title.includes('sort') || title.includes('merge')) {
+    return numbers.length === values.length
+      ? JSON.stringify([...numbers].sort((a, b) => a - b))
+      : JSON.stringify([...values].sort());
+  }
+
+  if (title.includes('gcd') && numbers.length >= 2) {
+    return String(numbers.reduce((acc, value) => gcd(acc, value)));
+  }
+
+  if (title.includes('matrix')) {
+    return `${values.length} değer matris girdisi olarak yorumlandı. Boyutlandırma uygulama modeline göre yapılmalıdır.`;
+  }
+
+  if (
+    title.includes('graph') ||
+    title.includes('path') ||
+    title.includes('component') ||
+    title.includes('cycle')
+  ) {
+    return `${values.length} düğüm/kenar etiketi üzerinde graf akışı izlenir.`;
+  }
+
+  if (title.includes('knapsack') && numbers.length > 0) {
+    return `Toplam değer/ağırlık adayı: ${numbers.reduce((sum, value) => sum + value, 0)}`;
+  }
+
+  return `${values.length} girdi öğesi algoritma adımlarıyla işlendi.`;
+}
+
+function gcd(a: number, b: number): number {
+  let x = Math.abs(a);
+  let y = Math.abs(b);
+
+  while (y !== 0) {
+    const next = x % y;
+    x = y;
+    y = next;
+  }
+
+  return x;
 }

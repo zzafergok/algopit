@@ -6,9 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CodeBlock } from '@/components/common/code-block';
 import { AlgorithmExplanation } from '@/components/common/explanation';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 function findSubsetSum(
@@ -516,320 +514,118 @@ public class SubsetSum {
           'İş zamanlama ve kaynak atama problemleri',
           'Algoritma tasarımı ve analiz için eğitim amaçlı örnek problem',
         ]}
-      />
+        codeExamples={implementations}
+        defaultCodeTab="typescript"
+        demoDescription="Subset Sum problemini test etmek için bir sayı dizisi ve hedef toplamı girin. Algoritma, dizideki sayılardan oluşan ve toplamı hedef değere eşit olan tüm olası alt kümeleri bulacaktır."
+        demo={
+          <Card>
+            <CardHeader>
+              <CardTitle>Subset Sum Problemi Demo</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="array-input">
+                      Sayı Dizisi (virgülle ayrılmış)
+                    </Label>
+                    <Input
+                      id="array-input"
+                      value={arrayInput}
+                      onChange={handleArrayInputChange}
+                      placeholder="Örn: 3, 34, 4, 12, 5, 2"
+                      disabled={isRunning}
+                    />
+                  </div>
 
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-ash">
-          Subset Sum problemini test etmek için bir sayı dizisi ve hedef toplamı
-          girin. Algoritma, dizideki sayılardan oluşan ve toplamı hedef değere
-          eşit olan tüm olası alt kümeleri bulacaktır.
-        </p>
+                  <div className="space-y-2">
+                    <Label htmlFor="target-sum-input">Hedef Toplam</Label>
+                    <Input
+                      id="target-sum-input"
+                      value={targetSumInput}
+                      onChange={handleTargetSumInputChange}
+                      placeholder="Örn: 9"
+                      type="number"
+                      disabled={isRunning}
+                    />
+                  </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="array-input">
-                Sayı Dizisi (virgülle ayrılmış)
-              </Label>
-              <Input
-                id="array-input"
-                value={arrayInput}
-                onChange={handleArrayInputChange}
-                placeholder="Örn: 3, 34, 4, 12, 5, 2"
-                disabled={isRunning}
-              />
-            </div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="text-sm font-medium">Algoritma:</span>
+                    <Button
+                      variant={
+                        algorithm === 'backtracking' ? 'default' : 'outline'
+                      }
+                      size="sm"
+                      onClick={() => setAlgorithm('backtracking')}
+                      disabled={isRunning}
+                    >
+                      Geri İzleme
+                    </Button>
+                    <Button
+                      variant={algorithm === 'dp' ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setAlgorithm('dp')}
+                      disabled={isRunning}
+                    >
+                      Dinamik Programlama
+                    </Button>
+                  </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="target-sum-input">Hedef Toplam</Label>
-              <Input
-                id="target-sum-input"
-                value={targetSumInput}
-                onChange={handleTargetSumInputChange}
-                placeholder="Örn: 9"
-                type="number"
-                disabled={isRunning}
-              />
-            </div>
+                  <Button
+                    onClick={handleRunAlgorithm}
+                    disabled={isRunning}
+                    className="w-full"
+                  >
+                    {isRunning ? 'Çalışıyor...' : 'Çalıştır'}
+                  </Button>
 
-            <div className="flex items-center space-x-4">
-              <span className="text-sm font-medium">Algoritma:</span>
-              <div className="flex space-x-2">
-                <Button
-                  variant={algorithm === 'backtracking' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setAlgorithm('backtracking')}
-                  disabled={isRunning}
-                >
-                  Geri İzleme
-                </Button>
-                <Button
-                  variant={algorithm === 'dp' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setAlgorithm('dp')}
-                  disabled={isRunning}
-                >
-                  Dinamik Programlama
-                </Button>
-              </div>
-            </div>
-
-            <Button
-              onClick={handleRunAlgorithm}
-              disabled={isRunning}
-              className="w-full"
-            >
-              {isRunning ? 'Çalışıyor...' : 'Algoritmayı Çalıştır'}
-            </Button>
-
-            <div className="text-sm text-ash mt-2">
-              <p>Algoritma Bilgileri:</p>
-              <ul className="list-disc pl-4 space-y-1">
-                <li>
-                  <span className="font-medium">Geri İzleme:</span> Tüm olası
-                  alt kümeleri bulur, üstel karmaşıklık.
-                </li>
-                <li>
-                  <span className="font-medium">Dinamik Programlama:</span> Daha
-                  verimli, ancak benzer alt kümeler oluşturabilir.
-                </li>
-                <li>Büyük diziler için hesaplama zaman alabilir.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium">Sonuçlar</h3>
-            <Card className="bg-obsidian/50">
-              <CardContent className="pt-6">
-                <div className="flex justify-between mb-4">
-                  <span className="text-sm font-medium">
-                    Bulunan Alt Küme Sayısı:
-                  </span>
-                  <Badge variant="outline">{solutions.length}</Badge>
+                  <p className="text-xs text-ash">
+                    Not: Geri izleme tüm olası alt kümeleri arar; büyük veri
+                    setlerinde çalışma süresi hızlı artabilir.
+                  </p>
                 </div>
 
-                <SubsetSumViewer
-                  array={originalArray}
-                  targetSum={targetSum}
-                  solutions={solutions}
-                  currentSolutionIndex={currentSolutionIndex}
-                  onChangeSolution={setCurrentSolutionIndex}
-                />
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
+                <Card className="bg-obsidian/50">
+                  <CardContent className="pt-6">
+                    <div className="flex justify-between mb-4">
+                      <span className="text-sm font-medium">
+                        Bulunan Alt Küme Sayısı:
+                      </span>
+                      <Badge variant="outline">{solutions.length}</Badge>
+                    </div>
 
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
-          Subset Sum problemi için geri izleme algoritmasının farklı programlama
-          dillerindeki implementasyonları.
-        </p>
-
-        <Tabs defaultValue="typescript">
-          <TabsList>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-            <TabsTrigger value="java">Java</TabsTrigger>
-          </TabsList>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Subset Sum Problemi - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Subset Sum Problemi - Python"
-            />
-          </TabsContent>
-          <TabsContent value="java">
-            <CodeBlock
-              code={implementations.java}
-              language="java"
-              title="Subset Sum Problemi - Java"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Nasıl Çalışır?</h2>
-        <div className="prose dark:prose-invert max-w-none">
-          <p>
-            Subset Sum problemi, bir sayı dizisinden, toplamı belirli bir hedef
-            değere eşit olan bir alt küme bulunup bulunamayacağını belirleyen
-            bir problemdir. Bu problem için iki temel yaklaşım vardır: geri
-            izleme (backtracking) ve dinamik programlama (dynamic programming).
-          </p>
-
-          <h3>Geri İzleme (Backtracking) Yaklaşımı</h3>
-          <p>
-            Geri izleme yaklaşımı, her sayı için iki seçenek olduğunu varsayar:
-            sayı ya alt kümeye dahil edilir ya da edilmez. Bu, tüm olası alt
-            kümeleri araştırmak için sistematik bir yol sağlar.
-          </p>
-
-          <ol>
-            <li>
-              <strong>Deneme:</strong> Bir sayıyı alt kümeye ekle ve alt toplamı
-              güncelle.
-            </li>
-            <li>
-              <strong>Kontrol:</strong> Eğer mevcut toplam hedef değere eşitse,
-              çözümü kaydet.
-            </li>
-            <li>
-              <strong>Budama (Pruning):</strong> Eğer mevcut toplam hedef değeri
-              aşıyorsa, bu dal daha fazla araştırılmaz.
-            </li>
-            <li>
-              <strong>Rekürsif Arama:</strong> Kalan sayılarla alt problemleri
-              çöz.
-            </li>
-            <li>
-              <strong>Geri İzleme:</strong> Mevcut sayıyı alt kümeden çıkar ve
-              başka bir dalı dene.
-            </li>
-          </ol>
-
-          <h3>Dinamik Programlama (Dynamic Programming) Yaklaşımı</h3>
-          <p>
-            Dinamik programlama yaklaşımı, alt problemlerin sonuçlarını
-            saklayarak ve tekrar kullanarak verimliliği artırır. Bu yöntemde,
-            bir boolean tablosu kullanılır:
-          </p>
-
-          <ul>
-            <li>
-              <code>dp[i][j] = true</code> anlamı: i. indekse kadar olan
-              sayıları kullanarak j toplamını oluşturmak mümkün.
-            </li>
-            <li>
-              <code>dp[i][j] = false</code> anlamı: i. indekse kadar olan
-              sayıları kullanarak j toplamını oluşturmak imkansız.
-            </li>
-          </ul>
-
-          <p>1D versiyonu için (uzay optimizasyonu ile):</p>
-
-          <ul>
-            <li>
-              <code>dp[j] = true</code> anlamı: j toplamını oluşturmak mümkün.
-            </li>
-            <li>
-              <code>dp[j] = false</code> anlamı: j toplamını oluşturmak
-              imkansız.
-            </li>
-          </ul>
-
-          <h3>İki Yaklaşımın Karşılaştırması</h3>
-
-          <h4>Geri İzleme:</h4>
-          <ul>
-            <li>
-              <strong>Avantajları:</strong> Tüm olası çözümleri bulabilir, uzay
-              verimliliği daha yüksek.
-            </li>
-            <li>
-              <strong>Dezavantajları:</strong> Üstel zaman karmaşıklığı, büyük
-              diziler için çok yavaş olabilir.
-            </li>
-          </ul>
-
-          <h4>Dinamik Programlama:</h4>
-          <ul>
-            <li>
-              <strong>Avantajları:</strong> Daha iyi zaman verimliliği, büyük
-              diziler için daha pratik.
-            </li>
-            <li>
-              <strong>Dezavantajları:</strong> Daha fazla bellek kullanımı,
-              genellikle sadece çözümün var/yok bilgisini verir (tüm alt
-              kümeleri vermez).
-            </li>
-          </ul>
-
-          <h3>Optimizasyon Teknikleri</h3>
-
-          <p>
-            Subset Sum probleminin çözümünü hızlandırmak için kullanılabilecek
-            bazı teknikler:
-          </p>
-
-          <ul>
-            <li>
-              <strong>Sıralama:</strong> Diziyi sıralamak, erken budama
-              fırsatları yaratabilir, özellikle büyük elemanlar daha erken
-              reddedilebilir.
-            </li>
-            <li>
-              <strong>Tekrarları Eleme:</strong> Tekrar eden elemanları tek
-              seferde işlemek (tekrar eden sayılar için aynı alt problemleri
-              çözmemek).
-            </li>
-            <li>
-              <strong>Meet in the Middle:</strong> Diziyi iki parçaya bölerek,
-              her biri için olası tüm toplamları hesaplamak ve ardından
-              birleştirmek. Bu, 2^(n/2) karmaşıklığına düşürebilir.
-            </li>
-            <li>
-              <strong>Kesme İpuçları:</strong> Eğer toplam hedefi aşarsa hemen
-              buda, eğer kalan elemanların toplamı hedef değeri tamamlamaya
-              yetmiyorsa buda.
-            </li>
-          </ul>
-
-          <h3>Algoritmik Varyasyonlar</h3>
-
-          <p>Subset Sum probleminin birkaç varyasyonu vardır:</p>
-
-          <ul>
-            <li>
-              <strong>Karar Versiyonu:</strong> Sadece böyle bir alt kümenin var
-              olup olmadığını belirler (evet/hayır).
-            </li>
-            <li>
-              <strong>Optimizasyon Versiyonu:</strong> Hedef değeri aşmadan ona
-              en yakın toplamı bulan alt kümeyi belirler.
-            </li>
-            <li>
-              <strong>Sayma Versiyonu:</strong> Hedef toplamı oluşturan alt
-              kümelerin sayısını belirler.
-            </li>
-            <li>
-              <strong>Tüm Çözümler Versiyonu:</strong> Hedef toplamı oluşturan
-              tüm alt kümeleri bulur (bizim uyguladığımız).
-            </li>
-          </ul>
-
-          <h3>Karmaşıklık Özeti</h3>
-
-          <ul>
-            <li>
-              <strong>Geri İzleme Yaklaşımı:</strong>
-              <ul>
-                <li>Zaman Karmaşıklığı: O(2^n)</li>
-                <li>Uzay Karmaşıklığı: O(n) - rekürsif çağrı yığını için</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Dinamik Programlama Yaklaşımı:</strong>
-              <ul>
-                <li>Zaman Karmaşıklığı: O(n * targetSum)</li>
-                <li>Uzay Karmaşıklığı: O(targetSum) - 1D DP tablosu için</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+                    <SubsetSumViewer
+                      array={originalArray}
+                      targetSum={targetSum}
+                      solutions={solutions}
+                      currentSolutionIndex={currentSolutionIndex}
+                      onChangeSolution={setCurrentSolutionIndex}
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+            </CardContent>
+          </Card>
+        }
+        relatedAlgorithms={[
+          {
+            title: 'Knapsack Problem',
+            description:
+              'Hedef değer ve kapasite kısıtlarıyla çalışan yakın bir optimizasyon problemidir.',
+          },
+          {
+            title: 'Partition Problem',
+            description:
+              'Bir dizinin toplamları eşit iki alt kümeye bölünüp bölünemeyeceğini inceler.',
+          },
+          {
+            title: 'Combination Sum',
+            description:
+              'Belirli bir hedef toplamı oluşturan kombinasyonları üretir.',
+          },
+        ]}
+      />
     </div>
   );
 }
