@@ -1,19 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+export default function BfsPage() {
+  const algorithm = getDuplicateAlgorithm('graph-algorithms', 'bfs');
 
-type Props = {};
+  if (!algorithm) {
+    notFound();
+  }
 
-export default function Bfs({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Breadth-First Search (Genişlik Öncelikli Arama)"
-        description="Grafı seviye seviye dolaşan, en kısa yolu bulma ve seviye tabanlı işlemlerde kullanılan, kuyruk veri yapısı ile uygulanan temel graf algoritması."
-        category="graph-algorithms"
-      />
-    </div>
-  );
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

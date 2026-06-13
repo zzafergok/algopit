@@ -1,19 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+export default function DijkstraPage() {
+  const algorithm = getDuplicateAlgorithm('graph-algorithms', 'dijkstra');
 
-type Props = {};
+  if (!algorithm) {
+    notFound();
+  }
 
-export default function Dijkstra({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Dijkstra's Algorithm (Dijkstra Algoritması)"
-        description="Ağırlıklı graflarda bir düğümden diğer tüm düğümlere olan en kısa yolları bulan, öncelikli kuyruk veri yapısını kullanan ve negatif kenar ağırlıklarını desteklemeyen graf algoritması."
-        category="graph-algorithms"
-      />
-    </div>
-  );
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

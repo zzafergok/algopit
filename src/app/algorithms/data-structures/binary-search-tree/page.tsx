@@ -1,19 +1,17 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-type Props = {};
-
-export default function BinarySearchTree({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Binary Search Tree (İkili Arama Ağacı)"
-        description="Her düğümün en fazla iki çocuğa sahip olduğu, hızlı arama, ekleme ve silme işlemlerine olanak tanıyan hiyerarşik veri yapısı."
-        category="data-structures"
-      />
-    </div>
+export default function BinarySearchTreePage() {
+  const algorithm = getDuplicateAlgorithm(
+    'data-structures',
+    'binary-search-tree-operations'
   );
+
+  if (!algorithm) {
+    notFound();
+  }
+
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

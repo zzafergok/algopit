@@ -1,4 +1,19 @@
 import { NavigationConfig } from '@/types/navigation';
+import {
+  DuplicateAlgorithmCategory,
+  getDuplicateAlgorithmsByCategory,
+} from '@/lib/duplicate-algorithms';
+
+const duplicateNavItems = (
+  category: DuplicateAlgorithmCategory,
+  excludedSlugs: string[] = []
+) =>
+  getDuplicateAlgorithmsByCategory(category)
+    .filter((algorithm) => !excludedSlugs.includes(algorithm.slug))
+    .map((algorithm) => ({
+      label: algorithm.title,
+      href: `/algorithms/${category}/${algorithm.slug}`,
+    }));
 
 export const navigationConfig: NavigationConfig = {
   mainNavItems: [
@@ -30,6 +45,7 @@ export const navigationConfig: NavigationConfig = {
             },
             { label: 'Shell Sort', href: '/algorithms/sorting/shell-sort' },
             { label: 'Tim Sort', href: '/algorithms/sorting/tim-sort' },
+            ...duplicateNavItems('sorting', ['merge-sort']),
           ],
         },
         {
@@ -44,6 +60,7 @@ export const navigationConfig: NavigationConfig = {
               label: 'Linear Search',
               href: '/algorithms/searching/linear-search',
             },
+            ...duplicateNavItems('searching', ['binary-search']),
           ],
         },
         {
@@ -67,6 +84,11 @@ export const navigationConfig: NavigationConfig = {
             },
             { label: 'Kruskal', href: '/algorithms/graph-algorithms/kruskal' },
             { label: 'Prim', href: '/algorithms/graph-algorithms/prim' },
+            ...duplicateNavItems('graph-algorithms', [
+              'bfs',
+              'dfs',
+              'dijkstra',
+            ]),
           ],
         },
         {
@@ -92,6 +114,9 @@ export const navigationConfig: NavigationConfig = {
             },
             { label: 'Stack', href: '/algorithms/data-structures/stack' },
             { label: 'Trie', href: '/algorithms/data-structures/trie' },
+            ...duplicateNavItems('data-structures', [
+              'binary-search-tree-operations',
+            ]),
           ],
         },
         {
@@ -110,6 +135,7 @@ export const navigationConfig: NavigationConfig = {
               label: 'Longest Common Subsequence',
               href: '/algorithms/dynamic-programming/longest-common-subsequence',
             },
+            ...duplicateNavItems('dynamic-programming', ['knapsack']),
           ],
         },
         {
@@ -121,6 +147,7 @@ export const navigationConfig: NavigationConfig = {
               label: 'Subset Sum',
               href: '/algorithms/backtracking/subset-sum',
             },
+            ...duplicateNavItems('backtracking'),
           ],
         },
         {
@@ -135,6 +162,10 @@ export const navigationConfig: NavigationConfig = {
               label: 'Huffman Coding',
               href: '/algorithms/greedy-algorithms/huffman-coding',
             },
+            ...duplicateNavItems('greedy-algorithms', [
+              'fractional-knapsack',
+              'huffman-coding',
+            ]),
           ],
         },
         {
@@ -188,6 +219,7 @@ export const navigationConfig: NavigationConfig = {
               label: 'Sieve of Eratosthenes',
               href: '/algorithms/mathematical-algorithms/sieve-of-eratosthenes',
             },
+            ...duplicateNavItems('mathematical-algorithms', ['gcd']),
           ],
         },
         {
@@ -199,6 +231,7 @@ export const navigationConfig: NavigationConfig = {
               label: 'Rabin-Karp',
               href: '/algorithms/string-algorithms/rabin-karp',
             },
+            ...duplicateNavItems('string-algorithms'),
           ],
         },
         {
@@ -213,11 +246,15 @@ export const navigationConfig: NavigationConfig = {
               label: 'Topological Sort',
               href: '/algorithms/advanced-algorithms/topological-sort',
             },
+            ...duplicateNavItems('advanced-algorithms'),
           ],
         },
         {
           label: 'Böl ve Fethet',
           href: '/algorithms/divide-and-conquer',
+          children: [
+            ...duplicateNavItems('divide-and-conquer'),
+          ],
         },
       ],
     },

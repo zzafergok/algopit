@@ -1,19 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+export default function HuffmanCodingPage() {
+  const algorithm = getDuplicateAlgorithm('greedy-algorithms', 'huffman-coding');
 
-type Props = {};
+  if (!algorithm) {
+    notFound();
+  }
 
-export default function HuffmanCoding({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Huffman Coding (Huffman Kodlaması)"
-        description="Karakterlerin frekanslarına göre değişken uzunluklu kodlar atayan, öncelikli kuyruk ve ikili ağaç yapılarını kullanan, veri sıkıştırma için kullanılan verimli bir algoritma."
-        category="greedy-algorithms"
-      />
-    </div>
-  );
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

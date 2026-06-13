@@ -1,19 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+export default function DfsPage() {
+  const algorithm = getDuplicateAlgorithm('graph-algorithms', 'dfs');
 
-type Props = {};
+  if (!algorithm) {
+    notFound();
+  }
 
-export default function Dfs({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Depth-First Search (Derinlik Öncelikli Arama)"
-        description="Grafı derinlemesine dolaşan, bağlantılı bileşenler ve çevrim tespitinde kullanılan, özyinelemeli yapı veya yığın ile uygulanan temel graf algoritması."
-        category="graph-algorithms"
-      />
-    </div>
-  );
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

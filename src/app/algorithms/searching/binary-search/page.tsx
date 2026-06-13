@@ -1,13 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-export default function BinarySearch() {
-  return (
-    <UnderConstruction
-      title="Binary Search (İkili Arama)"
-      description="Sıralı dizilerde, her adımda arama alanını yarıya bölerek logaritmik zamanda arama yapan verimli bir algoritma. Bölme ve fethet yaklaşımının temel örneklerinden biridir."
-      category="searching"
-    />
-  );
+export default function BinarySearchPage() {
+  const algorithm = getDuplicateAlgorithm('searching', 'binary-search');
+
+  if (!algorithm) {
+    notFound();
+  }
+
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

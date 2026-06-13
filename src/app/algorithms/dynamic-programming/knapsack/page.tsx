@@ -1,19 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+export default function KnapsackPage() {
+  const algorithm = getDuplicateAlgorithm('dynamic-programming', 'knapsack');
 
-type Props = {};
+  if (!algorithm) {
+    notFound();
+  }
 
-export default function Knapsack({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Knapsack Problem (Sırt Çantası Problemi)"
-        description="Belirli bir ağırlık kapasitesindeki çantaya, maksimum değere sahip nesneleri yerleştirmeyi amaçlayan, dinamik programlama yaklaşımıyla çözülen optimizasyon problemi."
-        category="dynamic-programming"
-      />
-    </div>
-  );
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }

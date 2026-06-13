@@ -1,19 +1,14 @@
-'use client';
+import { notFound } from 'next/navigation';
 
-import React from 'react';
+import { DuplicateAlgorithmPage } from '@/components/common/duplicate-algorithm-page';
+import { getDuplicateAlgorithm } from '@/lib/duplicate-algorithms';
 
-import { UnderConstruction } from '@/components/common/under-construction';
+export default function GcdPage() {
+  const algorithm = getDuplicateAlgorithm('mathematical-algorithms', 'gcd');
 
-type Props = {};
+  if (!algorithm) {
+    notFound();
+  }
 
-export default function Gcd({}: Props) {
-  return (
-    <div>
-      <UnderConstruction
-        title="Euclidean Algorithm (Öklid Algoritması)"
-        description="İki veya daha fazla sayının en büyük ortak bölenini (EBOB) bulan, bölme ve kalan işlemlerini tekrarlayarak çalışan matematiksel bir algoritma."
-        category="mathematical-algorithms"
-      />
-    </div>
-  );
+  return <DuplicateAlgorithmPage algorithm={algorithm} />;
 }
