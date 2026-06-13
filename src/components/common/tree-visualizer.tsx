@@ -63,7 +63,7 @@ export function TreeVisualizer({
   initialData,
 }: TreeVisualizerProps) {
   const [currentTreeType, setCurrentTreeType] = useState<'trie' | 'segment'>(
-    treeType
+    treeType,
   );
 
   const [trie, setTrie] = useState<Trie>(() => {
@@ -81,7 +81,7 @@ export function TreeVisualizer({
   const [segmentArray, setSegmentArray] = useState<number[]>(() =>
     currentTreeType === 'segment' && initialData
       ? (initialData as number[])
-      : [1, 3, 5, 7, 9, 11]
+      : [1, 3, 5, 7, 9, 11],
   );
   const [segmentTree, setSegmentTree] = useState<any>(null);
   const [queryStart, setQueryStart] = useState<number>(0);
@@ -202,7 +202,7 @@ export function TreeVisualizer({
       const setParentCoordinates = (
         node: TrieVisualizationNode,
         parentX?: number,
-        parentY?: number
+        parentY?: number,
       ) => {
         if (parentX !== undefined && parentY !== undefined) {
           node.parentX = parentX;
@@ -332,7 +332,7 @@ export function TreeVisualizer({
       const setParentCoordinates = (
         node: SegmentTreeVisualizationNode,
         parentX?: number,
-        parentY?: number
+        parentY?: number,
       ) => {
         if (parentX !== undefined && parentY !== undefined) {
           node.parentX = parentX;
@@ -364,7 +364,7 @@ export function TreeVisualizer({
         setTrieWords((prev) => prev.filter((w) => w !== word));
       }
     },
-    [trie]
+    [trie],
   );
 
   const searchInTrie = useCallback(() => {
@@ -385,7 +385,7 @@ export function TreeVisualizer({
       newArray[index] = value;
       setSegmentArray(newArray);
     },
-    [segmentArray]
+    [segmentArray],
   );
 
   const addToSegmentArray = useCallback(() => {
@@ -398,7 +398,7 @@ export function TreeVisualizer({
         setSegmentArray((prev) => prev.filter((_, i) => i !== index));
       }
     },
-    [segmentArray]
+    [segmentArray],
   );
 
   const querySegmentTree = useCallback(() => {
@@ -482,8 +482,8 @@ export function TreeVisualizer({
               x2={node.x}
               y2={node.y}
               stroke="hsl(var(--ash))"
-              strokeWidth="2"
-            />
+              strokeWidth="0.125rem"
+            />,
           );
         }
 
@@ -495,9 +495,17 @@ export function TreeVisualizer({
                 cx={trieNode.x}
                 cy={trieNode.y}
                 r="25"
-                fill={trieNode.isEndOfWord ? 'hsl(var(--signal-green))' : 'hsl(var(--gunmetal) / 0.3)'}
-                stroke={trieNode.isEndOfWord ? 'hsl(var(--signal-green))' : 'hsl(var(--ash))'}
-                strokeWidth="2"
+                fill={
+                  trieNode.isEndOfWord
+                    ? 'hsl(var(--signal-green))'
+                    : 'hsl(var(--gunmetal) / 0.3)'
+                }
+                stroke={
+                  trieNode.isEndOfWord
+                    ? 'hsl(var(--signal-green))'
+                    : 'hsl(var(--ash))'
+                }
+                strokeWidth="0.125rem"
                 className="cursor-pointer hover:opacity-80"
               />
               <text
@@ -529,7 +537,7 @@ export function TreeVisualizer({
                   "{trieNode.word}"
                 </text>
               )}
-            </g>
+            </g>,
           );
         } else {
           const segNode = node as SegmentTreeVisualizationNode;
@@ -540,9 +548,17 @@ export function TreeVisualizer({
                 y={segNode.y - 15}
                 width="70"
                 height="30"
-                fill={segNode.isLeaf ? 'hsl(var(--arcly-blue) / 0.12)' : 'hsl(var(--arcly-blue) / 0.18)'}
-                stroke={segNode.isLeaf ? 'hsl(var(--arcly-blue))' : 'hsl(var(--arcly-blue))'}
-                strokeWidth="2"
+                fill={
+                  segNode.isLeaf
+                    ? 'hsl(var(--arcly-blue) / 0.12)'
+                    : 'hsl(var(--arcly-blue) / 0.18)'
+                }
+                stroke={
+                  segNode.isLeaf
+                    ? 'hsl(var(--arcly-blue))'
+                    : 'hsl(var(--arcly-blue))'
+                }
+                strokeWidth="0.125rem"
                 rx="5"
                 className="cursor-pointer hover:opacity-80"
               />
@@ -564,7 +580,7 @@ export function TreeVisualizer({
                   S:{segNode.sum} Min:{segNode.min} Max:{segNode.max}
                 </text>
               )}
-            </g>
+            </g>,
           );
         }
 
@@ -575,7 +591,7 @@ export function TreeVisualizer({
 
       return elements;
     },
-    [currentTreeType, showLabels, showValues]
+    [currentTreeType, showLabels, showValues],
   );
 
   return (
@@ -695,25 +711,19 @@ export function TreeVisualizer({
                   <div className="text-xl font-bold text-arcly-blue">
                     {trie.getWordCount()}
                   </div>
-                  <div className="text-sm text-ash">
-                    Toplam Kelime
-                  </div>
+                  <div className="text-sm text-ash">Toplam Kelime</div>
                 </div>
                 <div className="text-center">
                   <div className="text-xl font-bold text-arcly-blue">
                     {searchResults.length}
                   </div>
-                  <div className="text-sm text-ash">
-                    Bulunan Sonuç
-                  </div>
+                  <div className="text-sm text-ash">Bulunan Sonuç</div>
                 </div>
                 <div className="text-center">
                   <div className="text-xl font-bold text-arcly-blue">
                     {trie.startsWith(searchTerm) ? 'Evet' : 'Hayır'}
                   </div>
-                  <div className="text-sm text-ash">
-                    Prefix Var mı?
-                  </div>
+                  <div className="text-sm text-ash">Prefix Var mı?</div>
                 </div>
               </div>
             </div>
@@ -837,25 +847,19 @@ export function TreeVisualizer({
                     <div className="text-xl font-bold text-arcly-blue">
                       {segmentArray.length}
                     </div>
-                    <div className="text-sm text-ash">
-                      Dizi Boyutu
-                    </div>
+                    <div className="text-sm text-ash">Dizi Boyutu</div>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold text-arcly-blue">
                       {segmentTree.getHeight()}
                     </div>
-                    <div className="text-sm text-ash">
-                      Ağaç Yüksekliği
-                    </div>
+                    <div className="text-sm text-ash">Ağaç Yüksekliği</div>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold text-arcly-blue">
                       {segmentTree.querySum(0, segmentArray.length - 1)}
                     </div>
-                    <div className="text-sm text-ash">
-                      Toplam Değer
-                    </div>
+                    <div className="text-sm text-ash">Toplam Değer</div>
                   </div>
                 </div>
               )}
@@ -882,7 +886,7 @@ export function TreeVisualizer({
                   d="M 20 0 L 0 0 0 20"
                   fill="none"
                   stroke="hsl(var(--gunmetal) / 0.35)"
-                  strokeWidth="1"
+                  strokeWidth="0.0625rem"
                 />
               </pattern>
             </defs>

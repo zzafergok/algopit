@@ -30,7 +30,7 @@ function euclideanDistance(p1: Point, p2: Point): number {
 
 function calculateClusterDistance(
   clusterA: ClusterNode,
-  clusterB: ClusterNode
+  clusterB: ClusterNode,
 ): number {
   let minDistance = Infinity;
 
@@ -46,7 +46,7 @@ function calculateClusterDistance(
 
 function hierarchicalClustering(
   points: Point[],
-  cutoffDistance: number = Infinity
+  cutoffDistance: number = Infinity,
 ): {
   dendrogram: ClusterNode;
   clusterAssignments: number[];
@@ -96,7 +96,7 @@ function hierarchicalClustering(
     mergedCluster.points.forEach((p) => (p.cluster = mergedCluster.id));
 
     const newClusters = clusters.filter(
-      (_, index) => index !== i && index !== j
+      (_, index) => index !== i && index !== j,
     );
     newClusters.push(mergedCluster);
     clusters = newClusters;
@@ -115,7 +115,7 @@ function hierarchicalClustering(
   for (const cluster of clusters) {
     for (const point of cluster.points) {
       const originalIndex = points.findIndex(
-        (p) => p.x === point.x && p.y === point.y
+        (p) => p.x === point.x && p.y === point.y,
       );
       if (originalIndex !== -1) {
         clusterAssignments[originalIndex] = cluster.id;
@@ -140,7 +140,7 @@ function hierarchicalClustering(
 function generateRandomPoints(
   numPoints: number,
   maxX: number,
-  maxY: number
+  maxY: number,
 ): Point[] {
   const points: Point[] = [];
   for (let i = 0; i < numPoints; i++) {
@@ -158,7 +158,7 @@ function generateClusteredPoints(
   pointsPerCluster: number,
   maxX: number,
   maxY: number,
-  spread: number
+  spread: number,
 ): Point[] {
   const points: Point[] = [];
   const clusterCenters: { x: number; y: number }[] = [];
@@ -230,7 +230,11 @@ const ClusterVisualization: React.FC<{
                   ? colors[point.cluster % colors.length]
                   : 'hsl(var(--gunmetal))'
               }
-              stroke={isHighlighted ? 'hsl(var(--void-black-500))' : 'hsl(var(--titanium))'}
+              stroke={
+                isHighlighted
+                  ? 'hsl(var(--void-black-500))'
+                  : 'hsl(var(--titanium))'
+              }
               strokeWidth={isHighlighted ? 2 : 1}
               opacity={isHighlighted ? 1 : 0.8}
             />
@@ -260,7 +264,7 @@ const DendrogramVisualization: React.FC<{
     node: ClusterNode,
     depth: number,
     x: number,
-    width: number
+    width: number,
   ) {
     const y =
       margin.top +
@@ -310,7 +314,7 @@ const DendrogramVisualization: React.FC<{
     dendrogram,
     0,
     margin.left,
-    horizontalScale - margin.left - margin.right
+    horizontalScale - margin.left - margin.right,
   );
 
   // Renk paleti
@@ -338,7 +342,7 @@ const DendrogramVisualization: React.FC<{
             x2={edge.to.x}
             y2={edge.to.y}
             stroke="hsl(var(--ash))"
-            strokeWidth={1.5}
+            strokeWidth="0.09375rem"
           />
         ))}
 
@@ -354,8 +358,16 @@ const DendrogramVisualization: React.FC<{
               cx={node.x}
               cy={node.y}
               r={node.isLeaf ? 4 : 6}
-              fill={node.isLeaf ? colors[node.id % colors.length] : 'hsl(var(--titanium))'}
-              stroke={hoveredCluster === node.id ? 'hsl(var(--void-black-500))' : 'hsl(var(--ash))'}
+              fill={
+                node.isLeaf
+                  ? colors[node.id % colors.length]
+                  : 'hsl(var(--titanium))'
+              }
+              stroke={
+                hoveredCluster === node.id
+                  ? 'hsl(var(--void-black-500))'
+                  : 'hsl(var(--ash))'
+              }
               strokeWidth={hoveredCluster === node.id ? 2 : 1}
             />
 
@@ -401,7 +413,7 @@ const HierarchicalClusteringSteps: React.FC<{
   const clusters = step.clusters || [];
 
   const allPoints = clusters.flatMap((cluster: ClusterNode) =>
-    cluster.points.map((p: Point) => ({ ...p, cluster: cluster.id }))
+    cluster.points.map((p: Point) => ({ ...p, cluster: cluster.id })),
   );
 
   return (
@@ -796,7 +808,7 @@ export default function HierarchicalClusteringPage() {
         pointsPerCluster,
         width,
         height,
-        50 // Yayılma faktörü
+        50, // Yayılma faktörü
       );
     }
 

@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
+import { UISizeToggle } from '@/components/theme/ui-size-toggle';
 
 import { NavigationItem } from './Navigation/NavigationItem';
 
@@ -42,7 +43,7 @@ export const Navbar = () => {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-200',
         'border-b border-gunmetal bg-void-black/95 backdrop-blur supports-[backdrop-filter]:bg-void-black/85',
-        isScrolled && 'border-arcly-blue/30'
+        isScrolled && 'border-arcly-blue/30',
       )}
     >
       <div className="container flex h-16 items-center justify-between">
@@ -65,6 +66,7 @@ export const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-2">
+          <UISizeToggle />
           <ThemeToggle />
 
           <Button
@@ -74,7 +76,11 @@ export const Navbar = () => {
             onClick={handleMobileMenuToggle}
             aria-label={isMobileMenuOpen ? 'Menüyü kapat' : 'Menüyü aç'}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </Button>
         </div>
       </div>

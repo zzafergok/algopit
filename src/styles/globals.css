@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  --ui-scale: 0.875;
+  font-size: calc(16px * var(--ui-scale));
+}
+
+html[data-ui-size='small'] {
+  --ui-scale: 0.75;
+}
+
+html[data-ui-size='medium'] {
+  --ui-scale: 0.875;
+}
+
+html[data-ui-size='large'] {
+  --ui-scale: 1;
+}
+
 /* Disable default cross-fade so only the custom clip-path animation is visible */
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -271,8 +288,8 @@
 
 /* Minimal Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 0.375rem;
+  height: 0.375rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -285,6 +302,38 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-ash/50;
+}
+
+@layer utilities {
+  .border {
+    border-width: 0.0625rem;
+  }
+
+  .border-x {
+    border-left-width: 0.0625rem;
+    border-right-width: 0.0625rem;
+  }
+
+  .border-y {
+    border-bottom-width: 0.0625rem;
+    border-top-width: 0.0625rem;
+  }
+
+  .border-t {
+    border-top-width: 0.0625rem;
+  }
+
+  .border-r {
+    border-right-width: 0.0625rem;
+  }
+
+  .border-b {
+    border-bottom-width: 0.0625rem;
+  }
+
+  .border-l {
+    border-left-width: 0.0625rem;
+  }
 }
 
 /* Hide Number Input Arrows */

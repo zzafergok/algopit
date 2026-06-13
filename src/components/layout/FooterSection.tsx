@@ -25,7 +25,7 @@ export const FooterSection = ({ section }: FooterSectionProps) => {
               'flex items-center gap-2 text-sm text-ash',
               'hover:text-titanium transition-colors duration-200',
               'hover:translate-x-1 transform transition-transform',
-              'group'
+              'group',
             )}
             {...(link.isExternal && {
               target: '_blank',
@@ -36,10 +36,7 @@ export const FooterSection = ({ section }: FooterSectionProps) => {
               {link.label}
             </span>
             {link.isExternal && (
-              <ExternalLink
-                size={12}
-                className="opacity-60 group-hover:opacity-100 transition-opacity"
-              />
+              <ExternalLink className="h-3 w-3 opacity-60 transition-opacity group-hover:opacity-100" />
             )}
           </Link>
         ))}

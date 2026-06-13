@@ -82,7 +82,7 @@ export const Footer = () => {
                     )}
                     aria-label="GitHub repository'yi ziyaret et"
                   >
-                    <Code2 size={18} />
+                    <Code2 className="h-[1.125rem] w-[1.125rem]" />
                   </Link>
                   <Link
                     href="mailto:gok.zaferr@gmail.com"
@@ -93,7 +93,7 @@ export const Footer = () => {
                     )}
                     aria-label="E-posta ile iletişime geç"
                   >
-                    <Mail size={18} />
+                    <Mail className="h-[1.125rem] w-[1.125rem]" />
                   </Link>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export const Footer = () => {
               </p>
               <span className="hidden sm:inline text-ash/50">•</span>
               <p className="flex items-center gap-1">
-                <Heart size={14} className="text-alert-red" />
+                <Heart className="h-3.5 w-3.5 text-alert-red" />
                 <span>ile Türkiye'de geliştirildi</span>
               </p>
             </div>
@@ -142,7 +142,7 @@ export const Footer = () => {
           onClick={scrollToTop}
           aria-label="Sayfanın başına geri dön"
         >
-          <ArrowUp size={20} className="text-titanium" />
+          <ArrowUp className="h-5 w-5 text-titanium" />
         </Button>
       )}
     </>

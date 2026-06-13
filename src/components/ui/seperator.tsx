@@ -22,11 +22,13 @@ const Separator = React.forwardRef<
       spacing = 'md',
       ...props
     },
-    ref
+    ref,
   ) => {
     const baseClasses = cn(
       'shrink-0 bg-border',
-      orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]'
+      orientation === 'horizontal'
+        ? 'h-[0.0625rem] w-full'
+        : 'h-full w-[0.0625rem]',
     );
 
     const variantClasses = {
@@ -47,8 +49,8 @@ const Separator = React.forwardRef<
     const thicknessClasses =
       variant === 'thick'
         ? orientation === 'horizontal'
-          ? 'h-[2px]'
-          : 'w-[2px]'
+          ? 'h-[0.125rem]'
+          : 'w-[0.125rem]'
         : '';
 
     return (
@@ -61,12 +63,12 @@ const Separator = React.forwardRef<
           variantClasses[variant],
           spacingClasses[spacing],
           thicknessClasses,
-          className
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 
 Separator.displayName = SeparatorPrimitive.Root.displayName;

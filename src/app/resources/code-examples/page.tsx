@@ -143,7 +143,7 @@ const CodeModal = ({ example }: { example: CodeExample }) => {
                 key={codeExample.language}
                 value={codeExample.language}
               >
-                <ScrollArea className="h-[400px] w-full rounded-sm border">
+                <ScrollArea className="h-[25rem] w-full rounded-sm border">
                   <div className="relative">
                     <CopyButton text={codeExample.code} />
                     <pre className="p-4">

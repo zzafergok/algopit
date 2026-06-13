@@ -132,7 +132,7 @@ export default function TopologicalSortPage() {
   });
 
   const [graphInput, setGraphInput] = useState<string>(
-    'A:C,D\nB:D\nC:E\nD:E\nE:'
+    'A:C,D\nB:D\nC:E\nD:E\nE:',
   );
   const [sortResult, setSortResult] = useState<{
     result: string[];
@@ -350,7 +350,7 @@ public class TopologicalSort {
   }, []);
 
   const handleGraphInputChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setGraphInput(e.target.value);
   };
@@ -368,7 +368,7 @@ public class TopologicalSort {
 
         if (!node) {
           throw new Error(
-            "Geçersiz satır formatı. 'Düğüm:Komşu1,Komşu2' formatını kullanın."
+            "Geçersiz satır formatı. 'Düğüm:Komşu1,Komşu2' formatını kullanın.",
           );
         }
 
@@ -458,7 +458,7 @@ public class TopologicalSort {
               id="graphInput"
               value={graphInput}
               onChange={handleGraphInputChange}
-              className="min-h-[200px] p-3 border rounded-sm resize-y bg-card"
+              className="min-h-[12.5rem] resize-y rounded-sm border bg-card p-3"
               placeholder="Örnek:&#10;A:B,C&#10;B:D&#10;C:D&#10;D:"
             />
             <div className="text-xs text-ash">

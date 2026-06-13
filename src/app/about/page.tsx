@@ -250,7 +250,7 @@ export default function AboutPage() {
           Öğrenme Yolu
         </h2>
         <div className="relative mx-auto max-w-5xl">
-          <div className="absolute bottom-3 left-5 top-3 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
+          <div className="absolute bottom-3 left-5 top-3 w-[0.0625rem] bg-border md:left-1/2 md:-translate-x-1/2" />
 
           <div className="space-y-5 sm:space-y-6 md:space-y-8">
             {learningPath.map((item, index) => (
@@ -261,7 +261,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <div className="relative z-10 col-start-1 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-arcly-blue/30 bg-arcly-blue text-sm font-bold text-primary-foreground shadow-[0_0_0_8px_hsl(var(--background))] md:col-start-2 md:mx-auto md:mt-3">
+                <div className="relative z-10 col-start-1 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-arcly-blue/30 bg-arcly-blue text-sm font-bold text-primary-foreground shadow-[0_0_0_0.5rem_hsl(var(--background))] md:col-start-2 md:mx-auto md:mt-3">
                   {item.step}
                 </div>
 
@@ -408,7 +408,7 @@ export default function AboutPage() {
       </section>
 
       <section className="relative overflow-hidden rounded-sm bg-obsidian/30 p-5 text-center sm:p-8">
-        <div className="absolute -top-10 -left-10 text-[150px] opacity-5 font-serif">
+        <div className="absolute -top-10 -left-10 font-serif text-[9.375rem] opacity-5">
           "
         </div>
         <blockquote className="relative z-10 mx-auto max-w-3xl text-base italic leading-relaxed sm:text-xl">

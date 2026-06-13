@@ -66,10 +66,10 @@ export function MSTVisualizer({
   const [selectedStartNode, setSelectedStartNode] = useState<string>('0');
   const [algorithmSteps, setAlgorithmSteps] = useState<AlgorithmStep[]>([]);
   const [graph, setGraph] = useState<Graph>(() =>
-    generateRandomGraph(initialNodeCount)
+    generateRandomGraph(initialNodeCount),
   );
   const [algorithm_type, setAlgorithmType] = useState<'kruskal' | 'prim'>(
-    algorithm
+    algorithm,
   );
 
   const [algorithmStats, setAlgorithmStats] = useState({
@@ -138,7 +138,7 @@ export function MSTVisualizer({
         const existsForward = edges.some(
           (e) =>
             (e.from === from.toString() && e.to === to.toString()) ||
-            (e.from === to.toString() && e.to === from.toString())
+            (e.from === to.toString() && e.to === from.toString()),
         );
 
         if (!existsForward) {
@@ -298,7 +298,7 @@ export function MSTVisualizer({
       const isMSTEdge = mstEdges.some(
         (e) =>
           (e.from === edge.from && e.to === edge.to) ||
-          (e.from === edge.to && e.to === edge.from)
+          (e.from === edge.to && e.to === edge.from),
       );
 
       const currentStepEdge =
@@ -327,7 +327,7 @@ export function MSTVisualizer({
 
       return 'stroke-gunmetal stroke-2';
     },
-    [mstEdges, currentStep, algorithmSteps]
+    [mstEdges, currentStep, algorithmSteps],
   );
 
   const getNodeStyle = useCallback(
@@ -342,7 +342,7 @@ export function MSTVisualizer({
         }
 
         const isConnected = mstEdges.some(
-          (edge) => edge.from === nodeId || edge.to === nodeId
+          (edge) => edge.from === nodeId || edge.to === nodeId,
         );
 
         if (isConnected) {
@@ -352,7 +352,7 @@ export function MSTVisualizer({
 
       return baseClasses;
     },
-    [algorithm_type, selectedStartNode, mstEdges]
+    [algorithm_type, selectedStartNode, mstEdges],
   );
 
   const getEdgePath = useCallback(
@@ -364,7 +364,7 @@ export function MSTVisualizer({
 
       return `M ${fromNode.x} ${fromNode.y} L ${toNode.x} ${toNode.y}`;
     },
-    [graph.nodes]
+    [graph.nodes],
   );
 
   const getEdgeMidpoint = useCallback(
@@ -379,7 +379,7 @@ export function MSTVisualizer({
         y: (fromNode.y + toNode.y) / 2,
       };
     },
-    [graph.nodes]
+    [graph.nodes],
   );
 
   return (
@@ -520,33 +520,25 @@ export function MSTVisualizer({
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.totalEdges}
                 </div>
-                <div className="text-sm text-ash">
-                  Toplam Kenar
-                </div>
+                <div className="text-sm text-ash">Toplam Kenar</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.edgesConsidered}
                 </div>
-                <div className="text-sm text-ash">
-                  İncelenen Kenar
-                </div>
+                <div className="text-sm text-ash">İncelenen Kenar</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.finalMSTWeight}
                 </div>
-                <div className="text-sm text-ash">
-                  MST Toplam Ağırlığı
-                </div>
+                <div className="text-sm text-ash">MST Toplam Ağırlığı</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.executionTime.toFixed(2)}ms
                 </div>
-                <div className="text-sm text-ash">
-                  Çalışma Süresi
-                </div>
+                <div className="text-sm text-ash">Çalışma Süresi</div>
               </div>
             </div>
           )}
@@ -582,7 +574,7 @@ export function MSTVisualizer({
                         algorithmSteps[currentStep].action === 'reject' &&
                           'bg-alert-red/15 text-alert-red',
                         algorithmSteps[currentStep].action === 'consider' &&
-                          'bg-arcly-blue/10 text-arcly-blue'
+                          'bg-arcly-blue/10 text-arcly-blue',
                       )}
                     >
                       {algorithmSteps[currentStep].action === 'add' &&
@@ -628,7 +620,7 @@ export function MSTVisualizer({
                   d="M 20 0 L 0 0 0 20"
                   fill="none"
                   stroke="hsl(var(--gunmetal) / 0.35)"
-                  strokeWidth="1"
+                  strokeWidth="0.0625rem"
                 />
               </pattern>
             </defs>
@@ -653,7 +645,7 @@ export function MSTVisualizer({
                           r="12"
                           fill="white"
                           stroke="hsl(var(--ash))"
-                          strokeWidth="1"
+                          strokeWidth="0.0625rem"
                         />
                         <text
                           x={midpoint.x}
@@ -808,7 +800,9 @@ export function MSTVisualizer({
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div>
-              <span className="font-medium text-signal-green">MST Kenarları:</span>
+              <span className="font-medium text-signal-green">
+                MST Kenarları:
+              </span>
               <div className="mt-1">
                 {mstEdges.map((edge, index) => (
                   <div key={index} className="text-signal-green">
@@ -826,7 +820,9 @@ export function MSTVisualizer({
               </div>
             </div>
             <div>
-              <span className="font-medium text-signal-green">İstatistikler:</span>
+              <span className="font-medium text-signal-green">
+                İstatistikler:
+              </span>
               <div className="text-signal-green">
                 <div>
                   {nodeCount} düğüm, {mstEdges.length} kenar

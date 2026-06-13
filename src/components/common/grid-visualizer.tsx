@@ -48,18 +48,18 @@ export function GridVisualizer({
   const [gridWidth, setGridWidth] = useState(initialWidth);
   const [gridHeight, setGridHeight] = useState(initialHeight);
   const [graph, setGraph] = useState<Graph>(() =>
-    createGridGraph(initialWidth, initialHeight)
+    createGridGraph(initialWidth, initialHeight),
   );
   const [startNode, setStartNode] = useState<string>('2-2');
   const [goalNode, setGoalNode] = useState<string>(
-    `${initialWidth - 3}-${initialHeight - 3}`
+    `${initialWidth - 3}-${initialHeight - 3}`,
   );
 
   const [algorithmState, setAlgorithmState] = useState<AlgorithmState>('idle');
   const [cellMode, setCellMode] = useState<CellMode>('obstacle');
   const [animationSpeed, setAnimationSpeed] = useState<number>(50);
   const [heuristicType, setHeuristicType] = useState<'manhattan' | 'euclidean'>(
-    'manhattan'
+    'manhattan',
   );
   const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
 
@@ -144,7 +144,7 @@ export function GridVisualizer({
 
       setGraph(newGraph);
     },
-    [graph, cellMode, startNode, goalNode, algorithmState]
+    [graph, cellMode, startNode, goalNode, algorithmState],
   );
 
   const handleCellMouseEnter = useCallback(
@@ -155,7 +155,7 @@ export function GridVisualizer({
         handleCellClick(nodeId);
       }
     },
-    [isMouseDown, cellMode, handleCellClick, algorithmState]
+    [isMouseDown, cellMode, handleCellClick, algorithmState],
   );
 
   const runAlgorithm = useCallback(async () => {
@@ -187,7 +187,7 @@ export function GridVisualizer({
 
         setCurrentStep(i + 1);
         await new Promise((resolve) =>
-          setTimeout(resolve, 101 - animationSpeed)
+          setTimeout(resolve, 101 - animationSpeed),
         );
       }
     }
@@ -232,7 +232,7 @@ export function GridVisualizer({
 
       return cn(baseClasses, 'bg-card hover:bg-gunmetal/20');
     },
-    [startNode, goalNode, algorithmState, currentStep, visitedNodes]
+    [startNode, goalNode, algorithmState, currentStep, visitedNodes],
   );
 
   const getCellIcon = useCallback(
@@ -251,7 +251,7 @@ export function GridVisualizer({
 
       return null;
     },
-    [startNode, goalNode]
+    [startNode, goalNode],
   );
 
   const generateMaze = useCallback(() => {
@@ -414,25 +414,19 @@ export function GridVisualizer({
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.pathLength}
                 </div>
-                <div className="text-sm text-ash">
-                  Yol Uzunluğu
-                </div>
+                <div className="text-sm text-ash">Yol Uzunluğu</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.nodesVisited}
                 </div>
-                <div className="text-sm text-ash">
-                  Ziyaret Edilen Düğüm
-                </div>
+                <div className="text-sm text-ash">Ziyaret Edilen Düğüm</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.executionTime.toFixed(2)}ms
                 </div>
-                <div className="text-sm text-ash">
-                  Çalışma Süresi
-                </div>
+                <div className="text-sm text-ash">Çalışma Süresi</div>
               </div>
             </div>
           )}
@@ -445,7 +439,7 @@ export function GridVisualizer({
           style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${gridWidth}, 1fr)`,
-            gap: '1px',
+            gap: '0.0625rem',
           }}
           onMouseLeave={() => setIsMouseDown(false)}
         >
@@ -471,7 +465,7 @@ export function GridVisualizer({
                   </div>
                 </div>
               );
-            })
+            }),
           )}
         </div>
       </div>

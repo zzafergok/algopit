@@ -20,7 +20,7 @@ interface Point {
 function kMeansAlgorithm(
   points: Point[],
   k: number,
-  maxIterations: number = 100
+  maxIterations: number = 100,
 ): { points: Point[]; centroids: Point[]; iterations: number; steps: any[] } {
   if (points.length < k) {
     throw new Error('Nokta sayısı küme sayısından az olamaz.');
@@ -96,7 +96,7 @@ function assignPointsToClusters(points: Point[], centroids: Point[]): void {
 function updateCentroids(
   points: Point[],
   centroids: Point[],
-  k: number
+  k: number,
 ): boolean {
   let hasUpdated = false;
 
@@ -127,7 +127,7 @@ function euclideanDistance(p1: Point, p2: Point): number {
 function generateRandomPoints(
   numPoints: number,
   maxX: number,
-  maxY: number
+  maxY: number,
 ): Point[] {
   const points: Point[] = [];
   for (let i = 0.0; i < numPoints; i++) {
@@ -145,7 +145,7 @@ function generateClusteredPoints(
   pointsPerCluster: number,
   maxX: number,
   maxY: number,
-  spread: number
+  spread: number,
 ): Point[] {
   const points: Point[] = [];
   const clusterCenters: { x: number; y: number }[] = [];
@@ -206,7 +206,7 @@ const ClusterVisualization: React.FC<{
                 : 'hsl(var(--gunmetal))'
             }
             stroke="hsl(var(--titanium))"
-            strokeWidth={1}
+            strokeWidth="0.0625rem"
           />
         ))}
 
@@ -218,7 +218,7 @@ const ClusterVisualization: React.FC<{
               r={8}
               fill={colors[index % colors.length]}
               stroke="hsl(var(--void-black-500))"
-              strokeWidth={2}
+              strokeWidth="0.125rem"
             />
             <text
               x={centroid.x}
@@ -732,14 +732,14 @@ public class KMeans {
         pointsPerCluster,
         width,
         height,
-        50
+        50,
       );
 
       if (remainingPoints > 0) {
         const extraPoints = generateRandomPoints(
           remainingPoints,
           width,
-          height
+          height,
         );
         newPoints = [...newPoints, ...extraPoints];
       }
@@ -781,7 +781,7 @@ public class KMeans {
           alert(
             error instanceof Error
               ? error.message
-              : 'Algoritma çalıştırma hatası!'
+              : 'Algoritma çalıştırma hatası!',
           );
         } finally {
           setIsRunning(false);

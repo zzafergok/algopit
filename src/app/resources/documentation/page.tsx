@@ -399,10 +399,7 @@ export default function DocumentationPage() {
         </p>
 
         <div className="relative mt-6">
-          <Search
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-ash"
-            size={18}
-          />
+          <Search className="absolute left-3 top-1/2 h-[1.125rem] w-[1.125rem] -translate-y-1/2 transform text-ash" />
           <Input
             className="pl-10"
             placeholder="Belgelerde ara..."
