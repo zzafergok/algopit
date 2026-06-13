@@ -124,20 +124,20 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="space-y-16 max-w-5xl mx-auto py-8">
-      <section className="text-center space-y-6">
+    <div className="mx-auto max-w-6xl space-y-12 py-4 sm:space-y-14 sm:py-6 lg:space-y-16 lg:py-8">
+      <section className="space-y-5 text-center sm:space-y-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             <span className="text-arcly-blue">AlgoPit</span> Nedir?
           </h1>
         </motion.div>
 
         <motion.p
-          className="text-xl text-ash max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl text-base leading-relaxed text-ash sm:text-lg md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -148,30 +148,30 @@ export default function AboutPage() {
         </motion.p>
 
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-8"
+          className="mx-auto grid max-w-3xl grid-cols-2 gap-3 pt-4 sm:gap-4 sm:pt-6 md:grid-cols-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           {platformStats.map((stat) => (
             <Card key={stat.label} className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-arcly-blue">
+              <CardContent className="p-4 sm:p-6">
+                <div className="text-2xl font-bold text-arcly-blue sm:text-3xl">
                   {stat.value}
                 </div>
-                <div className="text-ash">{stat.label}</div>
+                <div className="text-xs text-ash sm:text-sm">{stat.label}</div>
               </CardContent>
             </Card>
           ))}
         </motion.div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-4 sm:space-y-6">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Misyonumuz
         </h2>
         <div className="prose dark:prose-invert max-w-none">
-          <p className="text-lg leading-relaxed text-center">
+          <p className="mx-auto max-w-4xl text-center text-base leading-relaxed sm:text-lg">
             Algoritmaları ve veri yapılarını herkesin kolayca öğrenebileceği,
             anlayabileceği ve uygulayabileceği bir ortam oluşturmak. Karmaşık
             kavramları, görsel açıklamalar ve interaktif örneklerle basit hale
@@ -181,11 +181,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-4 sm:space-y-6">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Nasıl Çalışır?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           {howItWorks.map((item, index) => (
             <motion.div
               key={index}
@@ -194,16 +194,18 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="h-full">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <div className="p-2 rounded-sm bg-arcly-blue/10 text-arcly-blue">
+                <CardHeader className="p-4 pb-2 sm:p-6 sm:pb-3">
+                  <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
+                    <div className="rounded-sm bg-arcly-blue/10 p-2 text-arcly-blue">
                       {item.icon}
                     </div>
                     {item.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-ash">{item.description}</p>
+                <CardContent className="p-4 pt-2 sm:p-6 sm:pt-3">
+                  <p className="text-sm leading-relaxed text-ash sm:text-base">
+                    {item.description}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -211,11 +213,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-4 sm:space-y-6">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Platform Özellikleri
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           {platformFeatures.map((feature, index) => (
             <motion.div
               key={index}
@@ -224,16 +226,18 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="h-full">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <div className="p-2 rounded-sm bg-arcly-blue/10 text-arcly-blue">
+                <CardHeader className="p-4 pb-2 sm:p-6 sm:pb-3">
+                  <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
+                    <div className="rounded-sm bg-arcly-blue/10 p-2 text-arcly-blue">
                       {feature.icon}
                     </div>
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-ash">{feature.description}</p>
+                <CardContent className="p-4 pt-2 sm:p-6 sm:pt-3">
+                  <p className="text-sm leading-relaxed text-ash sm:text-base">
+                    {feature.description}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -241,52 +245,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-5 sm:space-y-6">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Öğrenme Yolu
         </h2>
-        <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2" />
+        <div className="relative mx-auto max-w-5xl">
+          <div className="absolute bottom-3 left-5 top-3 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
 
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-6 md:space-y-8">
             {learningPath.map((item, index) => (
               <motion.div
                 key={item.step}
-                className="relative"
+                className="relative grid grid-cols-[2.5rem_minmax(0,1fr)] items-start gap-4 md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] md:gap-6"
                 initial={{ opacity: 0, x: index % 2 ? 20 : -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
+                <div className="relative z-10 col-start-1 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-arcly-blue/30 bg-arcly-blue text-sm font-bold text-primary-foreground shadow-[0_0_0_8px_hsl(var(--background))] md:col-start-2 md:mx-auto md:mt-3">
+                  {item.step}
+                </div>
+
                 <div
-                  className={`flex flex-col md:flex-row items-center gap-4 ${
-                    index % 2 ? 'md:flex-row-reverse' : ''
+                  className={`col-start-2 row-start-1 min-w-0 ${
+                    index % 2
+                      ? 'md:col-start-3 md:text-left'
+                      : 'md:col-start-1 md:text-right'
                   }`}
                 >
-                  <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-arcly-blue text-arcly-blue-foreground rounded-full flex items-center justify-center font-bold">
-                    {item.step}
-                  </div>
-
-                  <div
-                    className={`flex-1 ml-12 md:ml-0 ${index % 2 ? 'md:text-right' : 'md:text-left'}`}
-                  >
-                    <Card className="inline-block">
-                      <CardContent className="p-4">
-                        <div
-                          className={`flex items-center gap-3 ${index % 2 ? 'md:flex-row-reverse' : ''}`}
-                        >
-                          <div className="p-2 rounded-sm bg-arcly-blue/10 text-arcly-blue">
-                            {item.icon}
-                          </div>
-                          <div>
-                            <h3 className="font-semibold">{item.title}</h3>
-                            <p className="text-sm text-ash">
-                              {item.description}
-                            </p>
-                          </div>
+                  <Card className="w-full border-gunmetal/40 bg-card/80">
+                    <CardContent className="p-4 sm:p-5">
+                      <div
+                        className={`flex items-start gap-3 ${
+                          index % 2 ? '' : 'md:flex-row-reverse'
+                        }`}
+                      >
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-sm bg-arcly-blue/10 text-arcly-blue">
+                          {item.icon}
                         </div>
-                      </CardContent>
-                    </Card>
-                  </div>
+                        <div className="min-w-0">
+                          <h3 className="font-semibold leading-tight">
+                            {item.title}
+                          </h3>
+                          <p className="mt-1 text-sm leading-relaxed text-ash">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               </motion.div>
             ))}
@@ -294,11 +300,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-4 sm:space-y-6">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Kullanılan Teknolojiler
         </h2>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
           {[
             'Next.js',
             'React',
@@ -310,7 +316,7 @@ export default function AboutPage() {
             <Badge
               key={tech}
               variant="secondary"
-              className="text-base px-4 py-2"
+              className="px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base"
             >
               {tech}
             </Badge>
@@ -318,16 +324,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6 bg-obsidian/30 rounded-sm p-8">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-5 rounded-sm bg-obsidian/30 p-5 sm:space-y-6 sm:p-8">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Katkıda Bulunun
         </h2>
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <p className="text-lg">
+        <div className="mx-auto max-w-3xl space-y-4 text-center">
+          <p className="text-base leading-relaxed sm:text-lg">
             AlgoPit açık kaynak bir projedir. Her türlü katkı ve önerilerinizi
             memnuniyetle karşılıyoruz.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
             <Button asChild>
               <Link
                 href="https://github.com/zzafergok/algopit"
@@ -358,31 +364,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h2 className="text-3xl font-bold tracking-tight text-center">
+      <section className="space-y-4 sm:space-y-6">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           Gelecek Hedeflerimiz
         </h2>
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl">
           <ul className="space-y-3">
             {futureGoals.map((goal, index) => (
               <motion.li
                 key={index}
-                className="flex items-center gap-3 p-3 rounded-sm bg-obsidian/30"
+                className="flex items-start gap-3 rounded-sm bg-obsidian/30 p-3"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Sparkles className="h-5 w-5 text-arcly-blue flex-shrink-0" />
-                <span>{goal}</span>
+                <span className="leading-relaxed">{goal}</span>
               </motion.li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="space-y-6 text-center">
-        <h2 className="text-3xl font-bold tracking-tight">İletişim</h2>
-        <p className="text-lg max-w-2xl mx-auto">
+      <section className="space-y-5 text-center sm:space-y-6">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          İletişim
+        </h2>
+        <p className="mx-auto max-w-2xl text-base leading-relaxed sm:text-lg">
           Platform hakkında sorularınız, önerileriniz veya geri bildirimleriniz
           için bizimle iletişime geçebilirsiniz.
         </p>
@@ -399,11 +407,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative p-8 bg-obsidian/30 rounded-sm overflow-hidden text-center">
+      <section className="relative overflow-hidden rounded-sm bg-obsidian/30 p-5 text-center sm:p-8">
         <div className="absolute -top-10 -left-10 text-[150px] opacity-5 font-serif">
           "
         </div>
-        <blockquote className="relative z-10 text-xl italic max-w-3xl mx-auto">
+        <blockquote className="relative z-10 mx-auto max-w-3xl text-base italic leading-relaxed sm:text-xl">
           Herhangi bir aptal, bir bilgisayarın anlayabileceği kod yazabilir. İyi
           programcılar, insanların anlayabileceği kod yazar.
           <span className="block mt-4 font-semibold text-arcly-blue">
