@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Disable default cross-fade so only the custom clip-path animation is visible */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 @layer base {
   :root {
+    /* -- Light Mode Semantic Variables -- */
     --background: 38 30% 96%;
     --foreground: 20 15% 10%;
     --card: 36 20% 91%;
@@ -26,6 +34,7 @@
     --ring: 240 100% 62%;
     --radius: 0.5rem;
 
+    /* Algorithms compatibility aliases */
     --success: 145 63.4% 35%;
     --warning: 43 100% 45%;
     --error: 0 78.7% 48%;
@@ -43,12 +52,15 @@
     --neutral-900: 0 0% 9%;
     --neutral-950: 0 0% 4%;
 
+    /* -- Light Mode: Brutalist Palette DEFAULT Overrides -- */
+    /* Numbered scales remain fixed absolute values; DEFAULTs shift with theme */
     --void-black: 38 30% 96%;
     --obsidian: 36 20% 91%;
     --gunmetal: 30 12% 80%;
     --titanium: 20 15% 10%;
     --ash: 24 8% 42%;
 
+    /* -- Fixed Brutalist Palette Scales (absolute values, no theme shift) -- */
     --void-black-50: 0 0% 97%;
     --void-black-100: 0 0% 94%;
     --void-black-200: 0 0% 86%;
@@ -148,13 +160,65 @@
     --alert-red-950: 0 78.7% 9.5%;
     --alert-red: 0 78.7% 48%;
 
+    /* linen (warm off-white, main light background) */
+    --linen-50: 40 40% 99%;
+    --linen-100: 40 35% 97%;
+    --linen-200: 38 32% 94%;
+    --linen-300: 38 28% 89%;
+    --linen-400: 38 22% 83%;
+    --linen-500: 36 18% 75%;
+    --linen-600: 33 14% 62%;
+    --linen-700: 28 10% 47%;
+    --linen-800: 22 8% 31%;
+    --linen-900: 18 7% 17%;
+    --linen-950: 16 6% 9%;
     --linen: 38 30% 96%;
+
+    /* parchment (warm card surface) */
+    --parchment-50: 38 35% 98%;
+    --parchment-100: 36 28% 95%;
+    --parchment-200: 36 22% 91%;
+    --parchment-300: 35 18% 86%;
+    --parchment-400: 33 15% 79%;
+    --parchment-500: 30 12% 70%;
+    --parchment-600: 27 10% 57%;
+    --parchment-700: 23 8% 43%;
+    --parchment-800: 18 6% 29%;
+    --parchment-900: 14 5% 16%;
+    --parchment-950: 12 4% 8%;
     --parchment: 36 20% 91%;
+
+    /* sandstone (warm border/divider) */
+    --sandstone-50: 35 25% 97%;
+    --sandstone-100: 34 20% 93%;
+    --sandstone-200: 33 16% 87%;
+    --sandstone-300: 32 13% 80%;
+    --sandstone-400: 30 11% 71%;
+    --sandstone-500: 28 9% 60%;
+    --sandstone-600: 25 7% 48%;
+    --sandstone-700: 22 6% 36%;
+    --sandstone-800: 18 5% 24%;
+    --sandstone-900: 14 4% 13%;
+    --sandstone-950: 12 3% 7%;
     --sandstone: 30 12% 80%;
+
+    /* ink (dark warm text) */
+    --ink-50: 22 15% 97%;
+    --ink-100: 22 13% 93%;
+    --ink-200: 21 12% 85%;
+    --ink-300: 20 12% 72%;
+    --ink-400: 20 13% 55%;
+    --ink-500: 20 14% 38%;
+    --ink-600: 20 15% 27%;
+    --ink-700: 20 15% 18%;
+    --ink-800: 19 15% 12%;
+    --ink-900: 18 14% 7%;
+    --ink-950: 17 13% 4%;
     --ink: 20 15% 10%;
   }
 
   .dark {
+    /* -- Dark Mode Semantic Variables -- */
     --background: 210 26% 6%;
     --foreground: 0 0% 98%;
     --card: 210 26% 6%;
@@ -176,28 +240,62 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
 
+    /* -- Dark Mode: Brutalist Palette DEFAULT Overrides -- */
     --void-black: 0 0% 2%;
     --obsidian: 240 6.2% 6.3%;
     --gunmetal: 240 4.5% 17.3%;
     --titanium: 0 0% 88.6%;
     --ash: 240 2.3% 42.9%;
+
+    /* -- Dark Mode: Brand Color Overrides -- */
     --arcly-blue: 240 100% 68.2%;
     --signal-green: 145 63.4% 41.8%;
     --alert-red: 0 78.7% 63.1%;
+
+    /* Algorithms compatibility aliases */
     --success: 145 63.4% 41.8%;
     --warning: 43 100% 55%;
     --error: 0 78.7% 63.1%;
     --info: 240 100% 68.2%;
   }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-arcly-blue/20;
+  }
 }
 
-@layer base {
-  * {
-    @apply border-gunmetal;
-  }
-  body {
-    @apply bg-void-black font-mono text-sm text-titanium antialiased selection:bg-arcly-blue/20;
-  }
+/* Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gunmetal/60 rounded-full transition-colors;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ash/50;
+}
+
+/* Hide Number Input Arrows */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 /* Algoritma animasyonları için stiller */

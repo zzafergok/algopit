@@ -30,20 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="tr"
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="tr" suppressHydrationWarning>
       <body
-        className="flex min-h-screen flex-col bg-void-black font-mono text-sm text-titanium antialiased"
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} flex min-h-screen flex-col bg-void-black font-mono text-sm text-titanium antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <Navbar />
           <main className="flex-1 container mx-auto py-8 px-4">{children}</main>
           <Footer />
