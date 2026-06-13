@@ -210,7 +210,8 @@ export default function CodeExamplesPage() {
     { id: 'math', name: 'Matematik', icon: <BarChart3 className="h-4 w-4" /> },
   ];
 
-  const codeExamples: CodeExample[] = [
+  const codeExamples = useMemo<CodeExample[]>(
+    () => [
     {
       id: '1',
       title: 'Bubble Sort Implementasyonu',
@@ -557,7 +558,7 @@ public class Fibonacci {
     ...Array.from({ length: 8 }, (_, index) => ({
       ...[
         {
-          id: '3',
+          id: '4',
           title: 'Graph Traversal (BFS/DFS)',
           description:
             'Graf yapısında derinlik ve genişlik öncelikli arama örnekleri',
@@ -643,7 +644,9 @@ public class Fibonacci {
       ][index],
       codeExamples: [], // Boş kod örnekleri
     })),
-  ];
+    ],
+    [],
+  );
 
   const toggleCategory = useCallback((categoryId: string) => {
     setSelectedCategories((prev) => {
@@ -695,7 +698,7 @@ public class Fibonacci {
 
       return matchesSearch && matchesCategory && matchesDifficulty;
     });
-  }, [searchTerm, selectedCategories, selectedDifficulties]);
+  }, [codeExamples, searchTerm, selectedCategories, selectedDifficulties]);
 
   const activeFilterCount = selectedCategories.size + selectedDifficulties.size;
 
