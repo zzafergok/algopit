@@ -72,6 +72,11 @@ Yapilacaklar:
 - [x] `Kendi Verilerinizle Test Edin` bolumlerini gercek input alanli `InteractiveDemo` ile calisir hale getir.
 - [x] `AlgorithmExplanation` ekranlarini Bubble Sort bolum sirasina gore tek akisa indir.
 - [x] Subset Sum ekranindaki tekrar eden eski `Interaktif Demo`, ikinci `Kod Ornekleri` ve `Algoritma Nasil Calisir?` bloklarini kaldir.
+- [x] Yapim asamasinda olmayan tum algoritma detay route'larini Bubble Sort formatina esitle.
+- [x] Duplicate/PDF ekranlarindaki Bubble Sort disi ayri `Pseudo Kod` ana bolumunu kaldir.
+- [x] Ozel algoritma sayfalarindaki tekrar eden `AlgorithmExplanation`, eski `Interaktif Demo` ve `Algoritma Nasil Calisir?` bloklarini temizle.
+- [x] Bubble Sort formatini `AlgorithmPageTemplate` ortak componenti haline getir.
+- [x] `AlgorithmExplanation`, `DuplicateAlgorithmPage` ve Bubble Sort ekranini ortak format componentine bagla.
 - [x] Duplicate ekranlara acik `Algoritma Analizi` bolumu ekle.
 - [x] Duplicate ekranlara `Avantajlar ve Dezavantajlar` bolumu ekle.
 - [x] Duplicate ekranlara `Ilgili Algoritmalar` kartlari ekle.

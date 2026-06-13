@@ -2,21 +2,12 @@
 
 import Link from 'next/link';
 
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
-import { CodeBlock } from '@/components/common/code-block';
+import { AlgorithmPageTemplate } from '@/components/common/algorithm-page-template';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { getComplexityName } from '@/lib/utils';
 import {
   type DuplicateAlgorithmContent,
   duplicateAlgorithmContents,
@@ -74,28 +65,17 @@ export function DuplicateAlgorithmPage({
             ))}
           </div>
 
-          <div className="max-w-4xl space-y-3">
-            <h1 className="text-4xl font-bold tracking-tight text-center text-arcly-blue">
-              {algorithm.title} Algoritması
-            </h1>
-            <p className="text-lg text-ash leading-relaxed">
-              {algorithm.description}
-            </p>
-          </div>
+          <p className="max-w-4xl text-lg text-ash leading-relaxed">
+            {algorithm.description}
+          </p>
         </div>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{algorithm.title} Açıklaması</CardTitle>
-          <CardDescription className="flex items-center gap-2 pt-2">
-            <BookOpen className="h-5 w-5 text-arcly-blue" />
-            PDF Kaynaklarından Sentez
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <p className="leading-relaxed">{algorithm.synthesis}</p>
-
+      <AlgorithmPageTemplate
+        title={`${algorithm.title} Algoritması`}
+        descriptionTitle={`${algorithm.title} Açıklaması`}
+        description={algorithm.synthesis}
+        descriptionExtra={
           <div>
             <h3 className="mb-3 font-semibold">Çalışma Prensibi</h3>
             <ol className="list-decimal space-y-2 pl-5">
@@ -104,268 +84,86 @@ export function DuplicateAlgorithmPage({
               ))}
             </ol>
           </div>
-        </CardContent>
-      </Card>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
-          {algorithm.title} için pseudo koddan türetilmiş örnek uygulama
-          iskeletleri aşağıda verilmiştir. Gerçek projelerde veri modeli ve
-          hata kontrolleri probleme göre özelleştirilmelidir.
-        </p>
-
-        <Tabs defaultValue="javascript">
-          <TabsList>
-            <TabsTrigger value="javascript">JavaScript</TabsTrigger>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-            <TabsTrigger value="java">Java</TabsTrigger>
-          </TabsList>
-          <TabsContent value="javascript">
-            <CodeBlock
-              code={codeExamples.javascript}
-              language="javascript"
-              title={`${algorithm.title} - JavaScript`}
-            />
-          </TabsContent>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={codeExamples.typescript}
-              language="typescript"
-              title={`${algorithm.title} - TypeScript`}
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={codeExamples.python}
-              language="python"
-              title={`${algorithm.title} - Python`}
-            />
-          </TabsContent>
-          <TabsContent value="java">
-            <CodeBlock
-              code={codeExamples.java}
-              language="java"
-              title={`${algorithm.title} - Java`}
-            />
-          </TabsContent>
-        </Tabs>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-ash">
-          Aşağıya kendi verilerinizi girerek {algorithm.title} akışını örnek
-          bir demo üzerinde izleyebilirsiniz. Virgülle ayrılmış değerler girin
-          veya JSON dizi formatı kullanın.
-        </p>
-
-        <InteractiveDemo
-          title={`${algorithm.title} Demo`}
-          description="Girilen veri, algoritmanın temel adımlarına göre örnek bir izleme çıktısına dönüştürülür."
-          algorithmFunction={(input) => runGenericDemo(algorithm, input)}
-          inputType="array"
-          inputPlaceholder="5,3,8,4,2"
-          outputFormatter={(output) => (
-            <div className="space-y-3">
-              {!output ? (
-                <span className="text-ash">Henüz çalıştırılmadı</span>
-              ) : (
-                <>
-                  <div>
-                    <span className="font-medium">Yorumlanan Girdi: </span>
-                    <span>{JSON.stringify(output.input)}</span>
-                  </div>
-                  <div>
-                    <span className="font-medium">Demo Sonucu: </span>
-                    <span>{output.result}</span>
-                  </div>
-                  <div>
-                    <span className="font-medium">Karmaşıklık: </span>
-                    <span className="font-mono">{output.complexity}</span>
-                  </div>
-                  <div>
-                    <span className="font-medium">İzlenen Adımlar:</span>
-                    <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-ash">
-                      {output.trace.map((step: string) => (
-                        <li key={step}>{step}</li>
-                      ))}
-                    </ol>
-                  </div>
-                </>
-              )}
-            </div>
-          )}
-        />
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Analizi</h2>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Zaman ve Alan Karmaşıklığı</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        }
+        codeExamples={codeExamples}
+        codeIntro={
+          <>
+            {algorithm.title} için pseudo koddan türetilmiş örnek uygulama
+            iskeletleri aşağıda verilmiştir. Gerçek projelerde veri modeli ve
+            hata kontrolleri probleme göre özelleştirilmelidir.
+          </>
+        }
+        demoDescription={
+          <>
+            Aşağıya kendi verilerinizi girerek {algorithm.title} akışını örnek
+            bir demo üzerinde izleyebilirsiniz. Virgülle ayrılmış değerler girin
+            veya JSON dizi formatı kullanın.
+          </>
+        }
+        demo={
+          <InteractiveDemo
+            title={`${algorithm.title} Demo`}
+            description="Girilen veri, algoritmanın temel adımlarına göre örnek bir izleme çıktısına dönüştürülür."
+            algorithmFunction={(input) => runGenericDemo(algorithm, input)}
+            inputType="array"
+            inputPlaceholder="5,3,8,4,2"
+            outputFormatter={(output) => (
               <div className="space-y-3">
-                <h3 className="font-semibold">Zaman Karmaşıklığı</h3>
-                <p className="text-sm">
-                  <strong>En İyi Durum:</strong>{' '}
-                  <span className="font-mono">{algorithm.timeComplexity.best}</span>
-                </p>
-                <p className="text-sm">
-                  <strong>Ortalama Durum:</strong>{' '}
-                  <span className="font-mono">
-                    {algorithm.timeComplexity.average}
-                  </span>
-                </p>
-                <p className="text-sm">
-                  <strong>En Kötü Durum:</strong>{' '}
-                  <span className="font-mono">{algorithm.timeComplexity.worst}</span>
-                </p>
+                {!output ? (
+                  <span className="text-ash">Henüz çalıştırılmadı</span>
+                ) : (
+                  <>
+                    <div>
+                      <span className="font-medium">Yorumlanan Girdi: </span>
+                      <span>{JSON.stringify(output.input)}</span>
+                    </div>
+                    <div>
+                      <span className="font-medium">Demo Sonucu: </span>
+                      <span>{output.result}</span>
+                    </div>
+                    <div>
+                      <span className="font-medium">Karmaşıklık: </span>
+                      <span className="font-mono">{output.complexity}</span>
+                    </div>
+                    <div>
+                      <span className="font-medium">İzlenen Adımlar:</span>
+                      <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-ash">
+                        {output.trace.map((step: string) => (
+                          <li key={step}>{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  </>
+                )}
               </div>
-
-              <div className="space-y-3">
-                <h3 className="font-semibold">Alan Karmaşıklığı</h3>
-                <p className="text-sm">
-                  <span className="font-mono">{algorithm.spaceComplexity}</span>{' '}
-                  - {getComplexityName(algorithm.spaceComplexity).description}
-                </p>
-
-                <h3 className="font-semibold">Kullanım Alanları</h3>
-                <ul className="list-disc space-y-1 pl-5 text-sm">
-                  {algorithm.applications.map((application) => (
-                    <li key={application}>{application}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="space-y-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Avantajlar ve Dezavantajlar</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div>
-                <h3 className="mb-3 font-semibold text-green-600">
-                  Avantajlar
-                </h3>
-                <ul className="list-disc space-y-2 pl-5">
-                  {algorithm.advantages.map((advantage) => (
-                    <li key={advantage}>{advantage}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="mb-3 font-semibold text-red-600">
-                  Dezavantajlar
-                </h3>
-                <ul className="list-disc space-y-2 pl-5">
-                  {algorithm.disadvantages.map((disadvantage) => (
-                    <li key={disadvantage}>{disadvantage}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-ash">
-          Aynı kategori veya aynı problem ailesinde değerlendirilebilecek diğer
-          algoritmalar:
-        </p>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {relatedAlgorithms.map((related) => (
-            <Card key={`${related.category}-${related.slug}`}>
-              <CardHeader>
-                <CardTitle className="text-base">{related.title}</CardTitle>
-                <CardDescription>{related.family}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button asChild variant="ghost" size="sm">
-                  <Link href={`/algorithms/${related.category}/${related.slug}`}>
-                    İncele
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Pseudo Kod</h2>
-        <Tabs defaultValue="pseudocode" className="w-full">
-          <TabsList className="w-full flex-wrap justify-start md:w-auto">
-            <TabsTrigger value="pseudocode">Pseudo Kod</TabsTrigger>
-            <TabsTrigger value="complexity">Karmaşıklık Detayı</TabsTrigger>
-            <TabsTrigger value="usage">Uygulama Alanları</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="pseudocode">
-            <CodeBlock
-              code={algorithm.pseudocode}
-              language="text"
-              title={`${algorithm.title} pseudo kod`}
-            />
-          </TabsContent>
-
-          <TabsContent value="complexity" className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>Zaman Karmaşıklığı</CardTitle>
-                <CardDescription>
-                  Girdi boyutu arttıkça beklenen çalışma süresi
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                  {Object.entries(algorithm.timeComplexity).map(
-                    ([label, value]) => (
-                      <div key={label} className="space-y-2">
-                        <h4 className="font-semibold capitalize">{label}</h4>
-                        <div className="font-mono text-xl">{value}</div>
-                        <p className="text-sm text-ash">
-                          {getComplexityName(value).description}
-                        </p>
-                      </div>
-                    )
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="usage">
-            <Card>
-              <CardHeader>
-                <CardTitle>Uygulama Alanları</CardTitle>
-                <CardDescription>
-                  Bu başlığın pratikte görüldüğü yaygın problemler
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc space-y-2 pl-5">
-                  {algorithm.applications.map((application) => (
-                    <li key={application}>{application}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
-      </section>
+            )}
+          />
+        }
+        timeComplexity={algorithm.timeComplexity}
+        spaceComplexity={algorithm.spaceComplexity}
+        analysisRightTitle="Kullanım Alanları"
+        analysisRightContent={
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            {algorithm.applications.map((application) => (
+              <li key={application}>{application}</li>
+            ))}
+          </ul>
+        }
+        advantages={algorithm.advantages}
+        disadvantages={algorithm.disadvantages}
+        relatedIntro={
+          <>
+            Aynı kategori veya aynı problem ailesinde değerlendirilebilecek
+            diğer algoritmalar:
+          </>
+        }
+        relatedAlgorithms={relatedAlgorithms.map((related) => ({
+          title: related.title,
+          description: related.family,
+          href: `/algorithms/${related.category}/${related.slug}`,
+        }))}
+        className="space-y-12"
+      />
     </div>
   );
 }

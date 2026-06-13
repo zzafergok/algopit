@@ -2,10 +2,8 @@
 
 import React from 'react';
 
-import { CodeBlock } from '@/components/common/code-block';
+import { AlgorithmPageTemplate } from '@/components/common/algorithm-page-template';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { bubbleSort } from '@/lib/algorithms/sorting';
 
@@ -159,80 +157,26 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
 `;
 
   return (
-    <div className="container mx-auto py-12 space-y-12">
-      <h1 className="text-4xl font-bold mb-8 text-center text-arcly-blue">
-        Bubble Sort Algoritması
-      </h1>
-
-      <div className="grid">
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Bubble Sort Açıklaması</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="prose dark:prose-invert max-w-none">
-                <p className="whitespace-pre-wrap">{bubbleSortDescription}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
+    <AlgorithmPageTemplate
+      title="Bubble Sort Algoritması"
+      descriptionTitle="Bubble Sort Açıklaması"
+      description={bubbleSortDescription}
+      codeExamples={implementations}
+      codeIntro={
+        <>
           Bubble Sort algoritmasının farklı programlama dillerindeki
           uygulamaları aşağıda verilmiştir. Her örnek, algoritmanın optimize
           edilmiş versiyonunu içerir ve detaylı açıklamalarla sunulmuştur.
-        </p>
-
-        <Tabs defaultValue="javascript">
-          <TabsList>
-            <TabsTrigger value="javascript">JavaScript</TabsTrigger>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-            <TabsTrigger value="java">Java</TabsTrigger>
-          </TabsList>
-          <TabsContent value="javascript">
-            <CodeBlock
-              code={implementations.javascript}
-              language="javascript"
-              title="Bubble Sort - JavaScript"
-            />
-          </TabsContent>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Bubble Sort - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Bubble Sort - Python"
-            />
-          </TabsContent>
-          <TabsContent value="java">
-            <CodeBlock
-              code={implementations.java}
-              language="java"
-              title="Bubble Sort - Java"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-ash">
+        </>
+      }
+      demoDescription={
+        <>
           Aşağıya kendi verilerinizi girerek Bubble Sort algoritmasını test
           edebilirsiniz. Virgülle ayrılmış sayılar girin (örn: 5,3,8,4,2) veya
           rastgele bir dizi oluşturun.
-        </p>
-
+        </>
+      }
+      demo={
         <InteractiveDemo
           title="Bubble Sort Demo"
           description="Verdiğiniz dizi Bubble Sort algoritması ile sıralanacaktır."
@@ -253,171 +197,54 @@ Bubble Sort, eğitim amaçlı ve küçük veri setleri için uygundur, ancak bü
             </div>
           )}
         />
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Analizi</h2>
-
-        <Card className="overflow-hidden">
-          <CardHeader>
-            <CardTitle>Zaman ve Alan Karmaşıklığı</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Zaman Karmaşıklığı</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <span className="font-medium">En İyi Durum: </span>
-                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
-                      O(n)
-                    </code>{' '}
-                    - Dizi zaten sıralıysa, algoritma tek bir geçişte tamamlanır
-                    (erken çıkış optimizasyonu ile).
-                  </li>
-                  <li>
-                    <span className="font-medium">Ortalama Durum: </span>
-                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
-                      O(n²)
-                    </code>{' '}
-                    - İç içe iki döngü kullanır ve ortalamada n²/2 karşılaştırma
-                    gerektirir.
-                  </li>
-                  <li>
-                    <span className="font-medium">En Kötü Durum: </span>
-                    <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
-                      O(n²)
-                    </code>{' '}
-                    - Dizi tersine sıralıysa, her eleman için bir takas gerekir,
-                    n(n-1)/2 karşılaştırma yapılır.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Alan Karmaşıklığı</h3>
-                <p>
-                  <code className="text-sm bg-obsidian/60 px-1 py-0.5 rounded">
-                    O(1)
-                  </code>{' '}
-                  - Bubble Sort yerinde (in-place) bir sıralama algoritmasıdır.
-                  Giriş dizisinin boyutundan bağımsız olarak sabit miktarda
-                  ekstra bellek kullanır.
-                </p>
-
-                <h3 className="text-lg font-medium">Kararlılık (Stability)</h3>
-                <p>
-                  Bubble Sort <span className="font-medium">kararlı</span> bir
-                  algoritma olduğundan, eşit değere sahip elemanların göreceli
-                  sırası korunur. Bu özellik, ikincil sıralama kriterleri olan
-                  uygulamalarda önemlidir.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Avantajlar ve Dezavantajlar</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-medium text-signal-green dark:text-signal-green/80 mb-2">
-                  Avantajlar
-                </h3>
-                <ul className="space-y-2 list-disc pl-5">
-                  <li>Anlaşılması ve uygulanması son derece kolaydır.</li>
-                  <li>
-                    Ekstra bellek alanı gerektirmez (O(1) alan karmaşıklığı).
-                  </li>
-                  <li>
-                    Kararlı bir algoritma olduğundan, eşit değerli elemanların
-                    sırası değişmez.
-                  </li>
-                  <li>
-                    Erken çıkış optimizasyonu ile zaten sıralı veriler için O(n)
-                    karmaşıklığa sahiptir.
-                  </li>
-                  <li>
-                    Çok küçük veri setleri için basit ve verimli olabilir.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-medium text-alert-red dark:text-alert-red/80 mb-2">
-                  Dezavantajlar
-                </h3>
-                <ul className="space-y-2 list-disc pl-5">
-                  <li>
-                    Büyük veri setleri için O(n²) zaman karmaşıklığı nedeniyle
-                    oldukça verimsizdir.
-                  </li>
-                  <li>
-                    Selection Sort ve Insertion Sort gibi diğer basit
-                    algoritmalardan genellikle daha yavaştır.
-                  </li>
-                  <li>
-                    Takas işlemi sayısı fazladır, bu da performansı düşürür.
-                  </li>
-                  <li>
-                    Modern uygulamalarda, daha iyi performans sunan algoritmalar
-                    (Quick Sort, Merge Sort vb.) tercih edilir.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-ash">
+      }
+      timeComplexity={{ best: 'O(n)', average: 'O(n²)', worst: 'O(n²)' }}
+      spaceComplexity="O(1)"
+      analysisRightTitle="Kararlılık (Stability)"
+      analysisRightContent={
+        <p className="text-sm text-ash">
+          Bubble Sort <span className="font-medium">kararlı</span> bir
+          algoritma olduğundan, eşit değere sahip elemanların göreceli sırası
+          korunur. Bu özellik, ikincil sıralama kriterleri olan uygulamalarda
+          önemlidir.
+        </p>
+      }
+      advantages={[
+        'Anlaşılması ve uygulanması son derece kolaydır.',
+        'Ekstra bellek alanı gerektirmez (O(1) alan karmaşıklığı).',
+        'Kararlı bir algoritma olduğundan, eşit değerli elemanların sırası değişmez.',
+        'Erken çıkış optimizasyonu ile zaten sıralı veriler için O(n) karmaşıklığa sahiptir.',
+        'Çok küçük veri setleri için basit ve verimli olabilir.',
+      ]}
+      disadvantages={[
+        'Büyük veri setleri için O(n²) zaman karmaşıklığı nedeniyle oldukça verimsizdir.',
+        'Selection Sort ve Insertion Sort gibi diğer basit algoritmalardan genellikle daha yavaştır.',
+        'Takas işlemi sayısı fazladır, bu da performansı düşürür.',
+        'Modern uygulamalarda, daha iyi performans sunan algoritmalar (Quick Sort, Merge Sort vb.) tercih edilir.',
+      ]}
+      relatedIntro={
+        <>
           Bubble Sort'a benzer veya alternatif olarak kullanılabilecek diğer
           sıralama algoritmaları:
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Insertion Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Küçük veri setleri için verimli ve kısmen sıralı veriler için
-                O(n) performans sunar.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Selection Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Bubble Sort'a benzer karmaşıklığa sahip, ancak takas işlemi
-                sayısı daha azdır.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Cocktail Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Bubble Sort'un iki yönlü bir varyasyonu, daha hızlı yakınsama
-                sağlayabilir.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
+        </>
+      }
+      relatedAlgorithms={[
+        {
+          title: 'Insertion Sort',
+          description:
+            'Küçük veri setleri için verimli ve kısmen sıralı veriler için O(n) performans sunar.',
+        },
+        {
+          title: 'Selection Sort',
+          description:
+            "Bubble Sort'a benzer karmaşıklığa sahip, ancak takas işlemi sayısı daha azdır.",
+        },
+        {
+          title: 'Cocktail Sort',
+          description:
+            "Bubble Sort'un iki yönlü bir varyasyonu, daha hızlı yakınsama sağlayabilir.",
+        },
+      ]}
+    />
   );
 }

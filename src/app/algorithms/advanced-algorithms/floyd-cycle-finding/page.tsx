@@ -5,9 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { CodeBlock } from '@/components/common/code-block';
 import { AlgorithmExplanation } from '@/components/common/explanation';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 function floydCycleFinding<T>(arr: T[]): {
@@ -397,118 +395,9 @@ def get_next_index(arr, current_index):
           'Rasgele sayı üreteçlerinde döngü tespiti',
           'Fonksiyon iterasyonlarında desen tespiti',
         ]}
+        codeExamples={implementations}
+        defaultCodeTab="typescript"
       />
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-ash">
-          Floyd's Cycle Finding algoritmasını test edin. Aşağıdaki dizide her
-          sayı, bir sonraki indeksi temsil eder (dizideki bir değer 3 ise, o
-          pozisyonda 3. indekse bir bağlantı olduğunu gösterir). Döngü
-          oluşturmak için, aynı indekse birden fazla bağlantı olmalıdır.
-        </p>
-
-        <div className="flex flex-col space-y-4">
-          <div className="flex flex-col space-y-2">
-            <Label htmlFor="input">Dizi (virgülle ayrılmış sayılar)</Label>
-            <div className="flex space-x-2">
-              <Input
-                id="input"
-                value={inputText}
-                onChange={handleInputChange}
-                placeholder="Örnek: 1, 3, 4, 2, 2"
-              />
-              <Button onClick={handleRunAlgorithm}>Çalıştır</Button>
-            </div>
-            <p className="text-xs text-ash">
-              Her sayı, o indeksten bağlanan bir sonraki indeksi temsil eder.
-              Sayılar 0 ile (dizi uzunluğu - 1) arasında olmalıdır.
-            </p>
-          </div>
-
-          <CycleVisualization array={inputArray} result={result} />
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
-          Floyd's Cycle Finding algoritmasının farklı programlama dillerindeki
-          implementasyonları.
-        </p>
-
-        <Tabs defaultValue="typescript">
-          <TabsList>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-          </TabsList>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Floyd's Cycle Finding - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Floyd's Cycle Finding - Python"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Nasıl Çalışır?</h2>
-        <div className="prose dark:prose-invert max-w-none">
-          <p>Floyd'un Döngü Bulma Algoritması iki aşamada çalışır:</p>
-
-          <h3>Faz 1: Döngünün Varlığını Tespit Etme</h3>
-          <ul>
-            <li>
-              İki işaretçi kullanılır: tortoise (kaplumbağa) ve hare (tavşan).
-            </li>
-            <li>Her adımda kaplumbağa bir adım, tavşan iki adım ilerler.</li>
-            <li>
-              Eğer döngü varsa, tavşan kaplumbağayı mutlaka yakalar (aynı
-              noktada buluşurlar).
-            </li>
-            <li>
-              Eğer tavşan listenin sonuna ulaşırsa (null/undefined), döngü
-              yoktur.
-            </li>
-          </ul>
-
-          <h3>Faz 2: Döngünün Başlangıç Noktasını Bulma</h3>
-          <ul>
-            <li>Kaplumbağa başlangıç noktasına (0 indeksine) geri döner.</li>
-            <li>Tavşan Faz 1'deki buluşma noktasında kalır.</li>
-            <li>Şimdi her ikisi de aynı hızda (her adımda bir) ilerler.</li>
-            <li>Buluştukları nokta, döngünün başlangıç noktasıdır.</li>
-          </ul>
-
-          <h3>Faz 3: Döngünün Uzunluğunu Hesaplama</h3>
-          <ul>
-            <li>
-              Döngünün başlangıç noktasından itibaren bir işaretçi ilerletilir.
-            </li>
-            <li>Başlangıç noktasına geri dönene kadar adımlar sayılır.</li>
-            <li>Bu sayı, döngünün uzunluğunu verir.</li>
-          </ul>
-
-          <h3>Matematiksel Sezgi</h3>
-          <p>
-            Bu algoritmanın çalışmasının arkasındaki matematiksel sezgi şudur:
-            Eğer kaplumbağa ve tavşan döngü içerisinde buluşursa, kaplumbağa 'k'
-            adım atmışsa, tavşan '2k' adım atmıştır. Buluşma noktasından
-            döngünün başlangıcına olan mesafe, başlangıç noktasından döngü
-            başlangıcına olan mesafeye eşittir. Bu, döngünün başlangıcını bulmak
-            için ikinci fazda iki işaretçinin neden aynı noktada buluştuğunu
-            açıklar.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

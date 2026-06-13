@@ -3,16 +3,10 @@
 import React from 'react';
 
 import {
-  Card,
-  CardTitle,
-  CardHeader,
-  CardContent,
-} from '@/components/ui/card';
-import { CodeBlock } from '@/components/common/code-block';
+  AlgorithmPageTemplate,
+  type CodeLanguage,
+} from '@/components/common/algorithm-page-template';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
-import { getComplexityName } from '@/lib/utils';
 
 interface AlgorithmExplanationProps {
   title: string;
@@ -37,15 +31,6 @@ interface AlgorithmExplanationProps {
   }>;
 }
 
-type CodeLanguage = 'javascript' | 'typescript' | 'python' | 'java';
-
-const codeLanguageLabels: Record<CodeLanguage, string> = {
-  javascript: 'JavaScript',
-  typescript: 'TypeScript',
-  python: 'Python',
-  java: 'Java',
-};
-
 export function AlgorithmExplanation({
   title,
   description,
@@ -63,10 +48,6 @@ export function AlgorithmExplanation({
 }: AlgorithmExplanationProps) {
   const resolvedCodeExamples =
     codeExamples ?? buildCodeExamples(title, pseudocode, timeComplexity.average);
-  const codeEntries = (Object.entries(resolvedCodeExamples) as Array<
-    [CodeLanguage, string]
-  >).filter(([, code]) => Boolean(code));
-  const activeCodeTab = defaultCodeTab ?? codeEntries[0]?.[0] ?? 'javascript';
   const resolvedRelatedAlgorithms =
     relatedAlgorithms ??
     applications.slice(0, 3).map((application) => ({
@@ -76,57 +57,14 @@ export function AlgorithmExplanation({
     }));
 
   return (
-    <div className="algorithm-explanation space-y-12">
-      <h1 className="text-4xl font-bold tracking-tight text-center text-arcly-blue">
-        {title}
-      </h1>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>{title} Açıklaması</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="prose dark:prose-invert max-w-none">
-            <p className="whitespace-pre-wrap">{description}</p>
-          </div>
-        </CardContent>
-      </Card>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
-          {title} algoritmasının farklı programlama dillerindeki uygulamaları
-          aşağıda verilmiştir. Her örnek, algoritmanın temel akışını açık
-          şekilde gösterecek biçimde sunulmuştur.
-        </p>
-
-        <Tabs defaultValue={activeCodeTab}>
-          <TabsList>
-            {codeEntries.map(([language]) => (
-              <TabsTrigger key={language} value={language}>
-                {codeLanguageLabels[language]}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {codeEntries.map(([language, code]) => (
-            <TabsContent key={language} value={language}>
-              <CodeBlock
-                code={code}
-                language={language}
-                title={`${title} - ${codeLanguageLabels[language]}`}
-              />
-            </TabsContent>
-          ))}
-        </Tabs>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Kendi Verilerinizle Test Edin</h2>
-        <p className="text-ash">
-          {demoDescription ??
-            'Aşağıya kendi verilerinizi girerek algoritmanın örnek çalışma akışını görebilirsiniz. Virgülle ayrılmış sayılar veya metin değerleri kullanabilirsiniz.'}
-        </p>
-        {demo ?? (
+    <AlgorithmPageTemplate
+      title={title}
+      description={description}
+      codeExamples={resolvedCodeExamples}
+      defaultCodeTab={defaultCodeTab}
+      demoDescription={demoDescription}
+      demo={
+        demo ?? (
           <InteractiveDemo
             title={`${title} Demo`}
             description="Girilen veri, algoritmanın pseudo kodundaki genel akışa göre örnek bir sonuca dönüştürülür."
@@ -166,109 +104,15 @@ export function AlgorithmExplanation({
               </div>
             )}
           />
-        )}
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Analizi</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Zaman ve Alan Karmaşıklığı</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-3">
-                <h3 className="font-semibold">Zaman Karmaşıklığı</h3>
-                <p className="text-sm">
-                  <strong>En İyi Durum:</strong>{' '}
-                  <span className="font-mono">{timeComplexity.best}</span>
-                </p>
-                <p className="text-sm">
-                  <strong>Ortalama Durum:</strong>{' '}
-                  <span className="font-mono">{timeComplexity.average}</span>
-                </p>
-                <p className="text-sm">
-                  <strong>En Kötü Durum:</strong>{' '}
-                  <span className="font-mono">{timeComplexity.worst}</span>
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <h3 className="font-semibold">Alan Karmaşıklığı</h3>
-                <p className="text-sm">
-                  <span className="font-mono">{spaceComplexity}</span> -{' '}
-                  {getComplexityName(spaceComplexity).description}
-                </p>
-
-                <h3 className="font-semibold">Kararlılık ve Kullanım</h3>
-                <p className="text-sm text-ash">
-                  Algoritmanın uygunluğu, veri boyutu, girdi yapısı ve beklenen
-                  doğruluk/performans dengesine göre değerlendirilmelidir.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="space-y-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Avantajlar ve Dezavantajlar</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="mb-3 font-semibold text-signal-green dark:text-signal-green/80">
-                  Avantajlar
-                </h3>
-                <ul className="list-disc pl-5 space-y-2">
-                  {advantages.map((advantage, index) => (
-                    <li key={index}>{advantage}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="mb-3 font-semibold text-alert-red dark:text-alert-red/80">
-                  Dezavantajlar
-                </h3>
-                <ul className="list-disc pl-5 space-y-2">
-                  {disadvantages.map((disadvantage, index) => (
-                    <li key={index}>{disadvantage}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">İlgili Algoritmalar</h2>
-        <p className="text-ash">
-          {title} ile benzer veya alternatif olarak değerlendirilebilecek diğer
-          başlıklar:
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {resolvedRelatedAlgorithms.map((algorithm, index) => (
-            <Card
-              key={`${algorithm.title}-${index}`}
-              className="hover:shadow-md transition-shadow"
-            >
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">{algorithm.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm text-ash">
-                  {algorithm.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-    </div>
+        )
+      }
+      timeComplexity={timeComplexity}
+      spaceComplexity={spaceComplexity}
+      advantages={advantages}
+      disadvantages={disadvantages}
+      relatedAlgorithms={resolvedRelatedAlgorithms}
+      className="algorithm-explanation space-y-12"
+    />
   );
 }
 

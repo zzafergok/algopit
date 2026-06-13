@@ -4,7 +4,6 @@ import React from 'react';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { AlgorithmExplanation } from '@/components/common/explanation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -607,46 +606,6 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
           </Card>
         </div>
       </div>
-
-      <AlgorithmExplanation
-        title="Insertion Sort"
-        description="Sıralanmış bir alt listeye elemanları birer birer ekleyerek sıralama yapan bir algoritma."
-        timeComplexity={{
-          best: 'O(n)',
-          average: 'O(n²)',
-          worst: 'O(n²)',
-        }}
-        spaceComplexity="O(1)"
-        advantages={[
-          'Kısmen sıralı veriler için çok verimli',
-          'Küçük veri setleri için basit ve etkili',
-          'Kararlı bir sıralama algoritması',
-          'Yerinde sıralama (ek bellek gerektirmez)',
-          'Çevrimiçi bir algoritma (veri gelirken sıralayabilir)',
-        ]}
-        disadvantages={[
-          'Büyük veri setleri için O(n²) karmaşıklık nedeniyle verimsiz',
-          'Her eleman için kaydırma işlemi zaman alıcı olabilir',
-          'Rastgele sıralanmış dizilerde performans düşüktür',
-          "Büyük veri setlerinde Quick Sort veya Merge Sort'tan daha yavaştır",
-        ]}
-        pseudocode={`INSERTION-SORT(A)
-1  for j = 2 to A.length
-2    key = A[j]
-3    // A[j]'yi sıralanmış alt dizide doğru konuma yerleştir
-4    i = j - 1
-5    while i > 0 and A[i] > key
-6      A[i + 1] = A[i]
-7      i = i - 1
-8    A[i + 1] = key`}
-        applications={[
-          'Küçük veri setlerinin sıralanması',
-          'Neredeyse sıralı dizilerin sıralanması',
-          'Veri süreci sırasında çevrimiçi sıralama',
-          'Hibrit sıralama algoritmalarının bir parçası olarak (Timsort)',
-          'Sıralama algoritması öğretiminde örnek olarak',
-        ]}
-      />
     </div>
   );
 }

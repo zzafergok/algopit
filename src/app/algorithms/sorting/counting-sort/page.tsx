@@ -4,7 +4,6 @@ import React from 'react';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { AlgorithmExplanation } from '@/components/common/explanation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -560,49 +559,6 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
           </Card>
         </div>
       </div>
-
-      <AlgorithmExplanation
-        title="Counting Sort"
-        description="Karşılaştırma yapmadan sıralama yapan, sınırlı değer aralığında lineer zamanda çalışan bir algoritma."
-        timeComplexity={{
-          best: 'O(n+k)',
-          average: 'O(n+k)',
-          worst: 'O(n+k)',
-        }}
-        spaceComplexity="O(n+k)"
-        advantages={[
-          'Sınırlı aralıkta lineer zaman karmaşıklığı (O(n+k))',
-          'Karşılaştırma yapmadığı için karşılaştırma tabanlı algoritmaların alt sınırını aşabilir',
-          'Kararlı bir sıralama algoritmasıdır',
-          'Tekrarlanan değerler için oldukça verimlidir',
-        ]}
-        disadvantages={[
-          'Sadece tam sayı veya sınırlı aralıktaki değerler için etkilidir',
-          'Değer aralığı (k) çok büyükse verimsiz olabilir',
-          'Ekstra bellek gerektirir (yerinde sıralama yapmaz)',
-          'Negatif sayılar için doğrudan uygulanamaz',
-        ]}
-        pseudocode={`COUNTING-SORT(A, B, k)
-1  let C[0..k] be a new array // C sayaç dizisi
-2  for i = 0 to k
-3    C[i] = 0
-4  for j = 1 to A.length
-5    C[A[j]] = C[A[j]] + 1
-6  // C[i] artık A'da i değerine sahip eleman sayısını içerir
-7  for i = 1 to k
-8    C[i] = C[i] + C[i-1]
-9  // C[i] artık A'da i değerinden küçük veya eşit eleman sayısını içerir
-10 for j = A.length downto 1
-11   B[C[A[j]]] = A[j]
-12   C[A[j]] = C[A[j]] - 1`}
-        applications={[
-          'Radix Sort için alt rutin olarak',
-          'Sınırlı aralıktaki tam sayıları sıralama (örn: yaş, not, puan)',
-          'Histogram oluşturma ve analiz etme',
-          'Sıklık sayımı gerektiren uygulamalar',
-          'Sıralama kararlılığının önemli olduğu durumlar',
-        ]}
-      />
     </div>
   );
 }

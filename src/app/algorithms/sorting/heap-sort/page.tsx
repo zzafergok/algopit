@@ -4,7 +4,6 @@ import React from 'react';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { AlgorithmExplanation } from '@/components/common/explanation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -590,60 +589,6 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
           </Card>
         </div>
       </div>
-
-      <AlgorithmExplanation
-        title="Heap Sort"
-        description="Binary heap veri yapısını kullanan, karşılaştırma tabanlı bir sıralama algoritması."
-        timeComplexity={{
-          best: 'O(n log n)',
-          average: 'O(n log n)',
-          worst: 'O(n log n)',
-        }}
-        spaceComplexity="O(1)"
-        advantages={[
-          'Her durumda O(n log n) zaman karmaşıklığı garantisi',
-          'Ekstra bellek gerektirmez (yerinde sıralama)',
-          'En kötü durumda bile tutarlı performans',
-          'Öncelikli kuyruk (priority queue) uygulamaları için idealdir',
-        ]}
-        disadvantages={[
-          'Kararsız bir sıralama algoritmasıdır',
-          "Pratik uygulamalarda genellikle Quick Sort'tan daha yavaştır",
-          'Önbellek dostu değildir (cache-unfriendly)',
-          'Veri erişim modelinden dolayı modern CPU mimarilerinde verimsiz olabilir',
-        ]}
-        pseudocode={`HEAPSORT(A)
-1  BUILD-MAX-HEAP(A)           // Diziyi max-heap'e dönüştür
-2  for i = A.length downto 2   // Dizinin sonundan başlayarak her eleman için
-3    swap A[1] with A[i]       // Kök (maksimum) elemanı sona taşı
-4    A.heap-size = A.heap-size - 1  // Heap boyutunu azalt
-5    MAX-HEAPIFY(A, 1)         // Yeni kökü heapify et
-
-BUILD-MAX-HEAP(A)
-1  A.heap-size = A.length     // Tüm diziyi heap olarak işaretle
-2  for i = floor(A.length/2) downto 1  // Son olmayan düğümlerden başlayarak
-3    MAX-HEAPIFY(A, i)        // Her düğümü heapify et
-
-MAX-HEAPIFY(A, i)
-1  l = LEFT(i)                // Sol çocuk indeksi
-2  r = RIGHT(i)               // Sağ çocuk indeksi
-3  if l <= A.heap-size and A[l] > A[i]  // Sol çocuk varsa ve daha büyükse
-4    largest = l              // En büyük olarak işaretle
-5  else                       // Değilse
-6    largest = i              // Kök en büyük
-7  if r <= A.heap-size and A[r] > A[largest]  // Sağ çocuk varsa ve daha büyükse
-8    largest = r              // En büyük olarak işaretle
-9  if largest != i            // Kök en büyük değilse
-10   swap A[i] with A[largest]  // Kökü en büyük ile değiştir
-11   MAX-HEAPIFY(A, largest)  // Alt ağacı heapify et`}
-        applications={[
-          'Öncelikli kuyruk (priority queue) uygulamaları',
-          'Dijkstra ve Prim algoritmaları gibi graf algoritmaları',
-          'K en büyük/küçük eleman bulma problemleri',
-          'Gündelik ve gerçek zamanlı sistemlerde kullanılan programlama dillerinin sıralama işlevleri',
-          'Sistem izleme ve kaynak yönetimi',
-        ]}
-      />
     </div>
   );
 }

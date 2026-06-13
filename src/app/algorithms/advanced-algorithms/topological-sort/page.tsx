@@ -4,9 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { CodeBlock } from '@/components/common/code-block';
 import { AlgorithmExplanation } from '@/components/common/explanation';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type Graph = {
@@ -439,166 +437,9 @@ public class TopologicalSort {
           'Kritik yol analizi (PERT/CPM)',
           'Statik kod analizi (sembol çözümleme)',
         ]}
+        codeExamples={implementations}
+        defaultCodeTab="typescript"
       />
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <p className="text-ash">
-          Topolojik sıralama algoritmasını test edin. Grafı aşağıdaki formatta
-          girin (her satır bir düğümü ve komşularını temsil eder):
-        </p>
-        <p className="text-sm font-medium">
-          Format: Düğüm:Komşu1,Komşu2,Komşu3
-        </p>
-
-        <div className="flex flex-col space-y-4">
-          <div className="grid grid-cols-1 gap-4">
-            <Label htmlFor="graphInput">Graf Yapısı</Label>
-            <textarea
-              id="graphInput"
-              value={graphInput}
-              onChange={handleGraphInputChange}
-              className="min-h-[12.5rem] resize-y rounded-sm border bg-card p-3"
-              placeholder="Örnek:&#10;A:B,C&#10;B:D&#10;C:D&#10;D:"
-            />
-            <div className="text-xs text-ash">
-              <p>Örnek gösterim:</p>
-              <ul className="list-disc pl-4">
-                <li>
-                  <code>A:B,C</code> - A düğümünden B ve C düğümlerine kenarlar
-                  var
-                </li>
-                <li>
-                  <code>B:D</code> - B düğümünden D düğümüne kenar var
-                </li>
-                <li>
-                  <code>C:</code> - C düğümünden çıkan kenar yok
-                </li>
-              </ul>
-            </div>
-            <Button onClick={handleRunAlgorithm} className="w-full">
-              Algoritmayı Çalıştır
-            </Button>
-          </div>
-
-          <GraphVisualization
-            graph={graph}
-            sortedNodes={sortResult.result}
-            hasCycle={sortResult.hasCycle}
-          />
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
-          Topolojik sıralama algoritmasının farklı programlama dillerindeki
-          implementasyonları.
-        </p>
-
-        <Tabs defaultValue="typescript">
-          <TabsList>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-            <TabsTrigger value="java">Java</TabsTrigger>
-          </TabsList>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Topolojik Sıralama - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Topolojik Sıralama - Python"
-            />
-          </TabsContent>
-          <TabsContent value="java">
-            <CodeBlock
-              code={implementations.java}
-              language="java"
-              title="Topolojik Sıralama - Java"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Nasıl Çalışır?</h2>
-        <div className="prose dark:prose-invert max-w-none">
-          <p>
-            Topolojik sıralama, yönlü asiklik graflarda (DAG) düğümleri sıralama
-            yöntemidir. Eğer grafdaki iki düğüm arasında u'dan v'ye bir kenar
-            varsa, u düğümü topolojik sıralamada v'den önce gelmelidir.
-            Algoritmanın temeli, her düğümün kendisine bağımlı olan tüm
-            düğümlerden önce işlenmesini sağlamaktır.
-          </p>
-
-          <h3>Algoritmanın Adımları</h3>
-          <p>Topolojik sıralama için yaygın olarak iki yaklaşım kullanılır:</p>
-
-          <h4>1. DFS (Derinlik Öncelikli Arama) Tabanlı Yaklaşım</h4>
-          <ol>
-            <li>Her düğüm için, henüz ziyaret edilmediyse DFS başlat</li>
-            <li>Mevcut düğümün tüm komşularını ziyaret et</li>
-            <li>
-              Tüm komşuları ziyaret edildikten sonra, düğümü sonuç listesinin
-              başına ekle
-            </li>
-            <li>
-              DFS tamamlandığında, sonuç listesi doğru topolojik sıralamayı
-              içerir
-            </li>
-          </ol>
-
-          <h4>2. Kahn Algoritması (Girdi Derecesi Tabanlı)</h4>
-          <ol>
-            <li>Her düğümün girdi derecesini (gelen kenar sayısı) hesapla</li>
-            <li>Girdi derecesi 0 olan düğümleri bir kuyruğa ekle</li>
-            <li>Kuyruktan bir düğüm çıkar, sonuç listesine ekle</li>
-            <li>Çıkarılan düğümün tüm komşularının girdi derecesini 1 azalt</li>
-            <li>Girdi derecesi 0'a düşen düğümleri kuyruğa ekle</li>
-            <li>Kuyruk boşalana kadar devam et</li>
-          </ol>
-
-          <h3>Çevrim Tespiti</h3>
-          <p>
-            Topolojik sıralama yalnızca çevrimsiz graflar (DAG) için mümkündür.
-            Algoritma çevrim tespiti de yapabilir:
-          </p>
-          <ul>
-            <li>
-              DFS yaklaşımında, geçici ziyaret işaretleri kullanarak çevrimleri
-              tespit edebiliriz. Eğer bir düğüm halen geçici ziyaret edildi
-              olarak işaretliyken tekrar ziyaret edilirse, bu bir çevrim
-              olduğunu gösterir.
-            </li>
-            <li>
-              Kahn algoritmasında, eğer sonuç listesinin uzunluğu graf düğüm
-              sayısından azsa, graf bir çevrim içeriyor demektir.
-            </li>
-          </ul>
-
-          <h3>Örnek Uygulama: Ders Ön Koşulları</h3>
-          <p>
-            Topolojik sıralama algoritmasının klasik uygulamalarından biri,
-            üniversite derslerinin ön koşul ilişkilerini düzenlemektir. Örneğin:
-          </p>
-          <ul>
-            <li>Matematiksel Analiz → Diferansiyel Denklemler</li>
-            <li>Lineer Cebir → Sayısal Analiz</li>
-            <li>Algoritma Teorisi → Veri Yapıları → İşletim Sistemleri</li>
-          </ul>
-          <p>
-            Topolojik sıralama algoritması, bu dersleri ön koşulları dikkate
-            alarak sıralayarak bir öğrencinin hangi dersleri hangi sırayla
-            alması gerektiğini belirlemede yardımcı olur.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

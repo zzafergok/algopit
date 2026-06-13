@@ -2,10 +2,8 @@
 
 import React from 'react';
 
-import { CodeBlock } from '@/components/common/code-block';
 import { AlgorithmExplanation } from '@/components/common/explanation';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { timSort } from '@/lib/algorithms/sorting';
 
@@ -510,97 +508,9 @@ public class TimSort {
           'Production seviyesi yazılım geliştirme',
           'Veri analizi ve bilimsel hesaplama kütüphaneleri',
         ]}
+        codeExamples={implementations}
+        defaultCodeTab="typescript"
       />
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <InteractiveDemo
-          title="Tim Sort Algoritması"
-          description="Dizinizdeki sayıları Tim Sort algoritması ile sıralayın ve hibrit algoritmanın performansını gözlemleyin."
-          algorithmFunction={timSort}
-          inputPlaceholder="Örnek: 64,34,25,12,22,11,90"
-          inputType="array"
-        />
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <Tabs defaultValue="typescript">
-          <TabsList>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-            <TabsTrigger value="java">Java</TabsTrigger>
-          </TabsList>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Tim Sort - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Tim Sort - Python"
-            />
-          </TabsContent>
-          <TabsContent value="java">
-            <CodeBlock
-              code={implementations.java}
-              language="java"
-              title="Tim Sort - Java"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Nasıl Çalışır?</h2>
-        <div className="prose dark:prose-invert max-w-none">
-          <p>
-            Tim Sort algoritması, gerçek dünyadaki verilerin özelliklerini
-            dikkate alarak tasarlanmış hibrit bir sıralama algoritmasıdır.
-            Algoritmanın temel çalışma prensibi şu adımları içermektedir:
-          </p>
-
-          <h3>1. Run Tespiti</h3>
-          <p>
-            Algoritma öncelikle dizide doğal olarak sıralı olan parçaları (run)
-            tespit eder. Bu parçalar artan veya azalan sırada olabilir. Azalan
-            sıradaki run'lar tersine çevrilerek artan sıraya dönüştürülür.
-          </p>
-
-          <h3>2. Minimum Run Uzunluğu</h3>
-          <p>
-            Tim Sort, verimli merge işlemleri için minimum run uzunluğunu
-            hesaplar. Bu değer genellikle 32 ile 64 arasında olur ve dizinin
-            toplam boyutuna bağlı olarak belirlenir.
-          </p>
-
-          <h3>3. Run Genişletme</h3>
-          <p>
-            Minimum uzunluktan kısa olan run'lar, insertion sort kullanılarak
-            genişletilir. Insertion sort küçük diziler için çok verimli
-            olduğundan bu optimizasyon önemli performans kazanımları sağlar.
-          </p>
-
-          <h3>4. Akıllı Merge Stratejisi</h3>
-          <p>
-            Tim Sort, run'ları birleştirirken akıllı bir strateji kullanır.
-            Galloping mode adı verilen bu teknik, bir run'dan art arda çok
-            sayıda eleman alındığında performansı artırmak için kullanılır.
-          </p>
-
-          <h3>5. Adaptif Davranış</h3>
-          <p>
-            Algoritmanın en önemli özelliği adaptif olmasıdır. Verinin mevcut
-            sıralama durumuna göre davranışını değiştirir. Tamamen sıralı
-            dizilerde O(n) performans gösterirken, en kötü durumda O(n log n)
-            garantisi sunar.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

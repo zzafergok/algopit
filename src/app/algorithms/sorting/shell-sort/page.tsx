@@ -2,10 +2,8 @@
 
 import React from 'react';
 
-import { CodeBlock } from '@/components/common/code-block';
 import { AlgorithmExplanation } from '@/components/common/explanation';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { shellSort } from '@/lib/algorithms/sorting';
 
@@ -158,89 +156,9 @@ print(shell_sort(array))  # [11, 12, 22, 25, 34, 64, 90]`,
           'Eğitim amaçlı algoritma öğretimi',
           'Real-time sistemlerde öngörülebilir performans gereksinimleri',
         ]}
+        codeExamples={implementations}
+        defaultCodeTab="typescript"
       />
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">İnteraktif Demo</h2>
-        <InteractiveDemo
-          title="Shell Sort Algoritması"
-          description="Dizinizdeki sayıları Shell Sort algoritması ile sıralayın ve algoritmanın nasıl çalıştığını görün."
-          algorithmFunction={shellSort}
-          inputPlaceholder="Örnek: 64,34,25,12,22,11,90"
-          inputType="array"
-        />
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <Tabs defaultValue="typescript">
-          <TabsList>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-            <TabsTrigger value="java">Java</TabsTrigger>
-          </TabsList>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Shell Sort - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Shell Sort - Python"
-            />
-          </TabsContent>
-          <TabsContent value="java">
-            <CodeBlock
-              code={implementations.java}
-              language="java"
-              title="Shell Sort - Java"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Algoritma Nasıl Çalışır?</h2>
-        <div className="prose dark:prose-invert max-w-none">
-          <p>
-            Shell Sort algoritması, insertion sort'un performansını artırmak
-            için gap (aralık) kavramını kullanır. Algoritma şu adımlarla
-            çalışır:
-          </p>
-
-          <h3>1. Gap Değerinin Belirlenmesi</h3>
-          <p>
-            İlk gap değeri genellikle dizi uzunluğunun yarısı olarak belirlenir.
-            Her iterasyonda bu değer yarıya bölünür ve gap 1 olana kadar devam
-            edilir.
-          </p>
-
-          <h3>2. Gap Aralığında Sıralama</h3>
-          <p>
-            Her gap değeri için, gap kadar ayrı olan elemanlar insertion sort
-            algoritması ile sıralanır. Bu, uzak elemanların hızlı bir şekilde
-            doğru konumlarına yakın yerleştirilmesini sağlar.
-          </p>
-
-          <h3>3. Gap Azaltılması</h3>
-          <p>
-            Gap değeri her iterasyonda azaltılır. En yaygın kullanılan gap
-            dizisi şudur: n/2, n/4, n/8, ..., 1. Son iterasyonda gap=1
-            olduğunda, algoritma normal insertion sort haline gelir.
-          </p>
-
-          <h3>4. Performans Avantajı</h3>
-          <p>
-            Shell Sort'un ana avantajı, büyük elemanları başlangıçta hızlı bir
-            şekilde doğru konumlarına yakın yerleştirmesidir. Bu, son aşamada
-            yapılan insertion sort'un çok daha az iş yapmasını sağlar.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

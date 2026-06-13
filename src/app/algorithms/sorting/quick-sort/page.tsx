@@ -4,7 +4,6 @@ import React from 'react';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { AlgorithmExplanation } from '@/components/common/explanation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -821,53 +820,6 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
           </Card>
         </div>
       </div>
-
-      <AlgorithmExplanation
-        title="Quick Sort"
-        description="Böl ve Fethet stratejisini kullanan hızlı ve verimli bir sıralama algoritması."
-        timeComplexity={{
-          best: 'O(n log n)',
-          average: 'O(n log n)',
-          worst: 'O(n²)',
-        }}
-        spaceComplexity="O(log n)"
-        advantages={[
-          'Pratik uygulamalarda genellikle çok hızlıdır',
-          'Yerinde sıralama yapar, minimum ekstra bellek kullanır',
-          'Önbellek dostu bir erişim modeline sahiptir',
-          'Pivot seçim stratejileri ile optimize edilebilir',
-          'Rastgele erişimli veri yapıları için idealdir',
-        ]}
-        disadvantages={[
-          'En kötü durumda O(n²) zaman karmaşıklığına sahiptir',
-          'Kararsız bir sıralama algoritmasıdır',
-          'Pivot seçimi, performansı önemli ölçüde etkiler',
-          'Bağlı listeler gibi ardışıl erişimli veri yapıları için verimli değildir',
-        ]}
-        pseudocode={`QUICKSORT(A, p, r)
-1  if p < r
-2    q = PARTITION(A, p, r)
-3    QUICKSORT(A, p, q - 1)
-4    QUICKSORT(A, q + 1, r)
-
-PARTITION(A, p, r)
-1  x = A[r]               // Pivot olarak son eleman seçilir
-2  i = p - 1              // Küçük elemanların indeksi
-3  for j = p to r - 1
-4    if A[j] <= x
-5      i = i + 1
-6      exchange A[i] with A[j]
-7  exchange A[i + 1] with A[r]
-8  return i + 1`}
-        applications={[
-          'Genel amaçlı sıralama işlemleri',
-          'Programlama dillerinin standart kütüphaneleri',
-          'Veritabanı sistemlerinde sıralama operasyonları',
-          'Arama algoritmalarının ön işlemi olarak',
-          'Quick Select algoritması ile k. en küçük eleman bulma',
-          'Veri analizinde ve veri biliminde sıralama işlemleri',
-        ]}
-      />
     </div>
   );
 }

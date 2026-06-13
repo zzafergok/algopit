@@ -4,7 +4,6 @@ import React from 'react';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { AlgorithmExplanation } from '@/components/common/explanation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -688,64 +687,6 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
           </Card>
         </div>
       </div>
-
-      <AlgorithmExplanation
-        title="Merge Sort"
-        description="Böl ve Fethet stratejisini kullanan, kararlı ve tutarlı bir sıralama algoritması."
-        timeComplexity={{
-          best: 'O(n log n)',
-          average: 'O(n log n)',
-          worst: 'O(n log n)',
-        }}
-        spaceComplexity="O(n)"
-        advantages={[
-          'Her durumda O(n log n) zaman karmaşıklığı garantisi',
-          'Kararlı bir sıralama algoritması',
-          'Bağlı listeler gibi ardışıl erişimli veri yapıları için idealdir',
-          'Paralelleştirmeye uygun bir algoritma yapısı',
-          'Dış sıralama (external sorting) uygulamaları için idealdir',
-        ]}
-        disadvantages={[
-          'O(n) ekstra bellek gerektirir (yerinde sıralama yapmaz)',
-          "Küçük diziler için Quick Sort veya Insertion Sort'tan daha yavaş olabilir",
-          'Her adımda yeni diziler oluşturma ve kopyalama işlemleri gerekir',
-          'Önbellek verimliliği, ardışıl olmayan bellek erişimleri nedeniyle düşük olabilir',
-        ]}
-        pseudocode={`MERGE-SORT(A, p, r)
-1  if p < r
-2    q = floor((p + r) / 2)
-3    MERGE-SORT(A, p, q)
-4    MERGE-SORT(A, q + 1, r)
-5    MERGE(A, p, q, r)
-
-MERGE(A, p, q, r)
-1  n1 = q - p + 1
-2  n2 = r - q
-3  let L[1..n1+1] and R[1..n2+1] be new arrays
-4  for i = 1 to n1
-5    L[i] = A[p + i - 1]
-6  for j = 1 to n2
-7    R[j] = A[q + j]
-8  L[n1 + 1] = ∞
-9  R[n2 + 1] = ∞
-10 i = 1
-11 j = 1
-12 for k = p to r
-13   if L[i] ≤ R[j]
-14     A[k] = L[i]
-15     i = i + 1
-16   else
-17     A[k] = R[j]
-18     j = j + 1`}
-        applications={[
-          'Büyük veri setlerinin sıralanması',
-          'Kararlılığın önemli olduğu sıralama işlemleri',
-          'Dış sıralama uygulamaları (büyük dosyaların sıralanması)',
-          'Bağlı listeler ve ardışıl erişimli veri yapılarının sıralanması',
-          'Paralel hesaplama uygulamaları',
-          'İnversiyon sayısı problemi gibi ilişkili algoritma problemleri',
-        ]}
-      />
     </div>
   );
 }

@@ -6,9 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
-import { CodeBlock } from '@/components/common/code-block';
 import { AlgorithmExplanation } from '@/components/common/explanation';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Point {
@@ -912,191 +910,167 @@ export default function HierarchicalClusteringPage() {
           'Sosyal ağ analizi',
           'Anomali tespiti',
         ]}
-      />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Algoritma Parametreleri</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <Label>Veri Tipi</Label>
-                <div className="flex space-x-2">
-                  <Button
-                    variant={dataType === 'random' ? 'default' : 'outline'}
-                    onClick={() => setDataType('random')}
-                    disabled={isRunning}
-                  >
-                    Rastgele
-                  </Button>
-                  <Button
-                    variant={dataType === 'clustered' ? 'default' : 'outline'}
-                    onClick={() => setDataType('clustered')}
-                    disabled={isRunning}
-                  >
-                    Kümelenmiş
-                  </Button>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <Label htmlFor="numPoints">Nokta Sayısı: {numPoints}</Label>
-                </div>
-                <Slider
-                  id="numPoints"
-                  min={10}
-                  max={100}
-                  step={5}
-                  value={[numPoints]}
-                  onValueChange={(value) => setNumPoints(value[0])}
-                  disabled={isRunning}
-                />
-              </div>
-
-              {dataType === 'clustered' && (
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <Label htmlFor="numClusters">
-                      Küme Sayısı: {numClusters}
-                    </Label>
+        codeExamples={implementations}
+        defaultCodeTab="typescript"
+        demo={
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Algoritma Parametreleri</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-6">
+                          <div className="space-y-2">
+                            <Label>Veri Tipi</Label>
+                            <div className="flex space-x-2">
+                              <Button
+                                variant={dataType === 'random' ? 'default' : 'outline'}
+                                onClick={() => setDataType('random')}
+                                disabled={isRunning}
+                              >
+                                Rastgele
+                              </Button>
+                              <Button
+                                variant={dataType === 'clustered' ? 'default' : 'outline'}
+                                onClick={() => setDataType('clustered')}
+                                disabled={isRunning}
+                              >
+                                Kümelenmiş
+                              </Button>
+                            </div>
+                          </div>
+            
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <Label htmlFor="numPoints">Nokta Sayısı: {numPoints}</Label>
+                            </div>
+                            <Slider
+                              id="numPoints"
+                              min={10}
+                              max={100}
+                              step={5}
+                              value={[numPoints]}
+                              onValueChange={(value) => setNumPoints(value[0])}
+                              disabled={isRunning}
+                            />
+                          </div>
+            
+                          {dataType === 'clustered' && (
+                            <div className="space-y-2">
+                              <div className="flex justify-between">
+                                <Label htmlFor="numClusters">
+                                  Küme Sayısı: {numClusters}
+                                </Label>
+                              </div>
+                              <Slider
+                                id="numClusters"
+                                min={2}
+                                max={6}
+                                step={1}
+                                value={[numClusters]}
+                                onValueChange={(value) => setNumClusters(value[0])}
+                                disabled={isRunning}
+                              />
+                            </div>
+                          )}
+            
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <Label htmlFor="cutoffValue">
+                                Kesme Eşiği:{' '}
+                                {cutoffValue === 100 ? 'Hiç (Tek Küme)' : `${cutoffValue}%`}
+                              </Label>
+                            </div>
+                            <Slider
+                              id="cutoffValue"
+                              min={0}
+                              max={100}
+                              step={5}
+                              value={[cutoffValue]}
+                              onValueChange={handleCutoffChange}
+                              disabled={isRunning}
+                            />
+                          </div>
+            
+                          <div className="flex space-x-2">
+                            <Button onClick={generateData} disabled={isRunning}>
+                              Yeni Veri Oluştur
+                            </Button>
+                            <Button
+                              onClick={runAlgorithm}
+                              disabled={isRunning || points.length === 0}
+                            >
+                              {isRunning ? 'Çalışıyor...' : 'Algoritmayı Çalıştır'}
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+            
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Veri Görselleştirmesi</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ClusterVisualization
+                          points={points.map((p) => ({
+                            ...p,
+                            cluster: clusterAssignments[points.indexOf(p)] || -1,
+                          }))}
+                          width={width}
+                          height={height}
+                          highlightCluster={
+                            selectedCluster !== null ? selectedCluster : undefined
+                          }
+                        />
+            
+                        {selectedCluster !== null && (
+                          <div className="mt-2">
+                            <p className="text-sm font-medium">
+                              Seçili Küme: {selectedCluster} ({selectedPoints.length} nokta)
+                            </p>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
                   </div>
-                  <Slider
-                    id="numClusters"
-                    min={2}
-                    max={6}
-                    step={1}
-                    value={[numClusters]}
-                    onValueChange={(value) => setNumClusters(value[0])}
-                    disabled={isRunning}
-                  />
-                </div>
-              )}
-
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <Label htmlFor="cutoffValue">
-                    Kesme Eşiği:{' '}
-                    {cutoffValue === 100 ? 'Hiç (Tek Küme)' : `${cutoffValue}%`}
-                  </Label>
-                </div>
-                <Slider
-                  id="cutoffValue"
-                  min={0}
-                  max={100}
-                  step={5}
-                  value={[cutoffValue]}
-                  onValueChange={handleCutoffChange}
-                  disabled={isRunning}
-                />
-              </div>
-
-              <div className="flex space-x-2">
-                <Button onClick={generateData} disabled={isRunning}>
-                  Yeni Veri Oluştur
-                </Button>
-                <Button
-                  onClick={runAlgorithm}
-                  disabled={isRunning || points.length === 0}
-                >
-                  {isRunning ? 'Çalışıyor...' : 'Algoritmayı Çalıştır'}
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Veri Görselleştirmesi</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ClusterVisualization
-              points={points.map((p) => ({
-                ...p,
-                cluster: clusterAssignments[points.indexOf(p)] || -1,
-              }))}
-              width={width}
-              height={height}
-              highlightCluster={
-                selectedCluster !== null ? selectedCluster : undefined
-              }
-            />
-
-            {selectedCluster !== null && (
-              <div className="mt-2">
-                <p className="text-sm font-medium">
-                  Seçili Küme: {selectedCluster} ({selectedPoints.length} nokta)
-                </p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
-
-      {dendrogram && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Dendrogram */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Dendrogram</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <DendrogramVisualization
-                dendrogram={dendrogram}
-                width={width}
-                height={height}
-                onSelectCluster={handleSelectCluster}
-              />
-              <p className="text-sm text-ash mt-2">
-                Düğümlere tıklayarak kümeleri seçebilirsiniz
-              </p>
-            </CardContent>
-          </Card>
-
-          <div>
-            <HierarchicalClusteringSteps
-              steps={steps}
-              currentStep={currentStep}
-              onChangeStep={handleStepChange}
-              width={width}
-              height={height}
-              onSelectCluster={handleSelectCluster}
-            />
-          </div>
-        </div>
-      )}
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Kod Örnekleri</h2>
-        <p className="text-ash">
-          Hiyerarşik kümeleme algoritmasının farklı programlama dillerindeki
-          uygulamaları:
-        </p>
-
-        <Tabs defaultValue="typescript">
-          <TabsList>
-            <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-            <TabsTrigger value="python">Python</TabsTrigger>
-          </TabsList>
-          <TabsContent value="typescript">
-            <CodeBlock
-              code={implementations.typescript}
-              language="typescript"
-              title="Hiyerarşik Kümeleme - TypeScript"
-            />
-          </TabsContent>
-          <TabsContent value="python">
-            <CodeBlock
-              code={implementations.python}
-              language="python"
-              title="Hiyerarşik Kümeleme - Python"
-            />
-          </TabsContent>
-        </Tabs>
-      </div>
+            
+                  {dendrogram && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Dendrogram */}
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Dendrogram</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <DendrogramVisualization
+                            dendrogram={dendrogram}
+                            width={width}
+                            height={height}
+                            onSelectCluster={handleSelectCluster}
+                          />
+                          <p className="text-sm text-ash mt-2">
+                            Düğümlere tıklayarak kümeleri seçebilirsiniz
+                          </p>
+                        </CardContent>
+                      </Card>
+            
+                      <div>
+                        <HierarchicalClusteringSteps
+                          steps={steps}
+                          currentStep={currentStep}
+                          onChangeStep={handleStepChange}
+                          width={width}
+                          height={height}
+                          onSelectCluster={handleSelectCluster}
+                        />
+                      </div>
+                    </div>
+                  )}
+          </>
+        }
+      />
     </div>
   );
 }
