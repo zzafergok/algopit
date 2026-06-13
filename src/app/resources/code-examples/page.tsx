@@ -82,7 +82,7 @@ const CopyButton = ({ text }: { text: string }) => {
 
 const CodeModal = ({ example }: { example: CodeExample }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(
-    example.codeExamples[0]?.language || ''
+    example.codeExamples[0]?.language || '',
   );
 
   return (
@@ -176,7 +176,7 @@ const getDifficultyColor = (difficulty: Difficulty) => {
 export default function CodeExamplesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
   const [selectedDifficulties, setSelectedDifficulties] = useState<
     Set<Difficulty>
@@ -220,7 +220,7 @@ export default function CodeExamplesPage() {
       difficulty: 'Kolay',
       languages: ['JavaScript', 'Python', 'Java'],
       githubUrl:
-        'https://github.com/zzafergok/algorithms-playground/tree/main/src/lib/algorithms/sorting.ts',
+        'https://github.com/zzafergok/algopit/tree/main/src/lib/algorithms/sorting.ts',
       concepts: ['Sıralama', 'Karşılaştırma', 'Swap İşlemi'],
       codeExamples: [
         {
@@ -682,7 +682,7 @@ public class Fibonacci {
         example.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         example.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         example.concepts.some((concept) =>
-          concept.toLowerCase().includes(searchTerm.toLowerCase())
+          concept.toLowerCase().includes(searchTerm.toLowerCase()),
         );
 
       const matchesCategory =
@@ -788,7 +788,7 @@ public class Fibonacci {
                           >
                             {difficulty}
                           </Button>
-                        )
+                        ),
                       )}
                     </div>
                   </div>
@@ -814,9 +814,7 @@ public class Fibonacci {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p className="text-ash">
-          {filteredExamples.length} kod örneği bulundu
-        </p>
+        <p className="text-ash">{filteredExamples.length} kod örneği bulundu</p>
 
         {(selectedCategories.size > 0 || selectedDifficulties.size > 0) && (
           <div className="flex flex-wrap gap-2">

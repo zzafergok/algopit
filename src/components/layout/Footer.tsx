@@ -72,13 +72,13 @@ export const Footer = () => {
                 </h4>
                 <div className="flex gap-3">
                   <Link
-                    href="https://github.com/zzafergok/algorithms-playground"
+                    href="https://github.com/zzafergok/algopit"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
                       'flex items-center justify-center w-10 h-10 rounded-sm',
                       'bg-obsidian/50 hover:bg-obsidian/60 text-ash hover:text-titanium',
-                      'transition-all duration-200 hover:scale-110'
+                      'transition-all duration-200 hover:scale-110',
                     )}
                     aria-label="GitHub repository'yi ziyaret et"
                   >
@@ -89,7 +89,7 @@ export const Footer = () => {
                     className={cn(
                       'flex items-center justify-center w-10 h-10 rounded-sm',
                       'bg-obsidian/50 hover:bg-obsidian/60 text-ash hover:text-titanium',
-                      'transition-all duration-200 hover:scale-110'
+                      'transition-all duration-200 hover:scale-110',
                     )}
                     aria-label="E-posta ile iletişime geç"
                   >
@@ -117,9 +117,7 @@ export const Footer = () => {
               <p className="flex items-center gap-1">
                 &copy; {currentYear} AlgoPit. Tüm hakları saklıdır.
               </p>
-              <span className="hidden sm:inline text-ash/50">
-                •
-              </span>
+              <span className="hidden sm:inline text-ash/50">•</span>
               <p className="flex items-center gap-1">
                 <Heart size={14} className="text-alert-red" />
                 <span>ile Türkiye'de geliştirildi</span>
@@ -139,7 +137,7 @@ export const Footer = () => {
             'transition-all duration-300 ease-out',
             'hover:scale-110 hover:bg-void-black',
             'focus:ring-2 focus:ring-primary focus:ring-offset-2',
-            'active:scale-95'
+            'active:scale-95',
           )}
           onClick={scrollToTop}
           aria-label="Sayfanın başına geri dön"

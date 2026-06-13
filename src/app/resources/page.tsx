@@ -187,7 +187,7 @@ export default function ResourcesPage() {
         </p>
         <Button asChild>
           <a
-            href="https://github.com/zzafergok/algorithms-playground"
+            href="https://github.com/zzafergok/algopit"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2"

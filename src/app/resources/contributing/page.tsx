@@ -48,7 +48,7 @@ export default function ContributingPage() {
       title: 'Clone the repository',
       description: 'Clone your forked repository to your local machine.',
       icon: <FilePlus className="h-6 w-6" />,
-      code: 'git clone https://github.com/YOUR_USERNAME/algorithms-playground.git\ncd algorithms-playground',
+      code: 'git clone https://github.com/YOUR_USERNAME/algopit.git\ncd algopit',
       language: 'bash',
     },
     {
@@ -202,7 +202,7 @@ export default function ContributingPage() {
             <Button
               onClick={() =>
                 setActiveStep((prev) =>
-                  Math.min(contributionSteps.length - 1, prev + 1)
+                  Math.min(contributionSteps.length - 1, prev + 1),
                 )
               }
               disabled={activeStep === contributionSteps.length - 1}
@@ -539,7 +539,7 @@ function sortArray<T extends number>(array: T[]): T[] {
             description:
               'Bulduğunuz hataları bildirin ve çözüm önerilerinde bulunun',
             icon: <Bug className="h-6 w-6 text-arcly-blue" />,
-            link: 'https://github.com/zzafergok/algorithms-playground/issues/new?template=bug_report.md',
+            link: 'https://github.com/zzafergok/AlgoPit/issues/new?template=bug_report.md',
           },
           {
             title: 'Dokümantasyon İyileştirmeleri',
@@ -552,7 +552,7 @@ function sortArray<T extends number>(array: T[]): T[] {
             title: 'Topluluk Tartışmaları',
             description: 'Projede aktif rol alın ve tartışmalara katılın',
             icon: <MessageSquare className="h-6 w-6 text-arcly-blue" />,
-            link: 'https://github.com/zzafergok/algorithms-playground/discussions',
+            link: 'https://github.com/zzafergok/AlgoPit/discussions',
           },
         ].map((item, index) => (
           <motion.div key={item.title} variants={itemVariants}>
@@ -591,7 +591,7 @@ function sortArray<T extends number>(array: T[]): T[] {
         <div className="flex flex-wrap gap-4 justify-center">
           <Button asChild variant="outline">
             <a
-              href="https://github.com/zzafergok/algorithms-playground/issues/new?template=question.md"
+              href="https://github.com/zzafergok/AlgoPit/issues/new?template=question.md"
               target="_blank"
               rel="noopener noreferrer"
             >

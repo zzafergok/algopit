@@ -99,9 +99,7 @@ export function UnderConstruction({
         <h1 className="text-4xl font-bold tracking-tight">{title}</h1>
 
         {description && (
-          <p className="text-ash text-lg max-w-2xl mx-auto">
-            {description}
-          </p>
+          <p className="text-ash text-lg max-w-2xl mx-auto">{description}</p>
         )}
         <div className="pt-2">
           <Button variant="outline" size="sm" asChild>
@@ -160,7 +158,7 @@ export function UnderConstruction({
               <div className="flex flex-wrap gap-4 pt-4 mt-auto">
                 <Button variant="outline" size="sm" asChild>
                   <Link
-                    href="https://github.com/zzafergok/algorithms-playground"
+                    href="https://github.com/zzafergok/algopit"
                     target="_blank"
                     className="flex items-center gap-2"
                   >
@@ -281,9 +279,7 @@ export function UnderConstruction({
                     </>
                   )}
                 </h3>
-                <p className="text-sm text-ash mt-1">
-                  {step.description}
-                </p>
+                <p className="text-sm text-ash mt-1">{step.description}</p>
 
                 <div
                   className={`mt-2 flex ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}

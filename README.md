@@ -102,10 +102,10 @@ Node.js 18.0 veya üzeri sürüm gereklidir
 
 ```bash
 # Repository'yi klonlayın
-git  clone  https://github.com/zzafergok/algorithms-playground.git
+git  clone  https://github.com/zzafergok/algopit.git
 
 # Proje dizinine geçin
-cd  algorithms-playground
+cd  AlgoPit
 
 # Bağımlılıkları yükleyin
 npm  install
@@ -133,7 +133,7 @@ npm  run  start
 ## 📁 Proje Yapısı
 
 ```
-algorithms-playground/
+AlgoPit/
 
 ├── public/ # Statik dosyalar
 
@@ -291,7 +291,7 @@ TypeScript kullanımında strict mode tercih edilir ve tüm bileşenler için pr
 
 **Proje Geliştirici**: [gok.zaferr@gmail.com](mailto:gok.zaferr@gmail.com)
 
-**GitHub Issues**: [Yeni issue oluşturun](https://github.com/zzafergok/algorithms-playground/issues)
+**GitHub Issues**: [Yeni issue oluşturun](https://github.com/zzafergok/algopit/issues)
 
 **Dokümantasyon**: [Detaylı dokümantasyon](https://www.algopit.wiki/resources/documentation)
 

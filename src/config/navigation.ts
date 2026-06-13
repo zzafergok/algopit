@@ -260,7 +260,7 @@ export const navigationConfig: NavigationConfig = {
       links: [
         {
           label: 'GitHub',
-          href: 'https://github.com/zzafergok/algorithms-playground',
+          href: 'https://github.com/zzafergok/algopit',
           isExternal: true,
         },
         { label: 'Belgelendirme', href: '/resources/documentation' },

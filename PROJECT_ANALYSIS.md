@@ -1,10 +1,10 @@
-# Project Analysis: Algorithms Playground
+# Project Analysis: AlgoPit
 
-Bu rapor, Algorithms Playground projesinin teknik mimarisini, iş modelini ve uygulama detaylarını analiz eder.
+Bu rapor, AlgoPit projesinin teknik mimarisini, iş modelini ve uygulama detaylarını analiz eder.
 
 ## 1. Teknik İskelet (Technical Skeleton)
 
-Algorithms Playground, bilgisayar bilimleri kavramlarını görsel bir deneyime dönüştüren bir eğitim platformudur:
+AlgoPit, bilgisayar bilimleri kavramlarını görsel bir deneyime dönüştüren bir eğitim platformudur:
 
 - **Frontend Core**: Next.js (App Router) ve React ile dinamik bir sayfa yapısı kurulmuştur.
 - **Dil**: Algoritmaların doğruluğu ve veri yapıları için TypeScript'in katı tip denetimi kullanılmıştır.

@@ -126,7 +126,7 @@ export default function DocumentationPage() {
 
           <h4>Dosya Yapısı</h4>
           <pre className="bg-obsidian/60 p-4 rounded-sm overflow-x-auto text-sm">
-            {`algorithms-playground/
+            {`algopit/
 ├── public/          # Statik dosyalar
 ├── src/
 │   ├── app/         # Sayfa bileşenleri (Next.js App Router)
@@ -374,7 +374,7 @@ export default function DocumentationPage() {
 
   const toggleSection = (id: string) => {
     setExpandedSections((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 

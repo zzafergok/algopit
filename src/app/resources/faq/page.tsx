@@ -394,7 +394,7 @@ export default function FAQPage() {
           faq.question.toLowerCase().includes(query) ||
           (typeof faq.answer === 'string' &&
             faq.answer.toLowerCase().includes(query)) ||
-          faq.tags.some((tag) => tag.toLowerCase().includes(query))
+          faq.tags.some((tag) => tag.toLowerCase().includes(query)),
       );
     }
 
@@ -407,7 +407,7 @@ export default function FAQPage() {
 
   const toggleItem = (id: string) => {
     setExpandedItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -618,7 +618,7 @@ export default function FAQPage() {
         <div className="flex flex-wrap gap-4 justify-center">
           <Button asChild variant="outline">
             <a
-              href="https://github.com/zzafergok/algorithms-playground/issues/new?template=question.md"
+              href="https://github.com/zzafergok/algopit/issues/new?template=question.md"
               target="_blank"
               rel="noopener noreferrer"
             >
