@@ -10,7 +10,7 @@ AlgoPit, algoritmaları ve veri yapılarını interaktif bir şekilde öğrenmen
 
 **İnteraktif Görselleştirmeler**: Her algoritmanın çalışma mantığını adım adım takip edebileceğiniz dinamik animasyonlar
 
-**Kapsamlı İçerik Kütüphanesi**: 15+ kategori ve 50+ algoritma ile geniş bir öğrenme yelpazesi
+**Kapsamlı İçerik Kütüphanesi**: 14 kategori ve 46 algoritma ile geniş bir öğrenme yelpazesi
 
 **Çoklu Dil Desteği**: JavaScript, Python ve Java dillerinde detaylı kod implementasyonları
 

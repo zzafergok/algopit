@@ -38,7 +38,7 @@ export default function AboutPage() {
       icon: <Layers className="h-6 w-6" />,
       title: 'Kapsamlı İçerik',
       description:
-        '15+ kategori ve 50+ algoritma ile programlama temellerinizi güçlendirin.',
+        '14 kategori ve 46 algoritma ile programlama temellerinizi güçlendirin.',
     },
     {
       icon: <Target className="h-6 w-6" />,
@@ -55,8 +55,8 @@ export default function AboutPage() {
   ];
 
   const platformStats = [
-    { value: '50+', label: 'Algoritma' },
-    { value: '15+', label: 'Kategori' },
+    { value: '46', label: 'Algoritma' },
+    { value: '14', label: 'Kategori' },
     { value: '100+', label: 'Kod Örneği' },
     { value: '24/7', label: 'Erişilebilir' },
   ];

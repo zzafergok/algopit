@@ -3,7 +3,7 @@
 Proje Genel Bakış
 
 AlgoPit, Türkçe dilinde algoritma ve veri yapıları öğretimi için geliştirilmiş interaktif bir eğitim platformudur. Modern web teknolojileri
-kullanılarak oluşturulmuş olup, 50+ algoritma ve 15+ kategori içermektedir.
+kullanılarak oluşturulmuş olup, 46 algoritma ve 14 kategori içermektedir.
 
 Teknik Mimari Analizi
 
@@ -140,9 +140,9 @@ Test Stratejisi Önerileri
 
 Dosya Sayıları
 
-- Total Algorithm Pages: 53+ sayfa
+- Total Algorithm Pages: 46 sayfa
 - Components: 20+ bileşen
-- Algorithm Implementations: 15+ kategori
+- Algorithm Implementations: 14 kategori
 - Lines of Code: ~15,000+ satır (tahmini)
 
 Kod Dağılımı

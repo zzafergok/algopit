@@ -12,6 +12,8 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { navigationConfig } from '@/config/navigation';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 
 interface Category {
   title: string;
@@ -28,385 +30,44 @@ interface Algorithm {
   difficulty?: 'Kolay' | 'Orta' | 'Zor';
 }
 
+const categoryDescriptions: Record<string, string> = {
+  'sorting': 'Verileri belirli bir düzende sıralamak için kullanılan algoritmalar',
+  'searching': 'Veri yapılarında eleman bulmak için kullanılan algoritmalar',
+  'graph-algorithms': 'Graf veri yapıları üzerinde işlem yapan algoritmalar',
+  'data-structures': 'Verileri organize etme ve saklama yöntemleri',
+  'dynamic-programming': 'Karmaşık problemleri alt problemlere bölerek çözen yöntemler',
+  'backtracking': 'Bir problem için olası tüm çözümleri adım adım keşfeden ve geçersiz çözüm yollarını eleme yöntemiyle ilerleyen bir algoritma stratejisi',
+  'greedy-algorithms': 'Her adımda en iyi görünen seçimi yaparak global optimum çözüm arayan problem çözme yaklaşımı',
+  'divide-and-conquer': 'Problemi aynı tipte daha küçük alt problemlere bölen, çözen ve sonuçları birleştiren algoritma tasarım yaklaşımı',
+  'string-algorithms': 'String veriler üzerinde arama, eşleştirme, düzenleme ve manipülasyon yapmak için kullanılan özel algoritmalar',
+  'mathematical-algorithms': 'Matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalar',
+  'clustering-algorithms': 'Benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleri',
+  'optimization-algorithms': 'Belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalar',
+  'misc-algorithms': 'Çeşitli problem alanlarında kullanılan, farklı kategorilere tam olarak sığmayan ancak yazılım geliştirmede kritik önem taşıyan algoritmalar',
+  'advanced-algorithms': 'Karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalar',
+};
+
 export default function AlgorithmsPage() {
-  const algorithmCategories: Category[] = [
-    {
-      title: 'Sıralama Algoritmaları',
-      slug: 'sorting',
-      description:
-        'Verileri belirli bir düzende sıralamak için kullanılan algoritmalar',
-      algorithms: [
-        {
-          name: 'Bubble Sort',
-          slug: 'bubble-sort',
-          description:
-            'Her adımda komşu elemanları karşılaştırarak ve gerekirse değiştirerek çalışan basit bir sıralama algoritması.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Selection Sort',
-          slug: 'selection-sort',
-          description:
-            'Her adımda dizideki en küçük elemanı bulup uygun konuma yerleştiren algoritma.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Insertion Sort',
-          slug: 'insertion-sort',
-          description:
-            'Elemanları teker teker alıp sıralı alt listeye uygun konuma yerleştiren algoritma.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Merge Sort',
-          slug: 'merge-sort',
-          description:
-            'Böl ve fethet yaklaşımını kullanarak diziyi parçalara ayırıp sıralayarak birleştiren algorima.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Quick Sort',
-          slug: 'quick-sort',
-          description:
-            'Pivot eleman seçerek diziyi bölen ve alt dizileri sıralayan hızlı bir algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Arama Algoritmaları',
-      slug: 'searching',
-      description:
-        'Veri yapılarında eleman bulmak için kullanılan algoritmalar',
-      algorithms: [
-        {
-          name: 'Linear Search',
-          slug: 'linear-search',
-          description:
-            'Bir dizide elemanları sırayla kontrol ederek arama yapan en basit algoritma.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Binary Search',
-          slug: 'binary-search',
-          description:
-            'Sıralı dizilerde, her adımda arama alanını yarıya bölerek logaritmik zamanda arama yapan algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Graf Algoritmaları',
-      slug: 'graph-algorithms',
-      description: 'Graf veri yapıları üzerinde işlem yapan algoritmalar',
-      algorithms: [
-        {
-          name: 'Breadth-First Search (BFS)',
-          slug: 'bfs',
-          description:
-            'Grafı seviye seviye dolaşan, en kısa yolu bulma ve seviye tabanlı işlemlerde kullanılan algortima.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Depth-First Search (DFS)',
-          slug: 'dfs',
-          description:
-            'Grafı derinlemesine dolaşan, bağlantılı bileşenler ve çevrim tespitinde kullanılan algoritma.',
-          difficulty: 'Orta',
-        },
-        {
-          name: "Dijkstra's Algorithm",
-          slug: 'dijkstra',
-          description:
-            'Bir düğümden diğer tüm düğümlere olan en kısa yolları bulan, ağırlıklı graflarda kullanılan algoritma.',
-          difficulty: 'Zor',
-        },
-        {
-          name: 'Bellman-Ford Algorithm',
-          slug: 'bellman-ford',
-          description:
-            'Negatif ağırlıklı kenarları olan graflarda en kısa yolları bulan ve negatif çevrimleri tespit eden algoritma.',
-          difficulty: 'Zor',
-        },
-      ],
-    },
-    {
-      title: 'Veri Yapıları',
-      slug: 'data-structures',
-      description: 'Verileri organize etme ve saklama yöntemleri',
-      algorithms: [
-        {
-          name: 'Linked List',
-          slug: 'linked-list',
-          description:
-            'Her düğümün veri ve bir sonraki düğüme referans içerdiği dinamik bir veri yapısı.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Stack',
-          slug: 'stack',
-          description:
-            'Son giren ilk çıkar (LIFO) prensibiyle çalışan, yalnızca en üstteki elemana erişim sağlayan veri yapısı.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Queue',
-          slug: 'queue',
-          description:
-            'İlk giren ilk çıkar (FIFO) prensibiyle çalışan, elemanları sırayla işleyen veri yapısı.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Binary Search Tree',
-          slug: 'binary-search-tree',
-          description:
-            'Her düğümün en fazla iki çocuğa sahip olduğu, hızlı arama, ekleme ve silme işlemlerine olanak tanıyan hiyerarşik yapı.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Hash Table',
-          slug: 'hash-table',
-          description:
-            'Anahtarları değerlere eşleyen, sabit zamanlı erişim sağlayan veri yapısı.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Dinamik Programlama',
-      slug: 'dynamic-programming',
-      description:
-        'Karmaşık problemleri alt problemlere bölerek çözen yöntemler',
-      algorithms: [
-        {
-          name: 'Fibonacci',
-          slug: 'fibonacci',
-          description:
-            'Her sayının kendinden önceki iki sayının toplamı olduğu, memoization ile verimli hesaplanabilen dizi.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Knapsack Problem',
-          slug: 'knapsack',
-          description:
-            'Belirli bir ağırlık kapasitesindeki çantaya, maksimum değere sahip nesneleri yerleştirme problemi.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Longest Common Subsequence',
-          slug: 'longest-common-subsequence',
-          description:
-            'İki dizi arasındaki en uzun ortak alt diziyi bulan algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Geri İzleme Algoritmaları',
-      slug: 'backtracking',
-      description:
-        'Bir problem için olası tüm çözümleri adım adım keşfeden ve geçersiz çözüm yollarını eleme yöntemiyle ilerleyen bir algoritma stratejisi',
-      algorithms: [
-        {
-          name: 'N-Queens Problem',
-          slug: 'n-queens',
-          description:
-            'N adet veziri, birbirlerini tehdit etmeyecek şekilde N×N boyutundaki satranç tahtasına yerleştirme problemi.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Subset Sum Problem',
-          slug: 'subset-sum',
-          description:
-            'Bir dizi içerisindeki sayıların alt kümelerinin toplamının belirli bir değere eşit olup olmadığını bulan algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Açgözlü Algoritmalar',
-      slug: 'greedy-algorithms',
-      description:
-        'Her adımda en iyi görünen seçimi yaparak global optimum çözüm arayan problem çözme yaklaşımı',
-      algorithms: [
-        {
-          name: 'Fractional Knapsack',
-          slug: 'fractional-knapsack',
-          description:
-            'Nesneleri ağırlık/değer oranına göre sıralayarak çantaya yerleştiren, nesnelerin bölünebilir olduğu çanta problemi çözümü.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Huffman Coding',
-          slug: 'huffman-coding',
-          description:
-            'Karakterlerin frekanslarına göre değişken uzunluklu kodlar atayan, veri sıkıştırma için kullanılan algoritma.',
-          difficulty: 'Zor',
-        },
-      ],
-    },
-    {
-      title: 'Böl ve Fethet Algoritmaları',
-      slug: 'divide-and-conquer',
-      description:
-        'Problemi aynı tipte daha küçük alt problemlere bölen, çözen ve sonuçları birleştiren algoritma tasarım yaklaşımı',
-      algorithms: [
-        {
-          name: 'Merge Sort',
-          slug: 'sorting/merge-sort',
-          description:
-            'Diziyi iki parçaya bölen, her parçayı sıralayan ve sonra birleştiren etkili bir sıralama algoritması.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Quick Sort',
-          slug: 'sorting/quick-sort',
-          description:
-            'Pivot seçerek diziyi bölen ve her bölümü tekrar eden şekilde sıralayan hızlı sıralama algoritması.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Binary Search',
-          slug: 'searching/binary-search',
-          description:
-            'Sıralı dizilerde, her adımda arama alanını yarıya indirerek logaritmik zamanda arama yapan algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Metin İşleme Algoritmaları',
-      slug: 'string-algorithms',
-      description:
-        'String veriler üzerinde arama, eşleştirme, düzenleme ve manipülasyon yapmak için kullanılan özel algoritmalar',
-      algorithms: [
-        {
-          name: 'Rabin-Karp Algorithm',
-          slug: 'rabin-karp',
-          description:
-            'Metin içerisinde desen aramak için hash değerlerini kullanan string eşleştirme algoritması.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'KMP Algorithm',
-          slug: 'kmp',
-          description:
-            'Önek tablosu kullanarak metinde desen aramayı verimli hale getiren string eşleştirme algoritması.',
-          difficulty: 'Zor',
-        },
-      ],
-    },
-    {
-      title: 'Matematiksel Algoritmalar',
-      slug: 'mathematical-algorithms',
-      description:
-        'Matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalar',
-      algorithms: [
-        {
-          name: 'GCD (Euclidean Algorithm)',
-          slug: 'gcd',
-          description:
-            'İki veya daha fazla sayının en büyük ortak bölenini bulan etkili bir algoritma.',
-          difficulty: 'Kolay',
-        },
-        {
-          name: 'Sieve of Eratosthenes',
-          slug: 'sieve-of-eratosthenes',
-          description:
-            'Belirli bir sayıya kadar olan tüm asal sayıları hızlı bir şekilde bulan algoritma.',
-          difficulty: 'Kolay',
-        },
-      ],
-    },
-    {
-      title: 'Kümeleme Algoritmaları',
-      slug: 'clustering-algorithms',
-      description:
-        'Benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleri',
-      algorithms: [
-        {
-          name: 'K-Means',
-          slug: 'k-means',
-          description:
-            'Verileri K adet kümeye ayıran, her kümenin merkezi etrafında gruplandıran popüler bir kümeleme algoritması.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Hierarchical Clustering',
-          slug: 'hierarchical-clustering',
-          description:
-            'Verileri hiyerarşik bir ağaç yapısında gruplayan, farklı seviyelerde kümeleme imkanı sunan algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'Optimizasyon Algoritmaları',
-      slug: 'optimization-algorithms',
-      description:
-        'Belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalar',
-      algorithms: [
-        {
-          name: 'Simulated Annealing',
-          slug: 'simulated-annealing',
-          description:
-            'Fiziksel tavlama işlemini taklit eden, global optimum çözüm arayan bir metasezgisel yöntem.',
-          difficulty: 'Zor',
-        },
-        {
-          name: 'Genetic Algorithms',
-          slug: 'genetic-algorithms',
-          description:
-            'Doğal evrim süreçlerini taklit eden, popülasyon tabanlı meta-sezgisel optimizasyon algoritması.',
-          difficulty: 'Zor',
-        },
-      ],
-    },
-    {
-      title: 'Diğer Önemli Algoritmalar',
-      slug: 'misc-algorithms',
-      description:
-        'Çeşitli problem alanlarında kullanılan, farklı kategorilere tam olarak sığmayan ancak yazılım geliştirmede kritik önem taşıyan algoritmalar',
-      algorithms: [
-        {
-          name: 'Bloom Filter',
-          slug: 'bloom-filter',
-          description:
-            'Bir elemanın bir kümede bulunup bulunmadığını hızlı şekilde kontrol eden, olasılıksal veri yapısı.',
-          difficulty: 'Orta',
-        },
-        {
-          name: 'Reservoir Sampling',
-          slug: 'reservoir-sampling',
-          description:
-            'Bilinmeyen boyuttaki veri akışından rastgele örneklem almaya yarayan algoritma.',
-          difficulty: 'Orta',
-        },
-      ],
-    },
-    {
-      title: 'İleri Seviye Algoritmalar',
-      slug: 'advanced-algorithms',
-      description:
-        'Karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalar',
-      algorithms: [
-        {
-          name: "Floyd's Cycle-Finding",
-          slug: 'floyd-cycle-finding',
-          description:
-            "Bağlı listelerde döngüleri bulmak için kullanılan verimli bir algoritma. 'Tortoise and Hare' olarak da bilinir.",
-          difficulty: 'Zor',
-        },
-        {
-          name: 'Topological Sort',
-          slug: 'topological-sort',
-          description:
-            'Yönlü asiklik graflarda (DAG) düğümleri bağımlılıklarına göre sıralayan algoritma.',
-          difficulty: 'Zor',
-        },
-      ],
-    },
-  ];
+  const algorithmRoot = navigationConfig.mainNavItems.find(
+    (item) => item.href === '/algorithms'
+  );
+
+  const algorithmCategories: Category[] = (algorithmRoot?.children ?? []).map((category) => {
+    const categorySlug = category.href.replace('/algorithms/', '');
+    const algorithms = createCategoryAlgorithms(category.href).map((algo) => ({
+      name: algo.name,
+      slug: algo.path.split('/').pop() || '',
+      description: algo.description || '',
+      difficulty: algo.difficulty as 'Kolay' | 'Orta' | 'Zor' | undefined,
+    }));
+
+    return {
+      title: category.label,
+      slug: categorySlug,
+      description: categoryDescriptions[categorySlug] || `${category.label} kategorisi altındaki algoritmalar.`,
+      algorithms,
+    };
+  });
 
   const difficultyBadgeVariant = (difficulty?: string) => {
     switch (difficulty) {
