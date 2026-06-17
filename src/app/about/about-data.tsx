@@ -48,7 +48,7 @@ export const platformFeatures: PlatformFeature[] = [
     icon: <Layers className="h-6 w-6" />,
     title: 'Kapsamlı İçerik',
     description:
-      '14 kategori ve 95 algoritma ile programlama temellerinizi güçlendirin.',
+      '17 kategori ve 137 algoritma ile programlama temellerinizi güçlendirin.',
   },
   {
     icon: <Target className="h-6 w-6" />,
@@ -65,8 +65,8 @@ export const platformFeatures: PlatformFeature[] = [
 ];
 
 export const platformStats: PlatformStat[] = [
-  { value: '95', label: 'Algoritma' },
-  { value: '14', label: 'Kategori' },
+  { value: '137', label: 'Algoritma' },
+  { value: '17', label: 'Kategori' },
   { value: '250+', label: 'Kod Örneği' },
   { value: '24/7', label: 'Erişilebilir' },
 ];

@@ -105,6 +105,54 @@ export const algorithmCardItemsByCategory: Record<string, AlgorithmCardItem[]> =
         category: 'Tree',
         difficulty: 'Zor',
       },
+      {
+        name: 'Arama Ağaçları (Trees & Search Trees)',
+        path: '/algorithms/data-structures/search-trees',
+        description:
+          'Kırmızı-Siyah Ağaç, 2-3 ve 2-3-4 Ağaçları, Dijital Arama Ağacı ve Patricia Ağacı varyantlarını içerir.',
+        category: 'Tree',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Harici Arama ve Hashing (External Searching & Hashing)',
+        path: '/algorithms/data-structures/external-searching-hashing',
+        description:
+          'ISAM (Dizinli Sıralı Erişim) ve Genişletilebilir Hashing (Extendible Hashing) yöntemlerini içerir.',
+        category: 'Hash-based',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Açık Adreslemeli Hashing (Open Addressing Hashing)',
+        path: '/algorithms/data-structures/open-addressing-hashing',
+        description:
+          'Doğrusal Sonda (Linear Probing) ve Çift Hashing (Double Hashing) çakışma çözümleme şemalarını içerir.',
+        category: 'Hash-based',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Yığın İşlemleri (Heap & PQ Operations)',
+        path: '/algorithms/data-structures/heap-operations',
+        description:
+          'Diziden yığın oluşturma (Heapify) ve Dolaylı Yığın (Index Heap) işlemlerini içerir.',
+        category: 'Heap',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Ayrık Küme (Disjoint-Set / Union-Find)',
+        path: '/algorithms/data-structures/union-find',
+        description:
+          'Hızlı Birleştirme (Quick Union), Ağırlık/Yükseklik Dengeli Union-Find ve Yol Yassılaştırma (Path Compression) işlemlerini içerir.',
+        category: 'Set',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Küme İşlemleri ve MFSET (Set Operations)',
+        path: '/algorithms/data-structures/set-operations',
+        description:
+          'Eşdeğerlik kümeleri (MFSET), Küme Birleştirme/Bölme (Merge/Split) ve Küme Birleşim/Kesişim işlemlerini içerir.',
+        category: 'Set',
+        difficulty: 'Kolay',
+      },
     ],
     '/algorithms/divide-and-conquer': [
       {
@@ -210,6 +258,46 @@ export const algorithmCardItemsByCategory: Record<string, AlgorithmCardItem[]> =
           'Düğüm tabanlı yaklaşımla minimum yayılma ağacı bulan, öncelik kuyruğu kullanan algoritma.',
         category: 'MST',
         difficulty: 'Orta',
+      },
+      {
+        name: 'Graf Dolaşma ve Arama (Graph Traversals & Searching)',
+        path: '/algorithms/graph-algorithms/graph-traversals',
+        description:
+          'Ağaçta BFS, Öncelik Öncelikli Dolaşma (PFS), Seyrek/Yoğun PFS ve Çevrim Testi algoritmalarını içerir.',
+        category: 'Traversal',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'En Kısa Yollar ve MST (Shortest Paths & MST)',
+        path: '/algorithms/graph-algorithms/shortest-paths-mst',
+        description:
+          'En Kısa Yol Yazdırma (Shortest Path Printing) ve Öklid MST (Euclidean Minimum Spanning Tree) varyantlarını içerir.',
+        category: 'Shortest Path',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Ağ Akışı (Network Flow)',
+        path: '/algorithms/graph-algorithms/network-flow',
+        description:
+          'Ford-Fulkerson Maksimum Akış ve Maksimum Akış / Minimum Kesik (Max-Flow/Min-Cut) şemalarını içerir.',
+        category: 'Network Flow',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Eşleştirme ve Evlilik (Matching & Marriage)',
+        path: '/algorithms/graph-algorithms/matching-marriage',
+        description:
+          'İki Parçalı Eşleştirme (Bipartite Matching), Maksimal/Maksimum/Ağırlıklı Eşleştirme ve Kararlı Evlilik (Stable Marriage) problemlerini içerir.',
+        category: 'Matching',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Graf Boyama ve Geri İzleme (Graph Coloring & Backtracking)',
+        path: '/algorithms/graph-algorithms/graph-coloring-backtracking',
+        description:
+          'Grafı M renkle boyama problemini geri izleme (backtracking) yaklaşımıyla çözümler.',
+        category: 'Backtracking',
+        difficulty: 'Zor',
       },
     ],
     '/algorithms/greedy-algorithms': [
@@ -371,6 +459,48 @@ export const algorithmCardItemsByCategory: Record<string, AlgorithmCardItem[]> =
           "Python'un yerleşik sort fonksiyonunda kullanılan, merge sort ve insertion sort'un hibrit versiyonu.",
         difficulty: 'Zor',
       },
+      {
+        name: 'Quicksort Varyantları (Quicksort Variants)',
+        path: '/algorithms/sorting/quicksort-variants',
+        description:
+          'Rastgeleleştirilmiş Quicksort, Pivot Bölümleme ve Üçlü Medyan Bölümleme varyantlarını içerir.',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Radix Sort Varyantları (Radix Sort Variants)',
+        path: '/algorithms/sorting/radix-sort-variants',
+        description:
+          'Taban Değişimli Sıralama ve Düz Tabanlı Sıralama varyantlarını içerir.',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Kova Sıralaması (Bucket Sort)',
+        path: '/algorithms/sorting/bucket-sort',
+        description:
+          'Elemanları kovalara dağıtarak ve her kovayı kendi içinde sıralayarak çalışan algoritma.',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Sıra İstatistikleri (Order Statistics / Kth Element)',
+        path: '/algorithms/sorting/order-statistics',
+        description:
+          'En Kötü Durumda Doğrusal K. Eleman (Median of Medians) ve Quickselect algoritmalarını içerir.',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Harici Sıralama ve Birleştirme (External Sorting & Merging)',
+        path: '/algorithms/sorting/external-sorting',
+        description:
+          'Sort-Merge, Dengeli Çok Yollu Birleştirme ve Yedekli Seçim yöntemlerini içerir.',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Basit / Yardımcı Sıralamalar (Simple Sorts)',
+        path: '/algorithms/sorting/simple-sorts',
+        description:
+          'Üç Eleman Sıralama (Sort3) ve Doğrusal Sıralama (Linear Sort) algoritmalarını içerir.',
+        difficulty: 'Kolay',
+      },
     ],
     '/algorithms/string-algorithms': [
       {
@@ -396,6 +526,172 @@ export const algorithmCardItemsByCategory: Record<string, AlgorithmCardItem[]> =
         path: '/algorithms/string-algorithms/z-algorithm',
         description:
           'Z-array kullanarak metin içerisinde desen bulma işlemini gerçekleştiren algoritma.',
+      },
+      {
+        name: 'String Arama ve Eşleştirme',
+        path: '/algorithms/string-algorithms/string-search-matching',
+        description:
+          'Kaba kuvvet, Boyer-Moore varyantları, Durum Makinesi, NFA simülasyonu ve düzenli ifade eşleştirmelerini içerir.',
+        category: 'String',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Derleyiciler ve Ayrıştırma',
+        path: '/algorithms/string-algorithms/compilers-parsing',
+        description:
+          'Aşağıdan yukarıya, Kaydır-İndirge ve yukarıdan aşağıya (recursive descent) ifade/terim/faktör ayrıştırma yöntemlerini içerir.',
+        category: 'Parsing',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Veri Sıkıştırma (Compression)',
+        path: '/algorithms/string-algorithms/compression',
+        description:
+          'RLE (Run-Length Encoding) ve Değişken Uzunluklu (Huffman vb.) kodlama sıkıştırma algoritmalarını içerir.',
+        category: 'Compression',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Kriptografi (Cryptography)',
+        path: '/algorithms/string-algorithms/cryptography',
+        description:
+          'Sezar, Vigenere, Vernam (One-Time Pad) ve Çarpım (Substitution+Transposition) şifreleme yöntemlerini içerir.',
+        category: 'Cryptography',
+        difficulty: 'Orta',
+      },
+    ],
+    '/algorithms/computational-geometry': [
+      {
+        name: 'Temel Geometrik İşlemler',
+        path: '/algorithms/computational-geometry/geometric-primitives',
+        description:
+          'Bresenham çizgi çizme, çizgi kesişimleri, dikdörtgen kesişimleri ve çember çakışmalarını içerir.',
+        category: 'Primitives',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Sorgu ve Kapsama Testleri',
+        path: '/algorithms/computational-geometry/containment-query',
+        description:
+          'Noktanın dikdörtgen veya çokgen içinde olup olmadığını sorgulayan Ray Casting algoritmasını içerir.',
+        category: 'Query',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Yol ve Dış Bükey Gövde',
+        path: '/algorithms/computational-geometry/convex-hull-path',
+        description:
+          'Graham Scan ve Jarvis March (Gift Wrapping) dış bükey gövde bulma algoritmalarını içerir.',
+        category: 'Convex Hull',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Yakınlık Problemleri',
+        path: '/algorithms/computational-geometry/proximity-problems',
+        description:
+          'Nokta kümeleri arasında en yakın çifti (Closest Pair) bulmak için Böl ve Fethet algoritmasını içerir.',
+        category: 'Proximity',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Uzamsal ve Aralık Araması',
+        path: '/algorithms/computational-geometry/spatial-searching',
+        description:
+          '2D-Ağaç (2D-Tree) kurulumu ve dikdörtgensel bölge arama (Range Search) algoritmalarını içerir.',
+        category: 'Range Search',
+        difficulty: 'Zor',
+      },
+    ],
+    '/algorithms/design-optimization-np': [
+      {
+        name: 'Dallanıp Sınırlandırma (Branch and Bound)',
+        path: '/algorithms/design-optimization-np/branch-and-bound',
+        description:
+          'FIFO, LIFO ve Least-Cost arama stratejileri ile dallanıp sınırlandırma (Branch and Bound) algoritmasını içerir.',
+        category: 'Branch & Bound',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Gezgin Satıcı ve Yerel Arama (Traveling Salesman & Local Search)',
+        path: '/algorithms/design-optimization-np/traveling-salesman',
+        description:
+          'TSP çözümü için yerel arama (Local Search), 2-Opt yerel iyileştirmesi, Kapsamlı Arama ve Yaklaşıklık algoritmalarını içerir.',
+        category: 'TSP & Local Search',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Çanta Problemi Varyantları (Knapsack Problem Variants)',
+        path: '/algorithms/design-optimization-np/knapsack-variants',
+        description:
+          'Sınırlı (Bounded), Sınırsız (Unbounded), Dallanıp Sınırlandırmalı ve Nondeterministik (DKP) çanta problemlerini içerir.',
+        category: 'Knapsack',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Zamanlama ve Zincir Optimizasyonu (Scheduling & Chain Optimization)',
+        path: '/algorithms/design-optimization-np/scheduling-chain',
+        description:
+          'Teslim Tarihli İş Sıralama (Job Sequencing), Matris Zincir Çarpımı ve Sistem Güvenilirlik Tasarımı algoritmalarını içerir.',
+        category: 'Optimization',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Çok Aşamalı Graflar (Multistage Graphs)',
+        path: '/algorithms/design-optimization-np/multistage-graphs',
+        description:
+          'Çok aşamalı graflarda en kısa yolu bulmak için İleri Akış (Fgraph) ve Geri Akış (Bgraph) dinamik programlama algoritmalarını içerir.',
+        category: 'Graphs',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Graf Boyama ve NP-Zor (Graph Coloring & Hard Problems)',
+        path: '/algorithms/design-optimization-np/graph-coloring-np',
+        description:
+          'M-Boyama backtracking algoritması, Cook Teoremi ve DPLL tabanlı SAT Çözücü simülasyonunu içerir.',
+        category: 'NP-Hard',
+        difficulty: 'Zor',
+      },
+    ],
+    '/algorithms/advanced-parallel-memory': [
+      {
+        name: 'Hızlı Fourier Dönüşümü (Fast Fourier Transform)',
+        path: '/algorithms/advanced-parallel-memory/fast-fourier-transform',
+        description:
+          'Sinyal işleme ve polinom çarpımlarında kullanılan O(n log n) Cooley-Tukey FFT ve ters FFT simülasyonunu içerir.',
+        category: 'FFT',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Paralel Birleştirme ve Ağlar (Parallel Merging & Networks)',
+        path: '/algorithms/advanced-parallel-memory/parallel-merging-networks',
+        description:
+          'Batcher Odd-Even Merge, Bitonic Sort sıralama ağları ve mükemmel karıştırma (Perfect Shuffle) simülasyonunu içerir.',
+        category: 'Parallel Networks',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Matematik ve Klasik Bulmacalar (Math & Classic Riddles)',
+        path: '/algorithms/advanced-parallel-memory/math-classic-riddles',
+        description:
+          'Karatsuba Hızlı Çarpımı, Hanoi Kuleleri, Lig Usulü Turnuva (Round-Robin) ve Çokgen Triangulation çözümlerini içerir.',
+        category: 'Riddles',
+        difficulty: 'Orta',
+      },
+      {
+        name: 'Doğrusal Programlama / Simpleks (Linear Programming / Simplex)',
+        path: '/algorithms/advanced-parallel-memory/linear-programming-simplex',
+        description:
+          'Doğrusal optimizasyon için Simplex pivot adımları, Bland kuralı ve Steepest Descent gradyan inişi simülasyonunu içerir.',
+        category: 'Simplex & Optimization',
+        difficulty: 'Zor',
+      },
+      {
+        name: 'Bellek Yönetimi ve Çöp Toplama (Memory Management & GC)',
+        path: '/algorithms/advanced-parallel-memory/memory-management-gc',
+        description:
+          'GC İşaretleme (Mark-Sweep), non-recursive işaretleme, Buddy bellek yönetimi ve boş blok birleştirme simülasyonunu içerir.',
+        category: 'Memory & GC',
+        difficulty: 'Zor',
       },
     ],
   };
@@ -430,7 +726,28 @@ export const navigationConfig: NavigationConfig = {
             },
             { label: 'Shell Sort', href: '/algorithms/sorting/shell-sort' },
             { label: 'Tim Sort', href: '/algorithms/sorting/tim-sort' },
-            ...duplicateNavItems('sorting', ['merge-sort']),
+            {
+              label: 'Quicksort Varyantları',
+              href: '/algorithms/sorting/quicksort-variants',
+            },
+            {
+              label: 'Radix Sort Varyantları',
+              href: '/algorithms/sorting/radix-sort-variants',
+            },
+            { label: 'Kova Sıralaması', href: '/algorithms/sorting/bucket-sort' },
+            {
+              label: 'Sıra İstatistikleri',
+              href: '/algorithms/sorting/order-statistics',
+            },
+            {
+              label: 'Harici Sıralama',
+              href: '/algorithms/sorting/external-sorting',
+            },
+            {
+              label: 'Basit Sıralamalar',
+              href: '/algorithms/sorting/simple-sorts',
+            },
+            ...duplicateNavItems('sorting', ['merge-sort', 'external-sorting']),
           ],
         },
         {
@@ -444,6 +761,10 @@ export const navigationConfig: NavigationConfig = {
             {
               label: 'Linear Search',
               href: '/algorithms/searching/linear-search',
+            },
+            {
+              label: 'Arama Teknikleri',
+              href: '/algorithms/searching/search-techniques',
             },
             ...duplicateNavItems('searching', ['binary-search']),
           ],
@@ -469,6 +790,26 @@ export const navigationConfig: NavigationConfig = {
             },
             { label: 'Kruskal', href: '/algorithms/graph-algorithms/kruskal' },
             { label: 'Prim', href: '/algorithms/graph-algorithms/prim' },
+            {
+              label: 'Graf Dolaşma ve Arama',
+              href: '/algorithms/graph-algorithms/graph-traversals',
+            },
+            {
+              label: 'En Kısa Yollar ve MST',
+              href: '/algorithms/graph-algorithms/shortest-paths-mst',
+            },
+            {
+              label: 'Ağ Akışı',
+              href: '/algorithms/graph-algorithms/network-flow',
+            },
+            {
+              label: 'Eşleştirme ve Evlilik',
+              href: '/algorithms/graph-algorithms/matching-marriage',
+            },
+            {
+              label: 'Graf Boyama ve Geri İzleme',
+              href: '/algorithms/graph-algorithms/graph-coloring-backtracking',
+            },
             ...duplicateNavItems('graph-algorithms', [
               'bfs',
               'dfs',
@@ -499,6 +840,30 @@ export const navigationConfig: NavigationConfig = {
             },
             { label: 'Stack', href: '/algorithms/data-structures/stack' },
             { label: 'Trie', href: '/algorithms/data-structures/trie' },
+            {
+              label: 'Arama Ağaçları',
+              href: '/algorithms/data-structures/search-trees',
+            },
+            {
+              label: 'Harici Arama ve Hashing',
+              href: '/algorithms/data-structures/external-searching-hashing',
+            },
+            {
+              label: 'Açık Adreslemeli Hashing',
+              href: '/algorithms/data-structures/open-addressing-hashing',
+            },
+            {
+              label: 'Yığın İşlemleri',
+              href: '/algorithms/data-structures/heap-operations',
+            },
+            {
+              label: 'Ayrık Küme (Union-Find)',
+              href: '/algorithms/data-structures/union-find',
+            },
+            {
+              label: 'Küme İşlemleri ve MFSET',
+              href: '/algorithms/data-structures/set-operations',
+            },
             ...duplicateNavItems('data-structures', [
               'binary-search-tree-operations',
             ]),
@@ -656,6 +1021,22 @@ export const navigationConfig: NavigationConfig = {
               label: 'Rabin-Karp',
               href: '/algorithms/string-algorithms/rabin-karp',
             },
+            {
+              label: 'String Arama ve Eşleştirme',
+              href: '/algorithms/string-algorithms/string-search-matching',
+            },
+            {
+              label: 'Derleyiciler ve Ayrıştırma',
+              href: '/algorithms/string-algorithms/compilers-parsing',
+            },
+            {
+              label: 'Veri Sıkıştırma',
+              href: '/algorithms/string-algorithms/compression',
+            },
+            {
+              label: 'Kriptografi',
+              href: '/algorithms/string-algorithms/cryptography',
+            },
             ...duplicateNavItems('string-algorithms'),
           ],
         },
@@ -678,6 +1059,88 @@ export const navigationConfig: NavigationConfig = {
           label: 'Böl ve Fethet',
           href: '/algorithms/divide-and-conquer',
           children: [...duplicateNavItems('divide-and-conquer')],
+        },
+        {
+          label: 'Hesaplamalı Geometri',
+          href: '/algorithms/computational-geometry',
+          children: [
+            {
+              label: 'Temel Geometrik İşlemler',
+              href: '/algorithms/computational-geometry/geometric-primitives',
+            },
+            {
+              label: 'Sorgu ve Kapsama Testleri',
+              href: '/algorithms/computational-geometry/containment-query',
+            },
+            {
+              label: 'Yol ve Dış Bükey Gövde',
+              href: '/algorithms/computational-geometry/convex-hull-path',
+            },
+            {
+              label: 'Yakınlık Problemleri',
+              href: '/algorithms/computational-geometry/proximity-problems',
+            },
+            {
+              label: 'Uzamsal ve Aralık Araması',
+              href: '/algorithms/computational-geometry/spatial-searching',
+            },
+          ],
+        },
+        {
+          label: 'Tasarım / Optimizasyon / NP',
+          href: '/algorithms/design-optimization-np',
+          children: [
+            {
+              label: 'Dallanıp Sınırlandırma',
+              href: '/algorithms/design-optimization-np/branch-and-bound',
+            },
+            {
+              label: 'Gezgin Satıcı ve Yerel Arama',
+              href: '/algorithms/design-optimization-np/traveling-salesman',
+            },
+            {
+              label: 'Çanta Problemi Varyantları',
+              href: '/algorithms/design-optimization-np/knapsack-variants',
+            },
+            {
+              label: 'Zamanlama ve Zincir Optimizasyonu',
+              href: '/algorithms/design-optimization-np/scheduling-chain',
+            },
+            {
+              label: 'Çok Aşamalı Graflar',
+              href: '/algorithms/design-optimization-np/multistage-graphs',
+            },
+            {
+              label: 'Graf Boyama ve NP-Zor',
+              href: '/algorithms/design-optimization-np/graph-coloring-np',
+            },
+          ],
+        },
+        {
+          label: 'Gelişmiş / Paralel / Bellek',
+          href: '/algorithms/advanced-parallel-memory',
+          children: [
+            {
+              label: 'Hızlı Fourier Dönüşümü',
+              href: '/algorithms/advanced-parallel-memory/fast-fourier-transform',
+            },
+            {
+              label: 'Paralel Birleştirme ve Ağlar',
+              href: '/algorithms/advanced-parallel-memory/parallel-merging-networks',
+            },
+            {
+              label: 'Matematik ve Klasik Bulmacalar',
+              href: '/algorithms/advanced-parallel-memory/math-classic-riddles',
+            },
+            {
+              label: 'Doğrusal Programlama / Simpleks',
+              href: '/algorithms/advanced-parallel-memory/linear-programming-simplex',
+            },
+            {
+              label: 'Bellek Yönetimi ve Çöp Toplama',
+              href: '/algorithms/advanced-parallel-memory/memory-management-gc',
+            },
+          ],
         },
       ],
     },

@@ -25,6 +25,12 @@ export default function SearchingAlgorithmsPage() {
       description:
         'Sıralı dizilerde, her adımda arama alanını yarıya bölerek logaritmik zamanda arama yapan algoritma.',
     },
+    {
+      name: 'Arama Teknikleri (Search Techniques)',
+      path: '/algorithms/searching/search-techniques',
+      description:
+        'Olasılıksal Arama (Probability Search), Kendini Düzenleyen Arama (Self-Organizing Search) ve İnterpolasyon Araması (Interpolation Search) varyantlarını içerir.',
+    },
   ];
 
   return (

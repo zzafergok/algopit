@@ -18,6 +18,60 @@ import { runRandomNumberGeneratorsDemo } from './remaining-algorithm-demos/math-
 import { runFibonacciDemo, runLcsDemo, runBellmanFordDemo } from './remaining-algorithm-demos/graphs-dp';
 import { runFractionalKnapsackDemo, runGeneticAlgorithmDemo, runSimulatedAnnealingDemo } from './remaining-algorithm-demos/greedy-opt';
 import { runSieveDemo, runBloomFilterDemo, runReservoirSamplingDemo } from './remaining-algorithm-demos/probabilistic';
+import {
+  runQuicksortVariantsDemo,
+  runRadixSortVariantsDemo,
+  runBucketSortDemo,
+  runOrderStatisticsDemo,
+  runExternalSortingDemo,
+  runSimpleSortsDemo,
+} from './remaining-algorithm-demos/sorting';
+import {
+  runSearchTechniquesDemo,
+  runSearchTreesDemo,
+  runExternalSearchingHashingDemo,
+  runOpenAddressingHashingDemo,
+} from './remaining-algorithm-demos/searching-trees';
+import {
+  runHeapOperationsDemo,
+  runUnionFindDemo,
+  runSetOperationsDemo,
+} from './remaining-algorithm-demos/structures-advanced';
+import {
+  runGraphTraversalsDemo,
+  runShortestPathsMstDemo,
+  runNetworkFlowDemo,
+  runMatchingMarriageDemo,
+  runGraphColoringBacktrackingDemo,
+} from './remaining-algorithm-demos/graph-advanced';
+import {
+  runStringSearchMatchingDemo,
+  runCompilersParsingDemo,
+  runCompressionDemo,
+  runCryptographyDemo,
+} from './remaining-algorithm-demos/string-parsing-crypt';
+import {
+  runGeometricPrimitivesDemo,
+  runContainmentQueryDemo,
+  runConvexHullPathDemo,
+  runProximityProblemsDemo,
+  runSpatialSearchingDemo,
+} from './remaining-algorithm-demos/geometry';
+import {
+  runBranchAndBoundNpDemo,
+  runTravelingSalesmanDemo,
+  runKnapsackVariantsDemo,
+  runSchedulingChainDemo,
+  runMultistageGraphsDemo,
+  runGraphColoringNpDemo,
+} from './remaining-algorithm-demos/design-optimization';
+import {
+  runFastFourierTransformDemo,
+  runParallelMergingNetworksDemo,
+  runMathClassicRiddlesDemo,
+  runLinearProgrammingSimplexDemo,
+  runMemoryManagementGcDemo,
+} from './remaining-algorithm-demos/advanced-parallel-memory';
 
 function TraceList({ trace }: { trace: string[] }) {
   return (
@@ -88,7 +142,45 @@ export function formatDemoOutput(
     kind === 'gaussian-elimination' ||
     kind === 'interpolation-fitting' ||
     kind === 'numerical-integration' ||
-    kind === 'random-number-generators'
+    kind === 'random-number-generators' ||
+    kind === 'quicksort-variants' ||
+    kind === 'radix-sort-variants' ||
+    kind === 'bucket-sort' ||
+    kind === 'order-statistics' ||
+    kind === 'external-sorting' ||
+    kind === 'simple-sorts' ||
+    kind === 'search-techniques' ||
+    kind === 'search-trees' ||
+    kind === 'external-searching-hashing' ||
+    kind === 'open-addressing-hashing' ||
+    kind === 'heap-operations' ||
+    kind === 'union-find' ||
+    kind === 'set-operations' ||
+    kind === 'graph-traversals' ||
+    kind === 'shortest-paths-mst' ||
+    kind === 'network-flow' ||
+    kind === 'matching-marriage' ||
+    kind === 'graph-coloring-backtracking' ||
+    kind === 'string-search-matching' ||
+    kind === 'compilers-parsing' ||
+    kind === 'compression' ||
+    kind === 'cryptography' ||
+    kind === 'geometric-primitives' ||
+    kind === 'containment-query' ||
+    kind === 'convex-hull-path' ||
+    kind === 'proximity-problems' ||
+    kind === 'spatial-searching' ||
+    kind === 'branch-and-bound-np' ||
+    kind === 'traveling-salesman' ||
+    kind === 'knapsack-variants' ||
+    kind === 'scheduling-chain' ||
+    kind === 'multistage-graphs' ||
+    kind === 'graph-coloring-np' ||
+    kind === 'fast-fourier-transform' ||
+    kind === 'parallel-merging-networks' ||
+    kind === 'math-classic-riddles' ||
+    kind === 'linear-programming-simplex' ||
+    kind === 'memory-management-gc'
   ) {
     const result = output as GenericDemoResult;
 
@@ -221,6 +313,158 @@ export function runDemo(algorithm: RemainingAlgorithmContent, input: string) {
 
   if (algorithm.demo.kind === 'random-number-generators') {
     return runRandomNumberGeneratorsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'quicksort-variants') {
+    return runQuicksortVariantsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'radix-sort-variants') {
+    return runRadixSortVariantsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'bucket-sort') {
+    return runBucketSortDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'order-statistics') {
+    return runOrderStatisticsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'external-sorting') {
+    return runExternalSortingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'simple-sorts') {
+    return runSimpleSortsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'search-techniques') {
+    return runSearchTechniquesDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'search-trees') {
+    return runSearchTreesDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'external-searching-hashing') {
+    return runExternalSearchingHashingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'open-addressing-hashing') {
+    return runOpenAddressingHashingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'heap-operations') {
+    return runHeapOperationsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'union-find') {
+    return runUnionFindDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'set-operations') {
+    return runSetOperationsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'graph-traversals') {
+    return runGraphTraversalsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'shortest-paths-mst') {
+    return runShortestPathsMstDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'network-flow') {
+    return runNetworkFlowDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'matching-marriage') {
+    return runMatchingMarriageDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'graph-coloring-backtracking') {
+    return runGraphColoringBacktrackingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'string-search-matching') {
+    return runStringSearchMatchingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'compilers-parsing') {
+    return runCompilersParsingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'compression') {
+    return runCompressionDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'cryptography') {
+    return runCryptographyDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'geometric-primitives') {
+    return runGeometricPrimitivesDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'containment-query') {
+    return runContainmentQueryDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'convex-hull-path') {
+    return runConvexHullPathDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'proximity-problems') {
+    return runProximityProblemsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'spatial-searching') {
+    return runSpatialSearchingDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'branch-and-bound-np') {
+    return runBranchAndBoundNpDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'traveling-salesman') {
+    return runTravelingSalesmanDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'knapsack-variants') {
+    return runKnapsackVariantsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'scheduling-chain') {
+    return runSchedulingChainDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'multistage-graphs') {
+    return runMultistageGraphsDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'graph-coloring-np') {
+    return runGraphColoringNpDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'fast-fourier-transform') {
+    return runFastFourierTransformDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'parallel-merging-networks') {
+    return runParallelMergingNetworksDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'math-classic-riddles') {
+    return runMathClassicRiddlesDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'linear-programming-simplex') {
+    return runLinearProgrammingSimplexDemo(input);
+  }
+
+  if (algorithm.demo.kind === 'memory-management-gc') {
+    return runMemoryManagementGcDemo(input);
   }
 
   if (algorithm.title.startsWith('Rabin-Karp')) {
