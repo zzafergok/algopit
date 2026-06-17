@@ -57,11 +57,8 @@ Kaynak kisaltmalari:
 
 ## Searching / Hashing / Trees
 
-- Sequential search (`DSA`)
 - Probability search (`DSA`)
 - Self-organizing search (`Sedgewick`)
-- Recursive binary search (`DAA Notes`)
-- Iterative binary search (`DAA Notes`)
 - Interpolation search (`Sedgewick`)
 - Binary tree search (`Sedgewick`)
 - Red-black tree insertion (`Sedgewick`)
@@ -75,9 +72,6 @@ Kaynak kisaltmalari:
 - Extendible hashing (`Sedgewick`)
 - Linear probing (`Sedgewick`)
 - Double hashing (`Sedgewick`)
-- Closed hash table dictionary operations (`Aho`)
-- Open hash table dictionary operations (`Aho`)
-- Hash bucket chaining (`Aho`)
 
 ## Heap / Priority Queue / Set / Union-Find
 
@@ -117,10 +111,8 @@ Kaynak kisaltmalari:
 ## String / Parsing / Compression / Crypto
 
 - Brute-force string search (`Sedgewick`)
-- Knuth-Morris-Pratt string search (`Sedgewick`)
 - Boyer-Moore string search (`Sedgewick`)
 - Mismatched-character Boyer-Moore variant (`Sedgewick`)
-- Rabin-Karp string search (`Sedgewick`)
 - Multiple string searches (`Sedgewick`)
 - Finite-state-machine pattern matching (`Sedgewick`)
 - Nondeterministic pattern matching machine simulation (`Sedgewick`)
@@ -134,7 +126,6 @@ Kaynak kisaltmalari:
 - Vigenere cipher (`Sedgewick`)
 - Vernam cipher (`Sedgewick`)
 - Product cipher (`Sedgewick`)
-- Public-key cryptosystem (`Sedgewick`)
 
 ## Computational Geometry
 
@@ -171,9 +162,6 @@ Kaynak kisaltmalari:
 - 2-opt for TSP (`Aho`)
 - Exhaustive search (`Sedgewick`)
 - Approximation algorithms (`Sedgewick`)
-- Knapsack DP (`DAA Notes`)
-- Greedy knapsack (`DAA Notes`)
-- Fractional knapsack (`DAA Notes`)
 - Bounded knapsack (`DAA Notes`)
 - Unbounded knapsack (`DAA Notes`)
 - Branch-and-bound knapsack (`DAA Notes`)
