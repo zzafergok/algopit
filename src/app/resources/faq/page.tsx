@@ -77,7 +77,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="container py-12 max-w-4xl mx-auto">
+    <div className="container py-12 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Sık Sorulan Sorular

@@ -2,13 +2,7 @@
 
 import React, { useState } from 'react';
 
-import {
-  Bug,
-  Book,
-  HelpCircle,
-  MessageSquare,
-  FileCode,
-} from 'lucide-react';
+import { Bug, Book, HelpCircle, MessageSquare, FileCode } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 
 import { Card, CardTitle, CardHeader, CardContent } from '@/components/ui/card';
@@ -49,14 +43,15 @@ export default function ContributingPage() {
   };
 
   return (
-    <div className="container py-12 max-w-4xl mx-auto">
+    <div className="container py-12 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Katkıda Bulunma
         </h1>
         <p className="text-xl text-ash max-w-2xl mx-auto">
-          AlgoPit&apos;e katkıda bulunmak için rehber. Bu projeye katkıda bulunarak,
-          algoritma öğrenimine ve açık kaynak topluluğuna destek olabilirsiniz.
+          AlgoPit&apos;e katkıda bulunmak için rehber. Bu projeye katkıda
+          bulunarak, algoritma öğrenimine ve açık kaynak topluluğuna destek
+          olabilirsiniz.
         </p>
       </div>
 

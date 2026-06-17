@@ -4,13 +4,7 @@ import Link from 'next/link';
 
 import React, { useState } from 'react';
 
-import {
-  Search,
-  GitFork,
-  ChevronDown,
-  FileQuestion,
-  Mail,
-} from 'lucide-react';
+import { Search, GitFork, ChevronDown, FileQuestion, Mail } from 'lucide-react';
 
 import {
   Card,
@@ -45,14 +39,14 @@ export default function DocumentationPage() {
   });
 
   return (
-    <div className="container py-12 max-w-4xl mx-auto">
+    <div className="container py-12 max-w-7xl mx-auto">
       <div className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight mb-4">
           Belgelendirme
         </h1>
         <p className="text-xl text-ash max-w-2xl">
-          AlgoPit&apos;in tüm özelliklerini ve kullanımını anlatan kapsamlı teknik
-          belgelendirme
+          AlgoPit&apos;in tüm özelliklerini ve kullanımını anlatan kapsamlı
+          teknik belgelendirme
         </p>
 
         <div className="relative mt-6">
