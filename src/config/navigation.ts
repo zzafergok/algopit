@@ -239,6 +239,66 @@ export const algorithmCardItemsByCategory: Record<string, AlgorithmCardItem[]> =
         description:
           'Belirli bir sayıya kadar olan tüm asal sayıları hızlı bir şekilde bulan algoritma.',
       },
+      {
+        name: 'Asallık Testi (Primality Test)',
+        path: '/algorithms/mathematical-algorithms/primality-test',
+        description:
+          'Bir sayının asal olup olmadığını sınayan temel ve optimize edilmiş bölünebilirlik testidir.',
+      },
+      {
+        name: 'Taban Dönüşümü (Base Conversion)',
+        path: '/algorithms/mathematical-algorithms/base-conversion',
+        description:
+          'Bir sayıyı 10 tabanından başka bir tabana (örneğin ikili taban - ToBinary) bölme-kalan yöntemiyle dönüştürür.',
+      },
+      {
+        name: 'Faktöriyel (Factorial)',
+        path: '/algorithms/mathematical-algorithms/factorial',
+        description:
+          'Bir sayının faktöriyelini (1\'den n\'e kadar olan sayıların çarpımı) iteratif ve recursive yöntemlerle hesaplar.',
+      },
+      {
+        name: 'Üs Alma (Exponentiation)',
+        path: '/algorithms/mathematical-algorithms/exponentiation',
+        description:
+          'Bir taban sayının belirtilen üssünü böl-ve-fethet (Binary Exponentiation) yöntemiyle logaritmik zamanda hesaplar.',
+      },
+      {
+        name: 'Polinom İşlemleri (Polynomial Operations)',
+        path: '/algorithms/mathematical-algorithms/polynomial-operations',
+        description:
+          'Polinomlar üzerinde Değerleme (Horner Yöntemi), Naive Çarpma, Seyrek Toplama ve Lagrange İnterpolasyonu işlemlerini gerçekleştirir.',
+      },
+      {
+        name: 'Matris İşlemleri (Matrix Operations)',
+        path: '/algorithms/mathematical-algorithms/matrix-operations',
+        description:
+          'Matrisler üzerinde Matris Toplama ve Matris-Vektör Çarpımı işlemlerini verimli şekilde gerçekleştirir.',
+      },
+      {
+        name: 'Gauss Eliminasyonu (Gaussian Elimination)',
+        path: '/algorithms/mathematical-algorithms/gaussian-elimination',
+        description:
+          'Doğrusal denklem sistemlerini çözmek için İleri Eliminasyon, Geri Yerine Koyma ve Gauss-Jordan yöntemlerini kullanır.',
+      },
+      {
+        name: 'İnterpolasyon ve Eğri Uydurma (Interpolation & Fitting)',
+        path: '/algorithms/mathematical-algorithms/interpolation-fitting',
+        description:
+          'Veri noktalarından yumuşak geçişli eğriler üretmek için Spline İnterpolasyonu ve En Küçük Kareler Uyumu yöntemlerini kullanır.',
+      },
+      {
+        name: 'Sayısal İntegral (Numerical Integration / Quadrature)',
+        path: '/algorithms/mathematical-algorithms/numerical-integration',
+        description:
+          'Belirli bir integralin değerini hesaplamak için Dikdörtgen, Yamuk, Simpson, Romberg, Adaptif ve Spline yöntemlerini kullanır.',
+      },
+      {
+        name: 'Rastgele Sayı Üreteçleri (Random Number Generators)',
+        path: '/algorithms/mathematical-algorithms/random-number-generators',
+        description:
+          'Sözde rastgele sayılar üretmek için Doğrusal Eşlik (LCG), Toplamsal Eşlik (Lagged Fibonacci), LFSR ve Chi-Square testini içerir.',
+      },
     ],
     '/algorithms/sorting': [
       {
@@ -543,6 +603,46 @@ export const navigationConfig: NavigationConfig = {
             {
               label: 'Sieve of Eratosthenes',
               href: '/algorithms/mathematical-algorithms/sieve-of-eratosthenes',
+            },
+            {
+              label: 'Asallık Testi',
+              href: '/algorithms/mathematical-algorithms/primality-test',
+            },
+            {
+              label: 'Taban Dönüşümü',
+              href: '/algorithms/mathematical-algorithms/base-conversion',
+            },
+            {
+              label: 'Faktöriyel',
+              href: '/algorithms/mathematical-algorithms/factorial',
+            },
+            {
+              label: 'Üs Alma',
+              href: '/algorithms/mathematical-algorithms/exponentiation',
+            },
+            {
+              label: 'Polinom İşlemleri',
+              href: '/algorithms/mathematical-algorithms/polynomial-operations',
+            },
+            {
+              label: 'Matris İşlemleri',
+              href: '/algorithms/mathematical-algorithms/matrix-operations',
+            },
+            {
+              label: 'Gauss Eliminasyonu',
+              href: '/algorithms/mathematical-algorithms/gaussian-elimination',
+            },
+            {
+              label: 'İnterpolasyon ve Eğri Uydurma',
+              href: '/algorithms/mathematical-algorithms/interpolation-fitting',
+            },
+            {
+              label: 'Sayısal İntegral',
+              href: '/algorithms/mathematical-algorithms/numerical-integration',
+            },
+            {
+              label: 'Rastgele Sayı Üreteçleri',
+              href: '/algorithms/mathematical-algorithms/random-number-generators',
             },
             ...duplicateNavItems('mathematical-algorithms', ['gcd']),
           ],
