@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -9,101 +9,37 @@ import {
   CardContent,
   CardHeader,
   CardDescription,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function GraphAlgorithmsPage() {
-  const algorithms = [
-    {
-      name: 'Breadth-First Search (BFS)',
-      path: '/algorithms/graph-algorithms/bfs',
-      description:
-        'Grafı seviye seviye dolaşan, en kısa yolu bulma ve seviye tabanlı işlemlerde kullanılan algoritma.',
-      category: 'Traversal',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Depth-First Search (DFS)',
-      path: '/algorithms/graph-algorithms/dfs',
-      description:
-        'Grafı derinlemesine dolaşan, bağlantılı bileşenler ve çevrim tespitinde kullanılan algoritma.',
-      category: 'Traversal',
-      difficulty: 'Kolay',
-    },
-    {
-      name: "Dijkstra's Algorithm",
-      path: '/algorithms/graph-algorithms/dijkstra',
-      description:
-        'Bir düğümden diğer tüm düğümlere olan en kısa yolları bulan, ağırlıklı graflarda kullanılan algoritma.',
-      category: 'Shortest Path',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'A* (A-Star) Algorithm',
-      path: '/algorithms/graph-algorithms/a-star',
-      description:
-        'Heuristik fonksiyon kullanarak hedef odaklı en kısa yol bulan, oyun ve robotik alanlarında yaygın kullanılan algoritma.',
-      category: 'Shortest Path',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Bellman-Ford Algorithm',
-      path: '/algorithms/graph-algorithms/bellman-ford',
-      description:
-        'Negatif ağırlıklı kenarları olan graflarda en kısa yolları bulan ve negatif çevrimleri tespit eden algoritma.',
-      category: 'Shortest Path',
-      difficulty: 'Zor',
-    },
-    {
-      name: 'Floyd-Warshall Algorithm',
-      path: '/algorithms/graph-algorithms/floyd-warshall',
-      description:
-        'Tüm düğüm çiftleri arasındaki en kısa yolları bulan, dinamik programlama tabanlı algoritma.',
-      category: 'Shortest Path',
-      difficulty: 'Zor',
-    },
-    {
-      name: "Kruskal's Algorithm",
-      path: '/algorithms/graph-algorithms/kruskal',
-      description:
-        'Kenar tabanlı yaklaşımla minimum yayılma ağacı bulan, Union-Find veri yapısını kullanan algoritma.',
-      category: 'MST',
-      difficulty: 'Orta',
-    },
-    {
-      name: "Prim's Algorithm",
-      path: '/algorithms/graph-algorithms/prim',
-      description:
-        'Düğüm tabanlı yaklaşımla minimum yayılma ağacı bulan, öncelik kuyruğu kullanan algoritma.',
-      category: 'MST',
-      difficulty: 'Orta',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms("/algorithms/graph-algorithms");
 
   const getCategoryBadgeVariant = (category: string) => {
     switch (category) {
-      case 'Traversal':
-        return 'default';
-      case 'Shortest Path':
-        return 'secondary';
-      case 'MST':
-        return 'outline';
+      case "Traversal":
+        return "default";
+      case "Shortest Path":
+        return "secondary";
+      case "MST":
+        return "outline";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
   const getDifficultyBadgeVariant = (difficulty: string) => {
     switch (difficulty) {
-      case 'Kolay':
-        return 'success';
-      case 'Orta':
-        return 'warning';
-      case 'Zor':
-        return 'destructive';
+      case "Kolay":
+        return "success";
+      case "Orta":
+        return "warning";
+      case "Zor":
+        return "destructive";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
@@ -133,18 +69,22 @@ export default function GraphAlgorithmsPage() {
                   {algorithm.name}
                 </CardTitle>
                 <div className="flex gap-2 flex-wrap">
-                  <Badge
-                    variant={getCategoryBadgeVariant(algorithm.category)}
-                    className="text-xs"
-                  >
-                    {algorithm.category}
-                  </Badge>
-                  <Badge
-                    variant={getDifficultyBadgeVariant(algorithm.difficulty)}
-                    className="text-xs"
-                  >
-                    {algorithm.difficulty}
-                  </Badge>
+                  {algorithm.category && (
+                    <Badge
+                      variant={getCategoryBadgeVariant(algorithm.category)}
+                      className="text-xs"
+                    >
+                      {algorithm.category}
+                    </Badge>
+                  )}
+                  {algorithm.difficulty && (
+                    <Badge
+                      variant={getDifficultyBadgeVariant(algorithm.difficulty)}
+                      className="text-xs"
+                    >
+                      {algorithm.difficulty}
+                    </Badge>
+                  )}
                 </div>
               </div>
             </CardHeader>

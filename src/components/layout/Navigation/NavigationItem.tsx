@@ -38,15 +38,34 @@ export const NavigationItem = ({
   const { isActiveLink } = useNavigation();
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const isActiveNavItem = (navItem: NavItem): boolean =>
+    isActiveLink(navItem.href) ||
+    navItem.children?.some((child) => isActiveNavItem(child)) ||
+    false;
+
   const renderDropdownItems = (items: NavItem[]) => {
     return items.map((childItem) => {
+      const isChildActive = isActiveNavItem(childItem);
+
       if (childItem.children && childItem.children.length > 0) {
         return (
           <DropdownMenuSub key={childItem.href}>
-            <DropdownMenuSubTrigger>{childItem.label}</DropdownMenuSubTrigger>
-            <DropdownMenuSubContent>
+            <DropdownMenuSubTrigger
+              className={cn(isChildActive && 'font-medium text-arcly-blue')}
+            >
+              {childItem.label}
+            </DropdownMenuSubTrigger>
+            <DropdownMenuSubContent className="max-h-[min(80vh,var(--radix-dropdown-menu-content-available-height))] w-72 overflow-y-auto">
               <DropdownMenuItem asChild>
-                <Link href={childItem.href} onClick={onItemClick}>
+                <Link
+                  href={childItem.href}
+                  onClick={onItemClick}
+                  className={cn(
+                    'w-full',
+                    isActiveLink(childItem.href) &&
+                      'font-medium text-arcly-blue',
+                  )}
+                >
                   Tümünü Görüntüle
                 </Link>
               </DropdownMenuItem>
@@ -64,7 +83,7 @@ export const NavigationItem = ({
             onClick={onItemClick}
             className={cn(
               'w-full cursor-pointer',
-              isActiveLink(childItem.href) && 'font-medium text-arcly-blue'
+              isChildActive && 'font-medium text-arcly-blue',
             )}
           >
             {childItem.label}
@@ -84,7 +103,7 @@ export const NavigationItem = ({
               onClick={onItemClick}
               className={cn(
                 'text-sm font-medium py-2 block flex-1',
-                isActiveLink(item.href) ? 'text-arcly-blue' : 'text-titanium'
+                isActiveNavItem(item) ? 'text-arcly-blue' : 'text-titanium',
               )}
             >
               {item.label}
@@ -100,7 +119,7 @@ export const NavigationItem = ({
               <ChevronDown
                 className={cn(
                   'h-4 w-4 transition-transform',
-                  isExpanded && 'rotate-180'
+                  isExpanded && 'rotate-180',
                 )}
               />
             </Button>
@@ -127,7 +146,7 @@ export const NavigationItem = ({
         onClick={onItemClick}
         className={cn(
           'text-sm font-medium py-2 block',
-          isActiveLink(item.href) ? 'text-arcly-blue' : 'text-titanium'
+          isActiveNavItem(item) ? 'text-arcly-blue' : 'text-titanium',
         )}
       >
         {item.label}
@@ -143,14 +162,17 @@ export const NavigationItem = ({
             variant="ghost"
             className={cn(
               'text-sm font-medium transition-colors hover:text-arcly-blue flex items-center gap-1',
-              isActiveLink(item.href) ? 'text-arcly-blue' : 'text-ash'
+              isActiveNavItem(item) ? 'text-arcly-blue' : 'text-ash',
             )}
           >
             {item.label}
             <ChevronDown className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuContent
+          align="end"
+          className="max-h-[min(80vh,var(--radix-dropdown-menu-content-available-height))] w-72 overflow-y-auto"
+        >
           <DropdownMenuItem asChild>
             <Link href={item.href} className="font-medium">
               Tümünü Görüntüle
@@ -168,7 +190,7 @@ export const NavigationItem = ({
       href={item.href}
       className={cn(
         'text-sm font-medium transition-colors hover:text-arcly-blue',
-        isActiveLink(item.href) ? 'text-arcly-blue' : 'text-ash'
+        isActiveNavItem(item) ? 'text-arcly-blue' : 'text-ash',
       )}
     >
       {item.label}

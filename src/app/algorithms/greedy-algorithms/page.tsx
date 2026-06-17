@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -8,24 +8,12 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function GreedyAlgorithmsPage() {
-  const algorithms = [
-    {
-      name: 'Fractional Knapsack',
-      path: '/algorithms/greedy-algorithms/fractional-knapsack',
-      description:
-        'Nesneleri ağırlık/değer oranına göre sıralayarak çantaya yerleştiren, nesnelerin bölünebilir olduğu çanta problemi çözümü.',
-    },
-    {
-      name: 'Huffman Coding',
-      path: '/algorithms/greedy-algorithms/huffman-coding',
-      description:
-        'Karakterlerin frekanslarına göre değişken uzunluklu kodlar atayan, veri sıkıştırma için kullanılan algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms("/algorithms/greedy-algorithms");
 
   return (
     <div className="space-y-8">
@@ -46,9 +34,7 @@ export default function GreedyAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button variant="ghost" size="sm" className="mt-2">

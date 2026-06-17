@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -8,24 +8,14 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function MathematicalAlgorithmsPage() {
-  const algorithms = [
-    {
-      name: 'GCD (Euclidean Algorithm)',
-      path: '/algorithms/mathematical-algorithms/gcd',
-      description:
-        'İki veya daha fazla sayının en büyük ortak bölenini bulan etkili bir algoritma.',
-    },
-    {
-      name: 'Sieve of Eratosthenes',
-      path: '/algorithms/mathematical-algorithms/sieve-of-eratosthenes',
-      description:
-        'Belirli bir sayıya kadar olan tüm asal sayıları hızlı bir şekilde bulan algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms(
+    "/algorithms/mathematical-algorithms",
+  );
 
   return (
     <div className="space-y-8">
@@ -46,9 +36,7 @@ export default function MathematicalAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button variant="ghost" size="sm" className="mt-2">

@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -8,30 +8,14 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function DynamicProgrammingPage() {
-  const algorithms = [
-    {
-      name: 'Fibonacci Sequence',
-      path: '/algorithms/dynamic-programming/fibonacci',
-      description:
-        'Her sayının kendinden önceki iki sayının toplamı olduğu, memoization ile verimli hesaplanabilen dizi.',
-    },
-    {
-      name: 'Knapsack Problem',
-      path: '/algorithms/dynamic-programming/knapsack',
-      description:
-        'Belirli bir ağırlık kapasitesindeki çantaya, maksimum değere sahip nesneleri yerleştirme problemi.',
-    },
-    {
-      name: 'Longest Common Subsequence',
-      path: '/algorithms/dynamic-programming/longest-common-subsequence',
-      description:
-        'İki dizi arasındaki en uzun ortak alt diziyi bulan algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms(
+    "/algorithms/dynamic-programming",
+  );
 
   return (
     <div className="space-y-8">
@@ -53,9 +37,7 @@ export default function DynamicProgrammingPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button variant="ghost" size="sm" className="mt-2">

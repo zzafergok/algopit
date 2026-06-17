@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -8,24 +8,14 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function AdvancedAlgorithmsPage() {
-  const algorithms = [
-    {
-      name: "Floyd's Cycle-Finding",
-      path: '/algorithms/advanced-algorithms/floyd-cycle-finding',
-      description:
-        "Bağlı listelerde döngüleri bulmak için kullanılan verimli bir algoritma. 'Tortoise and Hare' olarak da bilinir.",
-    },
-    {
-      name: 'Topological Sort',
-      path: '/algorithms/advanced-algorithms/topological-sort',
-      description:
-        'Yönlü asiklik graflarda (DAG) düğümleri bağımlılıklarına göre sıralayan algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms(
+    "/algorithms/advanced-algorithms",
+  );
 
   return (
     <div className="space-y-8">
@@ -48,9 +38,7 @@ export default function AdvancedAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button asChild variant="ghost" size="sm" className="mt-2">

@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -8,24 +8,12 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function BacktrackingPage() {
-  const algorithms = [
-    {
-      name: 'N-Queens Problem',
-      path: '/algorithms/backtracking/n-queens',
-      description:
-        'N adet veziri, birbirlerini tehdit etmeyecek şekilde N×N boyutundaki satranç tahtasına yerleştirme problemi.',
-    },
-    {
-      name: 'Subset Sum Problem',
-      path: '/algorithms/backtracking/subset-sum',
-      description:
-        'Bir dizi içerisindeki sayıların alt kümelerinin toplamının belirli bir değere eşit olup olmadığını bulan algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms("/algorithms/backtracking");
 
   return (
     <div className="space-y-8">
@@ -47,9 +35,7 @@ export default function BacktrackingPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button asChild variant="ghost" size="sm" className="mt-2">

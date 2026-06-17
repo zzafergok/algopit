@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -9,93 +9,39 @@ import {
   CardHeader,
   CardContent,
   CardDescription,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function DataStructuresPage() {
-  const dataStructures = [
-    {
-      name: 'Linked List',
-      path: '/algorithms/data-structures/linked-list',
-      description:
-        'Her düğümün veri ve bir sonraki düğüme referans içerdiği dinamik bir veri yapısı.',
-      category: 'Linear',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Stack',
-      path: '/algorithms/data-structures/stack',
-      description:
-        'Son giren ilk çıkar (LIFO) prensibiyle çalışan, yalnızca en üstteki elemana erişim sağlayan veri yapısı.',
-      category: 'Linear',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Queue',
-      path: '/algorithms/data-structures/queue',
-      description:
-        'İlk giren ilk çıkar (FIFO) prensibiyle çalışan, elemanları sırayla işleyen veri yapısı.',
-      category: 'Linear',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Binary Search Tree',
-      path: '/algorithms/data-structures/binary-search-tree',
-      description:
-        'Her düğümün en fazla iki çocuğa sahip olduğu, hızlı arama, ekleme ve silme işlemlerine olanak tanıyan hiyerarşik yapı.',
-      category: 'Tree',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Hash Table',
-      path: '/algorithms/data-structures/hash-table',
-      description:
-        'Anahtarları değerlere eşleyen, hash fonksiyonu kullanarak sabit zamanlı erişim sağlayan veri yapısı.',
-      category: 'Hash-based',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Trie (Prefix Tree)',
-      path: '/algorithms/data-structures/trie',
-      description:
-        'String verilerini verimli şekilde saklamak ve prefix tabanlı aramalar yapmak için kullanılan ağaç yapısı.',
-      category: 'Tree',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Segment Tree',
-      path: '/algorithms/data-structures/segment-tree',
-      description:
-        'Aralık sorguları ve nokta güncellemeleri için optimize edilmiş, logaritmik performans sağlayan ağaç yapısı.',
-      category: 'Tree',
-      difficulty: 'Zor',
-    },
-  ];
+  const dataStructures = createCategoryAlgorithms(
+    "/algorithms/data-structures",
+  );
 
   const getCategoryBadgeVariant = (category: string) => {
     switch (category) {
-      case 'Linear':
-        return 'default';
-      case 'Tree':
-        return 'secondary';
-      case 'Hash-based':
-        return 'outline';
+      case "Linear":
+        return "default";
+      case "Tree":
+        return "secondary";
+      case "Hash-based":
+        return "outline";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
   const getDifficultyBadgeVariant = (difficulty: string) => {
     switch (difficulty) {
-      case 'Kolay':
-        return 'success';
-      case 'Orta':
-        return 'warning';
-      case 'Zor':
-        return 'destructive';
+      case "Kolay":
+        return "success";
+      case "Orta":
+        return "warning";
+      case "Zor":
+        return "destructive";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
@@ -122,18 +68,22 @@ export default function DataStructuresPage() {
                   {structure.name}
                 </CardTitle>
                 <div className="flex gap-2 flex-wrap">
-                  <Badge
-                    variant={getCategoryBadgeVariant(structure.category)}
-                    className="text-xs"
-                  >
-                    {structure.category}
-                  </Badge>
-                  <Badge
-                    variant={getDifficultyBadgeVariant(structure.difficulty)}
-                    className="text-xs"
-                  >
-                    {structure.difficulty}
-                  </Badge>
+                  {structure.category && (
+                    <Badge
+                      variant={getCategoryBadgeVariant(structure.category)}
+                      className="text-xs"
+                    >
+                      {structure.category}
+                    </Badge>
+                  )}
+                  {structure.difficulty && (
+                    <Badge
+                      variant={getDifficultyBadgeVariant(structure.difficulty)}
+                      className="text-xs"
+                    >
+                      {structure.difficulty}
+                    </Badge>
+                  )}
                 </div>
               </div>
             </CardHeader>

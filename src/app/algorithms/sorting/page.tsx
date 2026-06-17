@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -9,94 +9,24 @@ import {
   CardHeader,
   CardContent,
   CardDescription,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function SortingAlgorithmsPage() {
-  const algorithms = [
-    {
-      name: 'Bubble Sort',
-      path: '/algorithms/sorting/bubble-sort',
-      description:
-        'Her adımda komşu elemanları karşılaştırarak ve gerekirse değiştirerek çalışan basit bir sıralama algoritması.',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Selection Sort',
-      path: '/algorithms/sorting/selection-sort',
-      description:
-        'Her adımda dizideki en küçük elemanı bulup uygun konuma yerleştiren algoritma.',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Insertion Sort',
-      path: '/algorithms/sorting/insertion-sort',
-      description:
-        'Elemanları teker teker alıp sıralı alt listeye uygun konuma yerleştiren algoritma.',
-      difficulty: 'Kolay',
-    },
-    {
-      name: 'Merge Sort',
-      path: '/algorithms/sorting/merge-sort',
-      description:
-        'Böl ve fethet yaklaşımını kullanarak diziyi parçalara ayırıp sıralayarak birleştiren algoritma.',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Quick Sort',
-      path: '/algorithms/sorting/quick-sort',
-      description:
-        'Pivot eleman seçerek diziyi bölen ve alt dizileri sıralayan hızlı bir algoritma.',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Heap Sort',
-      path: '/algorithms/sorting/heap-sort',
-      description:
-        'Binary heap veri yapısını kullanarak elemanları sıralayan verimli bir algoritma.',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Counting Sort',
-      path: '/algorithms/sorting/counting-sort',
-      description:
-        'Karşılaştırma yapmadan, elemanların frekansını sayarak sıralama yapan doğrusal algoritma.',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Radix Sort',
-      path: '/algorithms/sorting/radix-sort',
-      description:
-        'Sayıları basamaklarına göre sıralayan, counting sort tabanlı doğrusal algoritma.',
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Shell Sort',
-      path: '/algorithms/sorting/shell-sort',
-      description:
-        "Insertion sort'un geliştirilmiş versiyonu, gap aralıklarıyla elemanları önceden organize eden algoritma.",
-      difficulty: 'Orta',
-    },
-    {
-      name: 'Tim Sort',
-      path: '/algorithms/sorting/tim-sort',
-      description:
-        "Python'un yerleşik sort fonksiyonunda kullanılan, merge sort ve insertion sort'un hibrit versiyonu.",
-      difficulty: 'Zor',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms("/algorithms/sorting");
 
   const getDifficultyBadgeVariant = (difficulty: string) => {
     switch (difficulty) {
-      case 'Kolay':
-        return 'success';
-      case 'Orta':
-        return 'warning';
-      case 'Zor':
-        return 'destructive';
+      case "Kolay":
+        return "success";
+      case "Orta":
+        return "warning";
+      case "Zor":
+        return "destructive";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 

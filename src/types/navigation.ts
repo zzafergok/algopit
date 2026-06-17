@@ -3,7 +3,17 @@ export interface NavItem {
   href: string;
   children?: NavItem[];
   description?: string;
+  difficulty?: "Kolay" | "Orta" | "Zor" | string;
+  category?: string;
   isExternal?: boolean;
+}
+
+export interface AlgorithmCardItem {
+  name: string;
+  path: string;
+  description: string;
+  difficulty?: "Kolay" | "Orta" | "Zor" | string;
+  category?: string;
 }
 
 export interface NavigationConfig {

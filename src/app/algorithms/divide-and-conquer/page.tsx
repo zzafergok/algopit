@@ -1,36 +1,18 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 import {
   Card,
   CardTitle,
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function DivideAndConquerPage() {
-  const algorithms = [
-    {
-      name: 'Merge Sort',
-      path: '/algorithms/sorting/merge-sort',
-      description:
-        'Diziyi iki parçaya bölen, her parçayı sıralayan ve sonra birleştiren etkili bir sıralama algoritması.',
-    },
-    {
-      name: 'Quick Sort',
-      path: '/algorithms/sorting/quick-sort',
-      description:
-        'Pivot seçerek diziyi bölen ve her bölümü tekrar eden şekilde sıralayan hızlı sıralama algoritması.',
-    },
-    {
-      name: 'Binary Search',
-      path: '/algorithms/searching/binary-search',
-      description:
-        'Sıralı dizilerde, her adımda arama alanını yarıya indirerek logaritmik zamanda arama yapan algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms("/algorithms/divide-and-conquer");
 
   return (
     <div className="space-y-8">
@@ -52,9 +34,7 @@ export default function DivideAndConquerPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button asChild variant="ghost" size="sm" className="mt-2">

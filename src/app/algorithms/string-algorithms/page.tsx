@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 import {
   Card,
@@ -8,36 +8,12 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { createCategoryAlgorithms } from "@/lib/algorithm-category";
 
 export default function StringAlgorithmsPage() {
-  const algorithms = [
-    {
-      name: 'Rabin-Karp Algorithm',
-      path: '/algorithms/string-algorithms/rabin-karp',
-      description:
-        'Metin içerisinde desen aramak için hash değerlerini kullanan string eşleştirme algoritması.',
-    },
-    {
-      name: 'KMP Algorithm',
-      path: '/algorithms/string-algorithms/kmp',
-      description:
-        'Önek tablosu kullanarak metinde desen aramayı verimli hale getiren string eşleştirme algoritması.',
-    },
-    {
-      name: 'Boyer-Moore Algorithm',
-      path: '/algorithms/string-algorithms/boyer-moore',
-      description:
-        'Sağdan sola tarama yaparak ve kötü karakter kuralını kullanarak hızlı string eşleştirme algoritması.',
-    },
-    {
-      name: 'Z Algorithm',
-      path: '/algorithms/string-algorithms/z-algorithm',
-      description:
-        'Z-array kullanarak metin içerisinde desen bulma işlemini gerçekleştiren algoritma.',
-    },
-  ];
+  const algorithms = createCategoryAlgorithms("/algorithms/string-algorithms");
 
   return (
     <div className="space-y-8">
@@ -58,9 +34,7 @@ export default function StringAlgorithmsPage() {
               <CardTitle>{algorithm.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
+              <p className="text-sm text-ash">{algorithm.description}</p>
             </CardContent>
             <CardFooter>
               <Button variant="ghost" size="sm" className="mt-2">
