@@ -1,19 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import React from 'react';
-
-import { UnderConstruction } from '@/components/common/under-construction';
-
-type Props = {};
-
-export default function BellmanFord({}: Props) {
+export default function BellmanFordPage() {
   return (
-    <div>
-      <UnderConstruction
-        title="Bellman-Ford Algorithm (Bellman-Ford Algoritması)"
-        description="Negatif ağırlıklı kenarları olan yönlendirilmiş graflarda, tek bir kaynaktan tüm düğümlere olan en kısa yolları bulan ve negatif çevrimleri tespit edebilen algoritma."
-        category="graph-algorithms"
-      />
-    </div>
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['bellman-ford']}
+    />
   );
 }

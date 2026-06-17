@@ -1,19 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import React from 'react';
-
-import { UnderConstruction } from '@/components/common/under-construction';
-
-type Props = {};
-
-export default function fractionalKnapsack({}: Props) {
+export default function FractionalKnapsackPage() {
   return (
-    <div>
-      <UnderConstruction
-        title="Fractional Knapsack (Kesirli Sırt Çantası)"
-        description="Nesneleri ağırlık/değer oranına göre sıralayarak çantaya yerleştiren, nesnelerin bölünebilir olduğu durumlarda optimal çözüm sunan açgözlü yaklaşım temelli algoritma."
-        category="greedy-algorithms"
-      />
-    </div>
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['fractional-knapsack']}
+    />
   );
 }

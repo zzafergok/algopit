@@ -1,19 +1,8 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import React from 'react';
-
-import { UnderConstruction } from '@/components/common/under-construction';
-
-type Props = {};
-
-export default function Fibonacci({}: Props) {
+export default function FibonacciPage() {
   return (
-    <div>
-      <UnderConstruction
-        title="Fibonacci Sequence (Fibonacci Dizisi)"
-        description="Her sayının kendinden önceki iki sayının toplamı olduğu, dinamik programlama ve memoization teknikleri ile verimli hesaplanabilen matematiksel dizi."
-        category="dynamic-programming"
-      />
-    </div>
+    <RemainingAlgorithmPage algorithm={remainingAlgorithmContents.fibonacci} />
   );
 }

@@ -1,13 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export default function GeneticAlgorithms() {
+export default function GeneticAlgorithmsPage() {
   return (
-    <UnderConstruction
-      title="Genetic Algorithms (Genetik Algoritmalar)"
-      description="Doğal evrim süreçlerini taklit eden, popülasyon tabanlı metasezgisel optimizasyon algoritması. Seçilim, çaprazlama ve mutasyon operatörleri kullanarak karmaşık problemlere yaklaşık çözümler sunar."
-      category="optimization-algorithms"
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['genetic-algorithms']}
     />
   );
 }

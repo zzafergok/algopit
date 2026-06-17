@@ -1,13 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export default function ReservoirSampling() {
+export default function ReservoirSamplingPage() {
   return (
-    <UnderConstruction
-      title="Reservoir Sampling (Rezervuar Örnekleme)"
-      description="Bilinmeyen boyuttaki veri akışından sabit boyutlu rastgele örneklem almaya yarayan, her elemana eşit seçilme olasılığı sağlayan olasılıksal algoritma."
-      category="misc-algorithms"
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['reservoir-sampling']}
     />
   );
 }

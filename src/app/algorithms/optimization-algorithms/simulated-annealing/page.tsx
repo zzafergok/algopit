@@ -1,13 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export default function SimulatedAnnealing() {
+export default function SimulatedAnnealingPage() {
   return (
-    <UnderConstruction
-      title="Simulated Annealing (Benzetimli Tavlama)"
-      description="Fiziksel tavlama işlemini taklit eden, yerel optimumlardan kaçarak global optimum çözüm arayan metasezgisel yöntem. Başlangıçta yüksek sıcaklıkla rastgele çözümler kabul ederken, zamanla sıcaklığı düşürerek optimuma yakınsar."
-      category="optimization-algorithms"
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['simulated-annealing']}
     />
   );
 }

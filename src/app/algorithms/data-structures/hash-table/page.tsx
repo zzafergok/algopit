@@ -1,19 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import React from 'react';
-
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export interface IAppProps {}
-
-export default function HashTable(props: IAppProps) {
+export default function HashTablePage() {
   return (
-    <div>
-      <UnderConstruction
-        title="Hash Table (Hash Tablosu)"
-        description="Anahtar-değer çiftlerini saklayan, sabit zamanlı erişim sağlayan ve anahtarları değerlere eşleyen etkili bir veri yapısı."
-        category="data-structures"
-      />
-    </div>
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['hash-table']}
+    />
   );
 }

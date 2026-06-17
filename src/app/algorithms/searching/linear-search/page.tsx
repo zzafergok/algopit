@@ -1,13 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export default function LinearSearch() {
+export default function LinearSearchPage() {
   return (
-    <UnderConstruction
-      title="Linear Search (Doğrusal Arama)"
-      description="Bir dizide elemanları sırayla kontrol ederek arama yapan en basit algoritma. Her elemana tek tek bakarak hedef değeri bulan, uygulaması kolay ancak büyük veri setlerinde verimsiz olan bir yöntemdir."
-      category="searching"
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['linear-search']}
     />
   );
 }

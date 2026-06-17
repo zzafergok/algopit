@@ -1,13 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export default function BloomFilter() {
+export default function BloomFilterPage() {
   return (
-    <UnderConstruction
-      title="Bloom Filter (Bloom Filtresi)"
-      description="Bir elemanın bir kümede bulunup bulunmadığını hızlı şekilde kontrol eden, hafıza verimli olasılıksal veri yapısı. Yanlış negatif sonuç vermez ancak belirli bir olasılıkla yanlış pozitif sonuç verebilir."
-      category="misc-algorithms"
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['bloom-filter']}
     />
   );
 }

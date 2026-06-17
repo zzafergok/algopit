@@ -1,13 +1,10 @@
-'use client';
+import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
+import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
 
-import { UnderConstruction } from '@/components/common/under-construction';
-
-export default function SieveOfEratosthenes() {
+export default function SieveOfEratosthenesPage() {
   return (
-    <UnderConstruction
-      title="Sieve of Eratosthenes (Eratosthenes Kalburu)"
-      description="Belirli bir sayıya kadar olan tüm asal sayıları hızlı ve verimli bir şekilde bulan, eleme prensibiyle çalışan klasik bir matematiksel algoritma."
-      category="mathematical-algorithms"
+    <RemainingAlgorithmPage
+      algorithm={remainingAlgorithmContents['sieve-of-eratosthenes']}
     />
   );
 }
