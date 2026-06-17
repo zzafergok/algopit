@@ -5,101 +5,25 @@ import React, { useState } from 'react';
 import {
   Bug,
   Book,
-  Check,
-  FileCode,
-  FilePlus,
-  GitBranch,
   HelpCircle,
   MessageSquare,
-  GitPullRequest,
+  FileCode,
 } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 
-import {
-  Card,
-  CardTitle,
-  CardHeader,
-  CardContent,
-  CardDescription,
-} from '@/components/ui/card';
+import { Card, CardTitle, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CodeBlock } from '@/components/common/code-block';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-interface ContributionStep {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  code?: string;
-  language?: string;
-}
+import { contributionSteps } from './data';
+import { CodeStandardsTab } from './components/CodeStandardsTab';
+import { DocumentationTab } from './components/DocumentationTab';
+import { BugReportTab } from './components/BugReportTab';
+import { FeatureRequestTab } from './components/FeatureRequestTab';
 
 export default function ContributingPage() {
   const [activeStep, setActiveStep] = useState<number>(0);
-
-  const contributionSteps: ContributionStep[] = [
-    {
-      title: 'Fork the repository',
-      description:
-        'Start by forking the repository to your own GitHub account.',
-      icon: <GitBranch className="h-6 w-6" />,
-    },
-    {
-      title: 'Clone the repository',
-      description: 'Clone your forked repository to your local machine.',
-      icon: <FilePlus className="h-6 w-6" />,
-      code: 'git clone https://github.com/YOUR_USERNAME/algopit.git\ncd algopit',
-      language: 'bash',
-    },
-    {
-      title: 'Create a branch',
-      description: 'Create a new branch for your feature or bug fix.',
-      icon: <GitBranch className="h-6 w-6" />,
-      code: 'git checkout -b feature/your-feature-name\n# or\ngit checkout -b fix/your-bug-fix',
-      language: 'bash',
-    },
-    {
-      title: 'Install dependencies',
-      description: 'Install the project dependencies.',
-      icon: <FileCode className="h-6 w-6" />,
-      code: 'npm install\n# or\nyarn install\n# or\npnpm install',
-      language: 'bash',
-    },
-    {
-      title: 'Make your changes',
-      description:
-        'Implement your feature or fix the bug. Make sure to follow the code style and add tests if applicable.',
-      icon: <FileCode className="h-6 w-6" />,
-    },
-    {
-      title: 'Test your changes',
-      description:
-        "Run tests to ensure your changes don't break existing functionality.",
-      icon: <Check className="h-6 w-6" />,
-      code: 'npm run test\n# or\nyarn test',
-      language: 'bash',
-    },
-    {
-      title: 'Commit your changes',
-      description: 'Commit your changes with a descriptive commit message.',
-      icon: <Check className="h-6 w-6" />,
-      code: 'git add .\ngit commit -m "feat: add your feature description"\n# or\ngit commit -m "fix: resolve issue #123"',
-      language: 'bash',
-    },
-    {
-      title: 'Push to the branch',
-      description: 'Push your branch to your forked repository.',
-      icon: <GitPullRequest className="h-6 w-6" />,
-      code: 'git push origin feature/your-feature-name',
-      language: 'bash',
-    },
-    {
-      title: 'Create a Pull Request',
-      description:
-        'Go to the original repository and create a pull request from your branch.',
-      icon: <GitPullRequest className="h-6 w-6" />,
-    },
-  ];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -131,7 +55,7 @@ export default function ContributingPage() {
           Katkıda Bulunma
         </h1>
         <p className="text-xl text-ash max-w-2xl mx-auto">
-          AlgoPit'e katkıda bulunmak için rehber. Bu projeye katkıda bulunarak,
+          AlgoPit&apos;e katkıda bulunmak için rehber. Bu projeye katkıda bulunarak,
           algoritma öğrenimine ve açık kaynak topluluğuna destek olabilirsiniz.
         </p>
       </div>
@@ -176,9 +100,9 @@ export default function ContributingPage() {
               </div>
               <CardTitle>{contributionSteps[activeStep].title}</CardTitle>
             </div>
-            <CardDescription>
+            <p className="text-ash text-sm px-1 mt-1">
               {contributionSteps[activeStep].description}
-            </CardDescription>
+            </p>
           </CardHeader>
 
           {contributionSteps[activeStep].code && (
@@ -225,297 +149,19 @@ export default function ContributingPage() {
           </TabsList>
 
           <TabsContent value="code" className="mt-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Kod Standartları</CardTitle>
-                <CardDescription>
-                  Kodunuzun proje standartlarına uygun olduğundan emin olun.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="prose dark:prose-invert max-w-none">
-                  <h3>Stil Rehberi</h3>
-                  <ul>
-                    <li>
-                      ESLint ve Prettier yapılandırmalarına uygun kod yazın
-                    </li>
-                    <li>
-                      Değişkenler ve fonksiyonlar için anlamlı isimler kullanın
-                    </li>
-                    <li>
-                      Her fonksiyon ve karmaşık kod bloğu için açıklayıcı
-                      yorumlar ekleyin
-                    </li>
-                    <li>
-                      Her dosya başına tekli bir sorumluluk ilkesini uygulayın
-                    </li>
-                  </ul>
-
-                  <h3>TypeScript</h3>
-                  <ul>
-                    <li>
-                      Tüm fonksiyonlar ve bileşenler için doğru tipleri kullanın
-                    </li>
-                    <li>
-                      Tür genellemesini uygun yerlerde kullanın (örn. jenerik
-                      fonksiyonlar)
-                    </li>
-                    <li>
-                      <code>any</code> kullanımından kaçının
-                    </li>
-                    <li>Açık dönüş tiplerini belirtin</li>
-                  </ul>
-
-                  <h3>React Bileşenleri</h3>
-                  <ul>
-                    <li>
-                      Bileşenleri mümkün olduğunca küçük ve yeniden
-                      kullanılabilir tutun
-                    </li>
-                    <li>Karmaşık durum yönetimi için React Hooks kullanın</li>
-                    <li>Prop drilling yerine context kullanmayı tercih edin</li>
-                    <li>Tüm prop'lar için TypeScript arayüzleri oluşturun</li>
-                  </ul>
-
-                  <h3>Performans</h3>
-                  <ul>
-                    <li>
-                      Gereksiz yeniden render'ları önlemek için memo, useMemo ve
-                      useCallback kullanın
-                    </li>
-                    <li>
-                      Büyük listeleri görselleştirirken sanal listeler tercih
-                      edin
-                    </li>
-                    <li>Yoğun işlemleri web worker'lara taşıyın</li>
-                  </ul>
-                </div>
-
-                <div className="bg-obsidian/60 p-4 rounded-sm">
-                  <h4 className="text-sm font-medium mb-2">Örnek Kod Stili</h4>
-                  <CodeBlock
-                    code={`// Kötü
-function sort(a) {
-  // Sıralama işlemi
-  return a.sort();
-}
-
-// İyi
-/**
- * Bir diziyi sıralar
- * @param {Array<number>} array Sıralanacak dizi
- * @returns {Array<number>} Sıralanmış dizi
- */
-function sortArray<T extends number>(array: T[]): T[] {
-  // Giriş doğrulama
-  if (!Array.isArray(array)) {
-    throw new Error('Input must be an array');
-  }
-  
-  // Sıralama işlemi (orijinal diziyi değiştirmemek için kopyasını oluşturuyoruz)
-  return [...array].sort((a, b) => a - b);
-}`}
-                    language="typescript"
-                  />
-                </div>
-              </CardContent>
-            </Card>
+            <CodeStandardsTab />
           </TabsContent>
 
           <TabsContent value="docs" className="mt-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Dokümantasyon Standartları</CardTitle>
-                <CardDescription>
-                  İyi belgelenmiş kod ve özellikler, projenin herkes tarafından
-                  anlaşılabilir olmasını sağlar.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="prose dark:prose-invert max-w-none">
-                  <h3>Kod Belgelendirmesi</h3>
-                  <ul>
-                    <li>
-                      Tüm sınıflar, arayüzler ve fonksiyonlar için JSDoc
-                      yorumları ekleyin
-                    </li>
-                    <li>
-                      Parametre ve dönüş değerlerini detaylı olarak açıklayın
-                    </li>
-                    <li>
-                      Karmaşık algoritmaların çalışma prensiplerini açıklayın
-                    </li>
-                    <li>
-                      Edge case'leri ve varsayımları belgelemek için yorum
-                      ekleyin
-                    </li>
-                  </ul>
-
-                  <h3>Algoritma Dokümantasyonu</h3>
-                  <p>
-                    Yeni bir algoritma eklerken, aşağıdaki bilgileri içeren bir
-                    dokümantasyon oluşturun:
-                  </p>
-                  <ul>
-                    <li>Algoritmanın adı ve kısa açıklaması</li>
-                    <li>
-                      Zaman ve alan karmaşıklığı analizleri (en iyi, ortalama ve
-                      en kötü durum)
-                    </li>
-                    <li>Algoritmanın avantajları ve dezavantajları</li>
-                    <li>Gerçek hayat uygulama örnekleri</li>
-                    <li>Pseudo kod veya akış şeması</li>
-                    <li>İmplementasyon notları</li>
-                  </ul>
-
-                  <h3>README ve Wiki</h3>
-                  <p>
-                    Önemli değişiklikler yaptığınızda, README.md dosyasını da
-                    güncellemeyi unutmayın. Yeni eklenen özellikler için wiki
-                    sayfaları oluşturmayı düşünün.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <DocumentationTab />
           </TabsContent>
 
           <TabsContent value="bugs" className="mt-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Hata Raporlama</CardTitle>
-                <CardDescription>
-                  Bulduğunuz hataları etkili bir şekilde raporlamak için
-                  kılavuzlar.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="prose dark:prose-invert max-w-none">
-                  <h3>Hata Raporlama Süreci</h3>
-                  <ol>
-                    <li>
-                      GitHub Issue bölümünü kontrol edin - belki bu hata zaten
-                      bildirilmiştir
-                    </li>
-                    <li>
-                      "Bug report" şablonunu kullanarak yeni bir issue oluşturun
-                    </li>
-                    <li>Hatanın başlığını açık ve kısa tutun</li>
-                    <li>
-                      Aşağıdaki bilgileri ekleyin:
-                      <ul>
-                        <li>Hatanın detaylı açıklaması</li>
-                        <li>Hatayı yeniden oluşturmak için adımlar</li>
-                        <li>Beklenen davranış</li>
-                        <li>Gerçek davranış</li>
-                        <li>Ekran görüntüleri (mümkünse)</li>
-                        <li>Kullandığınız ortam (tarayıcı, işletim sistemi)</li>
-                        <li>Hatanın çözümü hakkında önerileriniz (varsa)</li>
-                      </ul>
-                    </li>
-                  </ol>
-
-                  <h3>Örnek Hata Raporu</h3>
-                  <div className="bg-obsidian/60 p-4 rounded-sm">
-                    <p className="font-semibold">
-                      Başlık: Quick Sort algoritmasında büyük veri setlerinde
-                      performans sorunu
-                    </p>
-                    <p className="text-sm">
-                      <strong>Açıklama:</strong> Quick Sort algoritması
-                      10.000'den fazla eleman içeren dizilerde aşırı yavaş
-                      çalışıyor.
-                    </p>
-                    <p className="text-sm">
-                      <strong>Adımlar:</strong>
-                      <br />
-                      1. Quick Sort algoritması sayfasına gidin
-                      <br />
-                      2. Giriş alanına 15.000 elemanlı rastgele dizi oluşturun
-                      <br />
-                      3. "Çalıştır" düğmesine tıklayın
-                    </p>
-                    <p className="text-sm">
-                      <strong>Beklenen:</strong> Algoritmanın makul bir sürede
-                      (birkaç saniye) tamamlanması
-                    </p>
-                    <p className="text-sm">
-                      <strong>Gerçek:</strong> Algoritma tarayıcıyı dondurur
-                      veya 30+ saniye sürer
-                    </p>
-                    <p className="text-sm">
-                      <strong>Tarayıcı:</strong> Chrome 119.0.6045.123
-                    </p>
-                    <p className="text-sm">
-                      <strong>İşletim Sistemi:</strong> Windows 11
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <BugReportTab />
           </TabsContent>
 
           <TabsContent value="features" className="mt-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Özellik Önerileri</CardTitle>
-                <CardDescription>
-                  Yeni özellik önerilerinde bulunmak için rehber.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="prose dark:prose-invert max-w-none">
-                  <h3>Özellik Önerisi Süreci</h3>
-                  <ol>
-                    <li>
-                      GitHub Issues sayfasını kontrol edin - belki benzer bir
-                      öneri zaten mevcuttur
-                    </li>
-                    <li>
-                      "Feature request" şablonunu kullanarak yeni bir issue
-                      oluşturun
-                    </li>
-                    <li>Özelliği açık ve anlaşılır bir şekilde tanımlayın</li>
-                    <li>
-                      Aşağıdaki bilgileri ekleyin:
-                      <ul>
-                        <li>Özellik açıklaması</li>
-                        <li>
-                          Bu özelliğin hangi sorunu çözeceği veya nasıl
-                          kullanışlı olacağı
-                        </li>
-                        <li>Alternatif çözümler</li>
-                        <li>Örnek kullanım senaryoları</li>
-                        <li>
-                          Varsa, benzer özelliklere sahip diğer projelerden
-                          referanslar
-                        </li>
-                      </ul>
-                    </li>
-                  </ol>
-
-                  <p>
-                    Bir özellik önerirken, projenin genel amacına ve kapsamına
-                    uygun olmasına dikkat edin. Önerdiğiniz özelliği kendinizin
-                    uygulamaya istekli olup olmadığınızı belirtin.
-                  </p>
-
-                  <h3>Öneri Sonrası</h3>
-                  <p>
-                    Öneriniz proje yöneticileri tarafından incelendikten sonra:
-                  </p>
-                  <ul>
-                    <li>Kabul edilebilir</li>
-                    <li>Daha fazla tartışma gerektirebilir</li>
-                    <li>Kapsamın dışında olduğu için reddedilebilir</li>
-                    <li>Zaten planlanmış olabilir</li>
-                  </ul>
-                  <p>
-                    Her durumda, projedeki herkesin zamanına saygı göstermek ve
-                    yapıcı bir diyalog sürdürmek önemlidir.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <FeatureRequestTab />
           </TabsContent>
         </Tabs>
       </div>
@@ -554,18 +200,20 @@ function sortArray<T extends number>(array: T[]): T[] {
             icon: <MessageSquare className="h-6 w-6 text-arcly-blue" />,
             link: 'https://github.com/zzafergok/AlgoPit/discussions',
           },
-        ].map((item, index) => (
+        ].map((item) => (
           <motion.div key={item.title} variants={itemVariants}>
-            <Card className="h-full">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  {item.icon}
-                  <CardTitle>{item.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p>{item.description}</p>
-              </CardContent>
+            <Card className="h-full flex flex-col justify-between">
+              <div>
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    {item.icon}
+                    <CardTitle>{item.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p>{item.description}</p>
+                </CardContent>
+              </div>
               <div className="px-6 pb-6">
                 <Button asChild variant="outline" className="w-full">
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -595,7 +243,7 @@ function sortArray<T extends number>(array: T[]): T[] {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub'da Soru Sorun
+              GitHub&apos;da Soru Sorun
             </a>
           </Button>
           <Button asChild>
