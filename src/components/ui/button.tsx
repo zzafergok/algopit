@@ -5,20 +5,20 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-none font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-none font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'bg-green text-black border border-green hover:bg-[#cffc52] hover:border-[#cffc52] hover:-translate-y-0.5',
+          'bg-turquoise text-black border border-turquoise hover:bg-[#38f8e2] hover:border-[#38f8e2] hover:-translate-y-0.5',
         destructive:
-          'bg-destructive text-white border border-destructive hover:bg-red-600',
+          'bg-destructive text-white border border-destructive hover:bg-[#ff4d68] hover:-translate-y-0.5',
         outline:
           'border border-line-strong bg-transparent text-ink hover:border-muted hover:bg-surface-raised hover:-translate-y-0.5',
         secondary:
           'bg-surface-raised text-ink border border-line-strong hover:border-muted hover:text-ink hover:-translate-y-0.5',
         ghost: 'text-muted hover:text-ink hover:bg-surface-raised',
-        link: 'text-green underline underline-offset-4 hover:text-[#cffc52]',
+        link: 'text-turquoise underline underline-offset-4 hover:text-[#38f8e2]',
       },
       size: {
         default: 'h-10 px-4 py-2',

@@ -12,7 +12,7 @@ type CategoryItem = {
   examples: string[];
   tags: string[];
   href: string;
-  accent: 'green' | 'amber' | 'blue' | 'violet';
+  accent: 'turquoise' | 'red' | 'amber' | 'brown';
 };
 
 const CATEGORIES: CategoryItem[] = [
@@ -30,7 +30,7 @@ const CATEGORIES: CategoryItem[] = [
     ],
     tags: ['Divide & Conquer', 'In-Place', 'Comparison', 'Stability'],
     href: '/algorithms/sorting',
-    accent: 'green',
+    accent: 'turquoise',
   },
   {
     id: 'searching',
@@ -46,7 +46,7 @@ const CATEGORIES: CategoryItem[] = [
     ],
     tags: ['Divide & Conquer', 'Search Space', 'Logarithmic Time'],
     href: '/algorithms/searching',
-    accent: 'amber',
+    accent: 'red',
   },
   {
     id: 'graph',
@@ -67,7 +67,7 @@ const CATEGORIES: CategoryItem[] = [
       'Spanning Tree',
     ],
     href: '/algorithms/graph-algorithms',
-    accent: 'blue',
+    accent: 'amber',
   },
   {
     id: 'dynamic-programming',
@@ -83,7 +83,7 @@ const CATEGORIES: CategoryItem[] = [
     ],
     tags: ['Memoization', 'Tabulation', 'Optimal Substructure', 'Recursion'],
     href: '/algorithms/dynamic-programming',
-    accent: 'violet',
+    accent: 'brown',
   },
 ];
 

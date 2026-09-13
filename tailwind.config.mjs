@@ -27,6 +27,18 @@ const config = {
         mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
+        turquoise: {
+          DEFAULT: 'var(--turquoise)',
+          dark: 'var(--turquoise-dark)',
+        },
+        red: {
+          DEFAULT: 'var(--red)',
+          dark: 'var(--red-dark)',
+        },
+        brown: {
+          DEFAULT: 'var(--brown)',
+          dark: 'var(--brown-dark)',
+        },
         green: {
           DEFAULT: 'var(--green)',
           dark: 'var(--green-dark)',
