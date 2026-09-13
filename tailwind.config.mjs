@@ -26,13 +26,17 @@ const config = {
         display: ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
+      borderColor: ({ theme }) => ({
+        ...theme('colors'),
+        DEFAULT: 'var(--line)',
+      }),
       colors: {
         turquoise: {
-          DEFAULT: 'var(--turquoise)',
+          DEFAULT: 'rgb(var(--turquoise-rgb, 0 240 212) / <alpha-value>)',
           dark: 'var(--turquoise-dark)',
         },
         red: {
-          DEFAULT: 'var(--red)',
+          DEFAULT: 'rgb(var(--red-rgb, 255 46 77) / <alpha-value>)',
           dark: 'var(--red-dark)',
         },
         brown: {
@@ -40,10 +44,10 @@ const config = {
           dark: 'var(--brown-dark)',
         },
         green: {
-          DEFAULT: 'var(--green)',
+          DEFAULT: 'rgb(var(--turquoise-rgb, 0 240 212) / <alpha-value>)',
           dark: 'var(--green-dark)',
         },
-        amber: 'var(--amber)',
+        amber: 'rgb(var(--amber-rgb, 255 159 28) / <alpha-value>)',
         blue: 'var(--blue)',
         violet: 'var(--violet)',
         ink: 'var(--ink)',
@@ -54,8 +58,8 @@ const config = {
           raised: 'var(--surface-raised)',
         },
         line: {
-          DEFAULT: 'var(--line)',
-          strong: 'var(--line-strong)',
+          DEFAULT: 'rgb(var(--line-rgb, 51 38 31) / <alpha-value>)',
+          strong: 'rgb(var(--line-strong-rgb, 79 59 48) / <alpha-value>)',
         },
         neutral: {
           50: 'hsl(var(--neutral-50))',

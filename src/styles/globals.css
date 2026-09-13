@@ -26,20 +26,25 @@
   --surface-raised: #1d1612;
   --line: #33261f;
   --line-strong: #4f3b30;
+  --line-rgb: 51 38 31;
+  --line-strong-rgb: 79 59 48;
 
   --turquoise: #00f0d4;
   --turquoise-dark: #00a896;
+  --turquoise-rgb: 0 240 212;
   --green: #00f0d4; /* Mapped to turquoise for seamless system-wide transition */
   --green-dark: #00a896;
 
   --red: #ff2e4d;
   --red-dark: #b80d28;
+  --red-rgb: 255 46 77;
   --destructive: 351 100% 59%;
 
   --brown: #7c5c49;
   --brown-dark: #3b2a20;
 
   --amber: #ff9f1c;
+  --amber-rgb: 255 159 28;
   --blue: #00b4d8;
   --violet: #d946ef;
   --max-width: 1600px;
@@ -81,8 +86,11 @@
   --info: 191 100% 42%;
 }
 
-* {
+*,
+::before,
+::after {
   box-sizing: border-box;
+  border-color: var(--line);
 }
 
 html {
@@ -1002,87 +1010,99 @@ a {
 
 /* Algorithm Cards - Brutalist Industrial Style */
 .algorithm-card {
-  background: var(--surface) !important;
-  border: 1px solid var(--line-strong) !important;
-  border-radius: 0 !important;
-  box-shadow: 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.4) !important;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.45);
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease !important;
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
   position: relative;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .algorithm-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--green) !important;
-  box-shadow: 0.5rem 0.5rem 0 rgba(0, 240, 212, 0.15) !important;
+  transform: translateY(-3px);
+  border-color: var(--turquoise);
+  box-shadow: 0.4rem 0.4rem 0 rgba(0, 240, 212, 0.18);
+  background:
+    linear-gradient(135deg, rgba(0, 240, 212, 0.03) 0%, transparent 60%),
+    var(--surface);
+}
+
+.algorithm-card:hover [data-slot='card-title'],
+.algorithm-card:hover .card-title,
+.algorithm-card:hover h3,
+.algorithm-card:hover h4 {
+  color: var(--turquoise);
 }
 
 .algorithm-card [data-slot='card-title'],
 .algorithm-card .card-title,
 .algorithm-card h3,
 .algorithm-card h4 {
-  font-family: 'Geist Mono', monospace !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.02em !important;
-  color: var(--ink) !important;
+  font-family: 'Geist Mono', monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  transition: color 150ms ease;
 }
 
 .algorithm-card [data-slot='card-description'],
 .algorithm-card .card-description,
 .algorithm-card p {
-  color: var(--muted) !important;
-  font-size: 0.88rem !important;
-  line-height: 1.6 !important;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 /* Algorithm Card Footer Buttons */
 .algorithm-card [data-slot='card-footer'] button,
 .algorithm-card [data-slot='card-footer'] a,
 .algorithm-card .card-footer button,
-.algorithm-card .card-footer a,
-.algorithm-card div:last-child > button,
-.algorithm-card div:last-child > a {
-  border: 1px solid var(--line-strong) !important;
-  border-radius: 0 !important;
-  background: var(--surface-raised) !important;
-  color: var(--ink) !important;
-  font-family: 'Geist Mono', monospace !important;
-  font-size: 0.72rem !important;
-  font-weight: 650 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  transition: all 140ms ease !important;
+.algorithm-card .card-footer a {
+  border: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  transition: all 140ms ease;
 }
 
 .algorithm-card [data-slot='card-footer'] button:hover,
 .algorithm-card [data-slot='card-footer'] a:hover,
 .algorithm-card .card-footer button:hover,
-.algorithm-card .card-footer a:hover,
-.algorithm-card div:last-child > button:hover,
-.algorithm-card div:last-child > a:hover {
-  background: var(--green) !important;
-  color: var(--black) !important;
-  border-color: var(--green) !important;
+.algorithm-card .card-footer a:hover {
+  background: rgba(0, 240, 212, 0.08);
+  color: var(--turquoise);
+  border-color: var(--turquoise);
 }
 
 /* Technical Dossier / Information Section */
 .bg-obsidian\/60,
-.bg-obsidian\/30,
 .bg-obsidian\/50,
-.algorithm-dossier {
-  background: var(--surface) !important;
-  border: 1px solid var(--line-strong) !important;
-  border-radius: 0 !important;
-  padding: clamp(1.5rem, 3.5vw, 2.75rem) !important;
-  box-shadow: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.4) !important;
-  position: relative;
-  margin-top: 3.5rem !important;
+.bg-obsidian\/30 {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0;
 }
 
-.bg-obsidian\/60::before,
-.bg-obsidian\/30::before,
+.algorithm-dossier {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  box-shadow: 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.4);
+  position: relative;
+  margin-top: 3rem;
+}
+
 .algorithm-dossier::before {
   content: '// DOKÜMAN DOSYASI // TEKNİK AÇIKLAMA';
   display: block;
@@ -1090,31 +1110,27 @@ a {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--green);
+  color: var(--turquoise);
   text-transform: uppercase;
   margin-bottom: 0.85rem;
 }
 
-.bg-obsidian\/60 h2,
-.bg-obsidian\/30 h2,
 .algorithm-dossier h2 {
-  font-family: 'Geist Mono', monospace !important;
-  font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
-  font-weight: 750 !important;
-  letter-spacing: -0.03em !important;
-  color: var(--ink) !important;
-  border-bottom: 1px solid var(--line) !important;
-  padding-bottom: 1rem !important;
-  margin-bottom: 1.5rem !important;
+  font-family: 'Geist Mono', monospace;
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
 }
 
-.bg-obsidian\/60 h3,
-.bg-obsidian\/30 h3,
 .algorithm-dossier h3 {
-  font-family: 'Geist Mono', monospace !important;
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.04em !important;
   color: var(--amber) !important;
   margin-top: 1.85rem !important;
