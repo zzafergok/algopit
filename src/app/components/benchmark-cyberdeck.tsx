@@ -323,7 +323,7 @@ export function BenchmarkCyberdeck() {
                 setSuite('searching');
                 triggerRun();
               }}
-              className={`px-2 py-1 text-[0.68rem] uppercase font-semibold border transition-all ${
+              className={`px-2 py-1 text-xs uppercase font-semibold border transition-all ${
                 suite === 'searching'
                   ? 'border-turquoise bg-turquoise/10 text-turquoise'
                   : 'border-line bg-surface text-muted hover:text-ink hover:border-line-strong'
@@ -341,7 +341,7 @@ export function BenchmarkCyberdeck() {
                   setSize(s);
                   triggerRun();
                 }}
-                className={`px-1.5 py-0.5 text-[0.62rem] font-mono border transition-all ${
+                className={`px-1.5 py-0.5 text-2xs font-mono border transition-all ${
                   size === s
                     ? 'border-turquoise bg-turquoise text-black font-bold'
                     : 'border-line bg-surface text-muted hover:text-ink'
@@ -355,7 +355,7 @@ export function BenchmarkCyberdeck() {
           <button
             onClick={triggerRun}
             disabled={isRunning}
-            className="flex items-center gap-1.5 px-2 py-1 text-[0.68rem] font-mono font-bold uppercase border border-turquoise text-turquoise bg-turquoise/5 hover:bg-turquoise hover:text-black transition-all disabled:opacity-50"
+            className="flex items-center gap-1.5 px-2 py-1 text-xs font-mono font-bold uppercase border border-turquoise text-turquoise bg-turquoise/5 hover:bg-turquoise hover:text-black transition-all disabled:opacity-50"
           >
             {isRunning ? (
               <RotateCcw className="h-3 w-3 animate-spin" />
@@ -367,13 +367,13 @@ export function BenchmarkCyberdeck() {
         </div>
 
         {/* Terminal Screen & Realtime Telemetry */}
-        <div className="p-3.5 sm:p-4 bg-[#080504] font-mono text-[0.74rem] leading-relaxed border-t border-line/40">
-          <div className="text-muted/70 text-[0.68rem] mb-2.5 flex items-center justify-between border-b border-line/40 pb-1.5">
+        <div className="p-3.5 sm:p-4 bg-[#080504] font-mono text-xs leading-relaxed border-t border-line/40">
+          <div className="text-muted/70 text-xs mb-2.5 flex items-center justify-between border-b border-line/40 pb-1.5">
             <span>
               <span className="text-turquoise font-bold">algopit-vm:~$</span>{' '}
               ./benchmark --suite={suite} --size={size}
             </span>
-            <span className="text-quiet text-[0.62rem]">SEED: 0x9AF4</span>
+            <span className="text-quiet text-2xs">SEED: 0x9AF4</span>
           </div>
 
           <div className="space-y-2">
@@ -386,11 +386,11 @@ export function BenchmarkCyberdeck() {
                     isVisible ? 'opacity-100' : 'opacity-10'
                   }`}
                 >
-                  <div className="flex items-center justify-between text-[0.72rem]">
+                  <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center gap-2">
                       <span className="text-quiet">0{index + 1}</span>
                       <span className="text-ink font-semibold">{res.name}</span>
-                      <span className="text-quiet text-[0.64rem]">
+                      <span className="text-quiet text-2xs">
                         ({res.complexity})
                       </span>
                     </div>
@@ -399,7 +399,7 @@ export function BenchmarkCyberdeck() {
                         {res.time.toFixed(3)} ms
                       </span>
                       <span
-                        className={`text-[0.64rem] font-bold ${getStatusColor(res.status)}`}
+                        className={`text-2xs font-bold ${getStatusColor(res.status)}`}
                       >
                         [{res.status}]
                       </span>
@@ -421,7 +421,7 @@ export function BenchmarkCyberdeck() {
           </div>
 
           {/* Terminal Footer Telemetry */}
-          <div className="mt-3.5 pt-2.5 border-t border-line/40 flex items-center justify-between text-[0.66rem] text-muted font-mono">
+          <div className="mt-3.5 pt-2.5 border-t border-line/40 flex items-center justify-between text-2xs text-muted font-mono">
             <div>
               <span className="text-turquoise font-bold">[SYS]</span>{' '}
               Karşılaştırma tamamlandı.
@@ -436,13 +436,13 @@ export function BenchmarkCyberdeck() {
 
       {/* Hardware Status Card */}
       <div className="status-card mt-3.5 border border-line bg-surface shadow-[0.35rem_0.35rem_0_rgba(0,0,0,0.45)]">
-        <div className="window-titlebar bg-gradient-to-r from-[#2c1e17] to-[#1a120e] px-3 py-1.5 border-b border-line text-[0.68rem] text-ink font-mono font-bold flex justify-between">
+        <div className="window-titlebar bg-gradient-to-r from-[#2c1e17] to-[#1a120e] px-3 py-1.5 border-b border-line text-xs text-ink font-mono font-bold flex justify-between">
           <span>ENGINE_SPECS.SYS</span>
-          <span className="text-turquoise font-normal text-[0.62rem]">
+          <span className="text-turquoise font-normal text-2xs">
             // VER: 2.0-STABLE
           </span>
         </div>
-        <dl className="p-3 text-[0.72rem] font-mono space-y-1.5">
+        <dl className="p-3 text-xs font-mono space-y-1.5">
           <div className="flex justify-between border-b border-dashed border-line/70 pb-1">
             <dt className="text-quiet font-bold">MOTOR</dt>
             <dd className="text-ink">Next.js 16 (Turbopack Engine)</dd>

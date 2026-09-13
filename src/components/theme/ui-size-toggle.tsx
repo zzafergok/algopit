@@ -50,10 +50,10 @@ export function UISizeToggle() {
   if (!mounted) {
     return (
       <div
-        className="flex h-8 min-w-[4.5rem] items-center gap-1 border border-gunmetal px-2 text-xs font-medium text-ash"
+        className="flex h-8 min-w-[4.5rem] items-center gap-1 border border-line bg-surface px-2.5 text-xs font-mono font-medium text-muted"
         aria-hidden="true"
       >
-        <span className="text-sm leading-none">Aa</span>
+        <span className="text-sm leading-none font-bold text-turquoise">Aa</span>
       </div>
     );
   }
@@ -61,31 +61,37 @@ export function UISizeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className="flex h-8 min-w-[4.5rem] items-center gap-1 border border-gunmetal px-2 text-xs font-medium text-ash transition-colors hover:border-arcly-blue/50 hover:text-titanium"
+        className="flex h-8 min-w-[4.5rem] items-center gap-1.5 border border-line bg-surface px-2.5 text-xs font-mono font-medium text-ink transition-colors hover:border-turquoise hover:text-turquoise cursor-pointer"
         aria-label="Arayüz boyutunu değiştir"
         title={`Arayüz boyutu: ${activeLabel}`}
       >
-        <span className="text-sm leading-none">Aa</span>
+        <span className="text-sm leading-none font-bold text-turquoise">Aa</span>
         <span className="hidden sm:inline">{activeLabel}</span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuLabel>Arayüz Boyutu</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+      <DropdownMenuContent align="end" className="w-52 border border-line bg-surface shadow-[0.45rem_0.45rem_0_rgba(0,0,0,0.5)]">
+        <DropdownMenuLabel className="font-mono text-[0.68rem] tracking-wider text-muted uppercase">
+          Arayüz Boyutu
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator className="bg-line" />
         {sizeOptions.map((option) => (
           <DropdownMenuItem
             key={option.value}
             onClick={() => setUISize(option.value)}
-            className="gap-2"
+            className="gap-2 cursor-pointer focus:bg-surface-raised focus:text-turquoise"
           >
             <Check
               className={cn(
-                'h-3.5 w-3.5 text-arcly-blue',
+                'h-3.5 w-3.5 text-turquoise',
                 option.value !== uiSize && 'opacity-0',
               )}
             />
             <span className="flex min-w-0 flex-col">
-              <span className="font-medium">{option.label}</span>
-              <span className="text-xs text-ash">{option.description}</span>
+              <span className="font-mono text-xs font-semibold text-ink">
+                {option.label}
+              </span>
+              <span className="text-[0.68rem] font-mono text-muted uppercase">
+                {option.description}
+              </span>
             </span>
           </DropdownMenuItem>
         ))}
