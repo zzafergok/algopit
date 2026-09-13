@@ -38,7 +38,7 @@ export function MatrixVisualizer({
   const [nextMatrix, setNextMatrix] = useState<(string | null)[][]>([]);
   const [reconstructedPath, setReconstructedPath] = useState<number[]>([]);
   const [adjacencyMatrix, setAdjacencyMatrix] = useState<number[][]>(() =>
-    createInitialMatrix(initialSize)
+    createInitialMatrix(initialSize),
   );
   const [selectedPath, setSelectedPath] = useState<{
     from: number;
@@ -187,7 +187,7 @@ export function MatrixVisualizer({
 
       return path;
     },
-    [distanceMatrix, nextMatrix]
+    [distanceMatrix, nextMatrix],
   );
 
   const handlePathSelection = useCallback(
@@ -200,7 +200,7 @@ export function MatrixVisualizer({
         setReconstructedPath(path);
       }
     },
-    [distanceMatrix, reconstructPath]
+    [distanceMatrix, reconstructPath],
   );
 
   const updateMatrixCell = useCallback(
@@ -212,7 +212,7 @@ export function MatrixVisualizer({
       newMatrix[row][col] = numValue;
       setAdjacencyMatrix(newMatrix);
     },
-    [adjacencyMatrix]
+    [adjacencyMatrix],
   );
 
   const resetMatrix = useCallback(() => {
@@ -284,7 +284,7 @@ export function MatrixVisualizer({
 
       return baseClasses;
     },
-    [currentStep, matrixSize, selectedPath, reconstructedPath]
+    [currentStep, matrixSize, selectedPath, reconstructedPath],
   );
 
   const formatValue = useCallback((value: number): string => {
@@ -359,33 +359,25 @@ export function MatrixVisualizer({
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.iterations}
                 </div>
-                <div className="text-sm text-ash">
-                  İterasyonlar
-                </div>
+                <div className="text-sm text-ash">İterasyonlar</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.totalComparisons}
                 </div>
-                <div className="text-sm text-ash">
-                  Karşılaştırmalar
-                </div>
+                <div className="text-sm text-ash">Karşılaştırmalar</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.pathsFound}
                 </div>
-                <div className="text-sm text-ash">
-                  Bulunan Yollar
-                </div>
+                <div className="text-sm text-ash">Bulunan Yollar</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-arcly-blue">
                   {algorithmStats.executionTime.toFixed(2)}ms
                 </div>
-                <div className="text-sm text-ash">
-                  Çalışma Süresi
-                </div>
+                <div className="text-sm text-ash">Çalışma Süresi</div>
               </div>
             </div>
           )}
@@ -424,7 +416,7 @@ export function MatrixVisualizer({
                         {i} → {j}
                       </Button>
                     );
-                  })
+                  }),
                 )}
               </div>
 
@@ -438,7 +430,7 @@ export function MatrixVisualizer({
                     <span className="ml-2 font-medium">
                       (Toplam Mesafe:{' '}
                       {formatValue(
-                        distanceMatrix[selectedPath.from][selectedPath.to]
+                        distanceMatrix[selectedPath.from][selectedPath.to],
                       )}
                       )
                     </span>
@@ -554,7 +546,7 @@ export function MatrixVisualizer({
                             'flex items-center justify-center cursor-pointer hover:bg-arcly-blue/15',
                             row !== col && distanceMatrix[row][col] !== Infinity
                               ? 'hover:scale-105 transition-transform'
-                              : ''
+                              : '',
                           )}
                           onClick={() =>
                             row !== col &&

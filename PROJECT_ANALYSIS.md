@@ -23,9 +23,9 @@ Bu proje, bir **Interactive Learning & Visualization Tool** (Etkileşimli Öğre
 ## 3. Uygulama Detayları (Implementation Details)
 
 - **Kategori Hiyerarşisi**: `src/app/algorithms/` altında çok sayıda kategori tanımlanmıştır:
-    - **Sorting & Searching**: Temel taşlar.
-    - **Graph Algorithms**: Dijkstra, BFS, DFS gibi karmaşık yapılar.
-    - **Advanced Topics**: Backtracking, Dynamic Programming, Clustering.
+  - **Sorting & Searching**: Temel taşlar.
+  - **Graph Algorithms**: Dijkstra, BFS, DFS gibi karmaşık yapılar.
+  - **Advanced Topics**: Backtracking, Dynamic Programming, Clustering.
 - **Görselleştirme Kontrolleri**: Hız ayarı, veri seti boyutu, algoritma seçimi ve simülasyonu başlatma/durdurma gibi kontrol mekanizmaları mevcuttur.
 - **Eğitsel Kaynaklar**: `/resources` rotası, görselleştirmeleri destekleyen teorik bilgileri ve referansları içerir.
 
@@ -40,6 +40,6 @@ Bu proje, bir **Interactive Learning & Visualization Tool** (Etkileşimli Öğre
 
 - **Mevcut Durum**: Proje tamamen algoritma ve veri yapıları odaklıdır.
 - **Uyumlu Skill'ler**:
-    - `algorithm-mastery-skill`: Karmaşık algoritmaların implementasyonu için.
-    - `data-viz-expert`: Görselleştirme performansı ve UX için.
+  - `algorithm-mastery-skill`: Karmaşık algoritmaların implementasyonu için.
+  - `data-viz-expert`: Görselleştirme performansı ve UX için.
 - **Öneri**: Mülakat odaklı bir yapı için `coding-interview-coach` skill'i de eklenebilir.

@@ -1,80 +1,48 @@
 'use client';
 
-import React from 'react';
-import { motion, type Variants } from 'framer-motion';
-import { BookOpen, BarChart4, Code } from 'lucide-react';
+import { SectionHeading } from '@/components/common/SectionHeading';
+
+const FEATURES = [
+  {
+    index: '01 / THEORY',
+    title: 'Teorik Derinlik',
+    description:
+      'Her algoritmanın matematiksel kanıtları, zaman ve alan karmaşıklığı analizleri (Worst, Best, Average Case Big-O) ve mimari trade-off açıklamaları.',
+  },
+  {
+    index: '02 / VISUAL',
+    title: 'Adım Adım Görselleştirme',
+    description:
+      'Her iterasyonda dizilerin, düğümlerin ve bellek işaretçilerinin nasıl yer değiştirdiğini 60 FPS akıcı geçişlerle canlı olarak izleyin.',
+  },
+  {
+    index: '03 / INTERACTIVE',
+    title: 'İnteraktif Kontrol Odası',
+    description:
+      'Kendi girdi verilerinizi tanımlayın, yürütme hızını ayarlayın, tek tek adım (step-by-step) atlayın veya anlık kod vurgusunu takip edin.',
+  },
+];
 
 export function FeaturesSection() {
-  const features = [
-    {
-      icon: <BookOpen className="h-6 w-6 text-arcly-blue" />,
-      title: 'Teorik Bilgi',
-      description:
-        'Her algoritmanın teorik temelleri, zaman karmaşıklığı, avantajları ve dezavantajları hakkında detaylı bilgiler.',
-    },
-    {
-      icon: <BarChart4 className="h-6 w-6 text-arcly-blue" />,
-      title: 'Görsel Öğrenme',
-      description:
-        'Algoritmaların çalışma prensiplerini adım adım görselleştirmelerle anlayın.',
-    },
-    {
-      icon: <Code className="h-6 w-6 text-arcly-blue" />,
-      title: 'İnteraktif Uygulamalar',
-      description:
-        'Kendi verilerinizle algoritmaları test edin, kodlarını inceleyin ve nasıl çalıştıklarını keşfedin.',
-    },
-  ];
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 24,
-      },
-    },
-  };
-
   return (
-    <section className="feature-section">
-      <h2 className="text-3xl font-bold text-center mb-8">
-        Nasıl Öğreneceksiniz?
-      </h2>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col items-center text-center p-4 space-y-4"
-            variants={itemVariants}
-          >
-            <div className="bg-arcly-blue/10 p-3 rounded-full">
-              {feature.icon}
-            </div>
-            <h3 className="text-xl font-semibold">{feature.title}</h3>
-            <p className="text-ash">{feature.description}</p>
-          </motion.div>
+    <section className="section" id="engine" aria-labelledby="engine-title">
+      <SectionHeading
+        id="engine-title"
+        index="02"
+        eyebrow="Öğrenme Motoru"
+        title="Soyut matematiği gözle görülür hale getirin."
+        description="Ezberlemek yerine algoritmanın altında yatan state dönüşümlerini ve bellek manipülasyonunu doğrudan hissedin."
+      />
+
+      <div className="features-grid">
+        {FEATURES.map((feature) => (
+          <div className="feature-box" key={feature.index}>
+            <p className="feature-box-index">{feature.index}</p>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

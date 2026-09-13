@@ -176,7 +176,7 @@ export function heapSort<T extends number>(arr: T[]): T[] {
 export function heapify<T extends number>(
   arr: T[],
   n: number,
-  i: number
+  i: number,
 ): void {
   let largest = i; // Initialize largest as root
   const left = 2 * i + 1; // Left child
@@ -362,7 +362,7 @@ export function timSort(arr: number[]): number[] {
     arr: number[],
     left: number,
     mid: number,
-    right: number
+    right: number,
   ): void => {
     const leftArr = arr.slice(left, mid + 1);
     const rightArr = arr.slice(mid + 1, right + 1);
@@ -396,7 +396,7 @@ export function timSort(arr: number[]): number[] {
   };
 
   const findRuns = (
-    arr: number[]
+    arr: number[],
   ): { start: number; end: number; descending: boolean }[] => {
     const runs: { start: number; end: number; descending: boolean }[] = [];
     let i = 0;

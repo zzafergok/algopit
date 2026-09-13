@@ -343,7 +343,7 @@ export const algorithmCardItemsByCategory: Record<string, AlgorithmCardItem[]> =
         name: 'Faktöriyel (Factorial)',
         path: '/algorithms/mathematical-algorithms/factorial',
         description:
-          'Bir sayının faktöriyelini (1\'den n\'e kadar olan sayıların çarpımı) iteratif ve recursive yöntemlerle hesaplar.',
+          "Bir sayının faktöriyelini (1'den n'e kadar olan sayıların çarpımı) iteratif ve recursive yöntemlerle hesaplar.",
       },
       {
         name: 'Üs Alma (Exponentiation)',
@@ -734,7 +734,10 @@ export const navigationConfig: NavigationConfig = {
               label: 'Radix Sort Varyantları',
               href: '/algorithms/sorting/radix-sort-variants',
             },
-            { label: 'Kova Sıralaması', href: '/algorithms/sorting/bucket-sort' },
+            {
+              label: 'Kova Sıralaması',
+              href: '/algorithms/sorting/bucket-sort',
+            },
             {
               label: 'Sıra İstatistikleri',
               href: '/algorithms/sorting/order-statistics',

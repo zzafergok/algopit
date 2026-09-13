@@ -47,7 +47,8 @@ export function AlgorithmExplanation({
   relatedAlgorithms,
 }: AlgorithmExplanationProps) {
   const resolvedCodeExamples =
-    codeExamples ?? buildCodeExamples(title, pseudocode, timeComplexity.average);
+    codeExamples ??
+    buildCodeExamples(title, pseudocode, timeComplexity.average);
   const resolvedRelatedAlgorithms =
     relatedAlgorithms ??
     applications.slice(0, 3).map((application) => ({
@@ -116,7 +117,11 @@ export function AlgorithmExplanation({
   );
 }
 
-function buildCodeExamples(title: string, pseudocode: string, complexity: string) {
+function buildCodeExamples(
+  title: string,
+  pseudocode: string,
+  complexity: string,
+) {
   const functionName = toFunctionName(title);
 
   return {
@@ -186,11 +191,12 @@ function toClassName(title: string) {
 function runGenericExplanationDemo(
   title: string,
   input: unknown[],
-  complexity: string
+  complexity: string,
 ) {
   const values = Array.isArray(input) ? input : [input];
   const numericValues = values.filter(
-    (value): value is number => typeof value === 'number' && Number.isFinite(value)
+    (value): value is number =>
+      typeof value === 'number' && Number.isFinite(value),
   );
   const normalizedValues =
     numericValues.length === values.length && numericValues.length > 0
@@ -209,10 +215,13 @@ function runGenericExplanationDemo(
   };
 }
 
-function buildExplanationDemoResult(title: string, values: Array<number | string>) {
+function buildExplanationDemoResult(
+  title: string,
+  values: Array<number | string>,
+) {
   const normalizedTitle = title.toLowerCase();
   const numbers = values.filter(
-    (value): value is number => typeof value === 'number'
+    (value): value is number => typeof value === 'number',
   );
 
   if (

@@ -1,18 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-
 import { useState, useEffect } from 'react';
-
-import { Code2, Mail, ArrowUp, Heart } from 'lucide-react';
-
+import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/seperator';
-
 import { FooterSection } from './FooterSection';
-
 import { navigationConfig } from '@/config/navigation';
-
 import { cn } from '@/lib/utils';
 
 export const Footer = () => {
@@ -45,57 +38,26 @@ export const Footer = () => {
 
   return (
     <>
-      <footer className="w-full bg-gradient-to-t from-muted/20 to-background border-t border-gunmetal/40">
-        <div className="container py-12 md:py-16 lg:py-20">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-12">
-            <div className="lg:col-span-1 space-y-6">
-              <div className="space-y-4">
-                <Link
-                  href="/"
-                  className="inline-block group"
-                  aria-label="AlgoPit ana sayfasına git"
-                >
-                  <h3 className="text-xl font-bold text-arcly-blue group-hover:text-arcly-blue/80 transition-colors">
-                    AlgoPit
-                  </h3>
-                </Link>
+      <footer className="w-full border-t border-line-strong bg-black">
+        <div className="mx-auto w-full max-w-[1600px] px-6 py-12 md:py-16">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-14">
+            <div className="lg:col-span-1 space-y-4">
+              <Link
+                href="/"
+                className="system-logo inline-flex text-lg"
+                aria-label="AlgoPit ana sayfasına git"
+              >
+                <span aria-hidden="true">■</span> ALGOPIT.DEV
+              </Link>
 
-                <p className="text-sm text-ash leading-relaxed max-w-xs">
-                  Algoritmaları interaktif bir şekilde öğrenin ve uygulayın.
-                  Görsel öğrenme ile algoritma kavramlarını kolayca anlayın.
-                </p>
-              </div>
+              <p className="font-mono text-xs text-muted leading-relaxed max-w-xs uppercase">
+                Algoritmaları interaktif ve görsel olarak keşfedin. Adım adım
+                yürütme, simülasyon ve analiz platformu.
+              </p>
 
-              <div className="space-y-3">
-                <h4 className="text-sm font-medium text-titanium">
-                  Bizi Takip Edin
-                </h4>
-                <div className="flex gap-3">
-                  <Link
-                    href="https://github.com/zzafergok/algopit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      'flex items-center justify-center w-10 h-10 rounded-sm',
-                      'bg-obsidian/50 hover:bg-obsidian/60 text-ash hover:text-titanium',
-                      'transition-all duration-200 hover:scale-110',
-                    )}
-                    aria-label="GitHub repository'yi ziyaret et"
-                  >
-                    <Code2 className="h-[1.125rem] w-[1.125rem]" />
-                  </Link>
-                  <Link
-                    href="mailto:gok.zaferr@gmail.com"
-                    className={cn(
-                      'flex items-center justify-center w-10 h-10 rounded-sm',
-                      'bg-obsidian/50 hover:bg-obsidian/60 text-ash hover:text-titanium',
-                      'transition-all duration-200 hover:scale-110',
-                    )}
-                    aria-label="E-posta ile iletişime geç"
-                  >
-                    <Mail className="h-[1.125rem] w-[1.125rem]" />
-                  </Link>
-                </div>
+              <div className="pt-2 font-mono text-[0.7rem] text-quiet space-y-1">
+                <p>SYS_BUILD: 2.0.0-PROD</p>
+                <p>STATUS: ALL ENGINES OPERATIONAL</p>
               </div>
             </div>
 
@@ -109,20 +71,10 @@ export const Footer = () => {
           </div>
         </div>
 
-        <Separator className="opacity-50" />
-
-        <div className="container py-6 lg:py-8">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-ash">
-              <p className="flex items-center gap-1">
-                &copy; {currentYear} AlgoPit. Tüm hakları saklıdır.
-              </p>
-              <span className="hidden sm:inline text-ash/50">•</span>
-              <p className="flex items-center gap-1">
-                <Heart className="h-3.5 w-3.5 text-alert-red" />
-                <span>ile Türkiye'de geliştirildi</span>
-              </p>
-            </div>
+        <div className="border-t border-line px-6 py-4">
+          <div className="mx-auto flex w-full max-w-[1600px] flex-col justify-between gap-2 sm:flex-row sm:items-center font-mono text-[0.7rem] uppercase tracking-wider text-quiet">
+            <span>&copy; {currentYear} ALGOPIT · ALL RIGHTS RESERVED</span>
+            <span>DESIGNED FOR CLEAN CODE AND COMPUTATIONAL DEPTH</span>
           </div>
         </div>
       </footer>
@@ -132,17 +84,13 @@ export const Footer = () => {
           variant="outline"
           size="icon"
           className={cn(
-            'fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full ',
-            'bg-void-black/80 backdrop-blur-sm border-gunmetal/50',
-            'transition-all duration-300 ease-out',
-            'hover:scale-110 hover:bg-void-black',
-            'focus:ring-2 focus:ring-primary focus:ring-offset-2',
-            'active:scale-95',
+            'fixed bottom-6 right-6 z-50 h-10 w-10 border border-line-strong bg-surface text-green shadow-[0.4rem_0.4rem_0_rgba(0,0,0,0.4)]',
+            'transition-all duration-200 hover:border-green hover:bg-surface-raised hover:-translate-y-0.5',
           )}
           onClick={scrollToTop}
           aria-label="Sayfanın başına geri dön"
         >
-          <ArrowUp className="h-5 w-5 text-titanium" />
+          <ArrowUp className="h-4 w-4" />
         </Button>
       )}
     </>

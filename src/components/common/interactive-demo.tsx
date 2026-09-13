@@ -81,7 +81,7 @@ export function InteractiveDemo({
 
       const { result, time } = measureAlgorithmTime(
         algorithmFunction,
-        parsedInput
+        parsedInput,
       );
 
       setOutput(result);
@@ -123,9 +123,7 @@ export function InteractiveDemo({
     <Card className="interactive-section">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        {description && (
-          <p className="text-sm text-ash">{description}</p>
-        )}
+        {description && <p className="text-sm text-ash">{description}</p>}
       </CardHeader>
       <CardContent>
         <div className="space-y-4">

@@ -40,20 +40,14 @@ export function DuplicateAlgorithmPage({
     .filter(
       (item) =>
         item.slug !== algorithm.slug &&
-        (item.category === algorithm.category || item.family === algorithm.family)
+        (item.category === algorithm.category ||
+          item.family === algorithm.family),
     )
     .slice(0, 3);
 
   return (
-    <div className="container mx-auto py-12 space-y-12">
+    <div className="space-y-10 py-2">
       <div className="space-y-5">
-        <Button variant="outline" size="sm" asChild>
-          <Link href={categoryHref} className="inline-flex items-center gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            {categoryLabels[algorithm.category] ?? 'Algoritmalar'}
-          </Link>
-        </Button>
-
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary">{algorithm.family}</Badge>
@@ -265,10 +259,14 @@ function toClassName(title: string) {
     .replace(/^[0-9]/, 'Algorithm$&');
 }
 
-function runGenericDemo(algorithm: DuplicateAlgorithmContent, input: unknown[]) {
+function runGenericDemo(
+  algorithm: DuplicateAlgorithmContent,
+  input: unknown[],
+) {
   const values = Array.isArray(input) ? input : [input];
   const numericValues = values.filter(
-    (value): value is number => typeof value === 'number' && Number.isFinite(value)
+    (value): value is number =>
+      typeof value === 'number' && Number.isFinite(value),
   );
   const normalizedValues =
     numericValues.length === values.length && numericValues.length > 0
@@ -287,11 +285,11 @@ function runGenericDemo(algorithm: DuplicateAlgorithmContent, input: unknown[]) 
 
 function buildDemoResult(
   algorithm: DuplicateAlgorithmContent,
-  values: Array<number | string>
+  values: Array<number | string>,
 ) {
   const title = algorithm.title.toLowerCase();
   const numbers = values.filter(
-    (value): value is number => typeof value === 'number'
+    (value): value is number => typeof value === 'number',
   );
 
   if (title.includes('search') && values.length > 0) {

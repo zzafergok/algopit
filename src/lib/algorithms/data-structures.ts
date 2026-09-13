@@ -159,7 +159,7 @@ export class SegmentTree {
   private buildTree(
     array: number[],
     start: number,
-    end: number
+    end: number,
   ): SegmentTreeNode {
     if (start === end) {
       return {
@@ -211,7 +211,7 @@ export class SegmentTree {
   public updateRange(
     updateStart: number,
     updateEnd: number,
-    delta: number
+    delta: number,
   ): void {
     if (!this.root || updateStart > updateEnd) return;
 
@@ -224,7 +224,7 @@ export class SegmentTree {
     this.root = this.buildTree(
       this.originalArray,
       0,
-      this.originalArray.length - 1
+      this.originalArray.length - 1,
     );
   }
 
@@ -235,7 +235,7 @@ export class SegmentTree {
   private querySumHelper(
     node: SegmentTreeNode,
     queryStart: number,
-    queryEnd: number
+    queryEnd: number,
   ): number {
     if (queryStart <= node.start && queryEnd >= node.end) {
       return node.sum;
@@ -259,7 +259,7 @@ export class SegmentTree {
   private queryMinHelper(
     node: SegmentTreeNode,
     queryStart: number,
-    queryEnd: number
+    queryEnd: number,
   ): number {
     if (queryStart <= node.start && queryEnd >= node.end) {
       return node.min;
@@ -285,7 +285,7 @@ export class SegmentTree {
   private queryMaxHelper(
     node: SegmentTreeNode,
     queryStart: number,
-    queryEnd: number
+    queryEnd: number,
   ): number {
     if (queryStart <= node.start && queryEnd >= node.end) {
       return node.max;
@@ -311,7 +311,7 @@ export class SegmentTree {
   private updateHelper(
     node: SegmentTreeNode,
     index: number,
-    newValue: number
+    newValue: number,
   ): void {
     if (node.start === node.end) {
       node.sum = newValue;

@@ -7,10 +7,10 @@ const nextConfig = {
       ...config.experiments,
       asyncWebAssembly: true,
       layers: true,
-    }
+    };
 
-    return config
+    return config;
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

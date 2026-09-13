@@ -1,5 +1,5 @@
-import typography from '@tailwindcss/typography'
-import tailwindcssAnimate from 'tailwindcss-animate'
+import typography from '@tailwindcss/typography';
+import tailwindcssAnimate from 'tailwindcss-animate';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -22,11 +22,29 @@ const config = {
         desktop: '1440px',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'monospace'],
+        sans: ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
+        green: {
+          DEFAULT: 'var(--green)',
+          dark: 'var(--green-dark)',
+        },
+        amber: 'var(--amber)',
+        blue: 'var(--blue)',
+        violet: 'var(--violet)',
+        ink: 'var(--ink)',
+        muted: 'var(--muted)',
+        quiet: 'var(--quiet)',
+        surface: {
+          DEFAULT: 'var(--surface)',
+          raised: 'var(--surface-raised)',
+        },
+        line: {
+          DEFAULT: 'var(--line)',
+          strong: 'var(--line-strong)',
+        },
         neutral: {
           50: 'hsl(var(--neutral-50))',
           100: 'hsl(var(--neutral-100))',
@@ -268,6 +286,6 @@ const config = {
     },
   },
   plugins: [tailwindcssAnimate, typography],
-}
+};
 
-export default config
+export default config;

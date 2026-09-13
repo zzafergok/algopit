@@ -1,40 +1,42 @@
 'use client';
 
 import * as React from 'react';
-
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-sm font-mono text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-arcly-blue/50 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-none font-mono text-xs font-semibold tracking-wider uppercase transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: 'bg-arcly-blue text-primary-foreground hover:bg-arcly-blue/90',
-        destructive: 'bg-alert-red text-primary-foreground hover:bg-alert-red/90',
+        default:
+          'bg-green text-black border border-green hover:bg-[#cffc52] hover:border-[#cffc52] hover:-translate-y-0.5',
+        destructive:
+          'bg-destructive text-white border border-destructive hover:bg-red-600',
         outline:
-          'border border-gunmetal bg-transparent text-titanium hover:border-gunmetal hover:bg-gunmetal/20',
-        secondary: 'bg-gunmetal text-titanium hover:bg-gunmetal/80',
-        ghost: 'text-titanium hover:bg-gunmetal/20',
-        link: 'text-arcly-blue underline-offset-4 hover:underline',
+          'border border-line-strong bg-transparent text-ink hover:border-muted hover:bg-surface-raised hover:-translate-y-0.5',
+        secondary:
+          'bg-surface-raised text-ink border border-line-strong hover:border-muted hover:text-ink hover:-translate-y-0.5',
+        ghost: 'text-muted hover:text-ink hover:bg-surface-raised',
+        link: 'text-green underline underline-offset-4 hover:text-[#cffc52]',
       },
       size: {
         default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-sm px-3',
-        lg: 'h-11 rounded-sm px-8',
-        icon: 'h-10 w-10',
+        sm: 'h-8 px-3 text-[0.7rem]',
+        lg: 'h-12 px-6 text-sm',
+        icon: 'h-9 w-9',
       },
     },
     defaultVariants: {
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
@@ -48,7 +50,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Button.displayName = 'Button';
 

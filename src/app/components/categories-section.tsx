@@ -1,126 +1,141 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import { motion, type Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { SectionHeading } from '@/components/common/SectionHeading';
+
+type CategoryItem = {
+  id: string;
+  order: string;
+  eyebrow: string;
+  title: string;
+  summary: string;
+  examples: string[];
+  tags: string[];
+  href: string;
+  accent: 'green' | 'amber' | 'blue' | 'violet';
+};
+
+const CATEGORIES: CategoryItem[] = [
+  {
+    id: 'sorting',
+    order: '01',
+    eyebrow: 'TEMEL ALGORİTMALAR · O(N LOG N) / O(N²)',
+    title: 'Sıralama Algoritmaları',
+    summary:
+      'Veri dizilerini belirli bir düzene göre sıralayan, bellek içi takasları ve böl-ve-yönet ilkelerini görselleştiren algoritmalar.',
+    examples: [
+      'Quick Sort: Pivot seçimi ve özyinelemeli parçalama mekanizması',
+      'Merge Sort: Kararlı böl-ve-yönet sıralama adımları',
+      'Heap Sort & Bubble Sort: Karşılaştırma ve takas animasyonları',
+    ],
+    tags: ['Divide & Conquer', 'In-Place', 'Comparison', 'Stability'],
+    href: '/algorithms/sorting',
+    accent: 'green',
+  },
+  {
+    id: 'searching',
+    order: '02',
+    eyebrow: 'VERİ ERİŞİMİ · O(LOG N) / O(N)',
+    title: 'Arama Algoritmaları',
+    summary:
+      'Sıralı veya sırasız veri yapılarında hedeflenen elemanı minimum karşılaştırma adımı ile konumlandıran teknikler.',
+    examples: [
+      'Binary Search: Her adımda arama uzayını yarıya indirme',
+      'Linear Search & Jump Search: Dizi üzerinde sıçramalı gezinme',
+      'Interpolation Search: Dağılıma göre tahmini indeksleme',
+    ],
+    tags: ['Divide & Conquer', 'Search Space', 'Logarithmic Time'],
+    href: '/algorithms/searching',
+    accent: 'amber',
+  },
+  {
+    id: 'graph',
+    order: '03',
+    eyebrow: 'AĞ VE BAĞLANTI MODELLERİ · O(V + E)',
+    title: 'Graf Algoritmaları',
+    summary:
+      'Düğümler ve kenarlardan oluşan karmaşık ağ yapıları üzerinde en kısa yol, derinlemesine ve genişlemesine tarama simülasyonları.',
+    examples: [
+      'Dijkstra Algoritması: Ağırlıklı graflarda en kısa yol keşfi',
+      'Breadth-First Search (BFS): Dalga benzeri seviye seviye yayılma',
+      'Depth-First Search (DFS): Derinlemesine keşif ve geri izleme (Backtracking)',
+    ],
+    tags: [
+      'Graph Traversal',
+      'Shortest Path',
+      'Adjacency Matrix',
+      'Spanning Tree',
+    ],
+    href: '/algorithms/graph-algorithms',
+    accent: 'blue',
+  },
+  {
+    id: 'dynamic-programming',
+    order: '04',
+    eyebrow: 'OPTİMİZASYON STRATEJİLERİ · MEMOIZATION',
+    title: 'Dinamik Programlama',
+    summary:
+      'Büyük ve karmaşık problemleri örtüşen alt problemlere ayırarak önbellekleyen ve optimal çözüme ulaştıran algoritmalar.',
+    examples: [
+      'Knapsack (Sırt Çantası): Kapasite ve değer optimizasyonu',
+      'Longest Common Subsequence (LCS): Karakter dizisi hizalama',
+      'Fibonacci & Matrix Chain Multiplication: Tablolama teknikleri',
+    ],
+    tags: ['Memoization', 'Tabulation', 'Optimal Substructure', 'Recursion'],
+    href: '/algorithms/dynamic-programming',
+    accent: 'violet',
+  },
+];
 
 export function CategoriesSection() {
-  const algorithmCategories = [
-    {
-      title: 'Sıralama Algoritmaları',
-      description:
-        'Verileri belirli bir düzende sıralamak için kullanılan algoritmalar',
-      href: '/algorithms/sorting',
-      examples: ['Bubble Sort', 'Quick Sort', 'Merge Sort'],
-    },
-    {
-      title: 'Arama Algoritmaları',
-      description:
-        'Veri yapılarında eleman bulmak için kullanılan algoritmalar',
-      href: '/algorithms/searching',
-      examples: ['Binary Search', 'Linear Search', 'Jump Search'],
-    },
-    {
-      title: 'Graf Algoritmaları',
-      description: 'Graf veri yapıları üzerinde işlem yapan algoritmalar',
-      href: '/algorithms/graph-algorithms',
-      examples: ['Dijkstra', 'DFS', 'BFS'],
-    },
-    {
-      title: 'Dinamik Programlama',
-      description:
-        'Karmaşık problemleri alt problemlere bölerek çözen yöntemler',
-      href: '/algorithms/dynamic-programming',
-      examples: ['Fibonacci', 'Knapsack', 'Longest Common Subsequence'],
-    },
-  ];
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 24,
-      },
-    },
-  };
-
   return (
-    <section className="feature-section">
-      <h2 className="text-3xl font-bold text-center mb-8">
-        Algoritma Kategorileri
-      </h2>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        {algorithmCategories.map((category, index) => (
-          <motion.div key={index} variants={itemVariants} className="h-full">
-            <Card className="algorithm-card h-full flex flex-col justify-between">
-              <div>
-                <CardHeader>
-                  <CardTitle>{category.title}</CardTitle>
-                  <CardDescription>{category.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-ash">Popüler örnekler:</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {category.examples.map((example, i) => (
-                      <span
-                        key={i}
-                        className="inline-flex items-center rounded-sm bg-obsidian/60 px-2 py-1 text-xs font-medium"
-                      >
-                        {example}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
+    <section
+      className="section"
+      id="categories"
+      aria-labelledby="categories-title"
+    >
+      <SectionHeading
+        id="categories-title"
+        index="01"
+        eyebrow="Algoritma Grupları"
+        title="Temel prensipler, canlı modeller."
+        description="Bilgisayar bilimlerinin omurgasını oluşturan algoritmaları interaktif adım adım yürütme modülleri ile deneyimleyin."
+      />
+
+      <div className="project-list">
+        {CATEGORIES.map((category) => (
+          <article
+            className={`project-card accent-${category.accent}`}
+            key={category.id}
+          >
+            <div className="project-track" aria-hidden="true">
+              {category.order}
+            </div>
+
+            <div className="project-main">
+              <p className="eyebrow">{category.eyebrow}</p>
+              <h3>{category.title}</h3>
+              <p>{category.summary}</p>
+              <ul className="impact-list" aria-label="Önemli algoritmalar">
+                {category.examples.map((example) => (
+                  <li key={example}>{example}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="project-meta">
+              <div className="tech-list" aria-label="Kavramlar ve Etiketler">
+                {category.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
               </div>
-              <CardFooter>
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="w-full justify-between"
-                >
-                  <Link
-                    href={category.href}
-                    className="flex justify-between items-center gap-3 w-full"
-                  >
-                    <span>Keşfet</span>
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
+              <Link className="text-link" href={category.href}>
+                Modülü Başlat <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </article>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
