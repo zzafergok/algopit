@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { BenchmarkCyberdeck } from './benchmark-cyberdeck';
 
 export function HeroSection() {
   return (
@@ -27,6 +28,8 @@ export function HeroSection() {
           </Link>
         </div>
       </div>
+
+      <BenchmarkCyberdeck />
     </section>
   );
 }
