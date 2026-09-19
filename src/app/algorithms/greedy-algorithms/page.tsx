@@ -1,113 +1,84 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Açgözlü Algoritmalar | AlgoPit',
+  description:
+    'Açgözlü (Greedy) algoritmalar, her adımda en iyi görünen seçimi yaparak global optimum çözüm arayan problem çözme yaklaşımıdır.',
+};
 
 export default function GreedyAlgorithmsPage() {
-  const algorithms = createCategoryAlgorithms("/algorithms/greedy-algorithms");
+  const algorithms = createCategoryAlgorithms('/algorithms/greedy-algorithms');
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Açgözlü Algoritmalar
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Açgözlü (Greedy) algoritmalar, her adımda en iyi görünen seçimi
-          yaparak global optimum çözüm arayan problem çözme yaklaşımıdır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Açgözlü Algoritmalar"
+        description="Açgözlü (Greedy) algoritmalar, her adımda en iyi görünen seçimi yaparak global optimum çözüm arayan problem çözme yaklaşımıdır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">{algorithm.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Açgözlü Algoritmalar Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Açgözlü Algoritmalar Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Açgözlü algoritmalar, optimizasyon problemlerini çözmek için
             kullanılan bir algoritma tasarım yaklaşımıdır. Bu yaklaşımda,
             algoritma her adımda mevcut durumda en iyi görünen seçimi yapar,
-            gelecekteki sonuçları dikkate almadan ilerler. Bu nedenle "açgözlü"
-            (greedy) olarak adlandırılır.
+            gelecekteki sonuçları dikkate almadan ilerler. Bu nedenle
+            &quot;açgözlü&quot; (greedy) olarak adlandırılır.
           </p>
 
-          <p className="mt-4">Açgözlü algoritmaların temel özellikleri:</p>
+          <p className="font-semibold text-ink">
+            Açgözlü algoritmaların temel özellikleri:
+          </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Yerel Optimizasyon:</strong> Her adımda mevcut durumda en
-              iyi görünen seçimi yapar.
+              <strong className="text-ink">Yerel Optimizasyon:</strong> Her
+              adımda mevcut durumda en iyi görünen seçimi yapar.
             </li>
             <li>
-              <strong>Geriye Dönüş Yok:</strong> Bir kez karar verildikten
-              sonra, bu karar değiştirilmez.
+              <strong className="text-ink">Geriye Dönüş Yok:</strong> Bir kez
+              karar verildikten sonra, bu karar değiştirilmez.
             </li>
             <li>
-              <strong>Basitlik:</strong> Genellikle anlaşılması ve uygulanması
-              kolaydır.
+              <strong className="text-ink">Basitlik:</strong> Genellikle
+              anlaşılması ve uygulanması kolaydır.
             </li>
             <li>
-              <strong>Verimlilik:</strong> Çoğu durumda çok hızlı çalışır,
-              genellikle O(n log n) veya daha iyi.
+              <strong className="text-ink">Verimlilik:</strong> Çoğu durumda çok
+              hızlı çalışır, genellikle O(n log n) veya daha iyi.
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Açgözlü algoritmaların başarılı olması için gereken koşullar:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Açgözlü Seçim Özelliği:</strong> Yerel optimum seçimler,
-              global optimum çözüme yol açmalıdır.
+              <strong className="text-ink">Açgözlü Seçim Özelliği:</strong>{' '}
+              Yerel optimum seçimler, global optimum çözüme yol açmalıdır.
             </li>
             <li>
-              <strong>Optimal Alt Yapı:</strong> Problemin optimal çözümü, alt
-              problemlerin optimal çözümlerini içermelidir.
+              <strong className="text-ink">Optimal Alt Yapı:</strong> Problemin
+              optimal çözümü, alt problemlerin optimal çözümlerini içermelidir.
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p>
             Açgözlü algoritmaların her zaman optimal çözümü garanti etmediğini
             unutmamak önemlidir. Bazı durumlarda, yerel optimum kararlar, global
             optimum çözüme ulaşmayı engelleyebilir. Ancak, belirli problem
             türlerinde açgözlü yaklaşım optimal sonuç verir.
           </p>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Açgözlü algoritmaların kullanıldığı yaygın problemler:
           </p>
 
@@ -120,7 +91,7 @@ export default function GreedyAlgorithmsPage() {
             <li>Para Üstü Problemi (Coin Change Problem - bazı durumlarda)</li>
           </ul>
 
-          <p className="mt-4">
+          <p>
             Açgözlü algoritmalar, dinamik programlama veya geri izleme gibi
             diğer yaklaşımlara göre genellikle daha hızlı ve daha az bellek
             kullanır. Ancak, her problem için uygun olmayabilir ve bazen
@@ -129,7 +100,7 @@ export default function GreedyAlgorithmsPage() {
             belirlemek önemlidir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

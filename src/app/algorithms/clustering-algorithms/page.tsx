@@ -1,14 +1,13 @@
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+
+export const metadata: Metadata = {
+  title: 'Kümeleme Algoritmaları | AlgoPit',
+  description:
+    'Kümeleme algoritmaları, benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir.',
+};
 
 export default function ClusteringAlgorithmsPage() {
   const algorithms = [
@@ -28,75 +27,46 @@ export default function ClusteringAlgorithmsPage() {
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Kümeleme Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Kümeleme algoritmaları, benzer özelliklere sahip verileri
-          gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir. Bu
-          algoritmalar, veri analizinde, müşteri segmentasyonunda ve desen
-          tanımada yaygın olarak kullanılır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Kümeleme Algoritmaları"
+        description="Kümeleme algoritmaları, benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir. Bu algoritmalar, veri analizinde, müşteri segmentasyonunda ve desen tanımada yaygın olarak kullanılır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button asChild variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Kümeleme Algoritmaları Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Kümeleme Algoritmaları Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Kümeleme algoritmaları, etiketlenmemiş verileri benzerliklerine göre
             gruplara ayırmak için kullanılan gözetimsiz öğrenme yöntemleridir.
             Bu algoritmalar, veri içindeki doğal grupları veya kalıpları
             keşfetmeyi amaçlar.
           </p>
-          <p>Temel kümeleme yöntemleri şu şekilde sınıflandırılabilir:</p>
+          <p className="font-semibold text-ink">
+            Temel kümeleme yöntemleri şu şekilde sınıflandırılabilir:
+          </p>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Bölümleyici Kümeleme:</strong> Veriyi önceden belirlenen
-              sayıda kümeye ayırır (K-Means gibi).
+              <strong className="text-ink">Bölümleyici Kümeleme:</strong> Veriyi
+              önceden belirlenen sayıda kümeye ayırır (K-Means gibi).
             </li>
             <li>
-              <strong>Hiyerarşik Kümeleme:</strong> Veriyi bir ağaç yapısında
-              gruplar, farklı kümeleme seviyeleri sunar.
+              <strong className="text-ink">Hiyerarşik Kümeleme:</strong> Veriyi
+              bir ağaç yapısında gruplar, farklı kümeleme seviyeleri sunar.
             </li>
             <li>
-              <strong>Yoğunluk Bazlı Kümeleme:</strong> Yoğun bölgeleri arayarak
-              kümeleri belirler (DBSCAN gibi).
+              <strong className="text-ink">Yoğunluk Bazlı Kümeleme:</strong>{' '}
+              Yoğun bölgeleri arayarak kümeleri belirler (DBSCAN gibi).
             </li>
             <li>
-              <strong>Model Bazlı Kümeleme:</strong> İstatistiksel modeller
-              kullanarak kümelemeyi gerçekleştirir.
+              <strong className="text-ink">Model Bazlı Kümeleme:</strong>{' '}
+              İstatistiksel modeller kullanarak kümelemeyi gerçekleştirir.
             </li>
           </ul>
-          <p>Kümeleme algoritmaları birçok alanda kullanılır:</p>
+          <p className="font-semibold text-ink">
+            Kümeleme algoritmaları birçok alanda kullanılır:
+          </p>
           <ul className="list-disc pl-5 space-y-2">
             <li>Pazarlama: Müşteri segmentasyonu ve hedef kitle analizi</li>
             <li>Biyoloji: Genetik veriler üzerinde grupların tespiti</li>
@@ -112,7 +82,7 @@ export default function ClusteringAlgorithmsPage() {
             ve sınırlamaları vardır.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

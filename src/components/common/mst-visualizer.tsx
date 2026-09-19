@@ -12,8 +12,8 @@ import {
   RotateCcw,
 } from 'lucide-react';
 
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Label } from '@/components/core/label';
+import { Button } from '@/components/core/button';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 

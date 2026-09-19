@@ -1,61 +1,30 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Metin İşleme Algoritmaları | AlgoPit',
+  description:
+    'Metin işleme algoritmaları, string veriler üzerinde arama, eşleştirme, düzenleme ve manipülasyon yapmak için kullanılan özel algoritmalardır.',
+};
 
 export default function StringAlgorithmsPage() {
-  const algorithms = createCategoryAlgorithms("/algorithms/string-algorithms");
+  const algorithms = createCategoryAlgorithms('/algorithms/string-algorithms');
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Metin İşleme Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Metin işleme algoritmaları, string veriler üzerinde arama, eşleştirme,
-          düzenleme ve manipülasyon yapmak için kullanılan özel algoritmalardır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Metin İşleme Algoritmaları"
+        description="Metin işleme algoritmaları, string veriler üzerinde arama, eşleştirme, düzenleme ve manipülasyon yapmak için kullanılan özel algoritmalardır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">{algorithm.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Metin İşleme Algoritmaları Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Metin İşleme Algoritmaları Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Metin işleme algoritmaları, bilgisayar biliminin önemli bir alanını
             oluşturur ve string verileri üzerinde çeşitli işlemler yapmak için
@@ -64,53 +33,61 @@ export default function StringAlgorithmsPage() {
             verisini manipüle etmek gibi çeşitli görevleri yerine getirir.
           </p>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Metin işleme algoritmalarının temel kategorileri şunlardır:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>String Eşleştirme (String Matching):</strong> Bir metin
-              içerisinde belirli bir deseni bulmak için kullanılan algoritmalar.
-              Örneğin; Rabin-Karp, KMP (Knuth-Morris-Pratt), Boyer-Moore,
-              Z-Algorithm.
+              <strong className="text-ink">
+                String Eşleştirme (String Matching):
+              </strong>{' '}
+              Bir metin içerisinde belirli bir deseni bulmak için kullanılan
+              algoritmalar. Örneğin; Rabin-Karp, KMP (Knuth-Morris-Pratt),
+              Boyer-Moore, Z-Algorithm.
             </li>
             <li>
-              <strong>Düzenleme Mesafesi (Edit Distance):</strong> İki metinin
-              birbirine ne kadar benzediğini veya farklı olduğunu ölçen
-              algoritmalar. Örneğin; Levenshtein Distance, Hamming Distance.
+              <strong className="text-ink">
+                Düzenleme Mesafesi (Edit Distance):
+              </strong>{' '}
+              İki metinin birbirine ne kadar benzediğini veya farklı olduğunu
+              ölçen algoritmalar. Örneğin; Levenshtein Distance, Hamming
+              Distance.
             </li>
             <li>
-              <strong>Kompresyon (Compression):</strong> Metni daha az alanda
-              saklamak için kullanılan algoritmalar. Örneğin; Huffman Coding,
-              Lempel-Ziv-Welch (LZW).
+              <strong className="text-ink">Kompresyon (Compression):</strong>{' '}
+              Metni daha az alanda saklamak için kullanılan algoritmalar.
+              Örneğin; Huffman Coding, Lempel-Ziv-Welch (LZW).
             </li>
             <li>
-              <strong>Regex Motoru:</strong> Düzenli ifadeler kullanarak metin
-              arama ve eşleştirme yapmak için kullanılan algoritmalar.
+              <strong className="text-ink">Regex Motoru:</strong> Düzenli
+              ifadeler kullanarak metin arama ve eşleştirme yapmak için
+              kullanılan algoritmalar.
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Metin işleme algoritmalarının performansı genellikle şu faktörlere
             göre değerlendirilir:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Zaman Karmaşıklığı:</strong> Algoritmanın çalışma süresi
-              (En kötü, ortalama ve en iyi durum)
+              <strong className="text-ink">Zaman Karmaşıklığı:</strong>{' '}
+              Algoritmanın çalışma süresi (En kötü, ortalama ve en iyi durum)
             </li>
             <li>
-              <strong>Alan Karmaşıklığı:</strong> Algoritmanın bellek kullanımı
+              <strong className="text-ink">Alan Karmaşıklığı:</strong>{' '}
+              Algoritmanın bellek kullanımı
             </li>
             <li>
-              <strong>Ön İşleme Süresi:</strong> Algoritmanın veriyi işlemeye
-              başlamadan önce gerekli ön hazırlık süresi
+              <strong className="text-ink">Ön İşleme Süresi:</strong>{' '}
+              Algoritmanın veriyi işlemeye başlamadan önce gerekli ön hazırlık
+              süresi
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Metin işleme algoritmaları, aşağıdaki gibi birçok alanda yaygın
             olarak kullanılır:
           </p>
@@ -126,7 +103,7 @@ export default function StringAlgorithmsPage() {
             <li>Güvenlik sistemleri (örn. virüs taraması)</li>
           </ul>
 
-          <p className="mt-4">
+          <p>
             Doğru metin işleme algoritmasını seçmek, uygulamanın performansını
             ve verimliliğini doğrudan etkiler. Özellikle büyük veri setleriyle
             çalışırken, verimli metin işleme algoritmaları kullanmak önemlidir.
@@ -135,7 +112,7 @@ export default function StringAlgorithmsPage() {
             için daha uygun olabilir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

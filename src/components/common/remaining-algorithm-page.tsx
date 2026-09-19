@@ -5,8 +5,8 @@ import { ArrowLeft } from 'lucide-react';
 
 import { AlgorithmPageTemplate } from '@/components/common/algorithm-page-template';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/core/badge';
+import { Button } from '@/components/core/button';
 import type { RemainingAlgorithmContent } from '@/lib/remaining-algorithm-content';
 import { runDemo, formatDemoOutput } from '@/lib/remaining-algorithm-demos';
 
@@ -91,7 +91,7 @@ export function RemainingAlgorithmPage({
           <InteractiveDemo
             title={algorithm.demo.title}
             description={algorithm.demo.description}
-            algorithmFunction={(input) => runDemo(algorithm, input)}
+            algorithmFunction={(input) => runDemo(algorithm, String(input))}
             inputType="text"
             inputPlaceholder={algorithm.demo.placeholder}
             outputFormatter={(output) =>

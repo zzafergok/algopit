@@ -1,5 +1,4 @@
-import React from 'react';
-import { AlgorithmsBreadcrumb } from '@/components/layout/AlgorithmsBreadcrumb';
+import { AlgorithmsBreadcrumb } from '@/components/layout/algorithms-breadcrumb';
 
 export default function AlgorithmsLayout({
   children,

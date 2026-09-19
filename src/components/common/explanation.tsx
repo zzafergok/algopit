@@ -70,7 +70,11 @@ export function AlgorithmExplanation({
             title={`${title} Demo`}
             description="Girilen veri, algoritmanın pseudo kodundaki genel akışa göre örnek bir sonuca dönüştürülür."
             algorithmFunction={(input) =>
-              runGenericExplanationDemo(title, input, timeComplexity.average)
+              runGenericExplanationDemo(
+                title,
+                input as unknown[],
+                timeComplexity.average,
+              )
             }
             inputType="array"
             inputPlaceholder="5,3,8,4,2"

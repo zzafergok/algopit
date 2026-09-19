@@ -1,15 +1,13 @@
-import Link from 'next/link';
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from 'lucide-react';
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+export const metadata: Metadata = {
+  title: 'Arama Algoritmaları | AlgoPit',
+  description:
+    'Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı bulmak için kullanılan algoritmalardır.',
+};
 
 export default function SearchingAlgorithmsPage() {
   const algorithms = [
@@ -35,47 +33,16 @@ export default function SearchingAlgorithmsPage() {
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Arama Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı
-          bulmak için kullanılan algoritmalardır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Arama Algoritmaları"
+        description="Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı bulmak için kullanılan algoritmalardır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Arama Algoritmaları Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Arama Algoritmaları Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none text-muted leading-relaxed">
           <p>
             Arama algoritmaları, bir veri yapısı içerisinde belirli bir elemanı
             veya değeri bulmak için kullanılan temel algoritmalardır. Yazılım
@@ -88,29 +55,35 @@ export default function SearchingAlgorithmsPage() {
             karakteristiklerine göre çeşitli kategorilere ayrılabilir:
           </p>
 
-          <ul className="list-disc pl-5 space-y-2">
+          <ul className="list-disc pl-5 space-y-2 mt-2">
             <li>
-              <strong>Doğrusal Arama Algoritmaları:</strong> Veri yapısının tüm
-              elemanlarını tek tek kontrol ederek arama yapar. (Örn: Linear
+              <strong className="text-ink">
+                Doğrusal Arama Algoritmaları:
+              </strong>{' '}
+              Veri yapısının tüm elemanlarını tek tek kontrol ederek arama
+              yapar. (Örn: Linear Search)
+            </li>
+            <li>
+              <strong className="text-ink">İkili Arama Algoritmaları:</strong>{' '}
+              Sıralı veri yapılarında, arama uzayını her adımda yarıya bölerek
+              logaritmik bir zaman karmaşıklığında çalışır. (Örn: Binary Search)
+            </li>
+            <li>
+              <strong className="text-ink">
+                Sıçramalı Arama Algoritmaları:
+              </strong>{' '}
+              Belirli bir adım boyutuyla ilerleyerek arama yapar. (Örn: Jump
               Search)
             </li>
             <li>
-              <strong>İkili Arama Algoritmaları:</strong> Sıralı veri
-              yapılarında, arama uzayını her adımda yarıya bölerek logaritmik
-              bir zaman karmaşıklığında çalışır. (Örn: Binary Search)
+              <strong className="text-ink">Hash Tabanlı Arama:</strong>{' '}
+              Anahtarların hash değerlerini kullanarak sabit zamanda arama
+              yapar. (Örn: Hash Tables)
             </li>
             <li>
-              <strong>Sıçramalı Arama Algoritmaları:</strong> Belirli bir adım
-              boyutuyla ilerleyerek arama yapar. (Örn: Jump Search)
-            </li>
-            <li>
-              <strong>Hash Tabanlı Arama:</strong> Anahtarların hash değerlerini
-              kullanarak sabit zamanda arama yapar. (Örn: Hash Tables)
-            </li>
-            <li>
-              <strong>Ağaç Tabanlı Arama:</strong> Ağaç veri yapılarını
-              kullanarak logaritmik zamanda arama yapar. (Örn: Binary Search
-              Tree)
+              <strong className="text-ink">Ağaç Tabanlı Arama:</strong> Ağaç
+              veri yapılarını kullanarak logaritmik zamanda arama yapar. (Örn:
+              Binary Search Tree)
             </li>
           </ul>
 
@@ -119,7 +92,7 @@ export default function SearchingAlgorithmsPage() {
             değişir:
           </p>
 
-          <ul className="list-disc pl-5 space-y-2">
+          <ul className="list-disc pl-5 space-y-2 mt-2">
             <li>Verinin boyutu ve yapısı</li>
             <li>Verinin sıralı olup olmadığı</li>
             <li>Bellek kısıtlamaları</li>
@@ -131,16 +104,18 @@ export default function SearchingAlgorithmsPage() {
             Arama algoritmalarının bazı önemli performans metrikleri:
           </p>
 
-          <ul className="list-disc pl-5 space-y-2">
+          <ul className="list-disc pl-5 space-y-2 mt-2">
             <li>
-              <strong>Zaman Karmaşıklığı:</strong> Algoritmanın çalışma süresi
-              (En kötü, ortalama ve en iyi durum)
+              <strong className="text-ink">Zaman Karmaşıklığı:</strong>{' '}
+              Algoritmanın çalışma süresi (En kötü, ortalama ve en iyi durum)
             </li>
             <li>
-              <strong>Alan Karmaşıklığı:</strong> Algoritmanın bellek kullanımı
+              <strong className="text-ink">Alan Karmaşıklığı:</strong>{' '}
+              Algoritmanın bellek kullanımı
             </li>
             <li>
-              <strong>Verimlilik:</strong> Algoritmanın pratik performansı
+              <strong className="text-ink">Verimlilik:</strong> Algoritmanın
+              pratik performansı
             </li>
           </ul>
 
@@ -152,7 +127,7 @@ export default function SearchingAlgorithmsPage() {
             algoritmalara göre çok daha hızlı çalışır.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

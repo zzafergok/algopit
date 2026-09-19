@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { quickSort } from '@/lib/algorithms/sorting';
 
@@ -780,44 +786,54 @@ Quick Sort, özellikle büyük veri setleri için ve hızın önemli olduğu dur
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Dual-Pivot Quick Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                İki pivot kullanan bir Quick Sort varyasyonu. Java'nın
+          <Link
+            href="/algorithms/sorting/quicksort-variants"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Dual-Pivot Quick Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                İki pivot kullanan bir Quick Sort varyasyonu. Java&apos;nın
                 Arrays.sort() uygulamasında kullanılır ve genellikle standart
-                Quick Sort'tan daha hızlıdır.
+                Quick Sort&apos;tan daha hızlıdır.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Introsort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Quick Sort, Heap Sort ve Insertion Sort'u birleştiren hibrit bir
-                algoritma. En kötü durumu önlemek için, özyineleme derinliği
-                belirli bir eşiği aştığında Heap Sort'a geçiş yapar.
+          <Link
+            href="/algorithms/sorting/heap-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Introsort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Quick Sort, Heap Sort ve Insertion Sort&apos;u birleştiren
+                hibrit bir algoritma. En kötü durumu önlemek için, özyineleme
+                derinliği belirli bir eşiği aştığında Heap Sort&apos;a geçiş
+                yapar.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Quick Select</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Quick Sort'un bölme mekanizmasını kullanarak, sıralanmamış bir
-                diziden k. en küçük (veya en büyük) elemanı bulan bir algoritma.
-                Ortalama O(n) karmaşıklığa sahiptir.
+          <Link
+            href="/algorithms/sorting/order-statistics"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Quick Select
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Quick Sort&apos;un bölme mekanizmasını kullanarak, sıralanmamış
+                bir diziden k. en küçük (veya en büyük) elemanı bulan bir
+                algoritma. Ortalama O(n) karmaşıklığa sahiptir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

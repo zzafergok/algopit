@@ -1,116 +1,30 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardContent,
-  CardHeader,
-  CardDescription,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Graf Algoritmaları | AlgoPit',
+  description:
+    'Graf algoritmaları, düğümler ve bu düğümleri birbirine bağlayan kenarlardan oluşan veri yapıları üzerinde çalışan algoritmalardır.',
+};
 
 export default function GraphAlgorithmsPage() {
-  const algorithms = createCategoryAlgorithms("/algorithms/graph-algorithms");
-
-  const getCategoryBadgeVariant = (category: string) => {
-    switch (category) {
-      case "Traversal":
-        return "default";
-      case "Shortest Path":
-        return "secondary";
-      case "MST":
-        return "outline";
-      default:
-        return "secondary";
-    }
-  };
-
-  const getDifficultyBadgeVariant = (difficulty: string) => {
-    switch (difficulty) {
-      case "Kolay":
-        return "success";
-      case "Orta":
-        return "warning";
-      case "Zor":
-        return "destructive";
-      default:
-        return "secondary";
-    }
-  };
+  const algorithms = createCategoryAlgorithms('/algorithms/graph-algorithms');
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Graf Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Graf algoritmaları, düğümler ve bu düğümleri birbirine bağlayan
-          kenarlardan oluşan veri yapıları üzerinde çalışan algoritmalardır. Ağ
-          analizi, yol bulma, optimizasyon ve bağlantı analizi gibi birçok
-          alanda kritik öneme sahiptir.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Graf Algoritmaları"
+        description="Graf algoritmaları, düğümler ve bu düğümleri birbirine bağlayan kenarlardan oluşan veri yapıları üzerinde çalışan algoritmalardır. Ağ analizi, yol bulma, optimizasyon ve bağlantı analizi gibi birçok alanda kritik öneme sahiptir."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card
-            key={algorithm.name}
-            className="algorithm-card flex flex-col hover:border-arcly-blue/30 transition-colors"
-          >
-            <CardHeader>
-              <div className="space-y-2">
-                <CardTitle className="text-lg leading-tight">
-                  {algorithm.name}
-                </CardTitle>
-                <div className="flex gap-2 flex-wrap">
-                  {algorithm.category && (
-                    <Badge
-                      variant={getCategoryBadgeVariant(algorithm.category)}
-                      className="text-xs"
-                    >
-                      {algorithm.category}
-                    </Badge>
-                  )}
-                  {algorithm.difficulty && (
-                    <Badge
-                      variant={getDifficultyBadgeVariant(algorithm.difficulty)}
-                      className="text-xs"
-                    >
-                      {algorithm.difficulty}
-                    </Badge>
-                  )}
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <CardDescription className="text-sm text-ash leading-relaxed">
-                {algorithm.description}
-              </CardDescription>
-            </CardContent>
-            <CardFooter>
-              <Button asChild variant="ghost" size="sm" className="w-full">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">Graf Algoritmaları Hakkında</h2>
-        <div className="max-w-none space-y-4">
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Graf Algoritmaları Hakkında
+        </h2>
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Graf algoritmaları, düğümler (nodes) ve kenarlardan (edges) oluşan
             graf veri yapıları üzerinde çalışan algoritmalardır. Bu
@@ -120,7 +34,9 @@ export default function GraphAlgorithmsPage() {
           </p>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Graf Türleri</h3>
+            <h3 className="text-lg font-semibold mb-2 text-ink">
+              Graf Türleri
+            </h3>
             <p>
               Graflar temel yapılarına göre farklı kategorilerde incelenir.
               Yönlendirilmiş graflar (directed graphs) kenarların belirli bir
@@ -133,15 +49,15 @@ export default function GraphAlgorithmsPage() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">
-              Algorithm Kategorileri
+            <h3 className="text-lg font-semibold mb-2 text-ink">
+              Algoritma Kategorileri
             </h3>
             <div className="space-y-3">
               <div>
-                <h4 className="font-medium">
+                <h4 className="font-medium text-ink">
                   Gezinme Algoritmaları (Traversal)
                 </h4>
-                <p className="text-sm text-ash">
+                <p className="text-sm">
                   BFS ve DFS gibi algoritmalar, grafta düğümler arasında
                   sistematik dolaşım sağlar. Bağlantılı bileşenlerin tespiti,
                   çevrim bulma ve topolojik sıralama gibi temel işlemler için
@@ -150,10 +66,10 @@ export default function GraphAlgorithmsPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">
+                <h4 className="font-medium text-ink">
                   En Kısa Yol Algoritmaları (Shortest Path)
                 </h4>
-                <p className="text-sm text-ash">
+                <p className="text-sm">
                   Dijkstra, A*, Bellman-Ford ve Floyd-Warshall algoritmaları
                   farklı graf türlerinde optimal yol bulma problemlerini çözer.
                   Navigasyon sistemleri, ağ yönlendirme ve lojistik
@@ -162,8 +78,10 @@ export default function GraphAlgorithmsPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Minimum Yayılma Ağacı (MST)</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">
+                  Minimum Yayılma Ağacı (MST)
+                </h4>
+                <p className="text-sm">
                   Kruskal ve Prim algoritmaları, tüm düğümleri birbirine
                   bağlayan minimum maliyetli kenar kümesini bulur. Ağ tasarımı,
                   kablolama planlaması ve kümeleme uygulamalarında yaygın olarak
@@ -174,7 +92,9 @@ export default function GraphAlgorithmsPage() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Uygulama Alanları</h3>
+            <h3 className="text-lg font-semibold mb-2 text-ink">
+              Uygulama Alanları
+            </h3>
             <p>
               Graf algoritmaları günlük hayatımızın birçok alanında yer alır.
               Navigasyon sistemleri ve harita uygulamaları en kısa yol
@@ -196,7 +116,7 @@ export default function GraphAlgorithmsPage() {
             gelmiştir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

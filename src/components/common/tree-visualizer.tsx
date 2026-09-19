@@ -12,13 +12,18 @@ import {
   FolderTree,
 } from 'lucide-react';
 
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Input } from '@/components/core/input';
+import { Label } from '@/components/core/label';
+import { Button } from '@/components/core/button';
 import { Switch } from '@/components/ui/switch';
 
 import { cn } from '@/lib/utils';
-import { Trie, SegmentTreeNode } from '@/lib/algorithms/data-structures';
+import {
+  Trie,
+  SegmentTree,
+  SegmentTreeNode,
+  TrieNode,
+} from '@/lib/algorithms/data-structures';
 
 interface TreeVisualizerProps {
   className?: string;
@@ -38,6 +43,8 @@ interface TrieVisualizationNode {
   parentY?: number;
   word?: string;
   count?: number;
+  value?: string;
+  isLeaf?: boolean;
 }
 
 interface SegmentTreeVisualizationNode {
@@ -54,7 +61,11 @@ interface SegmentTreeVisualizationNode {
   parentX?: number;
   parentY?: number;
   isLeaf: boolean;
+  char?: string;
+  isEndOfWord?: boolean;
 }
+
+type TreeVisualizerNode = TrieVisualizationNode | SegmentTreeVisualizationNode;
 
 export function TreeVisualizer({
   className,
@@ -83,7 +94,7 @@ export function TreeVisualizer({
       ? (initialData as number[])
       : [1, 3, 5, 7, 9, 11],
   );
-  const [segmentTree, setSegmentTree] = useState<any>(null);
+  const [segmentTree, setSegmentTree] = useState<SegmentTree | null>(null);
   const [queryStart, setQueryStart] = useState<number>(0);
   const [queryEnd, setQueryEnd] = useState<number>(2);
   const [queryResult, setQueryResult] = useState<{
@@ -95,6 +106,14 @@ export function TreeVisualizer({
   const [showLabels, setShowLabels] = useState<boolean>(true);
   const [showValues, setShowValues] = useState<boolean>(true);
   const [compactView, setCompactView] = useState<boolean>(false);
+
+  const buildSegmentTree = useCallback(() => {
+    if (segmentArray.length === 0) return;
+
+    const { SegmentTree } = require('@/lib/algorithms/data-structures');
+    const newTree = new SegmentTree(segmentArray);
+    setSegmentTree(newTree);
+  }, [segmentArray]);
 
   React.useEffect(() => {
     if (currentTreeType === 'trie') {
@@ -115,15 +134,7 @@ export function TreeVisualizer({
     } else {
       buildSegmentTree();
     }
-  }, [currentTreeType]);
-
-  const buildSegmentTree = useCallback(() => {
-    if (segmentArray.length === 0) return;
-
-    const { SegmentTree } = require('@/lib/algorithms/data-structures');
-    const newTree = new SegmentTree(segmentArray);
-    setSegmentTree(newTree);
-  }, [segmentArray]);
+  }, [currentTreeType, buildSegmentTree]);
 
   const convertTrieToVisualization =
     useCallback((): TrieVisualizationNode[] => {
@@ -140,12 +151,17 @@ export function TreeVisualizer({
       };
 
       const queue: {
-        trieNode: any;
+        trieNode: TrieNode;
         visNode: TrieVisualizationNode;
         path: string;
         level: number;
       }[] = [
-        { trieNode: (trie as any).root, visNode: root, path: '', level: 0 },
+        {
+          trieNode: (trie as unknown as { root: TrieNode }).root,
+          visNode: root,
+          path: '',
+          level: 0,
+        },
       ];
 
       const levelNodes: TrieVisualizationNode[][] = [[]];
@@ -155,10 +171,7 @@ export function TreeVisualizer({
         const { trieNode, visNode, path, level } = queue.shift()!;
 
         if (trieNode.children) {
-          const childrenArray = Array.from(trieNode.children.entries()) as [
-            string,
-            any,
-          ][];
+          const childrenArray = Array.from(trieNode.children.entries());
           childrenArray.forEach(([char, childTrieNode]) => {
             const childPath = path + char;
             const childVisNode: TrieVisualizationNode = {
@@ -445,7 +458,7 @@ export function TreeVisualizer({
       minY = 0,
       maxY = 0;
 
-    const calculateBounds = (nodes: any[]) => {
+    const calculateBounds = (nodes: TreeVisualizerNode[]) => {
       nodes.forEach((node) => {
         minX = Math.min(minX, node.x - 40);
         maxX = Math.max(maxX, node.x + 40);
@@ -469,7 +482,7 @@ export function TreeVisualizer({
   }, [visualizationData]);
 
   const renderTreeNodes = useCallback(
-    (nodes: any[]): React.ReactElement[] => {
+    (nodes: TreeVisualizerNode[]): React.ReactElement[] => {
       const elements: React.ReactElement[] = [];
 
       nodes.forEach((node, index) => {

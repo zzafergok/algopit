@@ -1,11 +1,10 @@
-'use client';
-
-import React from 'react';
-import Link from 'next/link';
-import { HeroSection } from './components/hero-section';
-import { MarqueeTicker } from '@/components/common/MarqueeTicker';
-import { CategoriesSection } from './components/categories-section';
-import { FeaturesSection } from './components/features-section';
+import { Link } from '@/components/core/link';
+import {
+  HeroSection,
+  CategoriesSection,
+  FeaturesSection,
+} from '@/features/home';
+import { MarqueeTicker } from '@/components/common/marquee-ticker';
 
 export default function Home() {
   return (
@@ -33,18 +32,14 @@ export default function Home() {
           performans iyileştirmelerine katkı sağlayabilirsiniz.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            className="button button-primary"
+          <Link
+            variant="button-primary"
             href="https://github.com/zzafergok/algopit"
             target="_blank"
-            rel="noreferrer"
           >
             GitHub Deposu <span aria-hidden="true">↗</span>
-          </a>
-          <Link
-            className="button button-secondary"
-            href="/resources/contributing"
-          >
+          </Link>
+          <Link variant="button-secondary" href="/resources/contributing">
             Katkı Rehberi
           </Link>
         </div>

@@ -1,115 +1,32 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Veri Yapıları | AlgoPit',
+  description:
+    'Veri yapıları, verileri organize etme, saklama ve işleme yöntemlerini tanımlayan programlama kavramlarıdır.',
+};
 
 export default function DataStructuresPage() {
   const dataStructures = createCategoryAlgorithms(
-    "/algorithms/data-structures",
+    '/algorithms/data-structures',
   );
-
-  const getCategoryBadgeVariant = (category: string) => {
-    switch (category) {
-      case "Linear":
-        return "default";
-      case "Tree":
-        return "secondary";
-      case "Hash-based":
-        return "outline";
-      default:
-        return "secondary";
-    }
-  };
-
-  const getDifficultyBadgeVariant = (difficulty: string) => {
-    switch (difficulty) {
-      case "Kolay":
-        return "success";
-      case "Orta":
-        return "warning";
-      case "Zor":
-        return "destructive";
-      default:
-        return "secondary";
-    }
-  };
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">Veri Yapıları</h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Veri yapıları, verileri organize etme, saklama ve işleme yöntemlerini
-          tanımlayan programlama kavramlarıdır. Etkili algoritmalar tasarlamanın
-          temelini oluştururlar ve yazılım geliştirmenin kritik bileşenleridir.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Veri Yapıları"
+        description="Veri yapıları, verileri organize etme, saklama ve işleme yöntemlerini tanımlayan programlama kavramlarıdır. Etkili algoritmalar tasarlamanın temelini oluştururlar ve yazılım geliştirmenin kritik bileşenleridir."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {dataStructures.map((structure) => (
-          <Card
-            key={structure.name}
-            className="algorithm-card flex flex-col hover:border-arcly-blue/30 transition-colors"
-          >
-            <CardHeader>
-              <div className="space-y-2">
-                <CardTitle className="text-lg leading-tight">
-                  {structure.name}
-                </CardTitle>
-                <div className="flex gap-2 flex-wrap">
-                  {structure.category && (
-                    <Badge
-                      variant={getCategoryBadgeVariant(structure.category)}
-                      className="text-xs"
-                    >
-                      {structure.category}
-                    </Badge>
-                  )}
-                  {structure.difficulty && (
-                    <Badge
-                      variant={getDifficultyBadgeVariant(structure.difficulty)}
-                      className="text-xs"
-                    >
-                      {structure.difficulty}
-                    </Badge>
-                  )}
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <CardDescription className="text-sm text-ash leading-relaxed">
-                {structure.description}
-              </CardDescription>
-            </CardContent>
-            <CardFooter>
-              <Button asChild variant="ghost" size="sm" className="w-full">
-                <Link
-                  href={structure.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">Veri Yapıları Hakkında</h2>
-        <div className="max-w-none space-y-4">
+      <CategoryOverviewView algorithms={dataStructures}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Veri Yapıları Hakkında
+        </h2>
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Veri yapıları, verileri organize etme ve işleme yöntemlerini
             sağlayan programlama konseptleridir. Doğru veri yapısı seçimi,
@@ -119,7 +36,9 @@ export default function DataStructuresPage() {
           </p>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Temel Kategoriler</h3>
+            <h3 className="text-lg font-semibold mb-2 text-ink">
+              Temel Kategoriler
+            </h3>
             <p>
               Veri yapıları genel olarak iki ana kategoriye ayrılır. İlkel veri
               yapıları tamsayılar, kayan noktalı sayılar ve karakterler gibi
@@ -132,11 +51,15 @@ export default function DataStructuresPage() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Veri Yapısı Türleri</h3>
+            <h3 className="text-lg font-semibold mb-2 text-ink">
+              Veri Yapısı Türleri
+            </h3>
             <div className="space-y-3">
               <div>
-                <h4 className="font-medium">Doğrusal Veri Yapıları (Linear)</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">
+                  Doğrusal Veri Yapıları (Linear)
+                </h4>
+                <p className="text-sm">
                   Elemanların sıralı bir şekilde organize edildiği yapılardır.
                   Linked List, Stack, Queue gibi yapılar bu kategoriye girer.
                   Her eleman kendinden önceki ve sonraki elemanla doğrudan
@@ -145,8 +68,8 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Ağaç Yapıları (Tree)</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Ağaç Yapıları (Tree)</h4>
+                <p className="text-sm">
                   Hiyerarşik organizasyon sağlayan yapılardır. Binary Search
                   Tree, Trie, Segment Tree gibi yapılar farklı problemler için
                   optimize edilmiş ağaç implementasyonlarıdır. Logaritmik
@@ -155,10 +78,10 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">
+                <h4 className="font-medium text-ink">
                   Hash Tabanlı Yapılar (Hash-based)
                 </h4>
-                <p className="text-sm text-ash">
+                <p className="text-sm">
                   Hash fonksiyonları kullanarak sabit zamanlı erişim sağlayan
                   yapılardır. Hash Table anahtar-değer eşleştirmesi için
                   optimize edilmiş olup, ortalama durumda O(1) performans sunar.
@@ -168,13 +91,13 @@ export default function DataStructuresPage() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">
+            <h3 className="text-lg font-semibold mb-2 text-ink">
               Detaylı Veri Yapısı Özellikleri
             </h3>
             <div className="space-y-2">
               <div>
-                <h4 className="font-medium">Diziler (Arrays):</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Diziler (Arrays):</h4>
+                <p className="text-sm">
                   Ardışık bellek konumlarında saklanan sabit boyutlu
                   koleksiyonlar. İndeksleme ile hızlı erişim sağlar ancak
                   dinamik boyut değişikliği desteklemez.
@@ -182,8 +105,10 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Bağlı Listeler (Linked Lists):</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">
+                  Bağlı Listeler (Linked Lists):
+                </h4>
+                <p className="text-sm">
                   Dinamik boyutlu, her elemanın bir sonrakine işaret ettiği
                   yapılar. Ekleme ve silme işlemleri verimlidir ancak rastgele
                   erişim mümkün değildir.
@@ -191,8 +116,8 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Yığınlar (Stacks):</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Yığınlar (Stacks):</h4>
+                <p className="text-sm">
                   Son giren ilk çıkar (LIFO) prensibiyle çalışır. Fonksiyon
                   çağrıları, geri alma özellikleri ve expression evaluation için
                   idealdir.
@@ -200,8 +125,8 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Kuyruklar (Queues):</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Kuyruklar (Queues):</h4>
+                <p className="text-sm">
                   İlk giren ilk çıkar (FIFO) prensibiyle çalışır. İş sıralaması,
                   mesaj kuyruklama ve breadth-first search implementasyonları
                   için kullanılır.
@@ -209,8 +134,8 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Binary Search Tree:</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Binary Search Tree:</h4>
+                <p className="text-sm">
                   Hiyerarşik yapıdır, arama ve sıralama işlemleri için
                   etkilidir. Balanced tree varyantları logaritmik performans
                   garantisi sağlar.
@@ -218,8 +143,8 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Trie (Prefix Tree):</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Trie (Prefix Tree):</h4>
+                <p className="text-sm">
                   String verilerini prefix tabanlı organize eden ağaç yapısı.
                   Autocomplete, dictionary implementasyonları ve string pattern
                   matching için idealdir.
@@ -227,8 +152,8 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Segment Tree:</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">Segment Tree:</h4>
+                <p className="text-sm">
                   Aralık sorguları (range queries) için optimize edilmiş ağaç
                   yapısı. Toplam, minimum, maksimum gibi aggregate operasyonları
                   logaritmik zamanda gerçekleştirir.
@@ -236,8 +161,10 @@ export default function DataStructuresPage() {
               </div>
 
               <div>
-                <h4 className="font-medium">Hash Tablolar (Hash Tables):</h4>
-                <p className="text-sm text-ash">
+                <h4 className="font-medium text-ink">
+                  Hash Tablolar (Hash Tables):
+                </h4>
+                <p className="text-sm">
                   Anahtarları değerlere eşleyen, ortalama durumda sabit zamanlı
                   erişim sağlayan yapılardır. Dictionary implementasyonları ve
                   caching sistemleri için kritiktir.
@@ -247,7 +174,7 @@ export default function DataStructuresPage() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">
+            <h3 className="text-lg font-semibold mb-2 text-ink">
               Veri Yapısı Seçim Kriterleri
             </h3>
             <p>
@@ -268,7 +195,7 @@ export default function DataStructuresPage() {
             seçimi, performanslı ve ölçeklenebilir çözümler üretmenin temelidir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

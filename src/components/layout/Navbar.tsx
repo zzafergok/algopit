@@ -1,11 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/core/button';
+import { Link } from '@/components/core/link';
 import { UISizeToggle } from '@/components/theme/ui-size-toggle';
-import { NavigationItem } from './Navigation/NavigationItem';
+import { NavigationItem } from './navigation/navigation-item';
 import { navigationConfig } from '@/config/navigation';
 
 export const Navbar = () => {

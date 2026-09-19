@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { selectionSort } from '@/lib/algorithms/sorting';
 
@@ -447,41 +453,50 @@ Selection Sort, veri kümesinin büyüklüğünden bağımsız olarak her zaman 
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Insertion Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Kısmen sıralı veriler için Selection Sort'tan daha verimli ve
-                kararlı bir algoritmadır.
+          <Link
+            href="/algorithms/sorting/insertion-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Insertion Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Kısmen sıralı veriler için Selection Sort&apos;tan daha verimli
+                ve kararlı bir algoritmadır.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Heap Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Selection Sort'un daha gelişmiş bir versiyonu olarak
+          <Link
+            href="/algorithms/sorting/heap-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Heap Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Selection Sort&apos;un daha gelişmiş bir versiyonu olarak
                 düşünülebilir, O(n log n) karmaşıklığa sahiptir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Merge Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/sorting/merge-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Merge Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 Daha hızlı (O(n log n)) ve kararlı bir algoritmadır, ancak
                 ekstra bellek gerektirir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

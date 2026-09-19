@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { countingSort } from '@/lib/algorithms/sorting';
 
@@ -520,43 +526,52 @@ Counting Sort, özellikle k değeri n ile karşılaştırılabilir olduğunda (k
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Radix Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/sorting/radix-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Radix Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 Sayıları basamak basamak sıralar ve her basamak için genellikle
                 Counting Sort kullanır. Büyük sayılar için daha verimlidir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Bucket Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Veriyi "kovalara" böler ve her kovayı ayrı ayrı sıralar. Veri
-                düzgün dağılımlı olduğunda Counting Sort gibi lineer zaman
-                karmaşıklığı sunar.
+          <Link
+            href="/algorithms/sorting/bucket-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Bucket Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Veriyi &quot;kovalara&quot; böler ve her kovayı ayrı ayrı
+                sıralar. Veri düzgün dağılımlı olduğunda Counting Sort gibi
+                lineer zaman karmaşıklığı sunar.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Pigeonhole Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Counting Sort'un bir varyasyonudur. Her değer için tam olarak
-                bir "güvercin yuvası" oluşturur ve elemanları yerleştirir. Değer
-                aralığı ve eleman sayısı yakın olduğunda idealdir.
+          <Link
+            href="/algorithms/sorting/counting-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Pigeonhole Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Counting Sort&apos;un bir varyasyonudur. Her değer için tam
+                olarak bir &quot;güvercin yuvası&quot; oluşturur ve elemanları
+                yerleştirir. Değer aralığı küçük olduğunda oldukça hızlıdır.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

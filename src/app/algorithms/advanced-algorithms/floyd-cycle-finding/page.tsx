@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Input } from '@/components/core/input';
+import { Label } from '@/components/core/label';
+import { Button } from '@/components/core/button';
 import { AlgorithmExplanation } from '@/components/common/explanation';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/core/card';
 
 function floydCycleFinding<T>(arr: T[]): {
   cycleExists: boolean;
@@ -82,7 +82,7 @@ const CycleVisualization: React.FC<{
                 index,
                 result.cycleStart,
                 array,
-                result.cycleLength || 0
+                result.cycleLength || 0,
               )
             ) {
               bgColor = 'bg-arcly-blue/30 dark:bg-arcly-blue/40';
@@ -134,7 +134,7 @@ const CycleVisualization: React.FC<{
                   {getCycleMembers(
                     result.cycleStart || 0,
                     array,
-                    result.cycleLength || 0
+                    result.cycleLength || 0,
                   ).join(' → ')}
                 </li>
               </ul>
@@ -154,7 +154,7 @@ function isCycleMember(
   index: number,
   cycleStart: number,
   array: number[],
-  cycleLength: number
+  cycleLength: number,
 ): boolean {
   let current = cycleStart;
   for (let i = 0; i < cycleLength; i++) {
@@ -167,7 +167,7 @@ function isCycleMember(
 function getCycleMembers(
   cycleStart: number,
   array: number[],
-  cycleLength: number
+  cycleLength: number,
 ): number[] {
   const members = [cycleStart];
   let current = array[cycleStart];
@@ -187,7 +187,7 @@ export default function FloydCycleFindingPage() {
     cycleExists: boolean;
     cycleStart?: number;
     cycleLength?: number;
-  }>({ cycleExists: false });
+  }>(() => floydCycleFinding([1, 3, 4, 2, 2]));
 
   const pseudocode = `function floydCycleFinding(arr):
     # Faz 1: Döngünün varlığını tespit et
@@ -328,10 +328,6 @@ def get_next_index(arr, current_index):
     return next_index`,
   };
 
-  useEffect(() => {
-    handleRunAlgorithm();
-  }, []);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
@@ -348,11 +344,11 @@ def get_next_index(arr, current_index):
       }
 
       const isValid = parsedArray.every(
-        (num) => num >= 0 && num < parsedArray.length
+        (num) => num >= 0 && num < parsedArray.length,
       );
       if (!isValid) {
         throw new Error(
-          'Her değer dizi uzunluğundan küçük olmalıdır (indeks olarak çalışması için).'
+          'Her değer dizi uzunluğundan küçük olmalıdır (indeks olarak çalışması için).',
         );
       }
 

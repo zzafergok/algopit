@@ -4,9 +4,9 @@ import React, { useState, useCallback } from 'react';
 
 import { Play, RotateCcw, Grid as GridIcon, Calculator } from 'lucide-react';
 
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Label } from '@/components/core/label';
+import { Input } from '@/components/core/input';
+import { Button } from '@/components/core/button';
 import { Slider } from '@/components/ui/slider';
 
 import {

@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import { Label } from '@/components/ui/label';
+import { Label } from '@/components/core/label';
 import { Slider } from '@/components/ui/slider';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/core/button';
 import { AlgorithmExplanation } from '@/components/common/explanation';
 
 function solveNQueens(n: number): number[][] {
@@ -362,15 +362,11 @@ public class NQueens {
 }`,
   };
 
-  useEffect(() => {
-    handleSolve();
-  }, [boardSize]);
-
   const handleBoardSizeChange = (value: number[]) => {
     setBoardSize(value[0]);
   };
 
-  const handleSolve = () => {
+  const handleSolve = useCallback(() => {
     setIsRunning(true);
 
     setTimeout(() => {
@@ -380,12 +376,15 @@ public class NQueens {
         setCurrentSolutionIndex(0);
       } catch (error) {
         console.error('Algoritma çalıştırılırken hata:', error);
-        alert('Algoritma çalıştırma hatası!');
       } finally {
         setIsRunning(false);
       }
     }, 0);
-  };
+  }, [boardSize]);
+
+  useEffect(() => {
+    handleSolve();
+  }, [handleSolve]);
 
   return (
     <div className="space-y-12">

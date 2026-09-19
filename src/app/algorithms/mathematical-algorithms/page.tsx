@@ -1,63 +1,32 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Matematiksel Algoritmalar | AlgoPit',
+  description:
+    'Matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalar.',
+};
 
 export default function MathematicalAlgorithmsPage() {
   const algorithms = createCategoryAlgorithms(
-    "/algorithms/mathematical-algorithms",
+    '/algorithms/mathematical-algorithms',
   );
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Matematiksel Algoritmalar
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Matematiksel algoritmalar, matematiksel problemleri çözmek ve
-          matematiksel hesaplamalar yapmak için kullanılan algoritmalardır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Matematiksel Algoritmalar"
+        description="Matematiksel algoritmalar, matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalardır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">{algorithm.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Matematiksel Algoritmalar Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Matematiksel Algoritmalar Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Matematiksel algoritmalar, sayı teorisi, cebir, geometri ve diğer
             matematik alanlarındaki problemleri çözmek için tasarlanmış özel
@@ -66,38 +35,39 @@ export default function MathematicalAlgorithmsPage() {
             bir yelpazede kullanılır.
           </p>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Matematiksel algoritmaların önemli kategorileri:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Sayı Teorisi Algoritmaları:</strong> Asal sayılar,
-              faktörizasyon, bölünebilirlik gibi konularla ilgili algoritmalar
-              (örn. Eratosthenes Eleği, Öklid Algoritması)
+              <strong className="text-ink">Sayı Teorisi Algoritmaları:</strong>{' '}
+              Asal sayılar, faktörizasyon, bölünebilirlik gibi konularla ilgili
+              algoritmalar (örn. Eratosthenes Eleği, Öklid Algoritması)
             </li>
             <li>
-              <strong>Cebirsel Algoritmalar:</strong> Matris işlemleri, polinom
-              hesaplamaları, denklem çözümü gibi cebirsel hesaplamalar için
-              algoritmalar
+              <strong className="text-ink">Cebirsel Algoritmalar:</strong>{' '}
+              Matris işlemleri, polinom hesaplamaları, denklem çözümü gibi
+              cebirsel hesaplamalar için algoritmalar
             </li>
             <li>
-              <strong>Sayısal Algoritmalar:</strong> Sayısal entegrasyon,
-              diferansiyel denklemler, interpolasyon gibi sayısal analiz
-              problemlerini çözen algoritmalar
+              <strong className="text-ink">Sayısal Algoritmalar:</strong>{' '}
+              Sayısal entegrasyon, diferansiyel denklemler, interpolasyon gibi
+              sayısal analiz problemlerini çözen algoritmalar
             </li>
             <li>
-              <strong>Geometrik Algoritmalar:</strong> Geometrik problemleri
-              çözen algoritmalar (örn. Convex Hull, Closest Pair of Points)
+              <strong className="text-ink">Geometrik Algoritmalar:</strong>{' '}
+              Geometrik problemleri çözen algoritmalar (örn. Convex Hull,
+              Closest Pair of Points)
             </li>
             <li>
-              <strong>Kriptografik Algoritmalar:</strong> Şifreleme ve şifre
-              çözme için kullanılan matematiksel algoritmalar (örn. RSA, El
-              Gamal)
+              <strong className="text-ink">Kriptografik Algoritmalar:</strong>{' '}
+              Şifreleme ve şifre çözme için kullanılan matematiksel algoritmalar
+              (örn. RSA, El Gamal)
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Matematiksel algoritmaların yaygın kullanım alanları:
           </p>
 
@@ -111,7 +81,7 @@ export default function MathematicalAlgorithmsPage() {
             <li>Oyun teorisi ve stratejik karar verme</li>
           </ul>
 
-          <p className="mt-4">
+          <p>
             Matematiksel algoritmalar, bilgisayar biliminin temelini oluşturur
             ve karmaşık hesaplamaları verimli bir şekilde gerçekleştirmek için
             kritik öneme sahiptir. Bu algoritmalar, hesaplama karmaşıklığı,
@@ -119,7 +89,7 @@ export default function MathematicalAlgorithmsPage() {
             tasarlanır.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

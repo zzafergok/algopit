@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { mergeSort } from '@/lib/algorithms/sorting';
 
@@ -649,42 +655,51 @@ Merge Sort, büyük veri setleri için ve kararlılığın önemli olduğu durum
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Timsort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Merge Sort ve Insertion Sort'u birleştiren hibrit bir algoritma.
-                Python, Java ve diğer birçok dilin yerleşik sıralama algoritması
-                olarak kullanılır.
+          <Link
+            href="/algorithms/sorting/tim-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Timsort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Merge Sort ve Insertion Sort&apos;u birleştiren hibrit bir
+                algoritma. Python, Java ve diğer birçok dilin yerleşik sıralama
+                algoritması olarak kullanılır.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Natural Merge Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/sorting/external-sorting"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Natural Merge Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 Dizideki doğal olarak sıralı alt dizileri (runs) tespit ederek,
                 bölme adımını optimize eden bir Merge Sort varyasyonu.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Polyphase Merge Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/sorting/polyphase-merging"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Polyphase Merge Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 Dış sıralama için kullanılan bir Merge Sort varyasyonu. Sınırlı
                 sayıda dosya veya teyp kullanarak büyük veri setlerini sıralar.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

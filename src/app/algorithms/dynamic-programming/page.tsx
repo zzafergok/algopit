@@ -1,64 +1,32 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Dinamik Programlama | AlgoPit',
+  description:
+    'Karmaşık problemleri alt problemlere bölerek ve sonuçları saklayarak tekrar hesaplamayı önleyen algoritma tasarım tekniği.',
+};
 
 export default function DynamicProgrammingPage() {
   const algorithms = createCategoryAlgorithms(
-    "/algorithms/dynamic-programming",
+    '/algorithms/dynamic-programming',
   );
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Dinamik Programlama
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Dinamik Programlama (DP), karmaşık problemleri daha küçük alt
-          problemlere bölerek ve alt problemlerin sonuçlarını saklayarak tekrar
-          hesaplamayı önleyen bir algoritma tasarım tekniğidir.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Dinamik Programlama"
+        description="Dinamik Programlama (DP), karmaşık problemleri daha küçük alt problemlere bölerek ve alt problemlerin sonuçlarını saklayarak tekrar hesaplamayı önleyen bir algoritma tasarım tekniğidir."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">{algorithm.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Dinamik Programlama Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Dinamik Programlama Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Dinamik Programlama (DP), karmaşık problemleri daha küçük alt
             problemlere bölen, bu alt problemlerin sonuçlarını saklayan ve
@@ -67,40 +35,45 @@ export default function DynamicProgrammingPage() {
             optimal alt yapıya sahip problemlerde kullanılır.
           </p>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Dinamik Programlama iki temel yaklaşımla uygulanır:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Memoization (Üstten-Aşağı Yaklaşım):</strong> Rekürsif
-              olarak problem çözülürken, alt problemlerin sonuçları bir tabloda
-              saklanır ve gerektiğinde tekrar kullanılır.
+              <strong className="text-ink">
+                Memoization (Üstten-Aşağı Yaklaşım):
+              </strong>{' '}
+              Rekürsif olarak problem çözülürken, alt problemlerin sonuçları bir
+              tabloda saklanır ve gerektiğinde tekrar kullanılır.
             </li>
             <li>
-              <strong>Tabulation (Aşağıdan-Yukarı Yaklaşım):</strong> Alt
-              problemlerden başlayarak, daha büyük problemlere doğru ilerleyerek
-              tabloyu doldurur.
+              <strong className="text-ink">
+                Tabulation (Aşağıdan-Yukarı Yaklaşım):
+              </strong>{' '}
+              Alt problemlerden başlayarak, daha büyük problemlere doğru
+              ilerleyerek tabloyu doldurur.
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Bir problemin DP ile çözülebilmesi için genellikle şu özelliklere
             sahip olması gerekir:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Örtüşen Alt Problemler:</strong> Aynı alt problemler,
-              çözüm sürecinde birden fazla kez ortaya çıkar.
+              <strong className="text-ink">Örtüşen Alt Problemler:</strong> Aynı
+              alt problemler, çözüm sürecinde birden fazla kez ortaya çıkar.
             </li>
             <li>
-              <strong>Optimal Alt Yapı:</strong> Bir problemin optimal çözümü,
-              alt problemlerin optimal çözümlerinden oluşur.
+              <strong className="text-ink">Optimal Alt Yapı:</strong> Bir
+              problemin optimal çözümü, alt problemlerin optimal çözümlerinden
+              oluşur.
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Dinamik Programlama yaygın olarak şu alanlarda kullanılır:
           </p>
 
@@ -113,14 +86,14 @@ export default function DynamicProgrammingPage() {
             <li>Ekonomi ve finans modelleri</li>
           </ul>
 
-          <p className="mt-4">
+          <p>
             DP yaklaşımı, brute force veya özyinelemeli (recursive) çözümlere
             kıyasla genellikle çok daha verimlidir. Ancak, doğru durum tanımını
             formüle etmek ve geçiş denklemlerini belirlemek, DP çözümlerinin en
             zorlu kısmı olabilir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

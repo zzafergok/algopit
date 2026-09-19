@@ -8,31 +8,31 @@ import {
   CardFooter,
   CardHeader,
   CardContent,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+} from '@/components/core/card';
+import { Input } from '@/components/core/input';
+import { Button } from '@/components/core/button';
 
 import { measureAlgorithmTime } from '@/lib/utils';
 
-interface InteractiveDemoProps {
+interface InteractiveDemoProps<TInput = never, TOutput = unknown> {
   title: string;
   description?: string;
-  algorithmFunction: (input: any) => any;
+  algorithmFunction: (input: TInput) => TOutput;
   inputPlaceholder?: string;
   inputType?: 'text' | 'number' | 'array';
-  outputFormatter?: (output: any) => React.ReactNode;
+  outputFormatter?: (output: TOutput) => React.ReactNode;
 }
 
-export function InteractiveDemo({
+export function InteractiveDemo<TInput = never, TOutput = unknown>({
   title,
   description,
   algorithmFunction,
   inputPlaceholder = 'Veri girin...',
   inputType = 'text',
   outputFormatter,
-}: InteractiveDemoProps) {
+}: InteractiveDemoProps<TInput, TOutput>) {
   const [input, setInput] = useState<string>('');
-  const [output, setOutput] = useState<any>(null);
+  const [output, setOutput] = useState<TOutput | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [executionTime, setExecutionTime] = useState<number | null>(null);
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -42,7 +42,7 @@ export function InteractiveDemo({
     setError(null);
   };
 
-  const parseInput = (input: string): any => {
+  const parseInput = (input: string): unknown => {
     if (inputType === 'number') {
       const number = parseFloat(input);
       if (isNaN(number)) {
@@ -80,7 +80,8 @@ export function InteractiveDemo({
       const parsedInput = parseInput(input);
 
       const { result, time } = measureAlgorithmTime(
-        algorithmFunction,
+        (val: unknown) =>
+          (algorithmFunction as unknown as (arg: unknown) => TOutput)(val),
         parsedInput,
       );
 
@@ -99,9 +100,9 @@ export function InteractiveDemo({
     }
   };
 
-  const formatOutput = (output: any): React.ReactNode => {
+  const formatOutput = (output: unknown): React.ReactNode => {
     if (outputFormatter) {
-      return outputFormatter(output);
+      return outputFormatter(output as TOutput);
     }
 
     if (output === null || output === undefined) {

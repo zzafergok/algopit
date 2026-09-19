@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { heapSort } from '@/lib/algorithms/sorting';
 
@@ -551,42 +557,52 @@ Heap Sort, merge sort gibi her zaman O(n log n) performansına sahip, ancak quic
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Priority Queue</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/data-structures/queue"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Priority Queue
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 Heap veri yapısını kullanarak elemanları öncelik sırasına göre
-                işler. Heap Sort'un temelini oluşturur.
+                işler. Heap Sort&apos;un temelini oluşturur.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Smoothsort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Heap Sort'un bir varyasyonu olup, Leonardo heapleri kullanır ve
-                kısmen sıralı dizilerde daha iyi performans gösterir.
+          <Link
+            href="/algorithms/sorting/heap-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Smoothsort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Heap Sort&apos;un bir varyasyonu olup, Leonardo heapleri
+                kullanır ve kısmen sıralı dizilerde daha iyi performans
+                gösterir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Introspective Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Quick Sort, Heap Sort ve Insertion Sort'u birleştiren hibrit bir
-                algoritma. En iyi durumda Quick Sort, en kötü durumda Heap Sort
-                kullanır.
+          <Link
+            href="/algorithms/sorting/quick-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Introspective Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Quick Sort, Heap Sort ve Insertion Sort&apos;u birleştiren
+                hibrit bir algoritma. En iyi durumda Quick Sort, en kötü durumda
+                Heap Sort performansı sunar.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

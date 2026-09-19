@@ -8,17 +8,17 @@ export function cn(...inputs: ClassValue[]) {
 export function generateRandomArray(
   length: number = 20,
   min: number = 5,
-  max: number = 100
+  max: number = 100,
 ): number[] {
   return Array.from(
     { length },
-    () => Math.floor(Math.random() * (max - min + 1)) + min
+    () => Math.floor(Math.random() * (max - min + 1)) + min,
   );
 }
 
-export function measureAlgorithmTime<T>(
-  algorithm: (input: any) => T,
-  input: any
+export function measureAlgorithmTime<T, TInput = unknown>(
+  algorithm: (input: TInput) => T,
+  input: TInput,
 ): { result: T; time: number } {
   const start = performance.now();
   const result = algorithm(input);

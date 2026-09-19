@@ -1,89 +1,30 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Sıralama Algoritmaları | AlgoPit',
+  description:
+    'Sıralama algoritmaları, verileri belirli bir düzende organize etmek için kullanılan temel algoritmalardan oluşur.',
+};
 
 export default function SortingAlgorithmsPage() {
-  const algorithms = createCategoryAlgorithms("/algorithms/sorting");
-
-  const getDifficultyBadgeVariant = (difficulty: string) => {
-    switch (difficulty) {
-      case "Kolay":
-        return "success";
-      case "Orta":
-        return "warning";
-      case "Zor":
-        return "destructive";
-      default:
-        return "secondary";
-    }
-  };
+  const algorithms = createCategoryAlgorithms('/algorithms/sorting');
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Sıralama Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Sıralama algoritmaları, verileri belirli bir düzende organize etmek
-          için kullanılan temel algoritmalardan oluşur. Her algoritmanın kendine
-          özgü avantajları, dezavantajları ve kullanım alanları bulunmaktadır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Sıralama Algoritmaları"
+        description="Sıralama algoritmaları, verileri belirli bir düzende organize etmek için kullanılan temel algoritmalardan oluşur. Her algoritmanın kendine özgü avantajları, dezavantajları ve kullanım alanları bulunmaktadır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card flex flex-col">
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <CardTitle className="text-lg">{algorithm.name}</CardTitle>
-                {algorithm.difficulty && (
-                  <Badge
-                    variant={getDifficultyBadgeVariant(algorithm.difficulty)}
-                    className="text-xs"
-                  >
-                    {algorithm.difficulty}
-                  </Badge>
-                )}
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <CardDescription className="text-sm text-ash">
-                {algorithm.description}
-              </CardDescription>
-            </CardContent>
-            <CardFooter>
-              <Button asChild variant="ghost" size="sm" className="w-full">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Sıralama Algoritmaları Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Sıralama Algoritmaları Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none text-muted leading-relaxed">
           <p>
             Sıralama algoritmaları, bilgisayar biliminin en temel ve yaygın
             kullanılan algoritmalarından oluşur. Bu algoritmalar, verileri
@@ -98,58 +39,68 @@ export default function SortingAlgorithmsPage() {
 
           <div className="mt-4 space-y-4">
             <div>
-              <h3 className="font-semibold">
+              <h3 className="font-semibold text-ink">
                 Karmaşıklığa Göre Sınıflandırma:
               </h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong>Basit Algoritmalar (O(n²)):</strong> Bubble Sort,
-                  Selection Sort, Insertion Sort gibi anlaşılması kolay ancak
-                  büyük veri setlerinde yavaş çalışan algoritmalar.
+                  <strong className="text-ink">
+                    Basit Algoritmalar (O(n²)):
+                  </strong>{' '}
+                  Bubble Sort, Selection Sort, Insertion Sort gibi anlaşılması
+                  kolay ancak büyük veri setlerinde yavaş çalışan algoritmalar.
                 </li>
                 <li>
-                  <strong>Verimli Algoritmalar (O(n log n)):</strong> Merge
-                  Sort, Quick Sort, Heap Sort gibi büyük veri setlerinde etkili
-                  performans gösteren algoritmalar.
+                  <strong className="text-ink">
+                    Verimli Algoritmalar (O(n log n)):
+                  </strong>{' '}
+                  Merge Sort, Quick Sort, Heap Sort gibi büyük veri setlerinde
+                  etkili performans gösteren algoritmalar.
                 </li>
                 <li>
-                  <strong>Doğrusal Algoritmalar (O(n)):</strong> Counting Sort,
-                  Radix Sort gibi özel koşullarda doğrusal zamanda çalışan
-                  algoritmalar.
+                  <strong className="text-ink">
+                    Doğrusal Algoritmalar (O(n)):
+                  </strong>{' '}
+                  Counting Sort, Radix Sort gibi özel koşullarda doğrusal
+                  zamanda çalışan algoritmalar.
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold">Kararlılığa Göre Sınıflandırma:</h3>
+              <h3 className="font-semibold text-ink">
+                Kararlılığa Göre Sınıflandırma:
+              </h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong>Kararlı Algoritmalar:</strong> Eşit elemanların göreli
-                  sırasını koruyan algoritmalar (Merge Sort, Insertion Sort,
-                  Bubble Sort).
+                  <strong className="text-ink">Kararlı Algoritmalar:</strong>{' '}
+                  Eşit elemanların göreli sırasını koruyan algoritmalar (Merge
+                  Sort, Insertion Sort, Bubble Sort).
                 </li>
                 <li>
-                  <strong>Kararsız Algoritmalar:</strong> Eşit elemanların
-                  göreli sırasını korumayan algoritmalar (Quick Sort, Selection
-                  Sort, Heap Sort).
+                  <strong className="text-ink">Kararsız Algoritmalar:</strong>{' '}
+                  Eşit elemanların göreli sırasını korumayan algoritmalar (Quick
+                  Sort, Selection Sort, Heap Sort).
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold">
+              <h3 className="font-semibold text-ink">
                 Bellek Kullanımına Göre Sınıflandırma:
               </h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong>In-place Algoritmalar:</strong> Sabit miktarda ek
-                  bellek kullanan algoritmalar (Quick Sort, Heap Sort, Selection
-                  Sort).
+                  <strong className="text-ink">In-place Algoritmalar:</strong>{' '}
+                  Sabit miktarda ek bellek kullanan algoritmalar (Quick Sort,
+                  Heap Sort, Selection Sort).
                 </li>
                 <li>
-                  <strong>Out-of-place Algoritmalar:</strong> Giriş boyutuyla
-                  orantılı ek bellek gerektiren algoritmalar (Merge Sort,
-                  Counting Sort).
+                  <strong className="text-ink">
+                    Out-of-place Algoritmalar:
+                  </strong>{' '}
+                  Giriş boyutuyla orantılı ek bellek gerektiren algoritmalar
+                  (Merge Sort, Counting Sort).
                 </li>
               </ul>
             </div>
@@ -163,7 +114,7 @@ export default function SortingAlgorithmsPage() {
             en uygun algoritmanın seçilmesi kritik öneme sahiptir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

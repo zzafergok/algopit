@@ -23,10 +23,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+} from '@/components/core/card';
+import { Input } from '@/components/core/input';
+import { Badge } from '@/components/core/badge';
+import { Button } from '@/components/core/button';
 
 interface UnderConstructionProps {
   title: string; // Sayfa başlığı

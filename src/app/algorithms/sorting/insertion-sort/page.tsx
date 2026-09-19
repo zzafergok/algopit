@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { insertionSort } from '@/lib/algorithms/sorting';
 
@@ -567,43 +573,52 @@ Insertion Sort, küçük veri setleri veya neredeyse sıralı diziler için oldu
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Shell Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Insertion Sort'un geliştirilmiş versiyonu. Büyük adımlarla
+          <Link
+            href="/algorithms/sorting/shell-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Shell Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Insertion Sort&apos;un geliştirilmiş versiyonu. Büyük adımlarla
                 başlayıp giderek küçülen adımlarla sıralama yapar, böylece uzak
                 elemanları daha hızlı hareket ettirir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Binary Insertion Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/sorting/insertion-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Binary Insertion Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 Linear arama yerine binary search kullanarak elemanın doğru
                 pozisyonunu daha hızlı bulan bir Insertion Sort varyasyonudur.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Timsort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Insertion Sort ve Merge Sort'u birleştiren bir hibrit algoritma.
-                Python, Java ve daha birçok dilin yerleşik sıralama algoritması
-                olarak kullanılır.
+          <Link
+            href="/algorithms/sorting/tim-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Timsort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Insertion Sort ve Merge Sort&apos;u birleştiren bir hibrit
+                algoritma. Python, Java ve daha birçok dilin yerleşik sıralama
+                algoritması olarak kullanılır.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

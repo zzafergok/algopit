@@ -1,11 +1,17 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 
 import { radixSort } from '@/lib/algorithms/sorting';
 
@@ -658,44 +664,53 @@ Radix Sort, sayılar çok büyük olmadığında ve basamak sayısı makul oldu�
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Counting Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Radix Sort'un her basamak sıralaması için kullanılan temel
+          <Link
+            href="/algorithms/sorting/counting-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Counting Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Radix Sort&apos;un her basamak sıralaması için kullanılan temel
                 algoritma. Sınırlı değer aralığında lineer zaman karmaşıklığı
                 sunar.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">MSD Radix Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
+          <Link
+            href="/algorithms/sorting/radix-sort-variants"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                MSD Radix Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
                 En yüksek anlamlı basamaktan (MSD) başlayarak sıralama yapar.
                 Daha erken kesme imkanı sunabilir, ancak implementasyonu daha
                 karmaşıktır.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
 
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Bucket Sort</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-ash">
-                Veriyi "kovalara" böler ve her kovayı ayrı ayrı sıralar. Düzgün
-                dağılımlı verilerde Radix Sort gibi lineer karmaşıklık
-                gösterebilir.
+          <Link
+            href="/algorithms/sorting/bucket-sort"
+            className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+          >
+            <div>
+              <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                Bucket Sort
+              </h3>
+              <p className="text-sm text-ash leading-relaxed">
+                Veriyi &quot;kovalara&quot; böler ve her kovayı ayrı ayrı
+                sıralar. Düzgün dağılımlı verilerde Radix Sort gibi lineer
+                karmaşıklık gösterebilir.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

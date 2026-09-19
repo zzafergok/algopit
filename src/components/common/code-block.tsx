@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { Check, Copy } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/core/button';
 
 import { cn, highlightCode } from '@/lib/utils';
 

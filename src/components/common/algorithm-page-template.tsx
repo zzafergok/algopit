@@ -4,9 +4,66 @@ import React from 'react';
 import Link from 'next/link';
 
 import { CodeBlock } from '@/components/common/code-block';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/core/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getComplexityName } from '@/lib/utils';
+import { navigationConfig } from '@/config/navigation';
+import { duplicateAlgorithmContents } from '@/lib/duplicate-algorithms';
+
+function resolveAlgorithmHref(
+  title: string,
+  existingHref?: string,
+): string | undefined {
+  if (existingHref) return existingHref;
+
+  const cleanTitle = title
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+  if (!cleanTitle) return undefined;
+
+  for (const item of duplicateAlgorithmContents) {
+    const cleanItemTitle = item.title
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '');
+    if (
+      cleanItemTitle === cleanTitle ||
+      cleanItemTitle.includes(cleanTitle) ||
+      cleanTitle.includes(cleanItemTitle)
+    ) {
+      return `/algorithms/${item.category}/${item.slug}`;
+    }
+  }
+
+  for (const mainItem of navigationConfig.mainNavItems) {
+    if (mainItem.children) {
+      for (const cat of mainItem.children) {
+        if (cat.children) {
+          for (const item of cat.children) {
+            const cleanLabel = item.label
+              .trim()
+              .toLowerCase()
+              .replace(/[^a-z0-9]/g, '');
+            if (
+              cleanLabel === cleanTitle ||
+              cleanLabel.includes(cleanTitle) ||
+              cleanTitle.includes(cleanLabel)
+            ) {
+              return item.href;
+            }
+          }
+        }
+      }
+    }
+  }
+  return undefined;
+}
 
 export type CodeLanguage = 'javascript' | 'typescript' | 'python' | 'java';
 
@@ -68,9 +125,9 @@ export function AlgorithmPageTemplate({
   relatedAlgorithms,
   className = 'container mx-auto py-12 space-y-12',
 }: AlgorithmPageTemplateProps) {
-  const codeEntries = (Object.entries(codeExamples) as Array<
-    [CodeLanguage, string]
-  >).filter(([, code]) => Boolean(code));
+  const codeEntries = (
+    Object.entries(codeExamples) as Array<[CodeLanguage, string]>
+  ).filter(([, code]) => Boolean(code));
   const activeCodeTab = defaultCodeTab ?? codeEntries[0]?.[0] ?? 'javascript';
 
   return (
@@ -217,25 +274,40 @@ export function AlgorithmPageTemplate({
             `${title} ile benzer veya alternatif olarak değerlendirilebilecek diğer başlıklar:`}
         </p>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {relatedAlgorithms.map((algorithm) => (
-            <Card
-              key={algorithm.title}
-              className="hover:shadow-md transition-shadow"
-            >
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">
-                  {algorithm.href ? (
-                    <Link href={algorithm.href}>{algorithm.title}</Link>
-                  ) : (
-                    algorithm.title
-                  )}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm text-ash">{algorithm.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+          {relatedAlgorithms.map((algorithm) => {
+            const href = resolveAlgorithmHref(algorithm.title, algorithm.href);
+            const content = (
+              <div>
+                <h3 className="text-base font-mono font-bold text-ink group-hover:text-turquoise transition-colors tracking-tight mb-1.5">
+                  {algorithm.title}
+                </h3>
+                <p className="text-sm text-ash leading-relaxed">
+                  {algorithm.description}
+                </p>
+              </div>
+            );
+
+            if (href) {
+              return (
+                <Link
+                  key={algorithm.title}
+                  href={href}
+                  className="algorithm-card group flex flex-col justify-between p-5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
+                >
+                  {content}
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={algorithm.title}
+                className="algorithm-card flex flex-col justify-between p-5"
+              >
+                {content}
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>

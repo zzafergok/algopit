@@ -1,11 +1,18 @@
-'use client';
-
 import React from 'react';
-import { StatsSection } from './components/stats-section';
-import { HowItWorksSection } from './components/how-it-works-section';
-import { FeaturesSection } from './components/features-section';
-import { LearningPathSection } from './components/learning-path-section';
-import { ContributingFutureSection } from './components/contributing-future-section';
+import type { Metadata } from 'next';
+import {
+  StatsSection,
+  HowItWorksSection,
+  FeaturesSection,
+  LearningPathSection,
+  ContributingFutureSection,
+} from '@/features/about';
+
+export const metadata: Metadata = {
+  title: 'Hakkında | AlgoPit',
+  description:
+    'AlgoPit algoritma görselleştirme ve öğrenme platformu hakkında bilgiler.',
+};
 
 export default function AboutPage() {
   return (

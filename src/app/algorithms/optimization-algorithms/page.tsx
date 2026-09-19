@@ -1,15 +1,13 @@
-import Link from 'next/link';
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from 'lucide-react';
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+export const metadata: Metadata = {
+  title: 'Optimizasyon Algoritmaları | AlgoPit',
+  description:
+    'Belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalar.',
+};
 
 export default function OptimizationAlgorithmsPage() {
   const algorithms = [
@@ -29,47 +27,16 @@ export default function OptimizationAlgorithmsPage() {
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Optimizasyon Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Optimizasyon algoritmaları, belirli bir problem için olası çözümler
-          arasından en iyi çözümü bulmayı amaçlayan algoritmalardır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Optimizasyon Algoritmaları"
+        description="Optimizasyon algoritmaları, belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalardır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">
-                {algorithm.description}
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Optimizasyon Algoritmaları Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Optimizasyon Algoritmaları Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Optimizasyon algoritmaları, bir problemin olası çözümleri arasından
             en iyi çözümü (minimum veya maksimum) bulmayı amaçlayan matematiksel
@@ -77,52 +44,58 @@ export default function OptimizationAlgorithmsPage() {
             lojistik, yapay zeka gibi birçok alanda kullanılır.
           </p>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Optimizasyon algoritmaları genellikle şu kategorilere ayrılır:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Tam Optimizasyon Algoritmaları:</strong> Problemin kesin
-              optimal çözümünü garanti eden algoritmalar (Simplex Algoritması,
-              Dinamik Programlama gibi).
+              <strong className="text-ink">
+                Tam Optimizasyon Algoritmaları:
+              </strong>{' '}
+              Problemin kesin optimal çözümünü garanti eden algoritmalar
+              (Simplex Algoritması, Dinamik Programlama gibi).
             </li>
             <li>
-              <strong>Yaklaşık Optimizasyon Algoritmaları:</strong> Optimal
-              çözüme yakın çözümler üreten, ancak optimumu garanti etmeyen
-              algoritmalar.
+              <strong className="text-ink">
+                Yaklaşık Optimizasyon Algoritmaları:
+              </strong>{' '}
+              Optimal çözüme yakın çözümler üreten, ancak optimumu garanti
+              etmeyen algoritmalar.
             </li>
             <li>
-              <strong>Metasezgisel Algoritmalar:</strong> Doğadan esinlenen veya
-              genel arama stratejilerine dayanan, geniş arama uzaylarında etkili
-              olan algoritmalar (Simüle Edilmiş Tavlama, Genetik Algoritmalar,
-              Parçacık Sürü Optimizasyonu gibi).
+              <strong className="text-ink">Metasezgisel Algoritmalar:</strong>{' '}
+              Doğadan esinlenen veya genel arama stratejilerine dayanan, geniş
+              arama uzaylarında etkili olan algoritmalar (Simüle Edilmiş
+              Tavlama, Genetik Algoritmalar, Parçacık Sürü Optimizasyonu gibi).
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Optimizasyon algoritmaları, aşağıdaki bileşenlere sahiptir:
           </p>
 
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Amaç Fonksiyonu:</strong> Optimize edilecek ölçüt (en aza
-              indirilecek maliyet veya en üst düzeye çıkarılacak fayda).
+              <strong className="text-ink">Amaç Fonksiyonu:</strong> Optimize
+              edilecek ölçüt (en aza indirilecek maliyet veya en üst düzeye
+              çıkarılacak fayda).
             </li>
             <li>
-              <strong>Değişkenler:</strong> Kontrol edilebilen ve
-              değiştirilebilen parametreler.
+              <strong className="text-ink">Değişkenler:</strong> Kontrol
+              edilebilen ve değiştirilebilen parametreler.
             </li>
             <li>
-              <strong>Kısıtlamalar:</strong> Çözümlerin sağlaması gereken
-              koşullar.
+              <strong className="text-ink">Kısıtlamalar:</strong> Çözümlerin
+              sağlaması gereken koşullar.
             </li>
             <li>
-              <strong>Arama Uzayı:</strong> Tüm olası çözümlerin kümesi.
+              <strong className="text-ink">Arama Uzayı:</strong> Tüm olası
+              çözümlerin kümesi.
             </li>
           </ul>
 
-          <p className="mt-4">
+          <p className="font-semibold text-ink">
             Optimizasyon algoritmalarının uygulandığı yaygın alanlar:
           </p>
 
@@ -136,14 +109,14 @@ export default function OptimizationAlgorithmsPage() {
             <li>Ağ tasarımı ve trafik yönlendirme</li>
           </ul>
 
-          <p className="mt-4">
+          <p>
             Her optimizasyon algoritması, belirli problem türleri için daha
             uygundur. Algoritma seçimi; problem tipi, arama uzayı boyutu,
             problemin yapısı (doğrusal, doğrusal olmayan, konveks), hesaplama
             kaynakları ve gerekli çözüm kalitesi gibi faktörlere bağlıdır.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

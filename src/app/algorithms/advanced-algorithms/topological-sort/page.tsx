@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Label } from '@/components/core/label';
+import { Button } from '@/components/core/button';
 import { AlgorithmExplanation } from '@/components/common/explanation';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/core/card';
 
 type Graph = {
   [key: string]: string[];
@@ -343,9 +343,7 @@ public class TopologicalSort {
 }`,
   };
 
-  useEffect(() => {
-    handleRunAlgorithm();
-  }, []);
+
 
   const handleGraphInputChange = (
     e: React.ChangeEvent<HTMLTextAreaElement>,

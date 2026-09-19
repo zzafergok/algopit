@@ -1,19 +1,13 @@
 'use client';
 
-import Link from 'next/link';
-
 import { useState } from 'react';
-
 import { ChevronRight, Menu } from 'lucide-react';
-
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/core/button';
+import { Link } from '@/components/core/link';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useNavigation } from '@/hooks/useNavigation';
-
+import { useNavigation } from '@/hooks/use-navigation';
 import { navigationConfig } from '@/config/navigation';
-
 import { NavItem } from '@/types/navigation';
-
 import { cn } from '@/lib/utils';
 
 interface SidebarProps {
@@ -33,7 +27,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     setExpandedItems((prev) =>
       prev.includes(href)
         ? prev.filter((item) => item !== href)
-        : [...prev, href]
+        : [...prev, href],
     );
   };
 
@@ -46,10 +40,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div key={item.href} className="space-y-1">
         <div
           className={cn(
-            'flex items-center gap-2 rounded-sm px-3 py-2 text-sm transition-colors',
-            'hover:bg-accent hover:text-accent-foreground',
-            isActive && 'bg-accent text-accent-foreground font-medium',
-            level > 0 && 'ml-4 border-l border-gunmetal pl-4'
+            'flex items-center gap-2 rounded-none px-3 py-2 text-sm font-mono transition-colors min-h-[44px]',
+            'hover:bg-surface-raised hover:text-ink',
+            isActive && 'bg-surface-raised text-turquoise font-medium',
+            level > 0 && 'ml-4 border-l border-line pl-4',
           )}
         >
           <Link
@@ -64,14 +58,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <Button
               variant="ghost"
               size="sm"
-              className="h-6 w-6 p-0"
+              className="h-8 w-8 min-h-0 min-w-0 p-0 text-muted hover:text-ink"
               onClick={() => toggleExpanded(item.href)}
               aria-expanded={isExpanded}
             >
               <ChevronRight
                 className={cn(
                   'h-4 w-4 transition-transform',
-                  isExpanded && 'rotate-90'
+                  isExpanded && 'rotate-90',
                 )}
               />
             </Button>
@@ -90,14 +84,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
   return (
     <aside
       className={cn(
-        'flex flex-col border-r border-gunmetal bg-void-black transition-all duration-300',
+        'flex flex-col border-r border-line bg-surface transition-all duration-300',
         isCollapsed ? 'w-16' : 'w-64',
-        className
+        className,
       )}
     >
-      <div className="flex items-center justify-between p-4 border-b border-gunmetal">
+      <div className="flex items-center justify-between p-4 border-b border-line">
         {!isCollapsed && (
-          <Link href="/" className="font-semibold text-lg">
+          <Link href="/" className="font-semibold font-mono text-lg text-ink">
             AlgoPit
           </Link>
         )}
@@ -118,8 +112,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </ScrollArea>
 
       {!isCollapsed && (
-        <div className="p-4 border-t border-gunmetal">
-          <p className="text-xs text-ash">© 2024 AlgoPit</p>
+        <div className="p-4 border-t border-line">
+          <p className="text-xs font-mono text-muted">© 2026 AlgoPit</p>
         </div>
       )}
     </aside>

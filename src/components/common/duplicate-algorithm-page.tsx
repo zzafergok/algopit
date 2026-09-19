@@ -6,8 +6,8 @@ import { ArrowLeft } from 'lucide-react';
 
 import { AlgorithmPageTemplate } from '@/components/common/algorithm-page-template';
 import { InteractiveDemo } from '@/components/common/interactive-demo';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/core/badge';
+import { Button } from '@/components/core/button';
 import {
   type DuplicateAlgorithmContent,
   duplicateAlgorithmContents,
@@ -98,7 +98,9 @@ export function DuplicateAlgorithmPage({
           <InteractiveDemo
             title={`${algorithm.title} Demo`}
             description="Girilen veri, algoritmanın temel adımlarına göre örnek bir izleme çıktısına dönüştürülür."
-            algorithmFunction={(input) => runGenericDemo(algorithm, input)}
+            algorithmFunction={(input) =>
+              runGenericDemo(algorithm, input as unknown[])
+            }
             inputType="array"
             inputPlaceholder="5,3,8,4,2"
             outputFormatter={(output) => (

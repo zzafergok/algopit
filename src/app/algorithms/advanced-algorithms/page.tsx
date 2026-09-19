@@ -1,65 +1,32 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'İleri Seviye Algoritmalar | AlgoPit',
+  description:
+    'İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır.',
+};
 
 export default function AdvancedAlgorithmsPage() {
   const algorithms = createCategoryAlgorithms(
-    "/algorithms/advanced-algorithms",
+    '/algorithms/advanced-algorithms',
   );
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          İleri Seviye Algoritmalar
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize
-          edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır. Bu
-          algoritmaları anlamak, verimli yazılım çözümleri geliştirmede kritik
-          öneme sahiptir.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="İleri Seviye Algoritmalar"
+        description="İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır. Bu algoritmaları anlamak, verimli yazılım çözümleri geliştirmede kritik öneme sahiptir."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">{algorithm.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button asChild variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          İleri Seviye Algoritmalar Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // İleri Seviye Algoritmalar Hakkında
         </h2>
-        <div className="prose dark:prose-invert max-w-none">
+        <div className="prose dark:prose-invert max-w-none text-muted leading-relaxed">
           <p>
             İleri seviye algoritmalar, genellikle belirli türdeki problemlere
             yönelik optimize edilmiş özel çözümlerdir. Bu algoritmalar
@@ -67,20 +34,20 @@ export default function AdvancedAlgorithmsPage() {
             ortaya çıkar ve performans, verimlilik veya özel kullanım durumları
             için geliştirilmiştir.
           </p>
-          <p>
+          <p className="mt-4">
             Bu algoritmalar, yazılım mühendisliği ve bilgisayar biliminde daha
             karmaşık ve özelleştirilmiş problemleri çözmek için kullanılır.
-            Örneğin, bağlı listelerde döngü tespiti (Floyd's Cycle-Finding) veya
-            bağımlılık çözümleme (Topological Sort) gibi özel durumlar için
+            Örneğin, bağlı listelerde döngü tespiti (Floyd&apos;s Cycle-Finding)
+            veya bağımlılık çözümleme (Topological Sort) gibi özel durumlar için
             tasarlanmışlardır.
           </p>
-          <p>
+          <p className="mt-4">
             İleri seviye algoritmaların anlaşılması, karmaşık yazılım
             sistemlerinin geliştirilmesinde ve optimizasyonunda önemli bir
             beceridir.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

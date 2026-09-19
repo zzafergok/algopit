@@ -1,61 +1,30 @@
-import Link from "next/link";
+import React from 'react';
+import type { Metadata } from 'next';
+import { PageHeaderCard } from '@/components/layout/page-header-card';
+import { createCategoryAlgorithms } from '@/lib/algorithm-category';
+import { CategoryOverviewView } from '@/features/algorithms/category-overview';
 
-import { ArrowRight } from "lucide-react";
-import {
-  Card,
-  CardTitle,
-  CardFooter,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { createCategoryAlgorithms } from "@/lib/algorithm-category";
+export const metadata: Metadata = {
+  title: 'Böl ve Fethet Algoritmaları | AlgoPit',
+  description:
+    'Böl ve fethet (divide and conquer), problemi aynı tipte daha küçük alt problemlere bölen, çözen ve sonuçları birleştiren algoritma tasarım yaklaşımıdır.',
+};
 
 export default function DivideAndConquerPage() {
-  const algorithms = createCategoryAlgorithms("/algorithms/divide-and-conquer");
+  const algorithms = createCategoryAlgorithms('/algorithms/divide-and-conquer');
 
   return (
     <div className="space-y-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Böl ve Fethet Algoritmaları
-        </h1>
-        <p className="text-xl text-ash mt-4 max-w-3xl mx-auto">
-          Böl ve fethet (divide and conquer), problemi aynı tipte daha küçük alt
-          problemlere bölen, çözen ve sonuçları birleştiren algoritma tasarım
-          yaklaşımıdır.
-        </p>
-      </div>
+      <PageHeaderCard
+        title="Böl ve Fethet Algoritmaları"
+        description="Böl ve fethet (divide and conquer), problemi aynı tipte daha küçük alt problemlere bölen, çözen ve sonuçları birleştiren algoritma tasarım yaklaşımıdır."
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {algorithms.map((algorithm) => (
-          <Card key={algorithm.name} className="algorithm-card">
-            <CardHeader>
-              <CardTitle>{algorithm.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-ash">{algorithm.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button asChild variant="ghost" size="sm" className="mt-2">
-                <Link
-                  href={algorithm.path}
-                  className="flex justify-between items-center gap-3"
-                >
-                  <span className="flex-grow text-center">İncele</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-obsidian/60 rounded-sm">
-        <h2 className="text-2xl font-bold mb-4">
-          Böl ve Fethet Yaklaşımı Hakkında
+      <CategoryOverviewView algorithms={algorithms}>
+        <h2 className="text-2xl font-bold mb-4 font-mono text-ink">
+          // Böl ve Fethet Yaklaşımı Hakkında
         </h2>
-        <div className="max-w-none">
+        <div className="max-w-none space-y-4 text-muted leading-relaxed">
           <p>
             Böl ve fethet yaklaşımı, karmaşık problemleri daha küçük alt
             problemlere bölerek çözmeyi amaçlayan temel bir algoritma tasarım
@@ -63,50 +32,53 @@ export default function DivideAndConquerPage() {
           </p>
           <ol className="list-decimal pl-5 space-y-2">
             <li>
-              <strong>Böl (Divide):</strong> Problemi aynı türde daha küçük alt
-              problemlere böl.
+              <strong className="text-ink">Böl (Divide):</strong> Problemi aynı
+              türde daha küçük alt problemlere böl.
             </li>
             <li>
-              <strong>Fethet (Conquer):</strong> Alt problemleri özyinelemeli
-              (recursive) olarak çöz. Eğer alt problemler yeterince küçükse,
-              doğrudan çöz.
+              <strong className="text-ink">Fethet (Conquer):</strong> Alt
+              problemleri özyinelemeli (recursive) olarak çöz. Eğer alt
+              problemler yeterince küçükse, doğrudan çöz.
             </li>
             <li>
-              <strong>Birleştir (Combine):</strong> Alt problemlerin çözümlerini
-              orijinal problemin çözümü için birleştir.
+              <strong className="text-ink">Birleştir (Combine):</strong> Alt
+              problemlerin çözümlerini orijinal problemin çözümü için birleştir.
             </li>
           </ol>
-          <p className="mt-4">Böl ve fethet yaklaşımının avantajları:</p>
+          <p className="font-semibold text-ink">
+            Böl ve fethet yaklaşımının avantajları:
+          </p>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Verimlilik:</strong> Birçok durumda, bu yaklaşım doğrusal
-              algoritmalara göre daha verimlidir, logaritmik zaman karmaşıklığı
-              sunar.
+              <strong className="text-ink">Verimlilik:</strong> Birçok durumda,
+              bu yaklaşım doğrusal algoritmalara göre daha verimlidir,
+              logaritmik zaman karmaşıklığı sunar.
             </li>
             <li>
-              <strong>Paralelleştirebilme:</strong> Alt problemler bağımsız
-              olduğu için çözümleri paralel işlemlerle gerçekleştirilebilir.
+              <strong className="text-ink">Paralelleştirebilme:</strong> Alt
+              problemler bağımsız olduğu için çözümleri paralel işlemlerle
+              gerçekleştirilebilir.
             </li>
             <li>
-              <strong>Ölçeklenebilirlik:</strong> Büyük veri setleri için bile
-              etkin çözümler sunar.
+              <strong className="text-ink">Ölçeklenebilirlik:</strong> Büyük
+              veri setleri için bile etkin çözümler sunar.
             </li>
           </ul>
-          <p className="mt-4">Yaygın kullanım alanları:</p>
+          <p className="font-semibold text-ink">Yaygın kullanım alanları:</p>
           <ul className="list-disc pl-5 space-y-2">
             <li>Sıralama algoritmaları (Merge Sort, Quick Sort)</li>
             <li>Arama algoritmaları (Binary Search)</li>
-            <li>Matris çarpımı (Strassen's Algorithm)</li>
+            <li>Matris çarpımı (Strassen&apos;s Algorithm)</li>
             <li>En yakın nokta çiftini bulma (Closest Pair of Points)</li>
             <li>Hızlı Fourier dönüşümü (FFT)</li>
           </ul>
-          <p className="mt-4">
+          <p>
             Böl ve fethet algoritmaları genellikle O(n log n) veya daha iyi
             zaman karmaşıklığına sahiptir. Bu nedenle, büyük veri setleriyle
             çalışırken önemli performans avantajları sağlarlar.
           </p>
         </div>
-      </div>
+      </CategoryOverviewView>
     </div>
   );
 }

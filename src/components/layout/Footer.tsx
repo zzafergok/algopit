@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { FooterSection } from './FooterSection';
+import { Button } from '@/components/core/button';
+import { Link } from '@/components/core/link';
+import { FooterSection } from './footer-section';
 import { navigationConfig } from '@/config/navigation';
 import { cn } from '@/lib/utils';
 
@@ -84,7 +84,7 @@ export const Footer = () => {
           variant="outline"
           size="icon"
           className={cn(
-            'fixed bottom-6 right-6 z-50 h-10 w-10 border border-line-strong bg-surface text-green shadow-[0.4rem_0.4rem_0_rgba(0,0,0,0.4)]',
+            'fixed bottom-6 right-6 z-50 h-11 w-11 border border-line-strong bg-surface text-green shadow-[0.4rem_0.4rem_0_rgba(0,0,0,0.4)]',
             'transition-all duration-200 hover:border-green hover:bg-surface-raised hover:-translate-y-0.5',
           )}
           onClick={scrollToTop}
