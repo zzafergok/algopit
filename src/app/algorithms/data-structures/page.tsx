@@ -3,20 +3,31 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Veri Yapıları | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Veri Yapıları',
   description:
     'Veri yapıları, verileri organize etme, saklama ve işleme yöntemlerini tanımlayan programlama kavramlarıdır.',
-};
+  path: '/algorithms/data-structures',
+  keywords: ['veri yapıları', 'algoritmalar', 'görselleştirme', 'simülasyon'],
+});
 
 export default function DataStructuresPage() {
   const dataStructures = createCategoryAlgorithms(
     '/algorithms/data-structures',
   );
+  const categorySchema = getCategorySchema({
+    name: 'Veri Yapıları',
+    description:
+      'Veri yapıları, verileri organize etme, saklama ve işleme yöntemlerini tanımlayan programlama kavramlarıdır.',
+    path: '/algorithms/data-structures',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Veri Yapıları"
         description="Veri yapıları, verileri organize etme, saklama ve işleme yöntemlerini tanımlayan programlama kavramlarıdır. Etkili algoritmalar tasarlamanın temelini oluştururlar ve yazılım geliştirmenin kritik bileşenleridir."

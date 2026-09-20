@@ -2,12 +2,21 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Diğer Önemli Algoritmalar | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Diğer Önemli Algoritmalar',
   description:
     'Çeşitli problem alanlarında kullanılan, farklı kategorilere tam olarak sığmayan ancak yazılım geliştirmede kritik önem taşıyan algoritmalar.',
-};
+  path: '/algorithms/misc-algorithms',
+  keywords: [
+    'diğer önemli algoritmalar',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function MiscAlgorithmsPage() {
   const algorithms = [
@@ -24,9 +33,16 @@ export default function MiscAlgorithmsPage() {
         'Bilinmeyen boyuttaki veri akışından rastgele örneklem almaya yarayan algoritma.',
     },
   ];
+  const categorySchema = getCategorySchema({
+    name: 'Diğer Önemli Algoritmalar',
+    description:
+      'Çeşitli problem alanlarında kullanılan, farklı kategorilere tam olarak sığmayan ancak yazılım geliştirmede kritik önem taşıyan algoritmalar.',
+    path: '/algorithms/misc-algorithms',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Diğer Önemli Algoritmalar"
         description="Çeşitli problem alanlarında kullanılan, farklı kategorilere tam olarak sığmayan ancak yazılım geliştirmede kritik önem taşıyan algoritmalar."

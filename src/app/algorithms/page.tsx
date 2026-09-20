@@ -9,12 +9,21 @@ import {
   categoryDescriptions,
   AlgorithmCategory,
 } from '@/features/algorithms/algorithms-hub';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Algoritma Kütüphanesi | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Algoritma Kütüphanesi',
   description:
-    'Tüm algoritma kategorilerini keşfedin, interaktif görselleştirmeler ve detaylı açıklamalarla algoritmaların nasıl çalıştığını öğrenin.',
-};
+    'Tüm algoritma kategorilerini keşfedin; interaktif görselleştirmeler, adım adım simülasyonlar ve detaylı açıklamalarla algoritmaları öğrenin.',
+  path: '/algorithms',
+  keywords: [
+    'algoritma kütüphanesi',
+    'veri yapıları',
+    'algoritma kategorileri',
+    'bilgisayar bilimi rehberi',
+  ],
+});
 
 export default function AlgorithmsPage() {
   const algorithmRoot = navigationConfig.mainNavItems.find(
@@ -42,8 +51,16 @@ export default function AlgorithmsPage() {
     };
   });
 
+  const hubSchema = getCategorySchema({
+    name: 'Algoritma Kütüphanesi',
+    description:
+      'Tüm algoritma kategorilerini keşfedin; interaktif görselleştirmeler ve detaylı açıklamalarla algoritmaların nasıl çalıştığını öğrenin.',
+    path: '/algorithms',
+  });
+
   return (
     <div className="space-y-12">
+      <JsonLd data={hubSchema} />
       <PageHeaderCard
         title="Algoritma Kütüphanesi"
         description="Tüm algoritma kategorilerini keşfedin, interaktif görselleştirmeler ve detaylı açıklamalarla algoritmaların nasıl çalıştığını öğrenin."

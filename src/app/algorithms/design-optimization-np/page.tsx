@@ -3,20 +3,29 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Tasarım, Optimizasyon ve NP Algoritmaları | AlgoPit',
-  description:
-    'Kombinatoryal optimizasyon, karar ağaçları, TSP sezgiselleri ve NP-Zor problemleri çözmek için kullanılan arama stratejileri.',
-};
+export const metadata: Metadata = createPageMetadata({
+  title: 'Tasarım, Optimizasyon ve NP Algoritmaları',
+  description: 'Kombinatoryal optimizasyon, karar ağaçları, TSP sezgiselleri ve NP-Zor problemleri çözmek için kullanılan arama stratejileri.',
+  path: '/algorithms/design-optimization-np',
+  keywords: ['tasarım, optimizasyon ve np algoritmaları', 'algoritmalar', 'görselleştirme', 'simülasyon'],
+});
 
 export default function DesignOptimizationNpPage() {
   const algorithms = createCategoryAlgorithms(
     '/algorithms/design-optimization-np',
   );
+  const categorySchema = getCategorySchema({
+    name: 'Tasarım, Optimizasyon ve NP Algoritmaları',
+    description: 'Kombinatoryal optimizasyon, karar ağaçları, TSP sezgiselleri ve NP-Zor problemleri çözmek için kullanılan arama stratejileri.',
+    path: '/algorithms/design-optimization-np',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Tasarım, Optimizasyon ve NP Algoritmaları"
         description="Optimizasyon algoritmaları, kaynak sınırları dahilinde en verimli, en ucuz veya en kazançlı çözümü üretmeyi hedefler. Kombinatoryal optimizasyon, karar ağaçları, TSP sezgiselleri ve NP-Zor problemleri çözmek için kullanılan arama stratejilerini kapsar."

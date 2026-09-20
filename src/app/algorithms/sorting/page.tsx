@@ -3,18 +3,34 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Sıralama Algoritmaları | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Sıralama Algoritmaları',
   description:
     'Sıralama algoritmaları, verileri belirli bir düzende organize etmek için kullanılan temel algoritmalardan oluşur.',
-};
+  path: '/algorithms/sorting',
+  keywords: [
+    'sıralama algoritmaları',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function SortingAlgorithmsPage() {
   const algorithms = createCategoryAlgorithms('/algorithms/sorting');
+  const categorySchema = getCategorySchema({
+    name: 'Sıralama Algoritmaları',
+    description:
+      'Sıralama algoritmaları, verileri belirli bir düzende organize etmek için kullanılan temel algoritmalardan oluşur.',
+    path: '/algorithms/sorting',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Sıralama Algoritmaları"
         description="Sıralama algoritmaları, verileri belirli bir düzende organize etmek için kullanılan temel algoritmalardan oluşur. Her algoritmanın kendine özgü avantajları, dezavantajları ve kullanım alanları bulunmaktadır."

@@ -3,18 +3,34 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Geri İzleme Algoritmaları | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Geri İzleme Algoritmaları',
   description:
     'Geri izleme (backtracking), bir problem için olası tüm çözümleri adım adım keşfeden ve geçersiz çözüm yollarını eleme yöntemiyle ilerleyen bir algoritma stratejisidir.',
-};
+  path: '/algorithms/backtracking',
+  keywords: [
+    'geri i̇zleme algoritmaları',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function BacktrackingPage() {
   const algorithms = createCategoryAlgorithms('/algorithms/backtracking');
+  const categorySchema = getCategorySchema({
+    name: 'Geri İzleme Algoritmaları',
+    description:
+      'Geri izleme (backtracking), bir problem için olası tüm çözümleri adım adım keşfeden ve geçersiz çözüm yollarını eleme yöntemiyle ilerleyen bir algoritma stratejisidir.',
+    path: '/algorithms/backtracking',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Geri İzleme Algoritmaları"
         description="Geri izleme (backtracking), bir problem için olası tüm çözümleri adım adım keşfeden ve geçersiz çözüm yollarını eleme yöntemiyle ilerleyen bir algoritma stratejisidir."

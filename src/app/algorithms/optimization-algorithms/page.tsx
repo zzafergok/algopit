@@ -2,12 +2,21 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Optimizasyon Algoritmaları | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Optimizasyon Algoritmaları',
   description:
     'Belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalar.',
-};
+  path: '/algorithms/optimization-algorithms',
+  keywords: [
+    'optimizasyon algoritmaları',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function OptimizationAlgorithmsPage() {
   const algorithms = [
@@ -24,9 +33,16 @@ export default function OptimizationAlgorithmsPage() {
         'Doğal evrim süreçlerini taklit eden, popülasyon tabanlı meta-sezgisel optimizasyon algoritması.',
     },
   ];
+  const categorySchema = getCategorySchema({
+    name: 'Optimizasyon Algoritmaları',
+    description:
+      'Belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalar.',
+    path: '/algorithms/optimization-algorithms',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Optimizasyon Algoritmaları"
         description="Optimizasyon algoritmaları, belirli bir problem için olası çözümler arasından en iyi çözümü bulmayı amaçlayan algoritmalardır."

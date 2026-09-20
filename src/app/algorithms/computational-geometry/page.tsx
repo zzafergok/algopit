@@ -3,20 +3,36 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Hesaplamalı Geometri | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Hesaplamalı Geometri',
   description:
     'Geometrik nesnelerin temsili, sorgulanması ve analiz edilmesi için kullanılan algoritmalar.',
-};
+  path: '/algorithms/computational-geometry',
+  keywords: [
+    'hesaplamalı geometri',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function ComputationalGeometryPage() {
   const algorithms = createCategoryAlgorithms(
     '/algorithms/computational-geometry',
   );
+  const categorySchema = getCategorySchema({
+    name: 'Hesaplamalı Geometri',
+    description:
+      'Geometrik nesnelerin temsili, sorgulanması ve analiz edilmesi için kullanılan algoritmalar.',
+    path: '/algorithms/computational-geometry',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Hesaplamalı Geometri (Computational Geometry)"
         description="Hesaplamalı geometri, geometrik nesnelerin (noktalar, çizgiler, çokgenler vb.) temsili, sorgulanması ve analiz edilmesi için kullanılan algoritmaları inceler. Harita servisleri, bilgisayarlı grafik, robotik ve fiziksel simülasyonların temel taşıdır."

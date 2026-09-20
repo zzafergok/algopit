@@ -2,12 +2,21 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Arama Algoritmaları | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Arama Algoritmaları',
   description:
     'Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı bulmak için kullanılan algoritmalardır.',
-};
+  path: '/algorithms/searching',
+  keywords: [
+    'arama algoritmaları',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function SearchingAlgorithmsPage() {
   const algorithms = [
@@ -30,9 +39,16 @@ export default function SearchingAlgorithmsPage() {
         'Olasılıksal Arama (Probability Search), Kendini Düzenleyen Arama (Self-Organizing Search) ve İnterpolasyon Araması (Interpolation Search) varyantlarını içerir.',
     },
   ];
+  const categorySchema = getCategorySchema({
+    name: 'Arama Algoritmaları',
+    description:
+      'Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı bulmak için kullanılan algoritmalardır.',
+    path: '/algorithms/searching',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Arama Algoritmaları"
         description="Arama algoritmaları, veri yapıları içerisinde belirli bir elemanı bulmak için kullanılan algoritmalardır."

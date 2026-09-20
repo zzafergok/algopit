@@ -1,10 +1,35 @@
+import type { Metadata } from 'next';
 import { RemainingAlgorithmPage } from '@/components/common/remaining-algorithm-page';
 import { remainingAlgorithmContents } from '@/lib/remaining-algorithm-content';
+import { createAlgorithmMetadata, getAlgorithmSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
+
+const algorithm = remainingAlgorithmContents['random-number-generators'];
+
+export const metadata: Metadata = createAlgorithmMetadata({
+  title: algorithm.title,
+  description: algorithm.summary,
+  path: '/algorithms/mathematical-algorithms/random-number-generators',
+  category: algorithm.category,
+  difficulty: algorithm.difficulty,
+});
 
 export default function RandomNumberGeneratorsPage() {
+  const schema = getAlgorithmSchema({
+    name: algorithm.title,
+    description: algorithm.summary,
+    category: algorithm.category,
+    categoryHref: algorithm.categoryHref,
+    path: '/algorithms/mathematical-algorithms/random-number-generators',
+    difficulty: algorithm.difficulty,
+    timeComplexity: algorithm.timeComplexity,
+    spaceComplexity: algorithm.spaceComplexity,
+  });
+
   return (
-    <RemainingAlgorithmPage
-      algorithm={remainingAlgorithmContents['random-number-generators']}
-    />
+    <>
+      <JsonLd data={schema} />
+      <RemainingAlgorithmPage algorithm={algorithm} />
+    </>
   );
 }

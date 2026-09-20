@@ -3,20 +3,36 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Matematiksel Algoritmalar | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Matematiksel Algoritmalar',
   description:
     'Matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalar.',
-};
+  path: '/algorithms/mathematical-algorithms',
+  keywords: [
+    'matematiksel algoritmalar',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function MathematicalAlgorithmsPage() {
   const algorithms = createCategoryAlgorithms(
     '/algorithms/mathematical-algorithms',
   );
+  const categorySchema = getCategorySchema({
+    name: 'Matematiksel Algoritmalar',
+    description:
+      'Matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalar.',
+    path: '/algorithms/mathematical-algorithms',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Matematiksel Algoritmalar"
         description="Matematiksel algoritmalar, matematiksel problemleri çözmek ve matematiksel hesaplamalar yapmak için kullanılan algoritmalardır."

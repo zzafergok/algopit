@@ -3,20 +3,36 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'İleri Seviye Algoritmalar | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'İleri Seviye Algoritmalar',
   description:
     'İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır.',
-};
+  path: '/algorithms/advanced-algorithms',
+  keywords: [
+    'i̇leri seviye algoritmalar',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function AdvancedAlgorithmsPage() {
   const algorithms = createCategoryAlgorithms(
     '/algorithms/advanced-algorithms',
   );
+  const categorySchema = getCategorySchema({
+    name: 'İleri Seviye Algoritmalar',
+    description:
+      'İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır.',
+    path: '/algorithms/advanced-algorithms',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="İleri Seviye Algoritmalar"
         description="İleri seviye algoritmalar, karmaşık problemleri çözmek için optimize edilmiş, özel durumlara yönelik geliştirilmiş algoritmalardır. Bu algoritmaları anlamak, verimli yazılım çözümleri geliştirmede kritik öneme sahiptir."

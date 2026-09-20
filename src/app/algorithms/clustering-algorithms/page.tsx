@@ -2,12 +2,21 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Kümeleme Algoritmaları | AlgoPit',
+export const metadata: Metadata = createPageMetadata({
+  title: 'Kümeleme Algoritmaları',
   description:
     'Kümeleme algoritmaları, benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir.',
-};
+  path: '/algorithms/clustering-algorithms',
+  keywords: [
+    'kümeleme algoritmaları',
+    'algoritmalar',
+    'görselleştirme',
+    'simülasyon',
+  ],
+});
 
 export default function ClusteringAlgorithmsPage() {
   const algorithms = [
@@ -24,9 +33,16 @@ export default function ClusteringAlgorithmsPage() {
         'Verileri hiyerarşik bir ağaç yapısında gruplayan, farklı seviyelerde kümeleme imkanı sunan algoritma.',
     },
   ];
+  const categorySchema = getCategorySchema({
+    name: 'Kümeleme Algoritmaları',
+    description:
+      'Kümeleme algoritmaları, benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir.',
+    path: '/algorithms/clustering-algorithms',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Kümeleme Algoritmaları"
         description="Kümeleme algoritmaları, benzer özelliklere sahip verileri gruplandırmak için kullanılan gözetimsiz öğrenme yöntemleridir. Bu algoritmalar, veri analizinde, müşteri segmentasyonunda ve desen tanımada yaygın olarak kullanılır."

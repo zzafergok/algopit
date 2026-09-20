@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Link } from '@/components/core/link';
 import {
   HeroSection,
@@ -5,6 +6,20 @@ import {
   FeaturesSection,
 } from '@/features/home';
 import { MarqueeTicker } from '@/components/common/marquee-ticker';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Algoritmalar & İnteraktif Görselleştirme',
+  description:
+    'Karmaşık algoritmaları, veri yapılarını ve optimizasyon tekniklerini adım adım görselleştiren etkileşimli açık kaynak platform.',
+  path: '/',
+  keywords: [
+    'algoritma simülasyonu',
+    'interaktif kodlama',
+    'algoritma görselleştirici',
+    'veri yapıları rehberi',
+  ],
+});
 
 export default function Home() {
   return (

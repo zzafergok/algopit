@@ -3,20 +3,29 @@ import type { Metadata } from 'next';
 import { PageHeaderCard } from '@/components/layout/page-header-card';
 import { createCategoryAlgorithms } from '@/lib/algorithm-category';
 import { CategoryOverviewView } from '@/features/algorithms/category-overview';
+import { createPageMetadata, getCategorySchema } from '@/lib/seo';
+import { JsonLd } from '@/components/common/json-ld';
 
-export const metadata: Metadata = {
-  title: 'Dinamik Programlama | AlgoPit',
-  description:
-    'Karmaşık problemleri alt problemlere bölerek ve sonuçları saklayarak tekrar hesaplamayı önleyen algoritma tasarım tekniği.',
-};
+export const metadata: Metadata = createPageMetadata({
+  title: 'Dinamik Programlama',
+  description: 'Karmaşık problemleri alt problemlere bölerek ve sonuçları saklayarak tekrar hesaplamayı önleyen algoritma tasarım tekniği.',
+  path: '/algorithms/dynamic-programming',
+  keywords: ['dinamik programlama', 'algoritmalar', 'görselleştirme', 'simülasyon'],
+});
 
 export default function DynamicProgrammingPage() {
   const algorithms = createCategoryAlgorithms(
     '/algorithms/dynamic-programming',
   );
+  const categorySchema = getCategorySchema({
+    name: 'Dinamik Programlama',
+    description: 'Karmaşık problemleri alt problemlere bölerek ve sonuçları saklayarak tekrar hesaplamayı önleyen algoritma tasarım tekniği.',
+    path: '/algorithms/dynamic-programming',
+  });
 
   return (
     <div className="space-y-8">
+      <JsonLd data={categorySchema} />
       <PageHeaderCard
         title="Dinamik Programlama"
         description="Dinamik Programlama (DP), karmaşık problemleri daha küçük alt problemlere bölerek ve alt problemlerin sonuçlarını saklayarak tekrar hesaplamayı önleyen bir algoritma tasarım tekniğidir."
