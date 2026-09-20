@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import { UISizeProvider } from '@/context/ui-size-provider';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
@@ -12,6 +13,18 @@ import {
 import { JsonLd } from '@/components/common/json-ld';
 
 import '@/styles/globals.css';
+
+const geistSans = localFont({
+  src: '../fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  display: 'swap',
+});
+
+const geistMono = localFont({
+  src: '../fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -46,7 +59,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/og-image.png`,
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: `${SITE_NAME} - Algoritmalar & İnteraktif Görselleştirme`,
@@ -57,7 +70,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${SITE_NAME} | Algoritmalar & İnteraktif Görselleştirme`,
     description: SITE_DEFAULT_DESCRIPTION,
-    images: [`${SITE_URL}/og-image.png`],
+    images: [`${SITE_URL}/opengraph-image`],
     creator: '@algopit',
   },
   robots: {
@@ -105,7 +118,7 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className="dark"
+      className={`dark ${geistSans.variable} ${geistMono.variable}`}
       data-ui-size="medium"
       data-scroll-behavior="smooth"
       suppressHydrationWarning

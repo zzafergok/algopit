@@ -22,9 +22,26 @@ const config = {
         desktop: '1440px',
       },
       fontFamily: {
-        sans: ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Geist"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+        sans: [
+          'var(--font-geist-sans)',
+          '"Geist"',
+          'ui-sans-serif',
+          'system-ui',
+          'sans-serif',
+        ],
+        display: [
+          'var(--font-geist-sans)',
+          '"Geist"',
+          'ui-sans-serif',
+          'system-ui',
+          'sans-serif',
+        ],
+        mono: [
+          'var(--font-geist-mono)',
+          '"Geist Mono"',
+          'ui-monospace',
+          'monospace',
+        ],
       },
       fontSize: {
         '2xs': [
