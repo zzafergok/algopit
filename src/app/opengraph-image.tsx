@@ -124,6 +124,7 @@ export default async function OpenGraphImage() {
           <div
             key={tag}
             style={{
+              display: 'flex',
               backgroundColor: '#1d1612',
               border: '1px solid #33261f',
               padding: '8px 20px',
@@ -132,7 +133,7 @@ export default async function OpenGraphImage() {
               fontWeight: 600,
             }}
           >
-            #{tag}
+            {`#${tag}`}
           </div>
         ))}
       </div>
