@@ -1,5 +1,12 @@
 # Tasks Todo
 
+## İnceleme Kaydı — Canlı Alan Adı (2026-09-20)
+
+- Varsayılan `SITE_URL`, `https://algopit-gray.vercel.app` olarak güncellendi; Vercel ortam değişkeni için `.env.example` eklendi.
+- Varsayılan alan adı bir testle korunuyor. Üretim çıktısında canonical URL, Open Graph görseli, `robots.txt` sitemap adresi ve `sitemap.xml` bu alan adını kullanıyor.
+- Doğrulama: `npm test` (4/4), `npm run type-check`, `npm run lint` ve `npm run build` (164 rota) başarılı.
+- Dağıtım notu: Vercel'de tanımlı bir `NEXT_PUBLIC_SITE_URL` varsa aynı canlı URL'ye güncellenmeli; kod deploy edildiğinde değişiklik yayınlanır.
+
 ## İnceleme Kaydı — Vitest Geçişi (2026-09-20)
 
 - Jest, `ts-jest` ve Node'un deneysel ESM bayrağı kaldırıldı; test komutu `vitest run` olarak sadeleştirildi.

@@ -3,6 +3,10 @@ import { createPageMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/types';
 
 describe('createPageMetadata', () => {
+  it('uses the production deployment URL by default', () => {
+    expect(SITE_URL).toBe('https://algopit-gray.vercel.app');
+  });
+
   it('uses the dynamic Open Graph image route by default', () => {
     const metadata = createPageMetadata({
       title: 'Örnek Sayfa',

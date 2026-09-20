@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://algopit.dev';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://algopit-gray.vercel.app';
 export const SITE_NAME = 'AlgoPit';
 export const SITE_DEFAULT_DESCRIPTION =
   'Karmaşık algoritmaları, veri yapılarını ve optimizasyon tekniklerini adım adım görselleştiren etkileşimli platform.';
