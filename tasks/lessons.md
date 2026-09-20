@@ -21,11 +21,10 @@
    - `InteractiveDemo` gibi genel amaçlı simülasyon arayüzlerinde `any` yerine `(input: TInput) => TOutput` generic sözleşmesi kullanılmalıdır.
 
 5. **250 Satır Kuralı ve Monolitlerin Bölünmesi**:
-   - Büyük algoritma sayfaları (`hierarchical-clustering`, `segment-tree`, `k-means`, `subset-sum`) şu katmanlara ayrılarak modülerleştirilmelidir:
+   - Büyük algoritma sayfaları ve bileşenleri (`hierarchical-clustering`, `segment-tree`, `benchmark-cyberdeck`, `remaining-algorithm-demos`) şu katmanlara ayrılarak modülerleştirilmelidir:
      - `types.ts`: Tip tanımları
-     - `utils.ts` / `algorithm.ts`: Saf algoritma ve matematik fonksiyonları
-     - `data.ts`: Örnek kodlar, karmaşıklık ve açıklama metinleri
-     - `components/*`: Küçük, odaklı alt görselleştiriciler
+     - `data.ts` / `benchmark-data.ts`: Statik konfigürasyon ve veri mock'ları
+     - `components/*`: Küçük, odaklı alt görselleştiriciler ve alt kartlar (< 250 satır)
      - `*-view.tsx`: Birleştirici client görünüm bileşeni
 
 6. **UI ve Core Bileşen Fazlalıklarının Tasfiyesi**:

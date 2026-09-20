@@ -2,226 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Play, RotateCcw, Terminal } from 'lucide-react';
-
-interface BenchmarkResult {
-  name: string;
-  complexity: string;
-  time: number;
-  bars: number;
-  status: 'OPTIMAL' | 'NORMAL' | 'SLOW' | 'CRITICAL';
-  diff: string;
-}
-
-const BENCHMARK_DATA: Record<string, Record<string, BenchmarkResult[]>> = {
-  sorting: {
-    '1K': [
-      {
-        name: 'QuickSort (Hoare)',
-        complexity: 'O(n log n)',
-        time: 0.08,
-        bars: 16,
-        status: 'OPTIMAL',
-        diff: '0%',
-      },
-      {
-        name: 'MergeSort',
-        complexity: 'O(n log n)',
-        time: 0.12,
-        bars: 12,
-        status: 'NORMAL',
-        diff: '+50%',
-      },
-      {
-        name: 'HeapSort',
-        complexity: 'O(n log n)',
-        time: 0.18,
-        bars: 9,
-        status: 'SLOW',
-        diff: '+125%',
-      },
-      {
-        name: 'BubbleSort',
-        complexity: 'O(n²)',
-        time: 1.84,
-        bars: 2,
-        status: 'CRITICAL',
-        diff: '+2200%',
-      },
-    ],
-    '10K': [
-      {
-        name: 'QuickSort (Hoare)',
-        complexity: 'O(n log n)',
-        time: 0.42,
-        bars: 16,
-        status: 'OPTIMAL',
-        diff: '0%',
-      },
-      {
-        name: 'MergeSort',
-        complexity: 'O(n log n)',
-        time: 0.58,
-        bars: 13,
-        status: 'NORMAL',
-        diff: '+38%',
-      },
-      {
-        name: 'HeapSort',
-        complexity: 'O(n log n)',
-        time: 0.89,
-        bars: 8,
-        status: 'SLOW',
-        diff: '+112%',
-      },
-      {
-        name: 'BubbleSort',
-        complexity: 'O(n²)',
-        time: 14.8,
-        bars: 2,
-        status: 'CRITICAL',
-        diff: '+3420%',
-      },
-    ],
-    '100K': [
-      {
-        name: 'QuickSort (Hoare)',
-        complexity: 'O(n log n)',
-        time: 4.65,
-        bars: 16,
-        status: 'OPTIMAL',
-        diff: '0%',
-      },
-      {
-        name: 'MergeSort',
-        complexity: 'O(n log n)',
-        time: 6.42,
-        bars: 12,
-        status: 'NORMAL',
-        diff: '+38%',
-      },
-      {
-        name: 'HeapSort',
-        complexity: 'O(n log n)',
-        time: 9.85,
-        bars: 7,
-        status: 'SLOW',
-        diff: '+111%',
-      },
-      {
-        name: 'BubbleSort',
-        complexity: 'O(n²)',
-        time: 168.0,
-        bars: 1,
-        status: 'CRITICAL',
-        diff: 'TIMEOUT',
-      },
-    ],
-  },
-  searching: {
-    '1K': [
-      {
-        name: 'Binary Search',
-        complexity: 'O(log n)',
-        time: 0.001,
-        bars: 16,
-        status: 'OPTIMAL',
-        diff: '0%',
-      },
-      {
-        name: 'Interpolation',
-        complexity: 'O(log log n)',
-        time: 0.002,
-        bars: 14,
-        status: 'NORMAL',
-        diff: '+100%',
-      },
-      {
-        name: 'Jump Search',
-        complexity: 'O(√n)',
-        time: 0.012,
-        bars: 8,
-        status: 'SLOW',
-        diff: '+1100%',
-      },
-      {
-        name: 'Linear Search',
-        complexity: 'O(n)',
-        time: 0.045,
-        bars: 3,
-        status: 'CRITICAL',
-        diff: '+4400%',
-      },
-    ],
-    '10K': [
-      {
-        name: 'Binary Search',
-        complexity: 'O(log n)',
-        time: 0.002,
-        bars: 16,
-        status: 'OPTIMAL',
-        diff: '0%',
-      },
-      {
-        name: 'Interpolation',
-        complexity: 'O(log log n)',
-        time: 0.004,
-        bars: 13,
-        status: 'NORMAL',
-        diff: '+100%',
-      },
-      {
-        name: 'Jump Search',
-        complexity: 'O(√n)',
-        time: 0.038,
-        bars: 7,
-        status: 'SLOW',
-        diff: '+1800%',
-      },
-      {
-        name: 'Linear Search',
-        complexity: 'O(n)',
-        time: 0.38,
-        bars: 2,
-        status: 'CRITICAL',
-        diff: '+18900%',
-      },
-    ],
-    '100K': [
-      {
-        name: 'Binary Search',
-        complexity: 'O(log n)',
-        time: 0.004,
-        bars: 16,
-        status: 'OPTIMAL',
-        diff: '0%',
-      },
-      {
-        name: 'Interpolation',
-        complexity: 'O(log log n)',
-        time: 0.008,
-        bars: 12,
-        status: 'NORMAL',
-        diff: '+100%',
-      },
-      {
-        name: 'Jump Search',
-        complexity: 'O(√n)',
-        time: 0.124,
-        bars: 6,
-        status: 'SLOW',
-        diff: '+3000%',
-      },
-      {
-        name: 'Linear Search',
-        complexity: 'O(n)',
-        time: 3.92,
-        bars: 1,
-        status: 'CRITICAL',
-        diff: '+97900%',
-      },
-    ],
-  },
-};
+import { Button } from '@/components/core/button';
+import { BENCHMARK_DATA, type BenchmarkResult } from './benchmark-data';
+import { BenchmarkHardwareSpecs } from './benchmark-hardware-specs';
 
 export function BenchmarkCyberdeck() {
   const [suite, setSuite] = useState<'sorting' | 'searching'>('sorting');
@@ -305,57 +88,69 @@ export function BenchmarkCyberdeck() {
         {/* Terminal Interactive Control Bar */}
         <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 bg-surface-raised border-b border-line text-xs font-mono">
           <div className="flex items-center gap-1">
-            <button
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
               onClick={() => {
                 setSuite('sorting');
                 triggerRun();
               }}
-              className={`px-2 py-1 text-[0.68rem] uppercase font-semibold border transition-all ${
+              className={`h-auto min-h-[36px] px-2.5 py-1 text-[0.68rem] uppercase font-semibold border transition-all ${
                 suite === 'sorting'
                   ? 'border-turquoise bg-turquoise/10 text-turquoise'
                   : 'border-line bg-surface text-muted hover:text-ink hover:border-line-strong'
               }`}
             >
               Sıralama
-            </button>
-            <button
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
               onClick={() => {
                 setSuite('searching');
                 triggerRun();
               }}
-              className={`px-2 py-1 text-xs uppercase font-semibold border transition-all ${
+              className={`h-auto min-h-[36px] px-2.5 py-1 text-xs uppercase font-semibold border transition-all ${
                 suite === 'searching'
                   ? 'border-turquoise bg-turquoise/10 text-turquoise'
                   : 'border-line bg-surface text-muted hover:text-ink hover:border-line-strong'
               }`}
             >
               Arama
-            </button>
+            </Button>
           </div>
 
           <div className="flex items-center gap-1">
             {(['1K', '10K', '100K'] as const).map((s) => (
-              <button
+              <Button
                 key={s}
+                type="button"
+                variant="ghost"
+                size="sm"
                 onClick={() => {
                   setSize(s);
                   triggerRun();
                 }}
-                className={`px-1.5 py-0.5 text-2xs font-mono border transition-all ${
+                className={`h-auto min-h-[32px] px-2 py-0.5 text-2xs font-mono border transition-all ${
                   size === s
                     ? 'border-turquoise bg-turquoise text-black font-bold'
                     : 'border-line bg-surface text-muted hover:text-ink'
                 }`}
               >
                 N={s}
-              </button>
+              </Button>
             ))}
           </div>
 
-          <button
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
             onClick={triggerRun}
             disabled={isRunning}
-            className="flex items-center gap-1.5 px-2 py-1 text-xs font-mono font-bold uppercase border border-turquoise text-turquoise bg-turquoise/5 hover:bg-turquoise hover:text-black transition-all disabled:opacity-50"
+            className="h-auto min-h-[36px] flex items-center gap-1.5 px-3 py-1 text-xs font-mono font-bold uppercase border border-turquoise text-turquoise bg-turquoise/5 hover:bg-turquoise hover:text-black transition-all disabled:opacity-50"
           >
             {isRunning ? (
               <RotateCcw className="h-3 w-3 animate-spin" />
@@ -363,7 +158,7 @@ export function BenchmarkCyberdeck() {
               <Play className="h-3 w-3" />
             )}
             <span>TEST ET</span>
-          </button>
+          </Button>
         </div>
 
         {/* Terminal Screen & Realtime Telemetry */}
@@ -435,37 +230,7 @@ export function BenchmarkCyberdeck() {
       </div>
 
       {/* Hardware Status Card */}
-      <div className="status-card mt-3.5 border border-line bg-surface shadow-[0.35rem_0.35rem_0_rgba(0,0,0,0.45)]">
-        <div className="window-titlebar bg-gradient-to-r from-[#2c1e17] to-[#1a120e] px-3 py-1.5 border-b border-line text-xs text-ink font-mono font-bold flex justify-between">
-          <span>ENGINE_SPECS.SYS</span>
-          <span className="text-turquoise font-normal text-2xs">
-            // VER: 2.0-STABLE
-          </span>
-        </div>
-        <dl className="p-3 text-xs font-mono space-y-1.5">
-          <div className="flex justify-between border-b border-dashed border-line/70 pb-1">
-            <dt className="text-quiet font-bold">MOTOR</dt>
-            <dd className="text-ink">Next.js 16 (Turbopack Engine)</dd>
-          </div>
-          <div className="flex justify-between border-b border-dashed border-line/70 pb-1">
-            <dt className="text-quiet font-bold">MODÜL</dt>
-            <dd className="text-turquoise font-semibold">
-              137 Algoritma & Veri Yapısı
-            </dd>
-          </div>
-          <div className="flex justify-between border-b border-dashed border-line/70 pb-1">
-            <dt className="text-quiet font-bold">GECİKME</dt>
-            <dd className="text-ink">&lt; 0.01 ms (In-Memory Simulation)</dd>
-          </div>
-          <div className="flex justify-between">
-            <dt className="text-quiet font-bold">DURUM</dt>
-            <dd className="text-turquoise font-bold flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-turquoise inline-block" />
-              SİSTEM HAZIR // STABİL
-            </dd>
-          </div>
-        </dl>
-      </div>
+      <BenchmarkHardwareSpecs />
     </div>
   );
 }

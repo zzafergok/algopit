@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Button } from '@/components/core/button';
 
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -59,14 +60,16 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="flex h-8 w-8 items-center justify-center border border-gunmetal" />
+      <div className="flex h-11 w-11 items-center justify-center border border-gunmetal" />
     );
   }
 
   return (
-    <button
+    <Button
+      variant="outline"
+      size="icon"
       onClick={toggleTheme}
-      className="relative flex h-8 w-8 items-center justify-center overflow-hidden border border-gunmetal text-ash transition-colors hover:border-arcly-blue/50 hover:text-titanium"
+      className="relative overflow-hidden border-gunmetal text-ash hover:border-arcly-blue/50 hover:text-titanium"
       aria-label="Temayı değiştir"
       title={resolvedTheme === 'dark' ? 'Açık temaya geç' : 'Koyu temaya geç'}
     >
@@ -80,12 +83,12 @@ export function ThemeToggle() {
           className="absolute"
         >
           {resolvedTheme === 'dark' ? (
-            <Sun className="h-3.5 w-3.5" />
+            <Sun className="h-4 w-4" />
           ) : (
-            <Moon className="h-3.5 w-3.5" />
+            <Moon className="h-4 w-4" />
           )}
         </motion.div>
       </AnimatePresence>
-    </button>
+    </Button>
   );
 }

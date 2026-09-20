@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link } from '@/components/core/link';
 
 import { Badge } from '@/components/core/badge';
 import { CategoryOverviewProps } from './types';

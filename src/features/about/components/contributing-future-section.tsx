@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { Link } from '@/components/core/link';
 import { motion } from 'framer-motion';
 import { Badge } from '@/components/core/badge';
 import { Button } from '@/components/core/button';
-import { FileText, Sparkles, Mail } from 'lucide-react';
+import { FileText, Target, Mail } from 'lucide-react';
 import { futureGoals, technologies } from '../about-data';
 
 export function ContributingFutureSection() {
@@ -82,7 +82,7 @@ export function ContributingFutureSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Sparkles className="h-5 w-5 text-arcly-blue flex-shrink-0" />
+                <Target className="h-5 w-5 text-arcly-blue flex-shrink-0" />
                 <span className="leading-relaxed">{goal}</span>
               </motion.li>
             ))}

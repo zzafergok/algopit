@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/components/core/link';
 import { ArrowLeft } from 'lucide-react';
 
 import { AlgorithmPageTemplate } from '@/components/common/algorithm-page-template';

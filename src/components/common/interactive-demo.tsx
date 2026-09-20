@@ -10,6 +10,7 @@ import {
   CardContent,
 } from '@/components/core/card';
 import { Input } from '@/components/core/input';
+import { Label } from '@/components/core/label';
 import { Button } from '@/components/core/button';
 
 import { measureAlgorithmTime } from '@/lib/utils';
@@ -130,11 +131,11 @@ export function InteractiveDemo<TInput = never, TOutput = unknown>({
         <div className="space-y-4">
           <div>
             <div className="mb-2">
-              <label htmlFor="input" className="text-sm font-medium">
+              <Label htmlFor="input" className="text-sm font-medium">
                 Girdi{' '}
                 {inputType === 'array' &&
                   '(virgülle ayrılmış değerler veya dizi)'}
-              </label>
+              </Label>
             </div>
             <Input
               id="input"
@@ -148,7 +149,7 @@ export function InteractiveDemo<TInput = never, TOutput = unknown>({
 
           <div>
             <div className="mb-2">
-              <label className="text-sm font-medium">Sonuç</label>
+              <Label className="text-sm font-medium">Sonuç</Label>
             </div>
             <div className="rounded-sm border p-3 min-h-12">
               {formatOutput(output)}

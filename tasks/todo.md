@@ -1,42 +1,28 @@
 # Tasks Todo
 
-## Faz 1: Altyapı, Paketler, Core & Form Bileşenleri ve İsimlendirme Düzeltmeleri
+## Tamamlanma ve İnceleme Özeti (Definition of Done)
 
-- [x] `react-hook-form`, `zod`, `@hookform/resolvers` paketlerini yükle
-- [x] `@/components/core/` dizinini oluştur ve eksiksiz core bileşenleri ekle (button, input, textarea, select, label, table, card, badge, separator, link)
-- [x] `button.tsx` touch target boyutlarını min 44x44px standardına uyarla
-- [x] `@/components/layout/page-header-card.tsx` bileşenini oluştur
-- [x] `@/components/forms/` dizininde react-hook-form & zod tabanlı form bileşenlerini oluştur
-- [x] İsimlendirme standartlarını düzelt:
-  - [x] `src/components/layout/Navigation/` -> `navigation/`
-  - [x] `src/hooks/useNavigation.ts` -> `use-navigation.ts`
-  - [x] Layout bileşen dosyalarını kebab-case'e normalize et (geriye dönük export desteğiyle)
-  - [x] camelCase FAQ veri dosyalarını kebab-case'e dönüştür (`src/features/resources/faq/`)
+### 1. Yapılan Değişiklikler ve Mimari İyileştirmeler
 
-## Faz 2: Linter, TypeScript ve Kod Kalitesi İyileştirmeleri
+- **App Router İzolasyonu (100% Server Component):**
+  - `src/app` dizinindeki tüm `page.tsx` sayfaları Server Component haline getirildi (`topological-sort`, `floyd-cycle-finding` dahil). `src/app` altında `'use client'` direktifi içeren hiçbir `page.tsx` kalmadı.
+  - İlgili tüm client-side mantık ve interaktif görselleştiriciler `src/features/algorithms/topological-sort/` ve `src/features/algorithms/floyd-cycle-finding/` modüllerine taşındı (`data.ts`, `components/`, `*-view.tsx`, `index.ts`).
+- **Maksimum 250 Satır Kuralı (100% Uyumluluk):**
+  - Projedeki tüm `.tsx` bileşen dosyaları 250 satır kuralına uygun olarak refactor edildi (en yüksek bileşen `dropdown-menu.tsx` - 247 satır).
+  - `benchmark-cyberdeck.tsx` (485 -> 236 satır) verileri `benchmark-data.ts` ve `benchmark-hardware-specs.tsx` modüllerine ayrıştırıldı.
+  - `segment-tree-view.tsx` (318 -> 75 satır) ve alt bileşenleri (`segment-tree-details.tsx`, `segment-tree-advanced.tsx`) 250 satır altına çekildi.
+  - `hierarchical-clustering-view.tsx` (312 -> 223 satır) parametre kartı `hierarchical-params-card.tsx` bileşenine taşındı.
+  - `remaining-algorithm-demos.tsx` (476 -> 14 satır) demo çıktı biçimlendirmesi `format-demo-output.tsx` ve yürütücü `runner.ts` dosyalarına ayrıştırıldı.
+- **Tasarım Dili ve Core Bileşen Standartları:**
+  - Ham HTML öğeleri ve doğrudan `next/link` kullanımları core bileşenlerle (`@/components/core/*`) ikame edildi.
+  - `MatrixVisualizer` ve `TreeVisualizer` prop uyumlulukları düzeltildi.
 
-- [x] `npm run lint` çıktısındaki 6 adet `react-hooks/exhaustive-deps` uyarısını gider
-- [x] 23 adet `any` türünü daraltılmış güvenli TypeScript arayüzleri/tipleriyle değiştir
-- [x] Üretim kodunda kalan debug `console.log` çağrılarını temizle
+### 2. Kalite Kontrol ve Doğrulama Sonuçları (Pre-Flight)
 
-## Faz 3: App Directory Kuralı ve Feature Modülerleştirmesi (`src/features/`)
+- **TypeScript Kontrolü (`npx tsc --noEmit`):** 0 hata ile başarıyla geçti.
+- **Linter Kontrolü (`npm run lint`):** 0 hata, 0 uyarı ile başarıyla geçti.
+- **Production Build (`npm run build`):** Tüm statik rotalar ve dinamik SSG yolları hatasız derlendi, derleme tamamlandı.
 
-- [x] `src/features/` dizin yapısını kur
-- [x] `src/app/components/` (home bileşenleri) -> `src/features/home/` altına taşı
-- [x] `src/app/resources/*` (code-examples, documentation, faq, contributing) bileşen ve veri dosyalarını `src/features/resources/` altına taşı
-- [x] `src/app/about/*` bileşen ve verilerini `src/features/about/` altına taşı
-- [x] `src/app/page.tsx` ve tüm kaynak sayfalarını Server Component yap; interaktif kısımları feature Client Component'lerine delege et
+### 3. Açık Kalan Noktalar
 
-## Faz 4: 250 Satır Kuralı Kapsamında Aşırı Uzun Dosyaları Modülerleştirme
-
-- [x] Aşırı uzun algoritma sayfalarını alt bileşenlere, yardımcı fonksiyonlara ve veri modüllerine bölerek `src/features/algorithms/` altında modülerleştir:
-  - [x] `hierarchical-clustering` (1103 satırdan modüler feature yapısına)
-  - [x] `segment-tree` (1068 satırdan modüler feature yapısına; core Table entegrasyonu)
-  - [x] `k-means` (841 satırdan modüler feature yapısına)
-  - [x] `subset-sum` (639 satırdan modüler feature yapısına)
-
-## Faz 5: Doğrulama ve Definition of Done (DoD)
-
-- [x] `npx tsc --noEmit` çalıştır (0 hata)
-- [x] `npm run lint` çalıştır (0 hata, 0 uyarı)
-- [x] `npm run build` çalıştır (Başarılı build, tüm sayfalar SSG/Static olarak derlendi)
+- Açık hata veya kural ihlali bulunmamaktadır. Tüm gereksinimler eksiksiz tamamlanmıştır.

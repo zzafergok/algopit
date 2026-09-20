@@ -151,8 +151,9 @@ export const NavigationItem = ({
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button
+          <Button
             type="button"
+            variant="ghost"
             className={cn(
               'font-mono text-[0.76rem] font-semibold uppercase tracking-wider transition-all duration-150',
               'flex items-center gap-1.5 py-1.5 px-2.5 rounded-none border border-transparent min-h-[44px]',
@@ -163,7 +164,7 @@ export const NavigationItem = ({
           >
             {item.label}
             <ChevronDown className="h-3 w-3 opacity-70 transition-transform duration-150" />
-          </button>
+          </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align="start"

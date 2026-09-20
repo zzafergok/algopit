@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/components/core/link';
 
 import {
   Send,
@@ -25,8 +25,10 @@ import {
   CardTitle,
 } from '@/components/core/card';
 import { Input } from '@/components/core/input';
+import { Label } from '@/components/core/label';
 import { Badge } from '@/components/core/badge';
 import { Button } from '@/components/core/button';
+import { UnderConstructionTimeline } from './under-construction-timeline';
 
 interface UnderConstructionProps {
   title: string; // Sayfa başlığı
@@ -34,40 +36,6 @@ interface UnderConstructionProps {
   returnPath?: string; // Geri dönüş yolu (varsayılan olarak kategori sayfası)
   category?: string; // Algoritma kategorisi
 }
-
-// Geliştirme süreci timeline adımları
-const timelineSteps = [
-  {
-    title: 'Araştırma',
-    description: 'Algoritma hakkında kapsamlı araştırma ve kaynak toplama',
-    status: 'Tamamlandı',
-    icon: Search,
-  },
-  {
-    title: 'İçerik Planlama',
-    description: 'Teori, örnekler ve görselleştirmelerin planlanması',
-    status: 'Devam Ediyor',
-    icon: FileText,
-  },
-  {
-    title: 'Geliştirme',
-    description: 'İnteraktif demo ve görselleştirmelerin kodlanması',
-    status: 'Planlandı',
-    icon: Code2,
-  },
-  {
-    title: 'Test ve İyileştirme',
-    description: 'Kullanıcı deneyimi testleri ve iyileştirmeler',
-    status: 'Planlandı',
-    icon: Microscope,
-  },
-  {
-    title: 'Yayınlama',
-    description: 'İçeriğin gözden geçirilmesi ve canlıya alınması',
-    status: 'Planlandı',
-    icon: Rocket,
-  },
-];
 
 export function UnderConstruction({
   title,
@@ -199,7 +167,7 @@ export function UnderConstruction({
             </CardHeader>
             <CardContent className="space-y-4 flex-grow flex flex-col">
               <div className="space-y-2">
-                <label className="text-sm font-medium">E-posta Adresi</label>
+                <Label className="text-sm font-medium">E-posta Adresi</Label>
                 <Input
                   disabled
                   value="gok.zaferr@gmail.com"
@@ -211,9 +179,9 @@ export function UnderConstruction({
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium">
+                <Label className="text-sm font-medium">
                   Öneri Göndermek İçin
-                </label>
+                </Label>
                 <p className="text-sm text-ash">
                   Aşağıdaki butona tıklayarak e-posta uygulamanız ile doğrudan
                   iletişime geçebilirsiniz. E-postanızın konusu otomatik olarak{' '}
@@ -238,70 +206,7 @@ export function UnderConstruction({
         </motion.div>
       </div>
 
-      <motion.div
-        className="pt-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold">Geliştirme Süreci</h2>
-          <p className="text-ash">
-            Algoritma sayfalarımızı geliştirirken izlediğimiz adımlar
-          </p>
-        </div>
-
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-0 md:left-1/2 top-0 h-full w-0.5 bg-border transform md:-translate-x-1/2" />
-
-          {timelineSteps.map((step, index) => (
-            <div
-              key={index}
-              className={`relative flex items-start gap-8 mb-12 ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
-            >
-              <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full border-4 border-background bg-obsidian/60 transform -translate-x-1/2 z-10" />
-
-              <div
-                className={`pl-8 md:pl-0 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} md:w-1/2`}
-              >
-                <h3 className="text-lg font-semibold flex items-center gap-2 md:gap-3">
-                  {index % 2 === 0 ? (
-                    <>
-                      <span>{step.title}</span>
-                      <step.icon className="h-5 w-5 md:order-first" />
-                    </>
-                  ) : (
-                    <>
-                      <step.icon className="h-5 w-5" />
-                      <span>{step.title}</span>
-                    </>
-                  )}
-                </h3>
-                <p className="text-sm text-ash mt-1">{step.description}</p>
-
-                <div
-                  className={`mt-2 flex ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}
-                >
-                  <Badge
-                    variant={
-                      step.status === 'Tamamlandı'
-                        ? 'success'
-                        : step.status === 'Devam Ediyor'
-                          ? 'warning'
-                          : 'secondary'
-                    }
-                    className="text-xs"
-                  >
-                    {step.status}
-                  </Badge>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      <UnderConstructionTimeline />
     </div>
   );
 }
