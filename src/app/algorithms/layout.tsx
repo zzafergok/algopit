@@ -1,5 +1,7 @@
 import { AlgorithmsBreadcrumb } from '@/components/layout/algorithms-breadcrumb';
 
+export const dynamicParams = false;
+
 export default function AlgorithmsLayout({
   children,
 }: {

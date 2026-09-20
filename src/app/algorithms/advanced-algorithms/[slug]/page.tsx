@@ -10,12 +10,12 @@ import { createAlgorithmMetadata, getAlgorithmSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/common/json-ld';
 
 export function generateStaticParams() {
-  return getDuplicateAlgorithmsByCategory('advanced-algorithms').map((algorithm) => ({
-    slug: algorithm.slug,
-  }));
+  return getDuplicateAlgorithmsByCategory('advanced-algorithms').map(
+    (algorithm) => ({
+      slug: algorithm.slug,
+    }),
+  );
 }
-
-export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
