@@ -12,7 +12,7 @@ export function createPageMetadata({
   path,
   keywords = [],
   openGraphType = 'website',
-  image = '/og-image.png',
+  image = '/opengraph-image',
 }: PageMetadataOptions): Metadata {
   const cleanTitle = title.replace(/\s*\|\s*AlgoPit\s*$/i, '').trim();
   const canonicalUrl = `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;

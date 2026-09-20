@@ -94,14 +94,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // 4. Remaining Algorithm Pages
-  for (const item of Object.values(remainingAlgorithmContents)) {
-    const url = `${SITE_URL}${item.categoryHref}/${item.demo.kind || ''}`;
-    // Actually remaining algorithms are under categoryHref or direct path:
-    // Let's ensure accurate URLs from categoryHref
-    const cleanUrl = url.endsWith('/') ? url.slice(0, -1) : url;
-    if (!urlMap.has(cleanUrl)) {
-      urlMap.set(cleanUrl, {
-        url: cleanUrl,
+  for (const [slug, item] of Object.entries(remainingAlgorithmContents)) {
+    const url = `${SITE_URL}${item.categoryHref}/${slug}`;
+    if (!urlMap.has(url)) {
+      urlMap.set(url, {
+        url,
         lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.7,

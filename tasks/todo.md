@@ -1,5 +1,20 @@
 # Tasks Todo
 
+## İnceleme Kaydı — Vitest Geçişi (2026-09-20)
+
+- Jest, `ts-jest` ve Node'un deneysel ESM bayrağı kaldırıldı; test komutu `vitest run` olarak sadeleştirildi.
+- `vitest.config.ts`, proje `@/` alias'ını ve Node test ortamını tanımlar. Mevcut üç SEO testi açık Vitest importlarıyla çalışır.
+- Doğrulama: `npm test` (3/3), `npm run type-check`, `npm run lint` ve `npm run build` (164 rota) başarılı. Kontroller `.next` üretimi nedeniyle sıralı çalıştırıldı.
+- Açık kalan nokta: Yok.
+
+## İnceleme Kaydı — OG ve Sitemap Düzeltmesi (2026-09-20)
+
+- Varsayılan OG görseli `/opengraph-image` olarak düzeltildi. Üretim çıktısında eski `/og-image.png` referansı 0, dinamik OG rota referansı 159 sayfa olarak doğrulandı.
+- Sitemap, görselleştirici türü olan `demo.kind` yerine içerik slug'ını kullanacak şekilde düzeltildi. `kmp`, `linked-list`, `longest-common-subsequence`, `sieve-of-eratosthenes` ve `genetic-algorithms` URL'leri üretimde doğrulandı.
+- Vitest ve TypeScript dönüşümü eklendi; OG fallback'i ile tüm remaining algoritma URL'lerini kapsayan 3 test oluşturuldu.
+- Doğrulama: `npm test -- --runInBand` (3/3), `npm run type-check`, `npm run lint` ve `npm run build` (164 rota) başarılı.
+- Açık kalan nokta: Yok.
+
 ## Tamamlanma ve İnceleme Özeti (Definition of Done)
 
 ### 1. Yapılan Değişiklikler ve Mimari İyileştirmeler
